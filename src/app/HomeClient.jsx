@@ -82,6 +82,7 @@ export default function HomeClient() {
       {/* 1️⃣ Hero */}
       <section id="hero">
         <HeroBg />
+      
       </section>
 
       <Feedback />
