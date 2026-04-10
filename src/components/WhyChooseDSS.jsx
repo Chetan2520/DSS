@@ -1,0 +1,560 @@
+"use client";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { Minus, Square, X, MousePointer2 } from "lucide-react";
+import Image from "next/image";
+
+const WhyChooseDSS = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideDuration = 5000;
+  const cardRef = useRef(null);
+  const [cardSize, setCardSize] = useState({ width: 0, height: 0 });
+  const arrowControls = useAnimation();
+
+  // Dynamically track card dimensions for high-fidelity clipping
+  useEffect(() => {
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setCardSize({
+          width: entry.contentRect.width,
+          height: entry.contentRect.height,
+        });
+      }
+    });
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const W = cardSize.width;
+  const H = cardSize.height;
+
+  // Exact architectural path from /bg-transparent-angle.svg
+  const svgPath =
+    "M.75 719V50C.75 22.8 22.8.75 50 .75h1090c27.2 0 49.25 22.05 49.25 49.25v477.47c0 27.2-22.05 49.25-49.25 49.25h-43c-55.64 0-100.75 45.107-100.75 100.75V719c0 27.2-22.05 49.25-49.25 49.25H50C22.8 768.25.75 746.2.75 719Z";
+
+  // Signature looping arrow animation logic (Exit Top-Right / Enter Bottom-Left)
+  const animateArrow = async () => {
+    await arrowControls.start({
+      x: 40,
+      y: -40,
+      opacity: 0,
+      transition: { duration: 0.3, ease: [0.45, 0, 0.55, 1] },
+    });
+
+    arrowControls.set({ x: -40, y: 40, opacity: 0 });
+
+    await arrowControls.start({
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.3, ease: [0.45, 0, 0.55, 1] },
+    });
+  };
+
+  const slides = [
+    {
+      title: "Mobile\nApps",
+      visual: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="absolute inset-0 bg-cyan-400/10 blur-3xl rounded-full translate-x-10 translate-y-10" />
+          <div className="relative w-full max-w-[240px] h-full flex items-center justify-center">
+            <motion.div
+              initial={{ rotate: -15, x: -20, opacity: 0 }}
+              animate={{ rotate: -12, x: 0, opacity: 1 }}
+              className="absolute left-0 bottom-4 w-[140px] aspect-9/19 bg-slate-900 rounded-3xl border-4 border-white/10 shadow-2xl overflow-hidden z-10"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2670&auto=format&fit=crop"
+                alt="App 1"
+                className="w-full h-full object-cover opacity-80"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ rotate: 12, x: 20, opacity: 0 }}
+              animate={{ rotate: 8, x: 0, opacity: 1 }}
+              className="absolute right-0 top-0 w-[140px] aspect-9/19 bg-slate-900 rounded-3xl border-4 border-white/10 shadow-2xl overflow-hidden z-20"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=2670&auto=format&fit=crop"
+                alt="App 2"
+                className="w-full h-full object-cover opacity-80"
+              />
+            </motion.div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Web\nDevelopment",
+      visual: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full" />
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="relative w-full max-w-[320px] aspect-[16/10] bg-[#282c34] rounded-xl border border-white/10 shadow-2xl overflow-hidden flex flex-col"
+          >
+            <div className="w-full h-7 bg-[#21252b] border-b border-black/20 flex items-center px-3 gap-1.5">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+              <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+              <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+              <div className="ml-2 px-2 py-0.5 rounded bg-white/5 text-[9px] text-[#abb2bf]   tracking-tighter">
+                service.jsx
+              </div>
+            </div>
+            <div className="p-4 font-mono text-[10px] leading-relaxed flex flex-col gap-1.5">
+              {[
+                { text: "import React from 'react';", color: "text-[#c678dd]" },
+                {
+                  text: "const DSS_ADVANCE = () => {",
+                  color: "text-[#e06c75]",
+                },
+                { text: "  return (", color: "text-[#c678dd]" },
+                {
+                  text: "    <div className='success'>",
+                  color: "text-[#98c379]",
+                },
+                { text: "      BUILDING THE FUTURE", color: "text-[#61afef]" },
+                { text: "    </div>", color: "text-[#98c379]" },
+                { text: "  );", color: "text-[#c678dd]" },
+                { text: "};", color: "text-[#e06c75]" },
+              ].map((line, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: "100%", opacity: 1 }}
+                  transition={{ duration: 0.4, delay: i * 0.3 }}
+                  className={`overflow-hidden whitespace-nowrap ${line.color}`}
+                >
+                  {line.text}
+                </motion.div>
+              ))}
+              <motion.div
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity }}
+                className="w-1.5 h-4 bg-[#528bff]"
+              />
+            </div>
+          </motion.div>
+        </div>
+      ),
+    },
+    {
+      title: "Graphic\nDesigning",
+      visual: (
+        <div className="relative w-full h-full flex items-center justify-center p-8">
+          <div className="absolute inset-0 bg-pink-500/5 blur-3xl rounded-full" />
+          <div className="relative w-full h-full flex flex-col items-center justify-center">
+            <svg
+              viewBox="0 0 200 200"
+              className="w-4/5 h-4/5 stroke-white/20 fill-none stroke-[1.5]"
+            >
+              <motion.line
+                x1="100"
+                y1="0"
+                x2="100"
+                y2="200"
+                animate={{ opacity: [0, 0.4, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <motion.line
+                x1="0"
+                y1="100"
+                x2="200"
+                y2="100"
+                animate={{ opacity: [0, 0.4, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <motion.path
+                d="M40,100 C40,40 160,40 160,100 C160,160 40,160 40,100 M100,20 L100,180 M20,100 L180,100 Q100,10 180,100 Q100,190 20,100"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                className="stroke-orange-400 stroke-[2]"
+              />
+              {[
+                { cx: 40, cy: 100 },
+                { cx: 160, cy: 100 },
+                { cx: 100, cy: 20 },
+                { cx: 100, cy: 180 },
+              ].map((node, i) => (
+                <motion.rect
+                  key={i}
+                  x={node.cx - 3}
+                  y={node.cy - 3}
+                  width="6"
+                  height="6"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1 + i * 0.2 }}
+                  className="fill-white stroke-orange-500"
+                />
+              ))}
+            </svg>
+            <motion.div
+              animate={{ x: [0, 60, -40, 20, 0], y: [0, -40, 40, -60, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute pointer-events-none"
+            >
+              <MousePointer2 className="text-white" size={24} />
+              <div className="ml-5 px-3 py-1.5 bg-black/40 rounded border border-white/10 text-[10px] text-white font-medium shadow-xl">
+                Mastering Paths...
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Digital\nMarketing",
+      visual: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full opacity-40 animate-pulse" />
+          <div className="relative w-full h-full flex items-center justify-center">
+            <motion.div
+              initial={{ scale: 0, rotate: -45 }}
+              animate={{ scale: 1, rotate: 0 }}
+              className="w-24 h-24 bg-white/10 backdrop-blur-3xl rounded-4xl border border-white/40 flex items-center justify-center shadow-2xl z-20 group-hover:rotate-6 transition-transform"
+            >
+              <span className="text-white   text-2xl tracking-tighter">
+                DSS
+              </span>
+              <div className="absolute inset-0 bg-white/5 rounded-4xl animate-ping" />
+            </motion.div>
+            {[
+              {
+                icon: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg",
+                x: -90,
+                y: -90,
+                delay: 0,
+              },
+              {
+                icon: "https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg",
+                x: 90,
+                y: -70,
+                delay: 0.2,
+              },
+              {
+                icon: "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg",
+                x: -80,
+                y: 80,
+                delay: 0.4,
+              },
+              {
+                icon: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg",
+                x: 80,
+                y: 90,
+                delay: 0.6,
+              },
+              {
+                icon: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+                x: 0,
+                y: -110,
+                delay: 0.8,
+              },
+              {
+                /* { icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/twitter.svg", x: 0, y: 110, delay: 1.0 }, */
+              },
+            ].map((app, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: 0, y: 0 }}
+                animate={{ opacity: 1, x: app.x, y: app.y }}
+                transition={{ duration: 1, delay: app.delay, ease: "backOut" }}
+                className="absolute w-14 h-14 bg-white rounded-2xl border-2 border-white/20 p-2.5 shadow-2xl"
+              >
+                <img
+                  src={app.icon}
+                  alt="App"
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
+            ))}
+            <div className="absolute inset-0 pointer-events-none opacity-20">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full border border-dashed border-white/40 rounded-full animate-spin-slow" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 border border-dashed border-blue-400/40 rounded-full animate-spin-slow-reverse" />
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, slideDuration);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const avatars = [
+    "https://i.pravatar.cc/100?u=1",
+    "https://i.pravatar.cc/100?u=2",
+    "https://i.pravatar.cc/100?u=3",
+    "https://i.pravatar.cc/100?u=4",
+    "https://i.pravatar.cc/100?u=5",
+    "https://i.pravatar.cc/100?u=6",
+    "https://i.pravatar.cc/100?u=7",
+  ];
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-8 overflow-hidden font-sans">
+      <div className="absolute inset-0 z-0 text-white">
+        <Image
+          src="/hero.webp"
+          alt="Hero Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-8 relative group"
+            onMouseEnter={animateArrow}
+            onClick={animateArrow}
+          >
+            <div
+              ref={cardRef}
+              className="h-full relative overflow-visible flex items-center justify-center"
+            >
+              {/* Architectural SVG Border Frame from Asset */}
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none z-30"
+                viewBox="0 0 1190 769"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d={svgPath}
+                  fill="none"
+                  stroke="rgba(255,255,255,0.6)"
+                  strokeWidth="1.5"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+
+              {/* Clipped Container using Asset Path */}
+              <div
+                className="h-full w-full p-8 md:p-12 flex flex-col justify-between relative"
+                style={{
+                  clipPath: `url(#main-asset-clip)`,
+                }}
+              >
+                {/* SVG for Responsive ClipPath derivation */}
+                <svg width="0" height="0" className="absolute">
+                  <defs>
+                    <clipPath
+                      id="main-asset-clip"
+                      clipPathUnits="objectBoundingBox"
+                    >
+                      <path d="M 0,0.93 V 0.06 C 0,0.03 0.02,0 0.04,0 H 0.95 C 0.98,0 1,0.03 1,0.06 V 0.62 C 1,0.65 0.98,0.68 0.95,0.68 H 0.92 C 0.87,0.68 0.83,0.72 0.83,0.8 V 0.93 C 0.83,0.96 0.81,0.99 0.78,0.99 H 0.04 C 0.02,1 0,0.97 0,0.93 Z" />
+                    </clipPath>
+                  </defs>
+                </svg>
+
+                <div className="flex gap-2 mb-12 relative z-10">
+                  <div className="p-1 rounded-sm border border-white/20 text-white/40">
+                    <Minus size={12} />
+                  </div>
+                  <div className="p-1 rounded-sm border border-white/20 text-white/40">
+                    <Square size={10} />
+                  </div>
+                  <div className="p-1 rounded-sm border border-white/20 text-white/40">
+                    <X size={12} />
+                  </div>
+                </div>
+
+                <div className="relative z-10">
+                  <motion.p
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-white/80 text-xl md:text-2xl font-light mb-4 text-orange-500 font-medium"
+                  >
+                    Our Journey: Turning Ambition into Digital Reality
+                  </motion.p>
+                  <motion.h2
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-5xl md:text-7xl font-bold text-white mb-6   tracking-tight leading-none"
+                  >
+                    Who we are.
+                  </motion.h2>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-white/60 text-lg max-w-lg leading-relaxed mb-12"
+                  >
+                    For over 7 years, DSS has been the powerhouse for brands,
+                    merging creative vision with data-driven strategy to deliver
+                    unmatched growth.
+                  </motion.p>
+
+                  <div className="mb-12">
+                    <p className="text-white/70 font-semibold mb-4 text-sm   tracking-widest">
+                      Our Trusted Clients
+                    </p>
+                    <div className="flex items-center">
+                      <div className="flex -space-x-3 overflow-hidden">
+                        {avatars.map((avatar, i) => (
+                          <div
+                            key={i}
+                            className="inline-block h-12 w-12 rounded-full border-2 border-white/50 overflow-hidden shadow-2xl"
+                          >
+                            <img
+                              src={avatar}
+                              alt="Avatar"
+                              className="h-full w-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      <div className="ml-4 h-12 w-12 rounded-full bg-white shadow-2xl flex items-center justify-center text-xs font-bold text-black border-2 border-white">
+                        1.5K
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-6">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-white text-black px-8 py-4 rounded-full font-bold text-sm tracking-widest   hover:bg-opacity-90 transition-all shadow-2xl"
+                    >
+                      BOOK A CALL
+                    </motion.button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Refined Arrow Button - Repositioned and Animated Loop */}
+              <motion.div
+                className="absolute w-24 h-24 md:w-28 md:h-28 bg-white rounded-full flex items-center justify-center shadow-2xl cursor-pointer z-40 transition-all p-8 flex items-center justify-center"
+                style={{
+                  right: `1%`,
+                  bottom: `3%`,
+                  transform: `translate(0, 0)`,
+                }}
+              >
+                <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
+                  <motion.img
+                    animate={arrowControls}
+                    src="/arrow-right.svg"
+                    alt="Arrow Right"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <div className="lg:col-span-4 flex flex-col gap-6">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative h-full border border-white/20 rounded-[2.5rem] p-8 overflow-hidden min-h-[440px] flex flex-col group"
+            >
+              <div className="flex gap-2 mb-8 relative z-20">
+                {slides.map((_, i) => (
+                  <div
+                    key={i}
+                    className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden"
+                  >
+                    {i === currentSlide ? (
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                        transition={{
+                          duration: slideDuration / 1000,
+                          ease: "linear",
+                        }}
+                        className="h-full bg-white/60"
+                      />
+                    ) : i < currentSlide ? (
+                      <div className="w-full h-full bg-white/60" />
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+              <div className="relative z-10 min-h-[4em]">
+                <AnimatePresence mode="wait">
+                  <motion.h3
+                    key={currentSlide}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="text-white text-3xl font-bold leading-tight whitespace-pre-line"
+                  >
+                    {slides[currentSlide].title}
+                  </motion.h3>
+                </AnimatePresence>
+              </div>
+              <div className="relative flex-grow mt-auto flex items-center justify-center overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentSlide}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.05 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-full h-full flex items-center justify-center p-4"
+                  >
+                    {slides[currentSlide].visual}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </motion.div>
+
+            <div className="grid grid-cols-2 gap-6 h-fit lg:mt-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="border border-white/20 rounded-4xl p-6 text-center group hover:bg-white/5 transition-colors"
+              >
+                <h4 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  10Y+
+                </h4>
+                <p className="text-white/50 text-xs md:text-sm   tracking-tight">
+                  of Experience
+                </p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="border border-white/20 rounded-4xl p-6 text-center group hover:bg-white/5 transition-colors"
+              >
+                <h4 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  1200+
+                </h4>
+                <p className="text-white/50 text-xs md:text-sm   tracking-tight">
+                  Global Clients
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default WhyChooseDSS;
