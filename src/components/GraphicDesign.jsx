@@ -205,7 +205,7 @@ const GraphicDesign = () => {
       <ScrollRevealIntro text={serviceData.intro} />
 
       <section
-        className="relative py-24 px-6 md:px-12 bg-cover bg-center bg-no-repeat"
+        className="relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('/services.webp')` }}
       >
         <div className="absolute inset-0 bg-black/60 z-0" />
@@ -225,11 +225,11 @@ const GraphicDesign = () => {
             </p>
           </div>
 
-          <div className="bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-[3rem] p-8 md:p-16 shadow-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div className="bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-4xl p-3 md:p-12 shadow-2xl">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-8 md:gap-12">
               {serviceData.types.map((type, i) => (
                 <div key={i} className="group relative">
-                  <div className="relative p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
+                  <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
                     <h3 className="text-lg md:text-2xl   text-zinc-900 mb-3 tracking-tight font-medium">
                       {type.title}
                     </h3>

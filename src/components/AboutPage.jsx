@@ -116,10 +116,10 @@ const AboutPage = () => {
       ></div>
 
       {/* --- HERO SECTION: WHY CHOOSE SLIDER (SEO H1) --- */}
-      <section className="relative pt-32 pb-24 px-6 md:px-12 max-w-[1284px] mx-auto z-10 overflow-hidden">
+      <section className="relative pt-8 md:pt-32 pb-24 px-6 md:px-12 max-w-[1284px] mx-auto z-10 overflow-hidden">
         <div className="relative">
           {/* Header & Controls */}
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div className="flex flex-col md:flex-row justify-between   mb-16 gap-8">
             <div className="max-w-4xl">
               <h1 className="fade-up text-4xl md:text-6xl lg:text-7xl  tracking-tighter leading-[1.1] text-white">
                 Scale Your Business <br />

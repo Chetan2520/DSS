@@ -33,7 +33,7 @@ export default function Footer() {
       className="relative bg-[#000000] text-white pt-24 pb-12 overflow-hidden font-sans"
     >
       {/* Custom Glowing Top Border */}
-     
+
       <div className="container mx-auto px-6 relative z-10">
         {/* Main Footer Links */}
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-24 pt-8">
@@ -100,7 +100,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/LetsConnect"
+                  href="/lets-connect"
                   className="hover:text-white transition-colors"
                 >
                   Contact
@@ -211,20 +211,20 @@ export default function Footer() {
         </div>
       </div>
 
-        {/* Bottom Right Floating Video */}
-        <div className="absolute bottom-6 right-6 lg:bottom-12 lg:right-12 hidden md:block">
-          <div className="relative group">
-            <div className="absolute -inset-1  " />
-            <div className="relative w-48 h-48  ">
-              <video
-                src="/footer.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
+      {/* Bottom Right Floating Video */}
+      <div className="absolute bottom-6 right-6 lg:bottom-12 lg:right-12 hidden md:block">
+        <div className="relative group">
+          <div className="absolute -inset-1  " />
+          <div className="relative w-48 h-48  ">
+            <video
+              src="/footer.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
         </div>
       </div>
     </footer>

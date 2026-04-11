@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
-const FeatureItem = ({ title, description, isActive, onClick }) => {
+const FeatureItem = ({ title, description, video, isActive, onClick }) => {
   return (
     <div
       onClick={onClick}
@@ -34,9 +34,20 @@ const FeatureItem = ({ title, description, isActive, onClick }) => {
             transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
             className="overflow-hidden"
           >
-            <p className="text-gray-400 text-sm md:text-[15px] leading-relaxed max-w-lg">
+            <p className="text-gray-400 text-sm md:text-[15px] leading-relaxed max-w-lg mb-4 lg:mb-0">
               {description}
             </p>
+            {/* Mobile Video Container */}
+            <div className="w-full rounded-xl overflow-hidden aspect-video bg-black relative lg:hidden pointer-events-none mt-4">
+              <video
+                src={video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -49,27 +60,27 @@ const TechnicalExcellence = () => {
 
 const features = [
   {
-    title: "Real-time Analytics",
+    title: "High-Performance Websites & Funnels",
     description:
-      "Get live insights into your business performance with advanced real-time dashboards. Track user behavior, sales, and engagement instantly to make faster, data-driven decisions for your growth.",
+      "We design and build conversion-focused websites and sales funnels that guide visitors smoothly from interest to action.",
     video: "/e1.mp4",
   },
   {
-    title: "Custom Tech Solutions",
+    title: "Search Visibility & SEO",
     description:
-      "No one-size-fits-all approach. We choose and implement the best tech stack based on your business needs—ensuring flexibility, maintainability, and long-term success.",
+      "Increase your presence on search engines and attract quality traffic with strategies built for long-term growth",
     video: "/e2.mp4",
   },
   {
-    title: "Ironclad Security",
+    title: "Social Media Expansion",
     description:
-      "Your platform is protected with enterprise-level security including data encryption, secure authentication, and real-time threat monitoring. We prioritize safety to keep your business and user data fully secure.",
+      "Strengthen your brand presence and connect with your audience through consistent and engaging social media campaigns.",
     video: "/e3.mp4",
   },
   {
-    title: "Modern Tech Stack",
+    title: "Targeted Advertising Campaigns",
     description:
-      "We use the latest and most scalable technologies tailored to your needs—whether it's a startup, SaaS, or e-commerce platform. Our solutions are fast, reliable, and built for long-term growth and performance.",
+      "Drive faster results with precision-targeted ads that reach the right people and turn clicks into customers.",
     video: "/contact.mp4",
   },
 ];
@@ -84,18 +95,16 @@ const features = [
             whileInView={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2"
           >
-            <div className="w-1 h-1 rounded-full bg-blue-500" />
-            <span className="text-gray-500 font-bold tracking-[0.15em] text-[9px] uppercase">
-              Technical Excellence
-            </span>
+            
           </motion.div>
 
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-white leading-tight">
+          <h2 className="text-3xl md:text-6xl   tracking-tighter text-white leading-tight">
             Tools for your <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-orange-400 to-orange-600">exponential growth.</span>
           </h2>
 
           <p className="text-gray-500 text-sm md:text-base max-w-lg leading-relaxed mt-2">
-            Powerful tools designed to drive your brand’s measurable success.
+          Smart, result-driven digital services crafted to help your business scale efficiently and stand out in a competitive market.
+
           </p>
         </div>
 
@@ -108,6 +117,7 @@ const features = [
                 key={index}
                 title={feature.title}
                 description={feature.description}
+                video={feature.video}
                 isActive={activeIndex === index}
                 onClick={() => setActiveIndex(index)}
               />
@@ -115,7 +125,7 @@ const features = [
           </div>
 
           {/* Right Column: Video (Compact Aspect) */}
-          <div className="order-1 lg:order-2">
+          <div className="hidden lg:block order-1 lg:order-2">
             <div className="relative aspect-video rounded-xl overflow-hidden bg-black">
               <AnimatePresence mode="wait">
                 <motion.div

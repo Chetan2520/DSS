@@ -89,7 +89,7 @@ export default function ClientsCreative() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-black py-40 px-4 md:px-8 flex flex-col items-center overflow-hidden font-sans"
+      className="relative bg-black py-20 md:py-40 px-4 md:px-8 flex flex-col items-center overflow-hidden font-sans"
     >
       {/* Top Left Floating Video */}
       <div className="absolute top-12 left-12 hidden lg:block z-30">
@@ -124,44 +124,78 @@ export default function ClientsCreative() {
 
         {/* The Precise Grid Structure (3 Rows) */}
         <div className="relative mx-auto max-w-[1300px]">
-          {/* Internal Fading Separators (Horizontal 1) */}
-          <div className="absolute top-1/3 left-0 w-full h-[1.5px] bg-linear-to-r from-transparent via-white to-transparent z-0" />
+          {/* --- Responsive Horizontal Fading Separators --- */}
+          {/* Mobile (6 Rows -> 5 Lines) */}
+          <div className="absolute inset-y-0 left-0 right-0 pointer-events-none z-0 flex md:hidden flex-col justify-between">
+            <div className="h-0" />
+            {[...Array(5)].map((_, i) => (
+              <div key={`h-mob-${i}`} className="w-full h-[1.5px] bg-linear-to-r from-transparent via-white/40 to-transparent" />
+            ))}
+            <div className="h-0" />
+          </div>
+          {/* Tablet (5 Rows -> 4 Lines) */}
+          <div className="absolute inset-y-0 left-0 right-0 pointer-events-none z-0 hidden md:flex lg:hidden flex-col justify-between">
+            <div className="h-0" />
+            {[...Array(4)].map((_, i) => (
+              <div key={`h-tab-${i}`} className="w-full h-[1.5px] bg-linear-to-r from-transparent via-white/40 to-transparent" />
+            ))}
+            <div className="h-0" />
+          </div>
+          {/* Desktop (3 Rows -> 2 Lines) */}
+          <div className="absolute inset-y-0 left-0 right-0 pointer-events-none z-0 hidden lg:flex flex-col justify-between">
+            <div className="h-0" />
+            {[...Array(2)].map((_, i) => (
+              <div key={`h-dt-${i}`} className="w-full h-[1.5px] bg-linear-to-r from-transparent via-white/40 to-transparent" />
+            ))}
+            <div className="h-0" />
+          </div>
 
-          {/* Internal Fading Separators (Horizontal 2) */}
-          <div className="absolute top-2/3 left-0 w-full h-[1.5px] bg-linear-to-r from-transparent via-white to-transparent z-0" />
-
-          {/* Internal Fading Separators (Verticals) */}
+          {/* --- Responsive Vertical Fading Separators --- */}
+          {/* Mobile (3 Cols -> 2 Lines) */}
+          <div className="absolute inset-x-0 top-0 bottom-0 pointer-events-none z-0 flex md:hidden justify-between">
+            <div className="w-0" />
+            {[...Array(2)].map((_, i) => (
+              <div key={`v-mob-${i}`} className="w-[1.5px] h-full bg-linear-to-b from-transparent via-white/40 to-transparent" />
+            ))}
+            <div className="w-0" />
+          </div>
+          {/* Tablet (4 Cols -> 3 Lines) */}
+          <div className="absolute inset-x-0 top-0 bottom-0 pointer-events-none z-0 hidden md:flex lg:hidden justify-between">
+            <div className="w-0" />
+            {[...Array(3)].map((_, i) => (
+              <div key={`v-tab-${i}`} className="w-[1.5px] h-full bg-linear-to-b from-transparent via-white/40 to-transparent" />
+            ))}
+            <div className="w-0" />
+          </div>
+          {/* Desktop (6 Cols -> 5 Lines) */}
           <div className="absolute inset-x-0 top-0 bottom-0 pointer-events-none z-0 hidden lg:flex justify-between">
             <div className="w-0" />
             {[...Array(5)].map((_, i) => (
-              <div
-                key={i}
-                className="w-[1.5px] h-full bg-linear-to-b from-transparent via-white to-transparent"
-              />
+              <div key={`v-dt-${i}`} className="w-[1.5px] h-full bg-linear-to-b from-transparent via-white/40 to-transparent" />
             ))}
             <div className="w-0" />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 relative z-10">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 relative z-10">
             {logos.map((logo) => (
               <div
                 key={logo.id}
-                className="logo-item h-44 md:h-64 flex items-center justify-center p-8 transition-transform duration-500 hover:scale-105"
+                className="logo-item h-24 sm:h-32 md:h-48 lg:h-56 xl:h-64 flex items-center justify-center p-4 md:p-8 transition-transform duration-500 hover:scale-105"
               >
                 <img
                   src={logo.src}
                   alt={`Client ${logo.id}`}
-                  className="max-h-[60%] max-w-[70%] object-contain"
+                  className="max-h-[70%] max-w-[80%] object-contain"
                 />
               </div>
             ))}
 
             <Link
               href="/portfoliopage"
-              className="logo-item h-44 md:h-64 flex items-center justify-center p-8 group cursor-pointer lg:translate-y-1"
+              className="logo-item h-24 sm:h-32 md:h-48 lg:h-56 xl:h-64 flex items-center justify-center p-4 md:p-8 group cursor-pointer lg:translate-y-1"
               onMouseEnter={animateArrow}
             >
-              <div className="relative w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] overflow-hidden">
+              <div className="relative w-12 h-12 sm:w-16 sm:h-16 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] overflow-hidden">
                 <motion.div
                   animate={controls}
                   className="flex items-center justify-center"
@@ -169,7 +203,7 @@ export default function ClientsCreative() {
                   <img
                     src="/arrow-right.svg"
                     alt="Arrow"
-                    className="w-8 h-8 md:w-12 md:h-12 relative z-10 transition-all duration-500 "
+                    className="w-5 h-5 sm:w-6 sm:h-6 md:w-12 md:h-12 relative z-10 transition-all duration-500 "
                   />
                 </motion.div>
               </div>

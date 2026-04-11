@@ -262,7 +262,7 @@ const LetsConnect = () => {
 
               <button
                 type="submit" disabled={isSubmitting}
-                className="w-full group bg-linear-to-r from-white via-zinc-200 to-zinc-400 text-black font-bold tracking-[0.2em] py-4 rounded-full transition-all active:scale-[0.99] disabled:opacity-50"
+                className="w-full group bg-linear-to-r from-white via-zinc-200 to-zinc-400 text-black font-bold tracking-[0.2em] cursor-pointer py-4 rounded-full transition-all active:scale-[0.99] disabled:opacity-50"
               >
                 {isSubmitting ? "SENDING..." : "GET FREE QUOTE"}
               </button>
@@ -296,7 +296,6 @@ const LetsConnect = () => {
         </div>
       </div>
 
-      <GrowthBreakthrough />
       <FAQ />
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import Link from "next/link";
 
 const socialLogos = [
   {
@@ -164,9 +165,6 @@ const GrowthBreakthrough = () => {
               Dominance
             </span>{" "}
             <br />
-            {/* <span className="inline-block mt-4 font-semibold text-white">
-              WITH DSS
-            </span> */}
           </h2>
         </motion.div>
 
@@ -176,9 +174,11 @@ const GrowthBreakthrough = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <button className="bg-white cursor-pointer text-black px-8 py-3 rounded-full font-semibold text-xl tracking-tighter   transition-all duration-700 hover:tracking-widest active:scale-95 hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] flex items-center gap-4 mx-auto group">
-            Let's Talk
-          </button>
+          <Link href="/lets-connect">
+            <button className="bg-white cursor-pointer text-black px-8 py-3 rounded-full font-semibold text-xl tracking-tighter transition-all duration-700 hover:tracking-widest active:scale-95 hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] flex items-center gap-4 mx-auto group">
+              Let's Talk
+            </button>
+          </Link>
         </motion.div>
       </div>
 

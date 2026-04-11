@@ -18,6 +18,8 @@ import {
   MessageSquare,
   Video,
   BarChart3,
+  Search,
+  PieChart,
 } from "lucide-react";
 import ServiceBanner from "./ServiceBanner";
 import ScrollRevealIntro from "./ScrollRevealIntro";
@@ -30,71 +32,71 @@ gsap.registerPlugin(ScrollTrigger);
 // --- CONTENT DATA ---
 const serviceData = {
   id: "influencer-marketing",
-  title: "Influencer Marketing",
+  title: "Influencer Marketing Services",
   subtitle: "Trust. Reach. Impact.",
   description:
-    "People trust people, not ads. We connect your brand with authentic voices that resonate with your target audience. From micro-influencers to mega-stars, we manage the entire lifecycle.",
+    "Digital Success Solutions offers strategic Influencer Marketing services in Indore focused on increasing your brand reach, interaction, and sales.",
   intro:
-    "A seamless bridge between brand vision and creator authenticity. We focus on engagement rates, audience demographics, and real-world conversion rather than just vanity metrics.",
+    "In today’s fast moving digital space, people trust people not ads. That’s why influencer marketing has become one of the most powerful ways to promote your brand. By partnering with the right influencers, businesses can connect with their audience in a more authentic and impactful way.",
 
   features: [
     {
-      title: "Strategic Matchmaking",
-      desc: "Finding the perfect creator profile based on brand affinity and deep audience data.",
-      icon: Star,
+      title: "Influencer Research & Selection",
+      desc: "We identify influencers who align perfectly with your brand, niche, and target audience.",
+      icon: Search,
       color: "amber",
     },
     {
-      title: "Campaign Management",
-      desc: "End-to-end handling of negotiations, contracts, and creative deliverable tracking.",
-      icon: Users,
+      title: "Campaign Planning",
+      desc: "Our team creates a clear and effective campaign strategy to ensure maximum reach and engagement.",
+      icon: Target,
       color: "blue",
     },
     {
-      title: "Creative Storytelling",
-      desc: "Bridging your brand guidelines with the creator's unique voice for maximum resonance.",
-      icon: Zap,
+      title: "Content Creation & Collaboration",
+      desc: "We work closely with influencers to produce authentic, engaging, and high quality content.",
+      icon: Video,
       color: "purple",
     },
     {
-      title: "ROI Analytics",
-      desc: "Advanced tracking of clicks, conversions, and the true impact of every collaboration.",
-      icon: Share2,
+      title: "Campaign Management",
+      desc: "From initial outreach to final execution, we handle the entire process smoothly.",
+      icon: Users,
       color: "pink",
     },
     {
-      title: "Audience Vetting",
-      desc: "Rigorous vetting of follower demographics and engagement authenticity to ensure brand safety.",
-      icon: ShieldCheck,
+      title: "Performance Analysis",
+      desc: "We track campaign results, measure engagement, and optimize strategies for better ROI.",
+      icon: BarChart3,
       color: "emerald",
     },
     {
-      title: "Global Distribution",
-      desc: "Scaling your message across multiple regions and cultures through localized creator networks.",
-      icon: Globe,
+      title: "Influencer Relationship Management",
+      desc: "We build and maintain strong long-term relationships with influencers to ensure consistent collaboration, better brand advocacy, and improved campaign performance over time.",
+      icon: ShieldCheck,
       color: "indigo",
     },
   ],
 
   process: [
     {
-      step: "Discovery & Vetting",
-      text: "Identifying creators who truly align with your values using advanced vetting tools.",
-      icon: UserCheck,
+      step: "1. Discovery & Vetting",
+      text: "We identify creators who truly align with your brand values, audience, and goals. Using advanced vetting tools and performance insights, we ensure every partnership is authentic, credible, and impactful.",
+      icon: Search,
     },
     {
-      step: "Outreach & Briefing",
-      text: "Handling all communications to ensure brand safety and clear creative direction.",
+      step: "2. Outreach & Briefing",
+      text: "We manage all creator communications—from initial outreach to final agreements. Each influencer receives a clear, strategic brief to ensure brand safety, consistency, and creative direction.",
       icon: MessageSquare,
     },
     {
-      step: "Content Execution",
-      text: "Managing review cycles and quality control to maintain high production standards.",
+      step: "3. Content Execution",
+      text: "Our team oversees the entire content process, ensuring high-quality production that resonates with your target audience. We balance creative freedom with brand alignment to deliver content that performs.",
       icon: Video,
     },
     {
-      step: "Analytics & Scaling",
-      text: "Proving value through detailed performance reports and scaling successful partnerships.",
+      step: "4. Analytics & Scaling",
+      text: "We track performance through detailed reporting—engagement, reach, conversions, and ROI. With these insights, we optimize campaigns and scale successful partnerships for long-term growth.",
       icon: BarChart3,
     },
   ],
@@ -111,6 +113,33 @@ const serviceData = {
     }
   ],
 };
+
+const influencerFaqs = [
+  {
+    question: "What does influencer marketing involve?",
+    answer: "It’s a collaboration between brands and digital creators to showcase products or services in a natural, engaging way to their audience, helping build trust and awareness."
+  },
+  {
+    question: "How do you find suitable creators for campaigns?",
+    answer: "We carefully analyze audience demographics, content style, and performance data to partner your brand with creators who genuinely match your identity and goals."
+  },
+  {
+    question: "Which social platforms are included in your campaigns?",
+    answer: "Our campaigns are designed for platforms like Instagram, TikTok, YouTube, and others—depending on where your audience is most active."
+  },
+  {
+    question: "How do you evaluate campaign success?",
+    answer: "We monitor performance through metrics such as audience reach, interaction rates, traffic, and conversions, delivering clear insights into campaign effectiveness."
+  },
+  {
+    question: "What is the typical turnaround time for a campaign?",
+    answer: "Campaign timelines depend on complexity, but generally, we move from planning to launch within a few weeks while ensuring quality at every step."
+  },
+  {
+    question: "Can we expand campaigns after initial success?",
+    answer: "Yes, high-performing campaigns can be scaled by increasing creator collaborations, extending content formats, and optimizing strategies for greater reach."
+  }
+];
 
 const InfluencerMarketing = () => {
   const containerRef = useRef(null);
@@ -155,7 +184,7 @@ const InfluencerMarketing = () => {
       <ServiceBanner
         title="Influencer Marketing"
         description={serviceData.description}
-        imageSrc="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+        imageSrc="/influencer.png"
         currentPage="Influencer Marketing"
       />
 
@@ -165,7 +194,7 @@ const InfluencerMarketing = () => {
       <div className="relative z-10 w-full px-0">
         {/* --- WHAT WE DO SECTION (WHITE GRID) --- */}
         <section
-          className="what-we-build-wrapper relative py-24 px-6 md:px-12 bg-cover bg-center bg-no-repeat"
+          className="what-we-build-wrapper relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('/services.webp')` }}
         >
           <div className="absolute inset-0 bg-black/60 z-0" />
@@ -173,24 +202,23 @@ const InfluencerMarketing = () => {
           <div className="relative z-10 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 px-2">
               <div>
-                <h2 className="text-4xl md:text-7xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight    ">
-                  Human{" "}
+                <h2 className="text-4xl md:text-5xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight    ">
+                  Our Influencer <br />
                   <span className="bg-clip-text bg-linear-to-r from-white via-blue-400 to-blue-600">
-                    Connection
+                    Marketing Services in Indore
                   </span>
                 </h2>
               </div>
               <p className="text-zinc-400 text-xs max-w-xs font-medium border-l border-blue-500/30 pl-4 leading-relaxed">
-                Scaling brand trust through authentic storytelling and creator
-                partnerships.
+                Connect with your audience through powerful creator partnerships.
               </p>
             </div>
 
-            <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-[3rem] p-8 md:p-16 shadow-2xl">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-4xl p-3 md:p-12 shadow-2xl">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-8 md:gap-12">
                 {serviceData.features.map((feature, i) => (
                   <div key={i} className="group relative">
-                    <div className="relative p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
+                    <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
                       <h3 className="text-xl md:text-2xl   text-zinc-900 mb-3 tracking-tight  ">
                         {feature.title}
                       </h3>
@@ -209,8 +237,8 @@ const InfluencerMarketing = () => {
           {/* --- STRATEGY SECTION (EDITORIAL LAYOUT) --- */}
           <div className="mb-40 relative">
             <div className="mb-32 text-center max-w-4xl mx-auto px-6">
-              <h2 className="text-3xl md:text-7xl   tracking-tighter leading-[0.8] bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent  ">
-                The Collaborative <br />
+              <h2 className="text-3xl md:text-5xl tracking-tighter leading-[1.1] bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent  ">
+                Our Collaborative <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-blue-400 to-blue-600 italic">
                   Cycle
                 </span>
@@ -260,28 +288,28 @@ const InfluencerMarketing = () => {
               {[
                 {
                   title: "Targeted Reach",
-                  text: "Speak directly to your ideal customer through voices they already follow and trust.",
+                  text: "Connect directly with your ideal audience through creators they already trust. Instead of interrupting, your brand becomes part of the conversation—driving higher relevance and stronger impact.",
                   icon: <Target />,
                 },
                 {
                   title: "Content Engine",
-                  text: "Authentic, high-quality content created by professional creators for your brand.",
+                  text: "Fuel your brand with authentic, high-quality content crafted by experienced creators. From short-form videos to storytelling campaigns, we deliver content that feels native and performs across platforms.",
                   icon: <Zap />,
                 },
                 {
                   title: "Safe Exposure",
-                  text: "Rigorous vetting process ensures your brand only partners with appropriate creators.",
+                  text: "Protect your brand with rigorous vetting and compliance checks. We ensure every creator partnership aligns with your values, tone, and audience expectations—minimizing risk while maximizing credibility.",
                   icon: <ShieldCheck />,
                 },
                 {
                   title: "High Engagement",
-                  text: "Creator-led content consistently outperforms generic brand ads on social.",
+                  text: "Creator-led campaigns consistently outperform traditional ads. By leveraging genuine influence and community trust, we drive stronger engagement, meaningful interactions, and lasting impressions.",
                   icon: <TrendingUp />,
                 },
                 {
                   title: "Impact Tracking",
-                  text: "Full analytics on clicks, mentions, and conversions for every collaboration.",
-                  icon: <ArrowUpRight />,
+                  text: "Measure what matters. We provide full transparency with detailed analytics on reach, engagement, clicks, and conversions—so you can clearly see the ROI of every campaign.",
+                  icon: <PieChart />,
                 },
               ].map((benefit, i) => (
                 <div
@@ -361,7 +389,7 @@ const InfluencerMarketing = () => {
           <GrowthBreakthrough />
 
           {/* --- FAQ SECTION --- */}
-          <FAQ />
+          <FAQ faqs={influencerFaqs} />
         </div>
       </div>
     </div>

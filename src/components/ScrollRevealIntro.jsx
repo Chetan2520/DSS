@@ -36,7 +36,7 @@ const ScrollRevealIntro = ({ text, className = "" }) => {
     }, { scope: textRef });
 
     return (
-        <section className={`py-24 md:py-40 bg-black overflow-hidden px-6 md:px-12 ${className}`}>
+        <section className={`py-16 md:py-40 bg-black overflow-hidden px-6 md:px-12 ${className}`}>
             <div className="max-w-7xl mx-auto">
                 <h2 
                     ref={textRef} 

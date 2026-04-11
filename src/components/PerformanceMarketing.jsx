@@ -33,44 +33,44 @@ const serviceData = {
   title: "Performance Marketing",
   subtitle: "Clicks. Conversions. ROI.",
   description:
-    "We don't just buy traffic; we acquire customers. Our data-driven approach to PPC ensures every rupee spent is optimized for the highest possible return on investment.",
+    "Performance marketing focuses on delivering outcomes like leads, sales, and conversions, where every rupee spent is tracked, analyzed, and optimized for maximum return.",
   intro:
-    "High-performance advertising is a mix of creative intuition and rigorous data analysis. We scale your brand by finding the sweet spot where audience intent meets your unique value proposition.",
+    "In today’s highly competitive digital world, businesses require more than visibility,they need measurable and impactful outcomes. As a leading performance marketing agency in Indore, Digital Success Solutions helps businesses achieve consistent growth through data driven strategies and high converting campaigns.",
 
   sectors: [
     {
-      title: "Search Engine Ads",
-      desc: "Capturing high-intent users exactly when they are looking for your products or services.",
+      title: "Google Ads Campaigns",
+      desc: "We create and manage high performance campaigns on Google Ads to drive targeted traffic, leads, and conversions.",
       icon: Target,
       color: "red",
     },
     {
-      title: "Meta Advertising",
-      desc: "Psychographic targeting to create demand and scale brand awareness across FB & IG.",
+      title: "Social Media Advertising",
+      desc: "Our expert team runs ROI focused campaigns on Facebook and Instagram to maximize engagement and sales.",
       icon: TrendingUp,
       color: "blue",
     },
     {
-      title: "Retargeting Funnels",
-      desc: "Bringing back lost visitors with strategic messaging that addresses their specific objections.",
-      icon: Zap,
-      color: "amber",
-    },
-    {
-      title: "Lead Generation",
-      desc: "Building constant streams of high-quality inquiries for service-based businesses.",
+      title: "Lead Generation Campaigns",
+      desc: "We design campaigns specifically to generate high quality leads that convert into customers.",
       icon: MousePointer2,
       color: "emerald",
     },
     {
-      title: "E-commerce Scaling",
-      desc: "Specialized ad strategies for online stores focused on maximizing ROAS and inventory turnover.",
+      title: "E-commerce Marketing",
+      desc: "Scale your online store with strategic advertising and conversion focused marketing.",
       icon: ShoppingCart,
       color: "orange",
     },
     {
-      title: "Conversion Optimization",
-      desc: "Data-driven landing page tweaks and funnel adjustments to squeeze more value from every click.",
+      title: "Remarketing Campaigns",
+      desc: "Reach out again to interested prospects and convert their intent into real results.",
+      icon: Zap,
+      color: "amber",
+    },
+    {
+      title: "Conversion Rate Optimization (CRO)",
+      desc: "We continuously improve landing pages and ad performance to increase conversions.",
       icon: BarChart3,
       color: "indigo",
     },
@@ -78,23 +78,23 @@ const serviceData = {
 
   process: [
     {
-      step: "Audit & Analysis",
-      text: "Benchmarking your current performance against industrial standards and identifying gaps.",
+      step: "1. Audit & Analysis",
+      text: "We begin by evaluating your current marketing efforts, identifying gaps, and understanding your business goals. This helps us build a strong foundation for high-performing campaigns.",
       icon: Search,
     },
     {
-      step: "Creative Testing",
-      text: "Running rapid A/B tests on hooks, copy, and visuals to find the ultimate scaling winners.",
+      step: "2. Creative Testing",
+      text: "Our team continuously tests different ad creatives, headlines, and visuals to discover what resonates best with your target audience and drives conversions.",
       icon: Zap,
     },
     {
-      step: "Media Buying",
-      text: "Precision execution across Google, Meta, and LinkedIn with a focus on granular optimization.",
+      step: "3. Media Buying",
+      text: "We run highly targeted ad campaigns across platforms like Google, Meta, and LinkedIn, ensuring your ads reach the right people at the right time.",
       icon: Target,
     },
     {
-      step: "ROI Reporting",
-      text: "Transparent, real-time dashboards that show exactly how your budget is performing.",
+      step: "4. Conversion Optimization",
+      text: "We optimize landing pages, user journeys, and funnels to improve conversion rates and maximize the value of your traffic.",
       icon: TrendingUp,
     },
   ],
@@ -115,6 +115,33 @@ const serviceData = {
     }
   ],
 };
+
+const performanceFaqs = [
+  {
+    question: "What does performance marketing mean for my business?",
+    answer: "Performance marketing is a strategy where your investment is directly linked to results. It focuses on generating measurable actions such as leads, inquiries, or sales, ensuring your budget is used efficiently."
+  },
+  {
+    question: "Why should I choose performance marketing over other marketing methods?",
+    answer: "Performance marketing gives you complete transparency and control. You can track every campaign, measure outcomes in real time, and adjust strategies instantly to achieve better results."
+  },
+  {
+    question: "How do you ensure better ROI in performance marketing campaigns?",
+    answer: "We use advanced targeting, continuous monitoring, and data-driven optimization to focus on high-performing audiences, ensuring maximum returns with minimum wasted spend."
+  },
+  {
+    question: "Which industries can benefit from performance marketing services?",
+    answer: "Performance marketing works for almost every industry, including e-commerce, healthcare, real estate, education, and service-based businesses looking to generate leads and sales."
+  },
+  {
+    question: "Do I need a large budget to start performance marketing?",
+    answer: "No, performance marketing is flexible and works with different budget sizes. Campaigns can be scaled up or down based on your goals and performance results."
+  },
+  {
+    question: "How do you track and measure campaign success?",
+    answer: "We track key performance indicators like clicks, conversions, cost per lead, and return on ad spend using advanced analytics tools, ensuring complete transparency in campaign performance."
+  }
+];
 
 const PerformanceMarketing = () => {
   const containerRef = useRef(null);
@@ -159,7 +186,7 @@ const PerformanceMarketing = () => {
       <ServiceBanner
         title="Performance Marketing"
         description={serviceData.description}
-        imageSrc="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+        imageSrc="/performance.png"
         currentPage="Performance"
       />
 
@@ -169,7 +196,7 @@ const PerformanceMarketing = () => {
       <div className="relative z-10 w-full px-0">
         {/* --- WHAT WE DO SECTION (WHITE GRID) --- */}
         <section
-          className="what-we-build-wrapper relative py-24 px-6 md:px-12 bg-cover bg-center bg-no-repeat"
+          className="what-we-build-wrapper relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('/services.webp')` }}
         >
           <div className="absolute inset-0 bg-black/60 z-0" />
@@ -177,24 +204,23 @@ const PerformanceMarketing = () => {
           <div className="relative z-10 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 px-2">
               <div>
-                <h2 className="text-4xl md:text-7xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight    ">
-                  Growth{" "}
+                <h2 className="text-4xl md:text-5xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight    ">
+                  Our Performance <br />
                   <span className="bg-clip-text bg-linear-to-r from-white via-orange-400 to-orange-600">
-                    Engine
+                    Marketing Services in Indore
                   </span>
                 </h2>
               </div>
               <p className="text-zinc-400 text-xs max-w-xs font-medium border-l border-orange-500/30 pl-4 leading-relaxed">
-                Data-driven paid media strategies that convert clicks into
-                business revenue.
+                Result-driven ad strategies designed to scale your business.
               </p>
             </div>
 
-            <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-[3rem] p-8 md:p-16 shadow-2xl">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-4xl p-3 md:p-12 shadow-2xl">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-8 md:gap-12">
                 {serviceData.sectors.map((sector, i) => (
                   <div key={i} className="group relative">
-                    <div className="relative p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
+                    <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
                       <h3 className="text-xl md:text-2xl   text-zinc-900 mb-3 tracking-tight  ">
                         {sector.title}
                       </h3>
@@ -213,10 +239,10 @@ const PerformanceMarketing = () => {
           {/* --- STRATEGY SECTION (EDITORIAL LAYOUT) --- */}
           <div className="mb-40 relative">
             <div className="mb-32 text-center max-w-4xl mx-auto px-6">
-              <h2 className="text-3xl md:text-7xl   tracking-tighter leading-[0.8] bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent  ml-2">
-                The Strategy <br />
+              <h2 className="text-3xl md:text-5xl   tracking-tighter leading-[1.1] bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent  ml-2">
+                Our Performance <br />
                 <span className="bg-clip-text bg-linear-to-r from-white via-orange-400 to-orange-600 italic">
-                  Cycle
+                  Marketing Strategy
                 </span>
               </h2>
             </div>
@@ -263,28 +289,28 @@ const PerformanceMarketing = () => {
 
               {[
                 {
-                  title: "Data Transparency",
-                  text: "We provide live dashboards so you see every rupee spent and earned in real-time.",
+                  title: "Pay for Real Results",
+                  text: "You invest only when specific actions are completed, such as clicks, leads, or sales—ensuring every rupee is spent effectively.",
                   icon: <ShieldCheck />,
                 },
                 {
-                  title: "Rapid Testing",
-                  text: "Speed is our superpower; we fail fast and scale faster through iterative testing.",
+                  title: "Highly Measurable Campaigns",
+                  text: "Track every metric in real time, from impressions to conversions, giving you complete control and clarity over performance.",
                   icon: <Zap />,
                 },
                 {
-                  title: "Omnichannel Mastery",
-                  text: "Seamlessly scaling your brand across Search, Social, and Video platforms.",
+                  title: "Better ROI & Cost Efficiency",
+                  text: "Optimized campaigns focus on high-converting audiences, maximizing returns while minimizing wasted ad spend.",
                   icon: <Globe />,
                 },
                 {
-                  title: "Lead Quality IQ",
-                  text: "Not just leads, but qualified appointments that actually turn into revenue.",
+                  title: "Targeted Audience Reach",
+                  text: "Reach the right audience based on demographics, interests, behavior, and intent for higher engagement and conversions.",
                   icon: <Target />,
                 },
                 {
-                  title: "Global Reach",
-                  text: "Proven capability to scale local Indian brands to global international markets.",
+                  title: "Continuous Optimization",
+                  text: "Campaigns are constantly analyzed and improved to deliver better results over time with data-driven strategies.",
                   icon: <ArrowUpRight />,
                 },
               ].map((benefit, i) => (
@@ -365,7 +391,7 @@ const PerformanceMarketing = () => {
           <GrowthBreakthrough />
 
           {/* --- FAQ SECTION --- */}
-          <FAQ />
+          <FAQ faqs={performanceFaqs} />
         </div>
       </div>
     </div>

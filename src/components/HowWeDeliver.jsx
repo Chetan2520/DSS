@@ -11,7 +11,7 @@ const cards = [
   },
   {
     num: "02.",
-    title: "Cloud & DevOps That Scale",
+    title: "Cloud  That Scale",
     desc: "Resilient platforms with clear SLOs and cost controls.",
     color: "#3B82F6",
   },
@@ -31,12 +31,12 @@ const cards = [
 
 const HowWeDeliver = () => {
   return (
-    <section className="bg-black text-white py-24 md:py-32 px-6 overflow-hidden">
+    <section className="bg-black text-white py-24 md:py-32 px-3 md:px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20">
           {/* Left Column: Heading & Intro */}
           <div className="lg:col-span-4 space-y-12">
-            <div className="space-y-6">
+            <div className="space-y-3 md:space-y-6">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ const HowWeDeliver = () => {
 
           {/* Right Column: Cards Grid */}
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
               {cards.map((card, idx) => (
                 <motion.div
                   key={idx}
@@ -76,20 +76,20 @@ const HowWeDeliver = () => {
                     delay: idx * 0.1,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="p-10 rounded-3xl bg-zinc-950/50 border border-white/5 hover:border-blue-500/30 transition-all duration-700 h-full flex flex-col justify-between group overflow-hidden relative"
+                  className="p-4 md:p-10 rounded-3xl bg-zinc-950/50 border border-white/5 hover:border-blue-500/30 transition-all duration-700 h-full flex flex-col justify-between group overflow-hidden relative"
                 >
                   <div className="space-y-10 relative z-10">
                     <span
-                      className="text-5xl md:text-6xl  tracking-tighter opacity-10 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 block mb-4"
+                      className="text-1xl md:text-6xl  tracking-tighter opacity-10 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 block mb-1 md:mb-4"
                       style={{ color: card.color }}
                     >
                       {card.num}
                     </span>
-                    <div className="space-y-4">
-                      <h3 className="text-2xl md:text-3xl  tracking-tighter text-white transition-colors duration-500  ">
+                    <div className="space-y-2 md:space-y-4">
+                      <h3 className="text-xl md:text-3xl  tracking-tighter text-white transition-colors duration-500  ">
                         {card.title}
                       </h3>
-                      <p className="text-zinc-500 text-sm md:text-base leading-relaxed font-medium">
+                      <p className="text-zinc-500 text-xs md:text-base leading-relaxed font-medium">
                         {card.desc}
                       </p>
                     </div>

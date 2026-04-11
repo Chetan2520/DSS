@@ -3,30 +3,30 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 
-const faqData = [
+const defaultFaqData = [
   {
-    question: "How long does it take to see results from SEO?",
-    answer: "Typically, SEO results become visible within 3 to 6 months of consistent effort. However, significant traffic growth and top-tier rankings usually require a long-term commitment of 6 to 12 months as search engines build trust with your domain."
+    question: "Why should I choose Digital Success Solutions for SEO in Indore?",
+    answer: "We focus on creating personalized SEO strategies backed by real data and industry insights, helping businesses achieve better rankings, consistent traffic, and measurable growth."
   },
   {
-    question: "Which social media platforms are best for my business?",
-    answer: "This depends entirely on your industry and target audience. For professional B2B services, LinkedIn is often best. For lifestyle, fashion, or food brands, Instagram and Pinterest excel. We provide a custom strategy audit to determine exactly where your potential customers spend their time."
+    question: "When can I expect results from SEO services?",
+    answer: "SEO takes time to show impact. Most websites start seeing positive changes within a few months, depending on competition, website condition, and strategy implementation."
   },
   {
-    question: "Do you provide custom website development or use templates?",
-    answer: "We specialize in custom website development to ensure your site is uniquely tailored to your brand identity and performance needs. While we can work within existing frameworks, our goal is always high-speed, conversion-optimized, and fully custom solutions."
+    question: "Do you help businesses rank in local searches?",
+    answer: "Yes, we optimize your business for local search results so you can attract customers in your area and increase calls, visits, and inquiries."
   },
   {
-    question: "What is the typical budget required for Google Ads or Meta Ads?",
-    answer: "We recommend starting with a flexible budget that allows for initial testing and optimization. Most small businesses start with ₹20,000 to ₹50,000 monthly, while larger brands scale into lakhs. Our focus is always on achieving a strong Return on Ad Spend (ROAS)."
+    question: "What all services are covered under your SEO plans?",
+    answer: "Our SEO solutions include website optimization, keyword research, content planning, technical improvements, link building, and regular performance monitoring."
   },
   {
-    question: "How do you measure the success of a campaign?",
-    answer: "We track clear KPIs such as conversion rate, cost-per-acquisition (CPA), organic traffic growth, and overall sales revenue. You will receive detailed monthly performance reports showing exactly how your investment is driving business growth."
+    question: "Can SEO increase my sales and conversions?",
+    answer: "Yes, by bringing relevant and interested users to your website, SEO improves your chances of converting visitors into customers."
   },
   {
-    question: "Can you help with rebranding or creating a new digital identity?",
-    answer: "Absolutely! We help businesses define their digital persona through fresh UI/UX design, brand voice development, and high-impact visual strategies to ensure your brand stands out in a crowded market."
+    question: "Do you work on SEO for online stores?",
+    answer: "Yes, we optimize e-commerce websites by improving product visibility, enhancing site structure, and targeting high-converting keywords."
   }
 ];
 
@@ -68,8 +68,9 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
   );
 };
 
-const FAQ = () => {
+const FAQ = ({ faqs }) => {
   const [openIndex, setOpenIndex] = useState(0);
+  const displayFaqs = faqs && faqs.length > 0 ? faqs : defaultFaqData;
 
   return (
     <section className="relative bg-black py-24 md:py-32 overflow-hidden border-t border-white/5">
@@ -98,7 +99,7 @@ const FAQ = () => {
 
         {/* Accordion List */}
         <div className="max-w-5xl mx-auto">
-          {faqData.map((item, index) => (
+          {displayFaqs.map((item, index) => (
             <FAQItem
               key={index}
               question={item.question}

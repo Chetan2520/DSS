@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { Minus, Square, X, MousePointer2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const WhyChooseDSS = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -65,7 +66,7 @@ const WhyChooseDSS = () => {
             <motion.div
               initial={{ rotate: -15, x: -20, opacity: 0 }}
               animate={{ rotate: -12, x: 0, opacity: 1 }}
-              className="absolute left-0 bottom-4 w-[140px] aspect-9/19 bg-slate-900 rounded-3xl border-4 border-white/10 shadow-2xl overflow-hidden z-10"
+              className="absolute left-0 bottom-4 w-[110px] sm:w-[140px] aspect-9/19 bg-slate-900 rounded-2xl md:rounded-3xl border-[3px] md:border-4 border-white/10 shadow-2xl overflow-hidden z-10"
             >
               <img
                 src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2670&auto=format&fit=crop"
@@ -76,7 +77,7 @@ const WhyChooseDSS = () => {
             <motion.div
               initial={{ rotate: 12, x: 20, opacity: 0 }}
               animate={{ rotate: 8, x: 0, opacity: 1 }}
-              className="absolute right-0 top-0 w-[140px] aspect-9/19 bg-slate-900 rounded-3xl border-4 border-white/10 shadow-2xl overflow-hidden z-20"
+              className="absolute right-0 top-0 w-[110px] sm:w-[140px] aspect-9/19 bg-slate-900 rounded-2xl md:rounded-3xl border-[3px] md:border-4 border-white/10 shadow-2xl overflow-hidden z-20"
             >
               <img
                 src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=2670&auto=format&fit=crop"
@@ -96,7 +97,7 @@ const WhyChooseDSS = () => {
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="relative w-full max-w-[320px] aspect-[16/10] bg-[#282c34] rounded-xl border border-white/10 shadow-2xl overflow-hidden flex flex-col"
+            className="relative w-full max-w-[260px] md:max-w-[320px] aspect-[16/10] bg-[#282c34] rounded-xl border border-white/10 shadow-2xl overflow-hidden flex flex-col"
           >
             <div className="w-full h-7 bg-[#21252b] border-b border-black/20 flex items-center px-3 gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
@@ -214,7 +215,7 @@ const WhyChooseDSS = () => {
       visual: (
         <div className="relative w-full h-full flex items-center justify-center">
           <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full opacity-40 animate-pulse" />
-          <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full flex items-center justify-center scale-75 md:scale-100">
             <motion.div
               initial={{ scale: 0, rotate: -45 }}
               animate={{ scale: 1, rotate: 0 }}
@@ -331,7 +332,7 @@ const WhyChooseDSS = () => {
             >
               {/* Architectural SVG Border Frame from Asset */}
               <svg
-                className="absolute inset-0 w-full h-full pointer-events-none z-30"
+                className="absolute inset-0 w-full h-full pointer-events-none z-30 hidden md:block"
                 viewBox="0 0 1190 769"
                 preserveAspectRatio="none"
               >
@@ -344,12 +345,22 @@ const WhyChooseDSS = () => {
                 />
               </svg>
 
+              {/* Bulletproof Desktop Clip Path */}
+              <style dangerouslySetInnerHTML={{
+                __html: `
+                  @media (min-width: 768px) {
+                    .desktop-clip {
+                      clip-path: url(#main-asset-clip);
+                      border: none !important;
+                      border-radius: 0 !important;
+                    }
+                  }
+                `
+              }} />
+
               {/* Clipped Container using Asset Path */}
               <div
-                className="h-full w-full p-8 md:p-12 flex flex-col justify-between relative"
-                style={{
-                  clipPath: `url(#main-asset-clip)`,
-                }}
+                className="h-full w-full p-5 pb-20 md:p-12 flex flex-col justify-between relative border border-white/20 rounded-3xl desktop-clip"
               >
                 {/* SVG for Responsive ClipPath derivation */}
                 <svg width="0" height="0" className="absolute">
@@ -363,7 +374,7 @@ const WhyChooseDSS = () => {
                   </defs>
                 </svg>
 
-                <div className="flex gap-2 mb-12 relative z-10">
+                {/* <div className="flex gap-2 mb-12 relative z-10">
                   <div className="p-1 rounded-sm border border-white/20 text-white/40">
                     <Minus size={12} />
                   </div>
@@ -373,7 +384,7 @@ const WhyChooseDSS = () => {
                   <div className="p-1 rounded-sm border border-white/20 text-white/40">
                     <X size={12} />
                   </div>
-                </div>
+                </div> */}
 
                 <div className="relative z-10">
                   <motion.p
@@ -388,7 +399,7 @@ const WhyChooseDSS = () => {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-5xl md:text-7xl font-bold text-white mb-6   tracking-tight leading-none"
+                    className="text-4xl md:text-7xl font-bold text-white mb-4 md:mb-6 tracking-tight leading-none"
                   >
                     Who we are.
                   </motion.h2>
@@ -403,61 +414,67 @@ const WhyChooseDSS = () => {
                     unmatched growth.
                   </motion.p>
 
-                  <div className="mb-12">
-                    <p className="text-white/70 font-semibold mb-4 text-sm   tracking-widest">
-                      Our Trusted Clients
+                  <div className="mb-8 md:mb-12">
+                    <p className="text-white/70 font-semibold mb-4 text-xs md:text-sm md:tracking-widest uppercase">
+                      Our Expertise
                     </p>
-                    <div className="flex items-center">
-                      <div className="flex -space-x-3 overflow-hidden">
-                        {avatars.map((avatar, i) => (
-                          <div
-                            key={i}
-                            className="inline-block h-12 w-12 rounded-full border-2 border-white/50 overflow-hidden shadow-2xl"
-                          >
-                            <img
-                              src={avatar}
-                              alt="Avatar"
-                              className="h-full w-full object-cover"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                      <div className="ml-4 h-12 w-12 rounded-full bg-white shadow-2xl flex items-center justify-center text-xs font-bold text-black border-2 border-white">
-                        1.5K
-                      </div>
+                    <div className="flex flex-wrap gap-2 md:gap-3">
+                      {["Digital Strategy", "Creative Design", "Growth Marketing", "Web Solutions"].map((skill, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-white/20 bg-white/5 text-[10px] md:text-xs text-white/90 backdrop-blur-md"
+                        >
+                          {skill}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-6">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="bg-white text-black px-8 py-4 rounded-full font-bold text-sm tracking-widest   hover:bg-opacity-90 transition-all shadow-2xl"
+                  {/* Continuous Clients Marquee in empty space */}
+                  <div 
+                    className="mt-6 md:mt-8 w-[85%] md:w-[90%] overflow-hidden relative opacity-60 hover:opacity-100 transition-opacity duration-500"
+                    style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}
+                  >
+                    <motion.div
+                      className="flex w-max"
+                      animate={{ x: ["0%", "-50%"] }}
+                      transition={{ duration: 40, ease: "linear", repeat: Infinity }}
                     >
-                      BOOK A CALL
-                    </motion.button>
+                      {[1, 2].map((set) => (
+                        <div key={set} className="flex items-center gap-6 md:gap-12 shrink-0 px-3 md:px-6">
+                          {[
+                            "10.png", "12.png", "13.png", "14.png", "16.png", 
+                            "17.png", "19.png", "20.png", "21.png", "22.png", 
+                            "25.png", "26.png"
+                          ].map((img, i) => (
+                            <img 
+                              key={`${set}-${i}`} 
+                              src={`/images/clients/${img}`} 
+                              alt={`Client ${i}`} 
+                              className="h-10 md:h-12 w-auto object-contain " 
+                            />
+                          ))}
+                        </div>
+                      ))}
+                    </motion.div>
                   </div>
                 </div>
               </div>
-
               {/* Refined Arrow Button - Repositioned and Animated Loop */}
-              <motion.div
-                className="absolute w-24 h-24 md:w-28 md:h-28 bg-white rounded-full flex items-center justify-center shadow-2xl cursor-pointer z-40 transition-all p-8 flex items-center justify-center"
-                style={{
-                  right: `1%`,
-                  bottom: `3%`,
-                  transform: `translate(0, 0)`,
-                }}
-              >
-                <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
-                  <motion.img
-                    animate={arrowControls}
-                    src="/arrow-right.svg"
-                    alt="Arrow Right"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </motion.div>
+              <Link href="/lets-connect" onClick={(e) => e.stopPropagation()} className="absolute z-40 right-2 bottom-2 md:right-[1%] md:bottom-[3%]">
+                <motion.div
+                  className="w-16 h-16 md:w-28 md:h-28 bg-white rounded-full flex items-center justify-center shadow-2xl cursor-pointer transition-all p-5 md:p-8"
+                >
+                  <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
+                    <motion.img
+                      animate={arrowControls}
+                      src="/arrow-right.svg"
+                      alt="Arrow Right"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </motion.div>
+              </Link>
             </div>
           </motion.div>
 
@@ -467,7 +484,7 @@ const WhyChooseDSS = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative h-full border border-white/20 rounded-[2.5rem] p-8 overflow-hidden min-h-[440px] flex flex-col group"
+              className="relative h-full border border-white/20 rounded-3xl md:rounded-[2.5rem] p-6 md:p-8 overflow-hidden min-h-[300px] md:min-h-[440px] flex flex-col group"
             >
               <div className="flex gap-2 mb-8 relative z-20">
                 {slides.map((_, i) => (
@@ -498,7 +515,7 @@ const WhyChooseDSS = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="text-white text-3xl font-bold leading-tight whitespace-pre-line"
+                    className="text-white text-xl md:text-3xl font-bold leading-tight whitespace-pre-line"
                   >
                     {slides[currentSlide].title}
                   </motion.h3>
@@ -512,7 +529,7 @@ const WhyChooseDSS = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.05 }}
                     transition={{ duration: 0.6 }}
-                    className="w-full h-full flex items-center justify-center p-4"
+                    className="w-full h-full flex items-center justify-center p-2 md:p-4"
                   >
                     {slides[currentSlide].visual}
                   </motion.div>
@@ -520,16 +537,16 @@ const WhyChooseDSS = () => {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-2 gap-6 h-fit lg:mt-auto">
+            <div className="grid grid-cols-2 gap-4 md:gap-6 h-fit lg:mt-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="border border-white/20 rounded-4xl p-6 text-center group hover:bg-white/5 transition-colors"
+                className="border border-white/20 rounded-3xl md:rounded-4xl p-4 md:p-6 text-center group hover:bg-white/5 transition-colors"
               >
                 <h4 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  10Y+
+                  7Y+
                 </h4>
                 <p className="text-white/50 text-xs md:text-sm   tracking-tight">
                   of Experience
@@ -540,7 +557,7 @@ const WhyChooseDSS = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.5 }}
-                className="border border-white/20 rounded-4xl p-6 text-center group hover:bg-white/5 transition-colors"
+                className="border border-white/20 rounded-3xl md:rounded-4xl p-4 md:p-6 text-center group hover:bg-white/5 transition-colors"
               >
                 <h4 className="text-3xl md:text-4xl font-bold text-white mb-2">
                   1200+

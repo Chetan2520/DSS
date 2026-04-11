@@ -185,7 +185,7 @@ export default function AboutSection() {
               </span>
             </p>
             <div className="anim-text flex flex-wrap gap-4 items-center">
-              <Link href={"/LetsConnect"}>
+              <Link href={"/lets-connect"}>
                 <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(59,130,246,0.5)]">
                   Start Your Growth
                 </button>

@@ -16,6 +16,8 @@ import {
   Layout,
   Code,
   Rocket,
+  TrendingUp,
+  Users,
 } from "lucide-react";
 import ServiceBanner from "./ServiceBanner";
 import ScrollRevealIntro from "./ScrollRevealIntro";
@@ -31,52 +33,52 @@ const serviceData = {
   title: "E-commerce Applications",
   subtitle: "Shop. Sell. Scale.",
   description:
-    "We build more than just online stores; we build high-converting digital marketplaces. Our platforms ensure your customers enjoy a seamless shopping experience from landing to checkout.",
+    "At Digital Success Solutions, we help businesses establish a strong online presence with advanced and scalable e-commerce solutions tailored to modern customer needs.",
   intro:
-    "From custom headless commerce solutions using Next.js to optimized Shopify setups, we focus on every detail. Our focus is on store speed, mobile-first design, and conversion architecture.",
+    "E-commerce has transformed the way businesses operate, enabling them to reach a global audience and deliver seamless shopping experiences. With rapid digital growth, Indore has emerged as a thriving hub for e-commerce development, offering innovative solutions and skilled professionals.",
 
   features: [
     {
-      title: "Custom Storefronts",
-      desc: "Unique, brand-centric shopping experiences built with Headless Commerce architectures.",
-      icon: <Box className="text-orange-500" />,
+      title: "Digital Adoption",
+      desc: "The increasing use of smartphones and internet services has accelerated online shopping trends.",
+      icon: <TrendingUp className="text-orange-500" />,
     },
     {
-      title: "Conversion Optimization",
-      desc: "Psychological triggers and streamlined checkout flows designed to maximize revenue.",
-      icon: <Zap className="text-orange-500" />,
+      title: "Startup-Friendly Environment",
+      desc: "Indore’s growing startup ecosystem encourages innovation and digital business models.",
+      icon: <Rocket className="text-orange-500" />,
     },
     {
-      title: "Payment & Logistics",
-      desc: "Secure global payment gateways and automated shipping solution integrations.",
-      icon: <CreditCard className="text-orange-500" />,
+      title: "Government Support",
+      desc: "Various initiatives promoting digital transformation and MSMEs are fueling e-commerce growth.",
+      icon: <ShieldCheck className="text-orange-500" />,
     },
     {
-      title: "Inventory Engine",
-      desc: "Robust backend systems that track stock in real-time across all sales channels.",
-      icon: <ShoppingCart className="text-orange-500" />,
+      title: "Changing Consumer Behavior",
+      desc: "Customers now prefer convenience, variety, and quick delivery, making online platforms essential.",
+      icon: <Users className="text-orange-500" />,
     },
   ],
 
   process: [
     {
       step: "Business Analysis",
-      text: "Deep-diving into your product lines and target audience to select the optimal tech stack.",
+      text: "Deep dive into your market, competitors, and target audience to uncover opportunities and define a winning e-commerce strategy. We help you choose the right platform, features, and growth roadmap tailored to your business goals.",
       icon: Search,
     },
     {
       step: "UX/UI Architecture",
-      text: "Designing intuitive user journeys and mobile-first layouts that significantly reduce abandonment.",
+      text: "Designing seamless, intuitive shopping experiences that convert visitors into customers. From product discovery to checkout, we craft mobile-first interfaces that reduce friction and boost engagement.",
       icon: Layout,
     },
     {
-      step: "API & Core Dev",
-      text: "Building the secure core, payment integrations, and connecting your CRM/ERP systems.",
+      step: "API & Core Development",
+      text: "Building a powerful, secure foundation for your e-commerce platform. We develop scalable back-end systems, integrate payment gateways, shipping solutions, and connect third-party services for smooth operations.",
       icon: Code,
     },
     {
       step: "Scale & Launch",
-      text: "Rigorous stress-testing and server optimization for high-traffic deployment and global reach.",
+      text: "From testing to deployment, we ensure your store is optimized for performance, security, and growth. Whether you're launching or scaling globally, we prepare your platform to handle high traffic and deliver consistent user experiences.",
       icon: Rocket,
     },
   ],
@@ -101,6 +103,33 @@ const serviceData = {
     },
   ],
 };
+
+const ecommerceFaqs = [
+  {
+    question: "What e-commerce platforms do you build websites on?",
+    answer: "We build tailored e-commerce solutions on platforms like Shopify, WooCommerce, and custom frameworks based on your specific scalability and operational needs."
+  },
+  {
+    question: "Will my e-commerce website be mobile-friendly?",
+    answer: "Yes, all our e-commerce websites are optimized with a mobile-first approach ensuring a smooth shopping experience across all smartphones and tablets."
+  },
+  {
+    question: "Do you integrate secure payment gateways?",
+    answer: "Absolutely! We integrate highly secure and widely trusted payment gateways like Razorpay, Stripe, and PayPal to ensure safe and seamless transactions for your customers."
+  },
+  {
+    question: "Can you help optimize product pages for better sales?",
+    answer: "Our UI/UX and SEO teams work together to structure product pages with clear CTAs, high-quality visuals, and persuasive copy to maximize your conversion rates."
+  },
+  {
+    question: "How do I manage my products and inventory?",
+    answer: "We provide an easy-to-use admin dashboard that enables you to add, edit, or remove products, track inventory, and manage customer orders efficiently."
+  },
+  {
+    question: "Do you offer post-launch support and maintenance?",
+    answer: "Yes, we provide ongoing technical support, security updates, and performance monitoring to ensure your e-commerce store runs smoothly and efficiently at all times."
+  }
+];
 
 const EcommerceApplications = () => {
   const containerRef = useRef(null);
@@ -145,7 +174,7 @@ const EcommerceApplications = () => {
       <ServiceBanner
         title="E-commerce Applications"
         description={serviceData.description}
-        imageSrc="https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2089&auto=format&fit=crop"
+        imageSrc="/ecom.png"
         currentPage="E-commerce"
       />
 
@@ -155,7 +184,7 @@ const EcommerceApplications = () => {
       <div className="relative z-10 w-full px-0">
         {/* --- WHAT WE DO SECTION (WHITE GRID) --- */}
         <section
-          className="what-we-build-wrapper relative py-24 px-6 md:px-12 bg-cover bg-center bg-no-repeat"
+          className="what-we-build-wrapper relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('/services.webp')` }}
         >
           <div className="absolute inset-0 bg-black/60 z-0" />
@@ -163,24 +192,23 @@ const EcommerceApplications = () => {
           <div className="relative z-10 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 px-2">
               <div>
-                <h2 className="text-4xl md:text-7xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight    ">
-                  Retail{" "}
+                <h2 className="text-4xl md:text-5xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight    ">
+                  Why E-commerce is <br />
                   <span className="bg-clip-text bg-linear-to-r from-white via-orange-400 to-orange-600">
-                    Powerhouse
+                    Growing in Indore
                   </span>
                 </h2>
               </div>
               <p className="text-zinc-400 text-xs max-w-xs font-medium border-l border-orange-500/30 pl-4 leading-relaxed">
-                Transforming browsers into buyers through strategic commerce
-                engineering.
+                The shift towards digital shopping and business transformation.
               </p>
             </div>
 
-            <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-[3rem] p-8 md:p-16 shadow-2xl">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-4xl p-3 md:p-12 shadow-2xl">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-8 md:gap-12">
                 {serviceData.features.map((feature, i) => (
                   <div key={i} className="group relative">
-                    <div className="relative p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-orange-500 hover:shadow-xl active:scale-95">
+                    <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-orange-500 hover:shadow-xl active:scale-95">
                       <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 bg-zinc-900/5 transition-all group-hover:scale-110">
                         {feature.icon}
                       </div>
@@ -246,35 +274,35 @@ const EcommerceApplications = () => {
               {/* Title Card */}
               <div className="animate-card group relative p-10 rounded-4xl bg-white  border border-orange-600 flex flex-col justify-center min-h-[300px]">
                 <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 tracking-tighter leading-[1.1]  ">
-                  Why Choose <br /> Our Ecommerce <br /> Expertise?
+                  Our E-commerce <br /> Development Services <br /> in Indore
                 </h2>
               </div>
 
               {[
                 {
-                  title: "Conversion First",
-                  text: "We design storefronts specifically to turn browsers into buyers through strategic UX.",
-                  icon: <Zap />,
+                  title: "Custom E-commerce Website Development",
+                  text: "Our team develops websites that are both user-friendly and adaptable, tailored to drive growth for your business.",
+                  icon: <Code />,
                 },
                 {
-                  title: "Secure Scale",
-                  text: "Bank-grade security and scalable infrastructure that grows with your sales volume.",
-                  icon: <ShieldCheck />,
+                  title: "Mobile Commerce Solutions",
+                  text: "Mobile-optimized platforms and apps for better user engagement and higher conversions.",
+                  icon: <Layout />,
                 },
                 {
-                  title: "Seamless Checkout",
-                  text: "Reducing cart abandonment with streamlined, one-page checkout experiences.",
+                  title: "Payment Gateway Integration",
+                  text: "Secure and smooth payment solutions for hassle-free transactions.",
                   icon: <CreditCard />,
                 },
                 {
-                  title: "Inventory IQ",
-                  text: "Automated stock management and multi-channel synchronization as standard.",
-                  icon: <Box />,
+                  title: "SEO & Digital Marketing",
+                  text: "We optimize your store to rank higher and attract quality traffic.",
+                  icon: <Search />,
                 },
                 {
-                  title: "Mobile Dominance",
-                  text: "Optimized for the 80% of shoppers who prefer to buy on their smartphones.",
-                  icon: <Globe />,
+                  title: "Custom Features & Integrations",
+                  text: "From inventory management to analytics, we add features that enhance performance.",
+                  icon: <Zap />,
                 },
               ].map((benefit, i) => (
                 <div
@@ -354,7 +382,7 @@ const EcommerceApplications = () => {
           <GrowthBreakthrough />
 
           {/* --- FAQ SECTION --- */}
-          <FAQ />
+          <FAQ faqs={ecommerceFaqs} />
         </div>
       </div>
     </div>

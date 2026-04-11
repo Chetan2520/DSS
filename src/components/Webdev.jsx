@@ -97,50 +97,50 @@ const GridBackground = () => (
 
 const serviceData = {
   hero: {
-    title: "Website Development Company in Indore",
+    title: "Website Development",
     subtitle: "Build a Powerful Online Presence",
     intro:
-      "In today's digital age, a website isn't just an online brochure. A website is your business's digital showroom, sales executive, and brand identity. Customer impressions are formed through the website and that impression determines whether a visitor converts into a lead or moves on to a competitor.",
-    desc: "At Digital Success Solutions, we don't just design and develop websites, but also build e-commerce platforms that directly support sales and business growth. Our focus is on creating a website for each client that is user-friendly, fast, and conversion-optimized.",
+      "In the modern digital era, a website is not just a platform it is the face of your business online. Choosing the right web development company in Indore can make a significant difference in how your brand is perceived. Digital Success Solutions helps businesses build powerful, result oriented websites that create a strong and lasting impact.",
+    desc: "We focus on developing websites that not only look professional but also perform efficiently to support your business growth and customer engagement.",
     ctaText:
       "So you need a high-quality, fast, mobile-friendly, and conversion-optimized website.",
   },
 
-  types: [
+  types:[
     {
-      title: "Business & Corporate Websites",
-      desc: "Business and corporate websites are used to project a professional image for a company. They clearly display services, company profiles, and contact details. These websites help build brand trust and increase client inquiries.",
-      icon: Building2,
+      title: "We Provide Custom Website Solutions",
+      desc: "We build fully personalized websites that align perfectly with your brand and business objectives.",
+      icon: Code,
       color: "blue",
     },
     {
-      title: "E-Commerce Websites",
-      desc: "E-commerce websites are designed to sell products or services online. They feature product listings, secure payment gateways, and a smooth checkout process. These websites help increase direct sales and scale businesses quickly.",
-      icon: ShoppingCart,
+      title: "Search Engine Friendly Development",
+      desc: "Our websites are structured to improve visibility on search engines and attract the right audience organically.",
+      icon: Globe,
       color: "orange",
     },
     {
-      title: "Dynamic Websites & Web Apps",
-      desc: "Dynamic websites where content can be easily updated and managed. Perfect for growing businesses that need regular updates. High-performance custom web applications tailored to your specific business logic.",
-      icon: Code,
+      title: "Website Improvement & Maintenance",
+      desc: "We upgrade existing websites by improving speed, fixing issues, and enhancing overall performance.",
+      icon: Server,
       color: "cyan",
     },
     {
-      title: "Landing Pages",
-      desc: "The main goal of landing pages is to generate conversions. These pages are used for ads, promotions, and lead generation campaigns. With high-converting designs and strong CTAs, they drive inquiries and sales.",
-      icon: Zap,
+      title: "E-Commerce Website Development",
+      desc: "We develop user friendly online stores that simplify the buying journey and boost conversions.",
+      icon: ShoppingCart,
       color: "amber",
     },
     {
-      title: "Multi-Vendor Marketplace Development",
-      desc: "Multi-vendor websites allow multiple vendors to sell on a single platform. Vendor dashboards, commission systems, and order management features are often included. These marketplaces are the perfect solution for businesses.",
-      icon: Database,
+      title: "Responsive Web Design",
+      desc: "We create mobile friendly and fully responsive websites that deliver a seamless experience across all devices, including smartphones, tablets, and desktops.",
+      icon: Layout,
       color: "emerald",
     },
     {
-      title: "UI/UX Visual Design",
-      desc: "This phase creates a website visual design that is professional, modern, and brand-focused. We prioritize mobile responsiveness and intuitive user journeys to maximize engagement and conversion.",
-      icon: Layout,
+      title: "UI/UX Focused Design",
+      desc: "Our designs are crafted with user experience in mind, ensuring intuitive navigation, attractive layouts, and higher user engagement for better conversion results.",
+      icon: Palette,
       color: "indigo",
     },
   ],
@@ -169,29 +169,29 @@ const serviceData = {
 
   benefits: [
     {
-      title: "Strong Online Presence",
-      text: "A professional website strengthens your business online. Makes brand visible on Google & social media.",
-      icon: Globe,
+      title: "Goal Oriented Execution",
+      text: "We focus on building websites that contribute directly to your success and growth.",
+      icon: Target,
     },
     {
-      title: "Higher Trust and Credibility",
-      text: "Consistent branding increases credibility. Customers trust brands that appear professional.",
-      icon: Shield,
+      title: "Experienced Professionals",
+      text: "Our team combines technical knowledge with creative thinking to deliver impactful solutions.",
+      icon: Briefcase,
     },
     {
-      title: "More Leads and Inquiries",
-      text: "Conversion-optimized website with clear CTAs consistently increases enquiries.",
-      icon: TrendingUp,
+      title: "User Centric Approach",
+      text: "We prioritize user experience to ensure better engagement and higher conversion rates.",
+      icon: UserCircle,
     },
     {
-      title: "SEO and Ads Friendly",
-      text: "SEO-ready structure makes website ideal for Google rankings and better Ad ROI.",
-      icon: Rocket,
+      title: "Fully Responsive Design",
+      text: "Your website will perform smoothly across all devices, including mobile, tablet, and desktop.",
+      icon: Layout,
     },
     {
-      title: "Long-Term ROI",
-      text: "Generates consistent leads over the long term, reducing marketing costs.",
-      icon: Zap,
+      title: "Cost Effective Services",
+      text: "We provide high quality solutions at competitive prices without compromising on standards.",
+      icon: Sparkles,
     },
   ],
 
@@ -239,6 +239,33 @@ const serviceData = {
     },
   ],
 };
+
+const webDevFaqs = [
+  {
+    question: "What services does Digital Success Solutions offer in website development?",
+    answer: "We offer full website development services, including custom website design, responsive development, e-commerce solutions, website optimization, and continuous maintenance support."
+  },
+  {
+    question: "How much time is required to create a website?",
+    answer: "The time needed depends on the website’s specific requirements and features. Simple websites can be completed quickly, while more complex or e-commerce projects require additional time for development and quality assurance."
+  },
+  {
+    question: "Do you create mobile-friendly websites?",
+    answer: "Yes, all our websites are fully responsive and designed to work well on mobile, tablet, and desktop devices."
+  },
+  {
+    question: "Will my website be SEO-friendly?",
+    answer: "Yes, we ensure that all websites are built with an SEO-friendly structure, fast loading speeds, and proper coding to help improve your search engine rankings."
+  },
+  {
+    question: "Can you redesign my existing website?",
+    answer: "Yes, we can update and improve your current website to provide a modern design, better performance, and a more enhanced user experience."
+  },
+  {
+    question: "Do you provide e-commerce website development?",
+    answer: "Yes, we develop secure and user-friendly e-commerce websites that make online selling efficient and easy."
+  }
+];
 
 const WebDevAgency = () => {
   const containerRef = useRef(null);
@@ -322,7 +349,7 @@ const WebDevAgency = () => {
 
       {/* What We Build Section - REVERTED TO PREVIOUS LIGHT THEME */}
       <section
-        className="what-we-build-wrapper relative py-16 px-6 md:px-12 bg-cover bg-center bg-no-repeat"
+        className="what-we-build-wrapper relative py-16 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('/services.webp')` }}
       >
         {/* Subtle Overlay to make text readable on white */}
@@ -332,23 +359,23 @@ const WebDevAgency = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 px-2">
             <div>
               {/* <span className="text-orange-500 text-[10px]     tracking-[0.4em] mb-4 block">Our Deliverables</span> */}
-              <h2 className="text-4xl md:text-6xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight">
-                What We{" "}
+              <h2 className="text-4xl md:text-5xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight">
+                Our Web Development <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-orange-400 to-orange-600">
-                  Build
+                  Services in Indore
                 </span>
               </h2>
             </div>
             <p className="text-zinc-400 text-xs max-w-xs font-medium border-l border-orange-500/30 pl-4 leading-relaxed">
-              High-performance solutions tailored to your business needs.
+              We offer complete web solutions designed to meet the unique needs of every business.
             </p>
           </div>
 
-          <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-4xl p-8 md:p-12 shadow-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-4xl p-3 md:p-12 shadow-2xl">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-8 md:gap-12">
               {serviceData.types.map((type, i) => (
                 <div key={i} className="group relative">
-                  <div className="relative p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
+                  <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
                     <h3 className="text-xl md:text-2xl   text-zinc-900 mb-3 tracking-tight  ">
                       {type.title}
                     </h3>
@@ -424,7 +451,7 @@ const WebDevAgency = () => {
             {/* Title Card - Inspired by "Guiding Values" */}
             <div className="animate-card group relative p-10 rounded-4xl bg-blue-500/50 border border-indigo-500/20 flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tighter leading-[1.1]">
-                Why Choose <br /> Professional <br /> Web Design?
+                Why Choose <br /> Digital Success Solutions?
               </h2>
             </div>
 
@@ -460,7 +487,7 @@ const WebDevAgency = () => {
         <GrowthBreakthrough />
 
         {/* --- FAQ SECTION --- */}
-        <FAQ />
+        <FAQ faqs={webDevFaqs} />
 
         {/* Mastered Technologies - Marquee Section */}
         <div className="border-t border-white/5 pt-32 pb-48 overflow-hidden">

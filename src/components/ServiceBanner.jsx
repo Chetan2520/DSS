@@ -22,7 +22,7 @@ const ServiceBanner = ({
       className={`relative w-full flex items-center bg-black overflow-hidden min-h-[80vh]  py-20 md:py-0`}
     >
       {/* Background Image - Only if no video/image or as a fallback/underlay */}
-      {(!videoSrc && !imageSrc) && bgImage && (
+      {!videoSrc && !imageSrc && bgImage && (
         <div className="absolute inset-0 z-0">
           <Image
             src={bgImage}
@@ -39,10 +39,12 @@ const ServiceBanner = ({
       {/* Content Container */}
       <div className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-12 w-full">
         <div
-          className={`grid grid-cols-1 ${(videoSrc || imageSrc) ? "lg:grid-cols-12" : ""} gap-12 items-center`}
+          className={`grid grid-cols-1 ${videoSrc || imageSrc ? "lg:grid-cols-12" : ""} gap-12 items-center`}
         >
           {/* Left Content Column */}
-          <div className={`${(videoSrc || imageSrc) ? "lg:col-span-7" : "max-w-4xl"}`}>
+          <div
+            className={`${videoSrc || imageSrc ? "lg:col-span-7" : "max-w-4xl"}`}
+          >
             {/* Heading & Description */}
             <div className="space-y-6">
               <motion.h1
@@ -77,7 +79,7 @@ const ServiceBanner = ({
                   className="pt-6"
                 >
                   <Link
-                    href="/LetsConnect"
+                    href="/lets-connect"
                     className="inline-flex items-center justify-center px-8 py-4 bg-white text-black font-bold   tracking-widest text-xs rounded-full hover:bg-orange-600 hover:text-white transition-all transform hover:scale-105 active:scale-95"
                   >
                     Start Your Project

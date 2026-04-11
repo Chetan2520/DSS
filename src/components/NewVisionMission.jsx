@@ -91,26 +91,22 @@ export default function VisionMissionReveal() {
 
             <div className="text-gray-400 text-sm md:text-lg leading-relaxed space-y-4 border-l border-white/10 pl-6 md:pl-8 h-[60vh] overflow-y-auto md:h-auto scrollbar-hide">
               <p>
-                To build a future where every startup, small business, and
-                growing brand in India has the power to{" "}
+                To build a future where every startup, small business and growing brand in India has the power to{" "}
                 <strong className="text-white">
                   stand strong in the digital world.
                 </strong>
               </p>
               <p>
-                We want to support founders whose dreams are big but resources
-                are limited. Many young businesses never reach their true
-                potential because they cannot afford the level of digital
-                presence and branding they need.{" "}
+                We want to support founders whose dreams are big but resources are limited. Many small businesses are unable to grow fully because they lack the digital visibility and branding they need.{" "}
                 <span className="text-white italic">
                   Our vision is to remove that barrier.
                 </span>
               </p>
               <p>
-                We aim to create powerful, affordable digital solutions that
-                turn ideas into brands, give confidence to early-stage
-                entrepreneurs, and help Indian businesses grow in a
-                digital-first economy.
+                We aim to create powerful, affordable digital solutions that turn ideas into brands, give confidence to early-stage entrepreneurs and help Indian businesses grow in a digital-first economy.
+              </p>
+              <p>
+                We want to contribute to a stronger, more connected and more successful Digital India.
               </p>
             </div>
           </div>
@@ -133,23 +129,20 @@ export default function VisionMissionReveal() {
             {/* Text Content */}
             <div className="order-2 md:order-1 text-gray-900 text-sm md:text-lg leading-relaxed space-y-4 border-l-4 border-black pl-6 md:pl-8 h-[60vh] overflow-y-auto md:h-auto scrollbar-hide">
               <p className="font-bold text-xl md:text-2xl">
-                Our mission is to create real impact, not just complete
-                projects.
+                Our mission is to create real impact, not just complete projects.
               </p>
               <p>
-                We want to help businesses from every industry—services,
-                e-commerce, manufacturing, healthcare, education, finance, real
-                estate and more—grow with clarity and reach.
+                We want to help businesses from every industry—services, e-commerce, manufacturing, healthcare, education, finance, real estate and more—grow with clarity and reach.
               </p>
               <p>
                 We focus on supporting{" "}
                 <strong className="underline decoration-black decoration-2 underline-offset-2">
                   early-stage entrepreneurs
                 </strong>{" "}
-                who want to build something meaningful but struggle with the
-                high cost of marketing. Through impactful websites and
-                performance-driven marketing, we help them grow faster, compete
-                better, and build trust.
+                who want to build something meaningful but struggle with the high cost of marketing and branding. Through impactful websites, performance-driven marketing and thoughtful branding, we help them grow faster, compete better and build trust in the market.
+              </p>
+              <p>
+                Our goal is to empower Indian businesses, strengthen the startup ecosystem, and contribute to the vision of Startup India by helping brands rise digitally and create long-term success.
               </p>
             </div>
 
@@ -157,9 +150,9 @@ export default function VisionMissionReveal() {
               <h2 className="text-black/60 font-bold tracking-[0.2em]   text-xs md:text-sm">
                 The Impact
               </h2>
-              <h2 className="text-5xl md:text-8xl tracking-tighter text-black leading-tight">
-                OUR <br />
-                <span className="text-white drop-shadow-sm">MISSION</span>
+              <h2 className="text-4xl  md:text-8xl tracking-tighter text-black leading-tight">
+                OUR   
+                <span className="text-white ml-3 drop-shadow-sm">MISSION</span>
               </h2>
               <div className="h-1.5 md:h-2 w-24 md:w-32 bg-black rounded-full mt-4 ml-0 md:ml-auto" />
             </div>

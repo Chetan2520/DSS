@@ -34,48 +34,48 @@ gsap.registerPlugin(ScrollTrigger);
 // --- CONTENT DATA ---
 const seoContent = {
   header: {
-    title: "SEO Company in Indore",
+    title: "SEO Services in Indore ",
     subtitle: "Growing Multiple Businesses in a Short Time.",
-    desc: "In today’s digital landscape, a website alone can’t deliver results without visibility. Our SEO services in Indore boost your online presence, drive targeted traffic, and convert visitors into leads.",
+    desc: "In today’s digital landscape, a website alone can’t deliver results without visibility. Our SEO services in Indore boost your online presence, drive targeted traffic, and convert visitors into leads. At Digital Success Solutions, we use data driven strategies and advanced tools to create customized SEO plans for long term growth and measurable success.",
   },
   intro:
-    "At Digital Success Solutions, we use data driven strategies and advanced tools to create customized SEO plans for long term growth and measurable success. We don't just create random backlinks or unnecessary blogs. We only do what creates a direct impact.",
+    "We continuously analyze market trends and competitor strategies to keep your business ahead in search rankings. Our team focuses on delivering sustainable results by adapting to the latest search engine algorithms. With a strong emphasis on performance and ROI, we ensure your business achieves consistent online growth.",
 
   services: [
     {
-      title: "Enterprise SEO",
-      desc: "Complex strategies for large-scale corporate structures and massive site architectures.",
-      icon: Building2,
+      title: "Mobile Optimization",
+      desc: "With most users accessing websites through smartphones, we ensure your website delivers a seamless mobile experience that meets search engine standards.",
+      icon: Globe,
       color: "blue",
     },
     {
-      title: "Local SEO",
-      desc: "Dominating Indore's local search results and Google My Business rankings.",
-      icon: MapPin,
+      title: "E-Commerce SEO",
+      desc: "We help online businesses enhance product visibility, optimize category structures, and improve conversion rates with targeted SEO strategies.",
+      icon: Zap,
       color: "red",
     },
     {
-      title: "Ecommerce SEO",
-      desc: "Optimizing product pages and category structures to drive organic sales.",
-      icon: Zap,
+      title: "Local Search Optimization",
+      desc: "We focus on improving your visibility in local searches so your business can attract nearby customers and increase footfall or inquiries.",
+      icon: MapPin,
       color: "amber",
     },
     {
-      title: "Technical SEO",
-      desc: "Fixing core web vitals, schema markup, and site architecture for crawlability.",
-      icon: Settings,
+      title: "Canonical & Duplicate Content Fixing",
+      desc: "We implement proper canonical strategies to avoid duplicate content issues and ensure search engines index the correct version of your pages.",
+      icon: FileText,
       color: "cyan",
     },
     {
-      title: "SEO Copywriting",
-      desc: "Intent-focused content that satisfies both users and search algorithms.",
-      icon: PenTool,
+      title: "Technical SEO Optimization",
+      desc: "We optimize website structure, improve page speed, fix crawl errors, and enhance indexing to ensure your website performs efficiently on search engines.",
+      icon: Settings,
       color: "emerald",
     },
     {
-      title: "International SEO",
-      desc: "Reaching global markets with multi-regional and multi-lingual SEO strategies.",
-      icon: Globe,
+      title: "Keyword Research & Content Strategy",
+      desc: "We identify high-performing keywords and create strategic content plans that help your website rank higher and attract the right audience organically.",
+      icon: Search,
       color: "indigo",
     },
   ],
@@ -169,9 +169,9 @@ const SeoOptimization = () => {
 
       {/* --- HERO BANNER SECTION --- */}
       <ServiceBanner
-        title="Search Engine Optimization"
+        title="SEO Services in Indore "
         description={seoContent.header.desc}
-        imageSrc="https://images.unsplash.com/photo-1571721795195-a2cb2d33e00d?q=80&w=1964&auto=format&fit=crop"
+        imageSrc="/seo.png"
         currentPage="SEO"
       />
 
@@ -181,7 +181,7 @@ const SeoOptimization = () => {
       <div className="relative z-10 w-full px-0">
         {/* --- WHAT WE DO SECTION (WHITE GRID) --- */}
         <section
-          className="what-we-build-wrapper relative py-24 px-6 md:px-12 bg-cover bg-center bg-no-repeat"
+          className="what-we-build-wrapper relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('/services.webp')` }}
         >
           <div className="absolute inset-0 bg-black/60 z-0" />
@@ -202,11 +202,11 @@ const SeoOptimization = () => {
               </p>
             </div>
 
-            <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-[3rem] p-8 md:p-16 shadow-2xl">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-4xl p-3 md:p-12 shadow-2xl">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-8 md:gap-12">
                 {seoContent.services.map((service, i) => (
                   <div key={i} className="group relative">
-                    <div className="relative p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
+                    <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
                       <h3 className="text-xl md:text-2xl   text-zinc-900 mb-3 tracking-tight  ">
                         {service.title}
                       </h3>
@@ -269,34 +269,35 @@ const SeoOptimization = () => {
               {/* Title Card */}
               <div className="animate-card group relative p-10 rounded-4xl bg-white  border border-orange-600 flex flex-col justify-center min-h-[300px]">
                 <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 tracking-tighter leading-[1.1]  ">
-                  Why Invest <br /> In Organic <br /> Growth?
+                 Our Complete 
+ <br /> SEO Services
                 </h2>
               </div>
 
               {[
                 {
-                  title: "Higher ROI",
-                  text: "Organic traffic delivers the highest long-term ROI compared to any other marketing channel.",
+                  title: "Technical Optimization",
+                  text: " We enhance your website’s technical performance to ensure smooth crawling, indexing, and faster loading speed.",
                   icon: <TrendingUp />,
                 },
                 {
-                  title: "Brand Authority",
-                  text: "Ranking on the first page builds instant trust and credibility for your business.",
+                  title: "On Page Optimization",
+                  text: " We optimize your website content and structure to improve relevance, user experience, and search engine rankings",
                   icon: <ShieldCheck />,
                 },
                 {
-                  title: "24/7 Visibility",
-                  text: "Unlike ads, SEO keeps working for you around the clock, even when you're sleeping.",
+                  title: "Off Page Optimization",
+                  text: " We build your website’s authority and trust through quality backlinks and strong online presence.",
                   icon: <Zap />,
                 },
                 {
-                  title: "Cost Efficiency",
-                  text: "Reduces dependence on paid ads and lowers your cost per lead over time.",
+                  title: "Analytics & Performance Tracking",
+                  text: " We monitor SEO performance using advanced tools to track rankings, traffic, and conversions for continuous improvement.",
                   icon: <BarChart3 />,
                 },
                 {
-                  title: "Sustainable Growth",
-                  text: "Builds a permanent digital asset that continues to grow in value every month.",
+                  title: "Local SEO",
+                  text: "Dominate local search results with Google My Business optimization and location-specific strategies.",
                   icon: <ArrowUpRight />,
                 },
               ].map((benefit, i) => (

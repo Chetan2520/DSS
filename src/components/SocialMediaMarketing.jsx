@@ -29,12 +29,12 @@ gsap.registerPlugin(ScrollTrigger);
 // --- CONTENT DATA ---
 const serviceData = {
   id: "social-media-marketing",
-  title: "Social Media Marketing Indore",
+  title: "Social Media Marketing",
   subtitle: "Build. Engage. Dominate.",
   description:
-    "We don't just post content; we spark conversations. Our social media strategies are designed to build local authority for Indore businesses and create brand loyalists globally.",
+    "At Digital Success Solutions, we help businesses turn social media into a result driven growth engine. With the right strategy, your brand can generate loyal followers, high quality leads, and consistent revenue.",
   intro:
-    "In a world of infinite scrolling, we make sure your brand is the one that makes them stop. From high-impact reels to community management, we turn platforms into profit centers.",
+    "For businesses of all sizes, social media marketing is one of the most powerful ways to connect with potential customers and build long term relationships. If your business is not actively using platforms like Facebook, Instagram, and LinkedIn, you are missing valuable opportunities to engage, convert, and grow.",
 
   platforms: [
     {
@@ -85,39 +85,39 @@ const serviceData = {
 
   services: [
     {
-      title: "Content Strategy",
-      icon: ImageIcon,
-      desc: "Data-backed content pillars designed for maximum engagement, shares and saves.",
-      color: "pink",
-    },
-    {
-      title: "Community Management",
-      icon: Users,
-      desc: "Proactive engagement that transforms followers into a loyal and active brand community.",
+      title: "Twitter Marketing",
+      icon: MessageSquare,
+      desc: "Twitter is a fast growing platform ideal for sharing ideas, updates, and engaging in real time conversations. We help you build authority and visibility through strategic posting and engagement.",
       color: "blue",
     },
     {
-      title: "Reels & Video",
-      icon: Video,
-      desc: "High-energy short-form video production optimized for viral discovery and retention.",
-      color: "red",
-    },
-    {
-      title: "Influencer Collabs",
-      icon: Share2,
-      desc: "Connecting your brand with authentic voices that resonate deeply with your audience.",
-      color: "purple",
-    },
-    {
-      title: "Analytics & ROI",
-      icon: BarChart,
-      desc: "Detailed monthly reporting focused on engagement rates, traffic and conversion metrics.",
+      title: "LinkedIn Marketing",
+      icon: Users,
+      desc: "LinkedIn is a powerful platform for B2B marketing and building strong professional connections.",
       color: "indigo",
     },
     {
-      title: "Paid Social",
-      icon: Target,
-      desc: "Hyper-targeted ad sets that deliver 2x higher CTR than industry averages.",
+      title: "Instagram Marketing",
+      icon: ImageIcon,
+      desc: "Instagram is a visually driven platform with massive user engagement. Our team creates creative content strategies that boost your brand visibility and engagement.",
+      color: "pink",
+    },
+    {
+      title: "Pinterest Marketing",
+      icon: Layout,
+      desc: "Pinterest is ideal for showcasing products and driving website traffic. We design strategies to maximize your reach and conversions.",
+      color: "red",
+    },
+    {
+      title: "Facebook Marketing",
+      icon: Share2,
+      desc: "Facebook remains one of the largest platforms for audience targeting. We help you generate leads, build communities, and grow your business.",
+      color: "blue",
+    },
+    {
+      title: "Blog Marketing",
+      icon: Search,
+      desc: "Blogs are essential for long term growth. We create SEO friendly, engaging blog content that improves your website ranking and builds authority.",
       color: "emerald",
     },
   ],
@@ -164,6 +164,33 @@ const serviceData = {
     }
   ],
 };
+
+const socialMediaFaqs = [
+  {
+    question: "How can social media marketing help grow my business?",
+    answer: "Social media marketing helps your business reach a wider audience, build trust, and convert followers into paying customers through consistent and strategic engagement."
+  },
+  {
+    question: "Which platforms should I focus on for better results?",
+    answer: "The choice of platform depends on your business type, target audience, and goals. We analyze your niche to select the most effective channels for maximum impact."
+  },
+  {
+    question: "Do I need paid ads along with organic marketing?",
+    answer: "While organic growth builds trust over time, paid advertising accelerates reach and delivers faster results by targeting the right audience."
+  },
+  {
+    question: "How do you create engaging social media content?",
+    answer: "We combine creative visuals, compelling captions, and trending strategies to produce content that captures attention and encourages interaction."
+  },
+  {
+    question: "Will I get measurable results from social media marketing?",
+    answer: "Yes, we track performance through analytics such as reach, engagement, and conversions to ensure your campaigns deliver real business outcomes."
+  },
+  {
+    question: "How do you maintain brand consistency across platforms?",
+    answer: "We follow a structured content strategy, consistent design elements, and brand voice guidelines to ensure a strong and unified brand presence."
+  }
+];
 
 const SocialMediaMarketing = () => {
   const containerRef = useRef(null);
@@ -218,7 +245,7 @@ const SocialMediaMarketing = () => {
       <div className="relative z-10 w-full px-0">
         {/* --- WHAT WE DO SECTION (WHITE GRID) --- */}
         <section
-          className="what-we-build-wrapper relative py-24 px-6 md:px-12 bg-cover bg-center bg-no-repeat"
+          className="what-we-build-wrapper relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('/services.webp')` }}
         >
           <div className="absolute inset-0 bg-black/60 z-0" />
@@ -226,24 +253,23 @@ const SocialMediaMarketing = () => {
           <div className="relative z-10 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 px-2">
               <div>
-                <h2 className="text-4xl md:text-7xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight    ">
-                  Social{" "}
+                <h2 className="text-4xl md:text-5xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight    ">
+                  Our Social Media <br />
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-blue-400 to-blue-600">
-                    Domination
+                    Marketing Services
                   </span>
                 </h2>
               </div>
               <p className="text-zinc-400 text-xs max-w-xs font-medium border-l border-blue-500/30 pl-4 leading-relaxed">
-                Commanding presence across every major digital platform with
-                authority.
+                Comprehensive social media solutions to grow your business.
               </p>
             </div>
 
-            <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-[3rem] p-8 md:p-16 shadow-2xl">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div className="what-we-build-container bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-4xl p-3 md:p-12 shadow-2xl">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-8 md:gap-12">
                 {serviceData.services.map((service, i) => (
                   <div key={i} className="group relative">
-                    <div className="relative p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
+                  <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
                       <h3 className="text-xl md:text-2xl   text-zinc-900 mb-3 tracking-tight  ">
                         {service.title}
                       </h3>
@@ -265,35 +291,35 @@ const SocialMediaMarketing = () => {
               {/* Title Card */}
               <div className="animate-card group relative p-10 rounded-4xl bg-white  border border-orange-600 flex flex-col justify-center min-h-[300px]">
                 <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 tracking-tighter leading-[1.1]  ">
-                  Why Choose <br /> Social Media <br /> Domination?
+                  Why Choose <br /> Digital Success Solutions?
                 </h2>
               </div>
 
               {[
                 {
-                  title: "Platform Mastery",
-                  text: "Diverse expertise across Instagram, LinkedIn, and Facebook to maximize multi-channel reach.",
-                  icon: Zap,
+                  title: "Expert Strategy",
+                  text: "Our experienced team creates customized strategies based on your business goals and target audience.",
+                  icon: Target,
                 },
                 {
-                  title: "Brand Authority",
-                  text: "Transforming your business from a company into a thought leader in your industry.",
+                  title: "Creative Content",
+                  text: "We design high quality content that captures attention and drives engagement.",
+                  icon: ImageIcon,
+                },
+                {
+                  title: "Targeted Marketing",
+                  text: "We reach the right audience using advanced targeting techniques.",
                   icon: Users,
                 },
                 {
-                  title: "Data Precision",
-                  text: "Every piece of content is backed by audience data to ensure maximum resonance.",
-                  icon: BarChart,
-                },
-                {
-                  title: "Hyper-Growth",
-                  text: "Accelerated follower growth and engagement through viral-optimized reels.",
+                  title: "Performance Tracking",
+                  text: "We monitor campaigns, analyze data, and continuously optimize for better results.",
                   icon: TrendingUp,
                 },
                 {
-                  title: "True ROI",
-                  text: "Shifting focus from vanity metrics to real-world conversion and lead generation.",
-                  icon: Target,
+                  title: "Brand Reputation Management",
+                  text: "We handle customer interactions and manage your brand image professionally.",
+                  icon: Activity,
                 },
               ].map((item, i) => (
                 <div
@@ -414,7 +440,7 @@ const SocialMediaMarketing = () => {
           <GrowthBreakthrough />
 
           {/* --- FAQ SECTION --- */}
-          <FAQ />
+          <FAQ faqs={socialMediaFaqs} />
         </div>
       </div>
     </div>

@@ -53,7 +53,7 @@ const WhatMakesUsDifferent = () => {
           
           {/* Left Column: Text Points */}
           <div className="flex-1 space-y-12 order-2 lg:order-1">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 md:gap-12">
               {points.map((point, index) => (
                 <motion.div
                   key={index}
@@ -61,9 +61,9 @@ const WhatMakesUsDifferent = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="space-y-3 group"
+                  className="space-y-0 md:space-y-3 group"
                 >
-                  <h3 className="text-3xl md:text-4xl font-bold tracking-tighter leading-tight transition-all duration-700 bg-linear-to-b from-white via-white to-zinc-700 bg-clip-text text-transparent">
+                  <h3 className="text-2xl md:text-4xl font-bold tracking-tighter leading-tight transition-all duration-700 bg-linear-to-b from-white via-white to-zinc-700 bg-clip-text text-transparent">
                     {point.title}
                   </h3>
                   <p className="text-zinc-500 text-sm md:text-lg font-normal leading-relaxed max-w-sm group-hover:text-zinc-400 transition-colors">
