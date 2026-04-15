@@ -1,5 +1,7 @@
+import LeadPopup from "@/components/LeadPopup";
 import "./globals.css";
 import ClientLayout from "@/components/ClientLayout";
+import FloatingCTA from "@/components/FloatingCTA";
 
 export const metadata = {
   title: "Best Digital Marketing  Agency in Indore | Digital Success Solutions",
@@ -30,6 +32,8 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
+        <LeadPopup /> 
+        <FloatingCTA  />
       </body>
     </html>
   );

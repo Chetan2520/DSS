@@ -81,12 +81,13 @@ export default function HomeClient() {
   return (
     <div className="w-full overflow-hidden bg-[#050505] text-white">
       {/* 1️⃣ Hero */}
+     
       <section id="hero">
         <HeroBg />
       
       </section>
-        {/* <AgencyWelcome />  */}
-      <Feedback />
+        <AgencyWelcome /> 
+      {/* <Feedback /> */}
 
       <Suspense fallback={<Loader />}>
         {/* 3️⃣ Services */}

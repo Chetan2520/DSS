@@ -1,92 +1,111 @@
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Rocket, Target, BarChart3, MapPin } from 'lucide-react';
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
-const BentoServices = () => {
+const AgencyGrowthSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const fadeUp = {
+    hidden: { y: 60, opacity: 0 },
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+        delay: i * 0.15,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
-    <section className="bg-black py-20 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div className="max-w-2xl">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-2 text-orange-500 font-mono text-sm mb-4"
+    <section
+      ref={ref}
+      className="relative py-24 md:py-32 bg-[#0a0a0a] text-white"
+    >
+      <div className="max-w-[1300px] mx-auto px-6 md:px-10">
+        <div className="grid lg:grid-cols-12 gap-14 items-center">
+
+          {/* LEFT CONTENT */}
+          <div className="lg:col-span-7 space-y-6">
+
+            <motion.p
+              variants={fadeUp}
+              custom={0}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="text-sm uppercase tracking-[0.25em] text-zinc-500"
             >
-              <MapPin size={16} /> BASED IN INDORE, INDIA
+              Digital Marketing Agency in Indore
+            </motion.p>
+
+            <motion.h2
+              variants={fadeUp}
+              custom={1}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight"
+            >
+              We Help Your Business Grow Online
+            </motion.h2>
+
+            <motion.p
+              variants={fadeUp}
+              custom={2}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="text-zinc-400 text-lg leading-relaxed max-w-xl"
+            >
+              Welcome to <span className="text-white font-medium">Digital Success Solutions</span>, 
+              your trusted digital marketing agency in Indore. We focus on improving your brand visibility, 
+              driving quality traffic, and delivering measurable results through practical, data-driven strategies.
+            </motion.p>
+
+            <motion.div
+              variants={fadeUp}
+              custom={3}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="flex gap-4 pt-4"
+            >
+              <button className="px-7 py-3.5 bg-white text-black rounded-full font-medium hover:bg-zinc-200 transition">
+                Get Started
+              </button>
+
+              <button className="px-7 py-3.5 border border-white/20 rounded-full hover:bg-white/10 transition">
+                View Services
+              </button>
             </motion.div>
-            <h2 className="text-5xl md:text-8xl font-black text-white leading-tight tracking-tighter">
-              DIGITAL <br /> <span className="text-orange-500">SUCCESS</span> SOLUTIONS
-            </h2>
           </div>
-          <p className="text-zinc-400 text-lg md:text-xl max-w-sm border-l border-zinc-800 pl-6 mb-2">
-            Your growth partners, specialized in boosting brand visibility and driving measurable results.
-          </p>
-        </div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 h-full">
-          
-          {/* Main Hero Tile */}
-          <motion.div 
-            whileHover={{ scale: 0.99 }}
-            className="md:col-span-8 bg-zinc-900 rounded-[2.5rem] p-10 flex flex-col justify-between min-h-[400px] relative overflow-hidden group"
+          {/* RIGHT SIDE */}
+          <motion.div
+            className="lg:col-span-5"
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="relative z-10">
-              <Rocket className="text-orange-500 mb-6" size={48} />
-              <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-                Boosting Brand <br /> Visibility
+            <div className="border border-white/10 rounded-2xl p-8 bg-[#111111]">
+
+              <h3 className="text-xl font-medium mb-4">
+                Why choose us?
               </h3>
-            </div>
-            <p className="text-zinc-400 text-lg relative z-10">
-              We don't just market; we dominate. Using data-driven strategies to make your brand the talk of the town.
-            </p>
-            {/* Background Accent */}
-            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-orange-500/10 blur-[100px] rounded-full group-hover:bg-orange-500/20 transition-all" />
-          </motion.div>
 
-          {/* Indore Special Tile */}
-          <motion.div 
-            whileHover={{ scale: 1.02 }}
-            className="md:col-span-4 bg-orange-500 rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center gap-4"
-          >
-            <h4 className="text-black font-black text-3xl">#1 Agency in Indore</h4>
-            <div className="bg-black/10 p-4 rounded-2xl backdrop-blur-sm">
-              <p className="text-black font-bold">Trusted by 50+ Local Businesses</p>
-            </div>
-          </motion.div>
+              <ul className="space-y-4 text-zinc-400 text-sm leading-relaxed">
+                <li>• Clear and transparent marketing approach</li>
+                <li>• Focus on real business growth, not vanity metrics</li>
+                <li>• Experience across multiple industries</li>
+                <li>• Consistent performance tracking and reporting</li>
+              </ul>
 
-          {/* Traffic Tile */}
-          <motion.div 
-            whileHover={{ scale: 0.98 }}
-            className="md:col-span-5 bg-white rounded-[2.5rem] p-10 flex flex-col justify-between min-h-[300px]"
-          >
-            <div className="bg-black w-14 h-14 rounded-2xl flex items-center justify-center">
-              <BarChart3 className="text-white" size={28} />
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold text-black mb-2 tracking-tight">Traffic Growth</h3>
-              <p className="text-zinc-600">Increasing website traffic through precision-targeted SEO and PPC campaigns.</p>
-            </div>
-          </motion.div>
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <p className="text-xs text-zinc-500">
+                  Helping businesses in Indore grow digitally with practical and effective strategies.
+                </p>
+              </div>
 
-          {/* Data Tile */}
-          <motion.div 
-            whileHover={{ scale: 0.98 }}
-            className="md:col-span-7 bg-zinc-950 border border-zinc-800 rounded-[2.5rem] p-10 flex flex-col justify-between min-h-[300px] relative overflow-hidden"
-          >
-            <div className="flex justify-between items-start">
-              <Target className="text-orange-500" size={32} />
-              <div className="px-4 py-1 border border-zinc-700 rounded-full text-zinc-500 text-xs font-mono">DATA-DRIVEN</div>
             </div>
-            <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-              Driving Measurable <br /> Business Results
-            </h3>
-            {/* Moving Line Animation */}
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent animate-pulse" />
           </motion.div>
 
         </div>
@@ -95,4 +114,4 @@ const BentoServices = () => {
   );
 };
 
-export default BentoServices;
+export default AgencyGrowthSection;
