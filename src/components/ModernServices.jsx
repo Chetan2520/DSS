@@ -1,162 +1,128 @@
 "use client";
 import React from 'react';
-import { motion, useAnimation, useScroll, useTransform, useSpring } from 'framer-motion';
-import { useRef } from 'react';
-import { Search, Palette, Code2, Rocket } from 'lucide-react';
+import { motion } from 'framer-motion';
 
+// --- DATA: Services Content ---
 const serviceData = [
   {
-    title: "Digital Strategy",
-    icon: Search,
-    description: "Data-driven insights to uncover opportunities and craft a roadmap for sustainable online growth.",
+    title: "Website Development",
+    description: "Build fast, responsive, and SEO-friendly websites in Indore designed to attract customers and drive conversions.",
+    tags: ["React & Next.js", "UI/UX Focus", "SEO Friendly", "Performance Driven", "Responsive Design"]
   },
   {
-    title: "Creative Design",
-    icon: Palette,
-    description: "Visually stunning designs that not only look great but convert visitors into customers.",
+    title: "Performance Marketing",
+    description: "Data-driven Google Ads and PPC campaigns in Indore focused on generating high-quality leads, sales, and ROI.",
+    tags: ["Google Ads", "PPC Campaigns", "Conversion Optimization", "Lead Gen", "Data Driven"]
   },
   {
-    title: "Web Solutions",
-    icon: Code2,
-    description: "High-performance websites built for speed, scalability, and success.",
+    title: "Social Media Marketing",
+    description: "Engaging campaigns on FB, IG, and LinkedIn to increase brand awareness and grow your Indore business.",
+    tags: ["Facebook Ads", "Instagram Growth", "LinkedIn B2B", "Brand Awareness", "Content Strategy"]
   },
   {
-    title: "Growth Marketing",
-    icon: Rocket,
-    description: "Smart marketing campaigns designed to boost visibility, engagement, and revenue.",
+    title: "SEO Services",
+    description: "Proven SEO strategies in Indore to improve rankings, increase organic traffic, and generate high-intent leads.",
+    tags: ["On-Page SEO", "Technical Audit", "Backlink Building", "Keyword Research", "Local SEO"]
+  },
+  {
+    title: "Graphic Designing",
+    description: "Stunning visuals, logos, and branding in Indore that enhance your business identity and attract customers.",
+    tags: ["Logo Design", "Brand Identity", "Social Media Graphics", "Print Media", "UI Design"]
+  },
+  {
+    title: "Influencer Marketing",
+    description: "Reach targeted audiences in Indore and drive real engagement through trusted creators and influencers.",
+    tags: ["Creator Collabs", "Brand Outreach", "Engagement Focus", "Targeted Reach", "Campaign Management"]
+  },
+  {
+    title: "E-commerce Development",
+    description: "Secure and scalable online stores in Indore built to boost sales and enhance customer experience.",
+    tags: ["Shopify", "Custom E-com", "Secure Payment", "Inventory Management", "User Experience"]
+  },
+  {
+    title: "Digital Success",
+    description: "Comprehensive growth roadmaps for Indore startups to dominate their niche in the digital landscape.",
+    tags: ["Consultation", "Strategy", "Market Analysis", "ROI Tracking", "Full Scale"]
   }
 ];
 
 
-
-const GrainyBackground = () => (
-  <div className="absolute inset-0 z-5 pointer-events-none opacity-[0.45] mix-blend-overlay">
-    <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
-      <filter id="noise">
-        <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="4" stitchTiles="stitch" />
-        <feColorMatrix type="saturate" values="0" />
-      </filter>
-      <rect width="100%" height="100%" filter="url(#noise)" />
-    </svg>
-  </div>
-);
-
+// --- SUB-COMPONENT: Service Card ---
 const ServiceCard = ({ category, idx }) => {
-  const controls = useAnimation();
-
-  const animateArrow = async () => {
-    // Arrow animation sequence: Exit top-right, Reset bottom-left, Enter center
-    await controls.start({ 
-      x: 30, 
-      y: -30, 
-      opacity: 0, 
-      transition: { duration: 0.3, ease: [0.45, 0, 0.55, 1] } 
-    });
-    
-    controls.set({ x: -30, y: 30, opacity: 0 });
-    
-    await controls.start({ 
-      x: 0, 
-      y: 0, 
-      opacity: 1, 
-      transition: { duration: 0.3, ease: [0.45, 0, 0.55, 1] } 
-    });
-  };
-
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: idx * 0.1 }}
+      transition={{ duration: 0.5, delay: idx * 0.05 }}
       viewport={{ once: true }}
-      onMouseEnter={animateArrow}
-      onClick={animateArrow}
-      className="relative group p-4 md:p-8 rounded-[24px] md:rounded-[40px] border border-white/10 bg-transparent flex flex-col h-full min-h-[220px] md:min-h-[340px] transition-all duration-500 hover:border-white/40 hover:bg-white/5 overflow-hidden cursor-pointer"
+      className="relative p-6 rounded-[35px] border border-white/10 bg-[#ffffff05] backdrop-blur-md flex flex-col h-full transition-all duration-300 hover:border-orange-500/30 hover:bg-white/5 group"
     >
-      <div className="relative z-10 flex flex-col h-full">
-        {/* Icon Section - Top Aligned */}
-        <div className="mb-3 md:mb-8 text-white opacity-90 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 origin-left">
-          <category.icon className="w-8 h-8 md:w-14 md:h-14" strokeWidth={0.75} />
+      <div className="flex flex-col h-full">
+        <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-orange-500 transition-colors">
+          {category.title}
+        </h3>
+        <p className="text-gray-400 text-xs leading-snug mb-6">
+          {category.description}
+        </p>
+
+        {/* Tags with Dotted Borders */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {category.tags.map((tag, i) => (
+            <div key={i} className="flex items-center gap-1 px-3 py-1 rounded-md border border-dashed border-white/20 text-[9px] md:text-[10px] text-gray-400 whitespace-nowrap">
+              {tag} <span className="opacity-50 font-mono">↗</span>
+            </div>
+          ))}
         </div>
 
-        <div className="flex flex-col flex-1">
-          <h3 className="text-sm md:text-2xl font-bold text-white mb-2 md:mb-4 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300">
-            {category.title}
-          </h3>
-          
-          <p className="text-gray-300 text-[10px] md:text-sm leading-relaxed font-medium group-hover:text-gray-200 transition-colors line-clamp-3">
-            {category.description}
-          </p>
-        </div>
-        
-        {/* Arrow Button - Bottom Right Aligned */}
-        <div className="mt-4 md:mt-6 flex justify-end">
-          <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center overflow-hidden group-hover:scale-105 transition-all duration-500">
-            <motion.div animate={controls} className="text-black">
-              <img src="/arrow-right.svg" alt="arrow" className="w-4 h-4 md:w-6 md:h-6" />
-            </motion.div>
-          </div>
+        {/* CTA Button */}
+        <div className="mt-auto">
+          <button className="w-full py-3 bg-white text-black rounded-full font-bold text-xs hover:bg-orange-500 hover:text-white transition-all transform active:scale-95">
+            Discuss Project
+          </button>
         </div>
       </div>
     </motion.div>
   );
 };
 
-const ModernServices = () => {
-  const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start center", "end start"],
-  });
-
-  const pathLength = useSpring(useTransform(scrollYProgress, [0, 0.4], [0, 1]), {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
+// --- MAIN COMPONENT ---
+const ServicesSection = () => {
   return (
-    <section ref={sectionRef} className="relative min-h-screen py-24 px-4 md:px-8 overflow-hidden flex flex-col justify-center bg-black">
-      {/* Background Image / Background WebP */}
-      <div 
-        className="absolute inset-0 z-0 opacity-100 bg-cover bg-center bg-no-repeat grayscale-20" 
-        style={{ backgroundImage: "url('/services.webp')" }}
-      />
+    <section className="bg-black overflow-hidden">
       
-      {/* Texture Layer */}
-      <GrainyBackground />
-      
-      {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto w-full">
-        <h2 className="text-4xl md:text-6xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight mb-12 md:mb-20 text-left drop-shadow-2xl">
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-orange-400 to-orange-600">
-Our Services          </span>
-        </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
-          {serviceData.map((category, idx) => (
-            <ServiceCard key={idx} category={category} idx={idx} />
-          ))}
-        </div>
-      </div>
-      
-      {/* Dark overlay at bottom */}
-      <div className="absolute inset-x-0 bottom-0 h-64 bg-linear-to-t from-black to-transparent pointer-events-none z-10" />
+      {/* 1. MARQUEE SECTION (Sliding Tapes) */}
+     
 
-      {/* Top Right Floating Video */}
-      <div className="absolute top-12 right-12 hidden lg:block z-30">
-        <div className="relative w-64 h-52 overflow-hidden shadow-2xl">
-          <video
-            src="/services.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          />
+      {/* 2. SERVICES GRID SECTION */}
+      <div className="relative py-24 px-4 md:px-10 flex flex-col items-center">
+        {/* Subtle Ambient Glow */}
+        <div className="absolute top-1/4 -left-20 w-[400px] h-[400px] bg-orange-900/10 blur-[120px] pointer-events-none" />
+        
+        <div className="relative z-20 max-w-7xl mx-auto w-full">
+          {/* Header */}
+          <div className="mb-16 text-center lg:text-left">
+            <h2 className="text-4xl md:text-6xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight">
+          Our{" "}
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-orange-400 to-orange-600">
+            Digital
+          </span>{" "}
+          Sevices
+        </h2>
+            <p className="text-gray-400 max-w-2xl text-sm md:text-lg font-medium leading-relaxed">
+              Need a professional team for website development in Indore that delivers performance-driven results? We build fast, responsive, and SEO-friendly websites designed to attract customers, improve user experience, and drive conversions.
+              </p>
+          </div>
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {serviceData.map((category, idx) => (
+              <ServiceCard key={idx} category={category} idx={idx} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default ModernServices;
+export default ServicesSection;

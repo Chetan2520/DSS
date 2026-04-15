@@ -11,6 +11,7 @@ import {
 import gsap from "gsap";
 import FAQ from "@/components/FAQ";
 import GrowthBreakthrough from "@/components/GrowthBreakthrough";
+import DiscussProject from "./DiscussProject";
 
 const LetsConnect = () => {
   const containerRef = useRef(null);
@@ -296,7 +297,12 @@ const LetsConnect = () => {
         </div>
       </div>
 
+
+        
+        <DiscussProject />
+
       <FAQ />
+      
     </div>
   );
 };

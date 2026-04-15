@@ -18,8 +18,8 @@ const FeatureItem = ({ title, description, video, isActive, onClick }) => {
           {title}
         </h3>
         <motion.div
-           animate={{ rotate: isActive ? 90 : 0 }}
-           className={`${isActive ? "text-blue-500" : "text-gray-600"}`}
+          animate={{ rotate: isActive ? 90 : 0 }}
+          className={`${isActive ? "text-orange-500" : "text-gray-600"}`}
         >
           <ChevronRight className="w-4 h-4" />
         </motion.div>
@@ -58,57 +58,58 @@ const FeatureItem = ({ title, description, video, isActive, onClick }) => {
 const TechnicalExcellence = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-const features = [
-  {
-    title: "High-Performance Websites & Funnels",
-    description:
-      "We design and build conversion-focused websites and sales funnels that guide visitors smoothly from interest to action.",
-    video: "/e1.mp4",
-  },
-  {
-    title: "Search Visibility & SEO",
-    description:
-      "Increase your presence on search engines and attract quality traffic with strategies built for long-term growth",
-    video: "/e2.mp4",
-  },
-  {
-    title: "Social Media Expansion",
-    description:
-      "Strengthen your brand presence and connect with your audience through consistent and engaging social media campaigns.",
-    video: "/e3.mp4",
-  },
-  {
-    title: "Targeted Advertising Campaigns",
-    description:
-      "Drive faster results with precision-targeted ads that reach the right people and turn clicks into customers.",
-    video: "/contact.mp4",
-  },
-];
+  const features = [
+    {
+      title: "1. High-Performance Websites & Funnels",
+      description:
+        "We build conversion-optimized websites and sales funnels that guide users from awareness to action.",
+      video: "/e1.mp4",
+    },
+    {
+      title: "2. Search Engine Optimization (SEO)",
+      description:
+        "Improve your search engine rankings and attract targeted organic traffic with long-term SEO strategies.",
+      video: "/e2.mp4",
+    },
+    {
+      title: "3. Social Media Growth",
+      description:
+        "Strengthen your online presence with consistent and engaging social media marketing campaigns.",
+      video: "/e3.mp4",
+    },
+    {
+      title: "4. Targeted Advertising (PPC & Ads)",
+      description:
+        "Run high-performing Google Ads and Meta Ads campaigns that deliver faster results and higher conversions.",
+      video: "/contact.mp4",
+    },
+  ];
 
   return (
     <section className="py-12 md:py-20 px-6 md:px-12 relative overflow-hidden bg-black font-inter">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header Section Compact */}
+        {/* Header Section */}
         <div className="mb-10 space-y-2">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2"
           >
-            
+            <span className="text-orange-500 text-xs font-bold tracking-[0.2em] uppercase">
+              Digital Solutions for Business Growth
+            </span>
           </motion.div>
 
-          <h2 className="text-3xl md:text-6xl   tracking-tighter text-white leading-tight">
-            Tools for your <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-orange-400 to-orange-600">exponential growth.</span>
+          <h2 className="text-3xl md:text-6xl tracking-tighter text-white leading-tight font-bold">
+            Accelerate Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-400 to-orange-600">Online Growth.</span>
           </h2>
 
-          <p className="text-gray-500 text-sm md:text-base max-w-lg leading-relaxed mt-2">
-          Smart, result-driven digital services crafted to help your business scale efficiently and stand out in a competitive market.
-
+          <p className="text-gray-400 text-sm md:text-base max-w-2xl leading-relaxed mt-4">
+            We offer result-driven digital marketing services in Indore to help your business scale efficiently and stand out in a competitive market.
           </p>
         </div>
 
-        {/* Compact Interaction Grid */}
+        {/* Interaction Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left Column: List */}
           <div className="order-2 lg:order-1 pt-2">
@@ -124,15 +125,15 @@ const features = [
             ))}
           </div>
 
-          {/* Right Column: Video (Compact Aspect) */}
+          {/* Right Column: Video */}
           <div className="hidden lg:block order-1 lg:order-2">
-            <div className="relative aspect-video rounded-xl overflow-hidden bg-black">
+            <div className="relative aspect-video rounded-xl overflow-hidden bg-black border border-white/10">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.05 }}
                   transition={{ duration: 0.4 }}
                   className="absolute inset-0"
                 >

@@ -5,163 +5,130 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function VisionMissionReveal() {
+export default function UniqueReveal() {
   const containerRef = useRef(null);
-  const missionSectionRef = useRef(null);
-  const visionContentRef = useRef(null);
+  const visionRef = useRef(null);
+  const missionRef = useRef(null);
+  const circleRef = useRef(null);
 
   useLayoutEffect(() => {
-    const container = containerRef.current;
-    const missionSection = missionSectionRef.current;
-    const visionContent = visionContentRef.current;
-
     let ctx = gsap.context(() => {
-      // 1. SETUP: Initial positions
-      gsap.set(missionSection, { xPercent: 100 });
-      gsap.set(visionContent, { scale: 1, opacity: 1, filter: "blur(0px)" });
-
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: container,
+          trigger: containerRef.current,
           start: "top top",
-          // FIXED: Reduced from 250% to 150%.
-          // Animation jaldi khatam hogi aur next section turant aa jayega.
-          end: "+=150%",
+          end: "+=200%",
           pin: true,
-          scrub: 1, // Thoda snappy banaya hai (1 vs 1.5)
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
+          scrub: 1,
         },
       });
 
-      // 2. ANIMATION SEQUENCE
-      tl
-        // Step A: Vision fade out
-        .to(visionContent, {
-          scale: 0.9,
-          opacity: 0,
-          filter: "blur(10px)",
-          duration: 1,
-          ease: "power1.inOut",
-        })
-
-        // Step B: Mission slides in (Overlapping)
-        .to(
-          missionSection,
-          {
-            xPercent: 0,
-            duration: 1, // Adjusted duration to match scroll length
-            ease: "power2.out",
-          },
-          "-=0.8",
-        ); // Vision ke jaane se pehle hi Mission aa jayega
-    }, container);
+      tl.to(visionRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        filter: "blur(15px)",
+        borderRadius: "100px",
+        duration: 1,
+        ease: "power2.inOut",
+      })
+      .to(circleRef.current, {
+        scale: 40, // Expanded for full coverage
+        duration: 1.5,
+        ease: "power2.inOut",
+      }, "-=0.5")
+      .fromTo(missionRef.current, 
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1 },
+        "-=1"
+      );
+    });
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div className="bg-black relative z-10">
-      {/* PARENT CONTAINER - Pinned during scroll */}
-      <div
-        ref={containerRef}
-        className="relative h-screen w-full overflow-hidden"
+    <div ref={containerRef} className="relative h-screen w-full bg-[#050505] overflow-hidden">
+      
+      {/* SECTION 1: VISION (The Shrinking Card) */}
+      <div 
+        ref={visionRef} 
+        className="absolute inset-0 z-10 flex items-center justify-center p-6 bg-zinc-900/40 border border-white/5 mx-4 my-4 rounded-[0px]"
       >
-        {/* --- SECTION 1: VISION (Bottom Layer) --- */}
-        <div className="absolute inset-0 w-full h-full bg-[#050505] flex items-center justify-center p-6 md:p-20 overflow-hidden">
-          {/* Background Glow */}
-          <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#0078f0]/15 blur-[120px] rounded-full pointer-events-none" />
-
-          <div
-            ref={visionContentRef}
-            className="relative z-10 grid md:grid-cols-2 gap-8 md:gap-16 max-w-7xl w-full items-center will-change-transform"
-          >
-            <div className="space-y-4 md:space-y-6">
-              <h2 className="text-[#0078f0] font-bold tracking-[0.2em]   text-xs md:text-sm">
-                The Future
-              </h2>
-              <h2 className="text-5xl md:text-8xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight">
-                OUR <br />
-                <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-orange-400 to-orange-600">
-                  VISION
-                </span>
-              </h2>
-              <div className="h-1.5 md:h-2 w-24 md:w-32 bg-[#0078f0] rounded-full mt-4" />
-            </div>
-
-            <div className="text-gray-400 text-sm md:text-lg leading-relaxed space-y-4 border-l border-white/10 pl-6 md:pl-8 h-[60vh] overflow-y-auto md:h-auto scrollbar-hide">
-              <p>
-                To build a future where every startup, small business and growing brand in India has the power to{" "}
-                <strong className="text-white">
-                  stand strong in the digital world.
-                </strong>
-              </p>
-              <p>
-                We want to support founders whose dreams are big but resources are limited. Many small businesses are unable to grow fully because they lack the digital visibility and branding they need.{" "}
-                <span className="text-white italic">
-                  Our vision is to remove that barrier.
-                </span>
-              </p>
-              <p>
-                We aim to create powerful, affordable digital solutions that turn ideas into brands, give confidence to early-stage entrepreneurs and help Indian businesses grow in a digital-first economy.
-              </p>
-              <p>
-                We want to contribute to a stronger, more connected and more successful Digital India.
-              </p>
-            </div>
+        <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative">
+            <span className="text-orange-500 font-mono text-sm tracking-widest uppercase mb-4 block">01. Future Perspective</span>
+            <h2 className="text-6xl md:text-8xl font-black text-white leading-none">
+              OUR <br /> <span className="text-zinc-500">VISION</span>
+            </h2>
+            <div className="absolute -left-4 top-0 w-1 h-full bg-orange-500" />
           </div>
-
-          <h1 className="absolute bottom-[-2%] left-[-2%] text-[18vw]   text-white/3 pointer-events-none select-none leading-none">
-            VISION
-          </h1>
+          <div className="text-zinc-400 text-lg md:text-xl space-y-6 font-light leading-relaxed">
+            <p>
+              To become a leading digital marketing company in India that empowers 
+              <span className="text-white font-medium"> startups, small businesses, and growing brands </span> 
+              to succeed in the digital world.
+            </p>
+            <p className="text-sm md:text-base opacity-70">
+              We aim to support Digital India by helping businesses build a strong online presence, 
+              turning ideas into brands and achieving long-term success.
+            </p>
+          </div>
         </div>
+      </div>
 
-        {/* --- SECTION 2: MISSION (Top Layer - Slides In) --- */}
-        <div
-          ref={missionSectionRef}
-          className="absolute inset-0 w-full h-full bg-[#ff9f20] text-black flex items-center justify-center p-6 md:p-20 z-20 will-change-transform"
-          style={{ boxShadow: "-50px 0 100px rgba(0,0,0,0.5)" }}
-        >
-          {/* Texture Overlay */}
-          <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply pointer-events-none" />
+      {/* THE REVEAL CIRCLE (Animation Layer) */}
+      <div 
+        ref={circleRef}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-orange-600 rounded-full z-20 scale-0 pointer-events-none"
+      />
 
-          <div className="relative z-10 grid md:grid-cols-2 gap-8 md:gap-16 max-w-7xl w-full items-center">
-            {/* Text Content */}
-            <div className="order-2 md:order-1 text-gray-900 text-sm md:text-lg leading-relaxed space-y-4 border-l-4 border-black pl-6 md:pl-8 h-[60vh] overflow-y-auto md:h-auto scrollbar-hide">
-              <p className="font-bold text-xl md:text-2xl">
-                Our mission is to create real impact, not just complete projects.
-              </p>
-              <p>
-                We want to help businesses from every industry—services, e-commerce, manufacturing, healthcare, education, finance, real estate and more—grow with clarity and reach.
-              </p>
-              <p>
-                We focus on supporting{" "}
-                <strong className="underline decoration-black decoration-2 underline-offset-2">
-                  early-stage entrepreneurs
-                </strong>{" "}
-                who want to build something meaningful but struggle with the high cost of marketing and branding. Through impactful websites, performance-driven marketing and thoughtful branding, we help them grow faster, compete better and build trust in the market.
-              </p>
-              <p>
-                Our goal is to empower Indian businesses, strengthen the startup ecosystem, and contribute to the vision of Startup India by helping brands rise digitally and create long-term success.
-              </p>
-            </div>
-
-            <div className="order-1 md:order-2 space-y-4 md:space-y-6 text-left md:text-right">
-              <h2 className="text-black/60 font-bold tracking-[0.2em]   text-xs md:text-sm">
-                The Impact
-              </h2>
-              <h2 className="text-4xl  md:text-8xl tracking-tighter text-black leading-tight">
-                OUR   
-                <span className="text-white ml-3 drop-shadow-sm">MISSION</span>
-              </h2>
-              <div className="h-1.5 md:h-2 w-24 md:w-32 bg-black rounded-full mt-4 ml-0 md:ml-auto" />
-            </div>
+      {/* SECTION 2: MISSION (The Expanding Content) */}
+      <div 
+        ref={missionRef}
+        className="absolute inset-0 z-30 flex items-center justify-center p-6 opacity-0 pointer-events-none"
+      >
+        <div className="max-w-6xl w-full text-center space-y-10">
+          <div className="inline-block px-4 py-1 border border-black/20 rounded-full text-black font-bold text-xs uppercase tracking-tighter bg-white/20">
+            02. Action & Impact
           </div>
-
-          <h1 className="absolute top-[-2%] right-[-2%] text-[18vw]   text-black/5 pointer-events-none select-none leading-none">
+          <h2 className="text-7xl md:text-[10rem] font-black text-black leading-none tracking-tighter">
             MISSION
-          </h1>
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8 text-left border-t border-black/10 pt-10">
+            {/* Mission Pillar 1 */}
+            <div className="space-y-3">
+              <h4 className="font-bold text-black uppercase text-sm tracking-widest">Result-Driven</h4>
+              <p className="text-black/80 text-sm leading-relaxed">
+                Delivering solutions that create real impact across industries like 
+                <strong> e-commerce, healthcare, real estate, and education.</strong>
+              </p>
+            </div>
+            
+            {/* Mission Pillar 2 */}
+            <div className="space-y-3">
+              <h4 className="font-bold text-black uppercase text-sm tracking-widest">Cost-Effective</h4>
+              <p className="text-black/80 text-sm leading-relaxed">
+                Focusing on startups with affordable SEO, PPC, and web development 
+                so they can grow faster and compete effectively.
+              </p>
+            </div>
+            
+            {/* Mission Pillar 3 */}
+            <div className="space-y-3">
+              <h4 className="font-bold text-black uppercase text-sm tracking-widest">Sustainability</h4>
+              <p className="text-black/80 text-sm leading-relaxed">
+                Empowering the Indian startup ecosystem and helping brands achieve 
+                sustainable digital growth for the long haul.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* Background Big Text */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none select-none">
+        <h1 className="text-[40vw] font-bold text-white tracking-tighter">DIGIPANDA</h1>
       </div>
     </div>
   );

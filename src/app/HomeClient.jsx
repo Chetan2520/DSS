@@ -14,6 +14,7 @@ import OrbitingTestimonials from "@/components/OrbitingTestimonials";
 
 // Lazy Imports
 import dynamic from "next/dynamic";
+import AgencyWelcome from "@/components/AgencyWelcome";
 
 const Loader = () => (
   <div className="h-screen w-full bg-[#050505] flex items-center justify-center">
@@ -84,7 +85,7 @@ export default function HomeClient() {
         <HeroBg />
       
       </section>
-
+        {/* <AgencyWelcome />  */}
       <Feedback />
 
       <Suspense fallback={<Loader />}>

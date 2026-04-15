@@ -222,7 +222,7 @@ const WhyChooseDSS = () => {
               className="w-24 h-24 bg-white/10 backdrop-blur-3xl rounded-4xl border border-white/40 flex items-center justify-center shadow-2xl z-20 group-hover:rotate-6 transition-transform"
             >
               <span className="text-white   text-2xl tracking-tighter">
-                DSS
+                <img src="/images/logo.png" alt="DSS Logo" className="w-14 h-14 object-contain" />
               </span>
               <div className="absolute inset-0 bg-white/5 rounded-4xl animate-ping" />
             </motion.div>
@@ -306,7 +306,7 @@ const WhyChooseDSS = () => {
     <section className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-8 overflow-hidden font-sans">
       <div className="absolute inset-0 z-0 text-white">
         <Image
-          src="/hero.webp"
+          src="/images/hero.jpg.jpeg"
           alt="Hero Background"
           fill
           priority
@@ -479,95 +479,105 @@ const WhyChooseDSS = () => {
           </motion.div>
 
           <div className="lg:col-span-4 flex flex-col gap-6">
+  <motion.div
+    initial={{ opacity: 0, x: 20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, delay: 0.2 }}
+    className="relative h-full border border-white/20 rounded-3xl md:rounded-[2.5rem] p-6 md:p-8 overflow-hidden min-h-[400px] md:min-h-[500px] flex flex-col group bg-zinc-900/20"
+  >
+    {/* Progress Bar Layer */}
+    <div className="flex gap-2 mb-8 relative z-20">
+      {slides.map((_, i) => (
+        <div
+          key={i}
+          className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden"
+        >
+          {i === currentSlide ? (
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative h-full border border-white/20 rounded-3xl md:rounded-[2.5rem] p-6 md:p-8 overflow-hidden min-h-[300px] md:min-h-[440px] flex flex-col group"
-            >
-              <div className="flex gap-2 mb-8 relative z-20">
-                {slides.map((_, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden"
-                  >
-                    {i === currentSlide ? (
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: "100%" }}
-                        transition={{
-                          duration: slideDuration / 1000,
-                          ease: "linear",
-                        }}
-                        className="h-full bg-white/60"
-                      />
-                    ) : i < currentSlide ? (
-                      <div className="w-full h-full bg-white/60" />
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-              <div className="relative z-10 min-h-[4em]">
-                <AnimatePresence mode="wait">
-                  <motion.h3
-                    key={currentSlide}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="text-white text-xl md:text-3xl font-bold leading-tight whitespace-pre-line"
-                  >
-                    {slides[currentSlide].title}
-                  </motion.h3>
-                </AnimatePresence>
-              </div>
-              <div className="relative flex-grow mt-auto flex items-center justify-center overflow-hidden">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentSlide}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-full h-full flex items-center justify-center p-2 md:p-4"
-                  >
-                    {slides[currentSlide].visual}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </motion.div>
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{
+                duration: slideDuration / 1000,
+                ease: "linear",
+              }}
+              className="h-full bg-orange-500" // Changed to orange for better visibility
+            />
+          ) : i < currentSlide ? (
+            <div className="w-full h-full bg-white/60" />
+          ) : null}
+        </div>
+      ))}
+    </div>
 
-            <div className="grid grid-cols-2 gap-4 md:gap-6 h-fit lg:mt-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="border border-white/20 rounded-3xl md:rounded-4xl p-4 md:p-6 text-center group hover:bg-white/5 transition-colors"
-              >
-                <h4 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  7Y+
-                </h4>
-                <p className="text-white/50 text-xs md:text-sm   tracking-tight">
-                  of Experience
-                </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="border border-white/20 rounded-3xl md:rounded-4xl p-4 md:p-6 text-center group hover:bg-white/5 transition-colors"
-              >
-                <h4 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  1200+
-                </h4>
-                <p className="text-white/50 text-xs md:text-sm   tracking-tight">
-                  Global Clients
-                </p>
-              </motion.div>
-            </div>
+    {/* Title Section */}
+    <div className="relative z-10 min-h-[4em] mb-4">
+      <AnimatePresence mode="wait">
+        <motion.h3
+          key={currentSlide}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="text-white text-xl md:text-3xl font-bold leading-tight whitespace-pre-line"
+        >
+          {slides[currentSlide].title}
+        </motion.h3>
+      </AnimatePresence>
+    </div>
+
+    {/* Visual Container - Fixed for no-cutting */}
+    <div className="relative flex-grow flex items-center justify-center overflow-hidden rounded-2xl">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentSlide}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.05 }}
+          transition={{ duration: 0.6 }}
+          className="w-full h-full flex items-center justify-center p-0"
+        >
+          {/* Important: Visual component ke andar img/video par 'object-contain' class honi chahiye */}
+          <div className="w-full h-full relative">
+             {slides[currentSlide].visual}
           </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  </motion.div>
+
+  {/* Stats Grid */}
+  <div className="grid grid-cols-2 gap-4 md:gap-6 h-fit lg:mt-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.4 }}
+      className="border border-white/20 rounded-3xl md:rounded-4xl p-6 md:p-8 text-center group hover:bg-white/5 transition-all duration-300"
+    >
+      <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">
+        7Y+
+      </h4>
+      <p className="text-zinc-500 text-xs md:text-sm tracking-widest uppercase font-semibold">
+        of Experience
+      </p>
+    </motion.div>
+    
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.5 }}
+      className="border border-white/20 rounded-3xl md:rounded-4xl p-6 md:p-8 text-center group hover:bg-white/5 transition-all duration-300"
+    >
+      <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">
+        1200+
+      </h4>
+      <p className="text-zinc-500 text-xs md:text-sm tracking-widest uppercase font-semibold">
+        Global Clients
+      </p>
+    </motion.div>
+  </div>
+</div>
         </div>
       </div>
     </section>
