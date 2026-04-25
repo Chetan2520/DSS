@@ -1,8 +1,8 @@
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
-
-// --- DATA: Services Content ---
+import React from "react";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+// --- DATA ---
 const serviceData = [
   {
     title: "Website Development",
@@ -46,83 +46,154 @@ const serviceData = [
   }
 ];
 
-
-// --- SUB-COMPONENT: Service Card ---
+// --- CARD ---
 const ServiceCard = ({ category, idx }) => {
+  const router = useRouter();
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: idx * 0.05 }}
       viewport={{ once: true }}
-      className="relative p-6 rounded-[35px] border border-white/10 bg-[#ffffff05] backdrop-blur-md flex flex-col h-full transition-all duration-300 hover:border-orange-500/30 hover:bg-white/5 group"
+      className="relative p-6 rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md flex flex-col h-full transition-all duration-300 hover:border-blue-500/60 hover:bg-white/10 group hover:-translate-y-2"
     >
-      <div className="flex flex-col h-full">
-        <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-orange-500 transition-colors">
-          {category.title}
-        </h3>
-        <p className="text-gray-400 text-xs leading-snug mb-6">
-          {category.description}
-        </p>
+      <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight transition-colors">
+        {category.title}
+      </h3>
 
-        {/* Tags with Dotted Borders */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {category.tags.map((tag, i) => (
-            <div key={i} className="flex items-center gap-1 px-3 py-1 rounded-md border border-dashed border-white/20 text-[9px] md:text-[10px] text-gray-400 whitespace-nowrap">
-              {tag} <span className="opacity-50 font-mono">↗</span>
-            </div>
-          ))}
-        </div>
+      <p className="text-gray-400 text-sm leading-relaxed mb-6">
+        {category.description}
+      </p>
 
-        {/* CTA Button */}
-        <div className="mt-auto">
-          <button className="w-full py-3 bg-white text-black rounded-full font-bold text-xs hover:bg-orange-500 hover:text-white transition-all transform active:scale-95">
-            Discuss Project
-          </button>
-        </div>
+      <div className="flex flex-wrap gap-2 mb-8">
+        {category.tags.map((tag, i) => (
+          <div
+            key={i}
+            className="px-3 py-1 rounded-md border border-dashed border-white text-[10px] text-gray-400"
+          >
+            {tag}
+          </div>
+        ))}
       </div>
+
+  <button
+  onClick={() => router.push("/lets-connect")}
+  className="mt-auto w-full py-3 rounded-full font-semibold text-sm border border-gray-300 relative overflow-hidden group bg-white text-black transition-all duration-300"
+>
+  {/* Hover Background */}
+  <span className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-500 opacity-0 group-hover:opacity-100 transition duration-300" />
+
+  {/* Shine Effect */}
+  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition">
+    <span className="absolute -left-[100%] top-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg] group-hover:left-[120%] transition-all duration-700"></span>
+  </span>
+
+  {/* Text */}
+  <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+    Discuss Project →
+  </span>
+</button>
     </motion.div>
   );
 };
 
-// --- MAIN COMPONENT ---
+// --- MAIN ---
 const ServicesSection = () => {
-  return (
-    <section className="bg-black overflow-hidden">
-      
-      {/* 1. MARQUEE SECTION (Sliding Tapes) */}
-     
+  const router = useRouter();
+ return (
+  <section className="relative overflow-hidden py-24 px-4 md:px-10 flex items-center justify-center">
 
-      {/* 2. SERVICES GRID SECTION */}
-      <div className="relative py-24 px-4 md:px-10 flex flex-col items-center">
-        {/* Subtle Ambient Glow */}
-        <div className="absolute top-1/4 -left-20 w-[400px] h-[400px] bg-orange-900/10 blur-[120px] pointer-events-none" />
-        
-        <div className="relative z-20 max-w-7xl mx-auto w-full">
-          {/* Header */}
-          <div className="mb-16 text-center lg:text-left">
-            <h2 className="text-4xl md:text-6xl tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight">
+    {/* ✅ Background Image */}
+    <div className="absolute inset-0 z-0">
+      <img
+        src="/images/services-bg.png" // 👈 apni image yaha daalna
+        alt="background"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-black/50"></div>
+    </div>
+
+    {/* CONTENT */}
+    <div className="relative z-10 max-w-7xl mx-auto w-full">
+
+      {/* HEADER */}
+      <div className="mb-16 text-center lg:text-left">
+        <h2 className="text-4xl md:text-6xl tracking-tight text-white leading-tight mb-4">
           Our{" "}
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-orange-400 to-orange-600">
+          <span className="bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
             Digital
           </span>{" "}
-          Sevices
+          Services
         </h2>
-            <p className="text-gray-400 max-w-2xl text-sm md:text-lg font-medium leading-relaxed">
-              Need a professional team for website development in Indore that delivers performance-driven results? We build fast, responsive, and SEO-friendly websites designed to attract customers, improve user experience, and drive conversions.
-              </p>
-          </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {serviceData.map((category, idx) => (
-              <ServiceCard key={idx} category={category} idx={idx} />
-            ))}
-          </div>
-        </div>
+        <p className="text-gray-400 max-w-2xl text-sm md:text-lg leading-relaxed">
+          Need a professional team for website development in Indore that delivers performance-driven results? 
+          We build fast, responsive, and SEO-friendly websites designed to attract customers, improve user experience, 
+          and drive conversions.
+        </p>
       </div>
-    </section>
-  );
+
+      {/* GRID */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        {serviceData.map((category, idx) => (
+          
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: idx * 0.05 }}
+            viewport={{ once: true }}
+            className="relative p-8 rounded-[32px] border border-white bg-white/5 backdrop-blur-md flex flex-col justify-between h-full min-h-[440px] transition-all duration-300 hover:border-white hover:bg-white/10 group hover:-translate-y-2"
+          >
+
+            {/* TITLE */}
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight transition-colors">
+              {category.title}
+            </h3>
+
+            {/* DESC */}
+            <p className="text-gray-300 text-sm leading-relaxed font-bold mb-6">
+              {category.description}
+            </p>
+
+            {/* TAGS */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {category.tags.map((tag, i) => (
+                <div
+                  key={i}
+                  className="px-3 py-1 rounded-md border border-dashed border-white text-[12px] text-white/90"
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
+
+            {/* BUTTON */}
+         <button
+  onClick={() => router.push("/lets-connect")}
+  className="mt-auto w-full py-3 rounded-full font-semibold text-sm border border-gray-300 relative overflow-hidden group bg-white text-black transition-all duration-300"
+>
+  {/* Hover Background */}
+  <span className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-500 opacity-0 group-hover:opacity-100 transition duration-300" />
+
+  {/* Shine Effect */}
+  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition">
+    <span className="absolute -left-[100%] top-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg] group-hover:left-[120%] transition-all duration-700"></span>
+  </span>
+
+  {/* Text */}
+  <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+    Discuss Project →
+  </span>
+</button>
+
+          </motion.div>
+
+        ))}
+      </div>
+    </div>
+  </section>
+);
 };
 
 export default ServicesSection;

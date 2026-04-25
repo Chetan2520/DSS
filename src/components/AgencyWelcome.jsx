@@ -1,117 +1,117 @@
-"use client";
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
-const AgencyGrowthSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+gsap.registerPlugin(ScrollTrigger);
 
-  const fadeUp = {
-    hidden: { y: 60, opacity: 0 },
-    visible: (i) => ({
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.7,
-        delay: i * 0.15,
-        ease: "easeOut",
-      },
-    }),
-  };
+const AgencyWelcome = () => {
+  const containerRef = useRef(null);
+  const leftTextRef = useRef(null);
+  const rightTextRef = useRef(null);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // Initial Reveal: Pillar lines niche se halke se upar aayengi
+      gsap.fromTo([leftTextRef.current, rightTextRef.current], 
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 0.5, duration: 1, stagger: 0.2, ease: "power3.out" }
+      );
+
+      // Scroll Parallax: Opposite direction slide
+      gsap.to(leftTextRef.current, {
+        x: -60,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        }
+      });
+
+      gsap.to(rightTextRef.current, {
+        x: 60,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        }
+      });
+
+      // Card Appearance: Chota card jo thoda bada hokar fix ho jaye
+      gsap.fromTo(cardRef.current, 
+        { scale: 0.92, opacity: 0, y: 40 },
+        { 
+          scale: 1, 
+          opacity: 1, 
+          y: 0, 
+          duration: 1.2, 
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: cardRef.current,
+            start: "top 85%",
+          }
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section
-      ref={ref}
-      className="relative py-24 md:py-32 bg-[#0a0a0a] text-white"
+    <section 
+      ref={containerRef} 
+      className="relative min-h-screen bg-black text-white flex flex-col items-center justify-center overflow-hidden py-16 px-6"
     >
-      <div className="max-w-[1300px] mx-auto px-6 md:px-10">
-        <div className="grid lg:grid-cols-12 gap-14 items-center">
-
-          {/* LEFT CONTENT */}
-          <div className="lg:col-span-7 space-y-6">
-
-            <motion.p
-              variants={fadeUp}
-              custom={0}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="text-sm uppercase tracking-[0.25em] text-zinc-500"
-            >
-              Digital Marketing Agency in Indore
-            </motion.p>
-
-            <motion.h2
-              variants={fadeUp}
-              custom={1}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight"
-            >
-              We Help Your Business Grow Online
-            </motion.h2>
-
-            <motion.p
-              variants={fadeUp}
-              custom={2}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="text-zinc-400 text-lg leading-relaxed max-w-xl"
-            >
-              Welcome to <span className="text-white font-medium">Digital Success Solutions</span>, 
-              your trusted digital marketing agency in Indore. We focus on improving your brand visibility, 
-              driving quality traffic, and delivering measurable results through practical, data-driven strategies.
-            </motion.p>
-
-            <motion.div
-              variants={fadeUp}
-              custom={3}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              className="flex gap-4 pt-4"
-            >
-              <button className="px-7 py-3.5 bg-white text-black rounded-full font-medium hover:bg-zinc-200 transition">
-                Get Started
-              </button>
-
-              <button className="px-7 py-3.5 border border-white/20 rounded-full hover:bg-white/10 transition">
-                View Services
-              </button>
-            </motion.div>
-          </div>
-
-          {/* RIGHT SIDE */}
-          <motion.div
-            className="lg:col-span-5"
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <div className="border border-white/10 rounded-2xl p-8 bg-[#111111]">
-
-              <h3 className="text-xl font-medium mb-4">
-                Why choose us?
-              </h3>
-
-              <ul className="space-y-4 text-zinc-400 text-sm leading-relaxed">
-                <li>• Clear and transparent marketing approach</li>
-                <li>• Focus on real business growth, not vanity metrics</li>
-                <li>• Experience across multiple industries</li>
-                <li>• Consistent performance tracking and reporting</li>
-              </ul>
-
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <p className="text-xs text-zinc-500">
-                  Helping businesses in Indore grow digitally with practical and effective strategies.
-                </p>
-              </div>
-
-            </div>
-          </motion.div>
-
+      {/* Pillar Lines - Refined & Larger */}
+      <div className="w-full max-w-5xl flex flex-col md:flex-row justify-between items-start md:items-center mb-8 px-4">
+        <div ref={leftTextRef} className="will-change-transform">
+          <p className="text-xl md:text-2xl font-light tracking-[0.2em] uppercase text-zinc-400">
+            Strategy <span className="text-blue-600">•</span> Design
+          </p>
         </div>
+        <div ref={rightTextRef} className="will-change-transform self-end md:self-auto mt-4 md:mt-0">
+          <p className="text-xl md:text-2xl font-light tracking-[0.2em] uppercase text-zinc-400">
+            Performance <span className="text-blue-600">•</span> Growth
+          </p>
+        </div>
+      </div>
+
+      {/* Main Content Card - Compact & Premium */}
+      <div 
+        ref={cardRef}
+        className="relative w-full max-w-4xl rounded-[40px] p-10 md:p-16 overflow-hidden"
+      >
+        {/* Subtle Inner Glow */}
+        <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-600/5 blur-[100px] rounded-full pointer-events-none"></div>
+        
+        <div className="relative z-10 flex flex-col items-center text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tighter">
+            Digital <span className="italic font-light text-zinc-500">Success</span> Solutions
+          </h2>
+          
+          <div className="h-[1px] w-20 bg-zinc-800 mb-8"></div>
+          
+          <p className="text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed font-light">
+            Indore's trusted partners, specializing in boosting visibility and 
+            driving <span className="text-white">measurable business results</span> 
+            through data-driven digital strategies.
+          </p>
+
+          <Link href="/lets-connect" className="mt-10 px-8 py-3.5 bg-white text-black rounded-full font-medium text-sm hover:bg-zinc-200 transition-all duration-300 active:scale-95 inline-block">
+            Let's Scale Together
+          </Link>
+        </div>
+      </div>
+
+      {/* Background Decor Layer */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
       </div>
     </section>
   );
 };
 
-export default AgencyGrowthSection;
+export default AgencyWelcome;

@@ -32,7 +32,7 @@ export default function Contact() {
 
     try {
       // PHP file ka path yahan dein (e.g., 'http://localhost/api/send-mail.php' ya '/send-mail.php')
-      const response = await fetch("http://localhost/send-mail.php", {
+      const response = await fetch("https://digitalsuccesssolutions.in/php/send-mail.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -150,6 +150,7 @@ export default function Contact() {
                     Call Us
                   </h4>
                   <p className="text-gray-400 font-light">+91 62643 98990</p>
+                  <p className="text-gray-400 font-light">+91 87189 80114</p>
                 </div>
               </div>
               {/* Email Item */}
@@ -174,7 +175,10 @@ export default function Contact() {
                     Email Us
                   </h4>
                   <p className="text-gray-400 font-light">
-                    info@digitalsuccesssolutions.in
+                    Info@digitalsuccesssolutions.in
+                  </p>
+                  <p className="text-gray-400 font-light">
+                    business@digitalsuccesssolutions.in
                   </p>
                 </div>
               </div>

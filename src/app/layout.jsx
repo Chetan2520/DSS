@@ -2,6 +2,7 @@ import LeadPopup from "@/components/LeadPopup";
 import "./globals.css";
 import ClientLayout from "@/components/ClientLayout";
 import FloatingCTA from "@/components/FloatingCTA";
+import Script from "next/script";
 
 export const metadata = {
   title: "Best Digital Marketing  Agency in Indore | Digital Success Solutions",
@@ -16,7 +17,7 @@ export const metadata = {
     canonical: "https://digitalsuccesssolutions.in/",
   },
   icons: {
-    icon: "/images/logo.png",
+    icon: "/favicon.jpeg",
   },
 };
 
@@ -29,11 +30,26 @@ export default function RootLayout({ children }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
           as="script"
         />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1747CPHFPB"
+          strategy="afterInteractive"
+        />
+        <Script strategy="afterInteractive" id="gtag-config">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1747CPHFPB');
+          `}
+        </Script>
       </head>
       <body>
-        <ClientLayout>{children}</ClientLayout>
-        <LeadPopup /> 
-        <FloatingCTA  />
+        <ClientLayout>
+          {children}
+          <LeadPopup /> 
+          <FloatingCTA  />
+        </ClientLayout>
       </body>
     </html>
   );

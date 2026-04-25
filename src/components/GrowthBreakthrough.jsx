@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const socialLogos = [
   {
@@ -84,7 +85,6 @@ const MagneticImage = ({ data, scrollProgress }) => {
   const scale = useTransform(scrollProgress, [0, 0.8], [0.3, 1]);
   const opacity = useTransform(scrollProgress, [0, 0.4], [0, 1]);
 
-  // Smooth spring physics for the transformation
   const springX = useSpring(x, { damping: 20, stiffness: 60 });
   const springY = useSpring(y, { damping: 20, stiffness: 60 });
 
@@ -98,7 +98,7 @@ const MagneticImage = ({ data, scrollProgress }) => {
         scale,
         opacity,
       }}
-      className="absolute pointer-events-none z-0"
+      className="absolute pointer-events-none z-10"
     >
       <motion.div
         animate={{
@@ -131,13 +131,33 @@ const GrowthBreakthrough = () => {
     offset: ["start end", "center center"],
   });
 
+  // Background parallax movement
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+
   return (
     <section
       ref={containerRef}
       className="relative min-h-[100vh] flex items-center justify-center py-40 px-6 overflow-hidden bg-black"
     >
-      {/* Background Section: Scroll-Linked Logo Gathering */}
-      <div className="absolute inset-0 z-0">
+      {/* 1. Full Background Image (Cover) */}
+      <motion.div 
+        style={{ y: bgY }}
+        className="absolute inset-0 z-0 h-[120%] -top-[10%]"
+      >
+        <Image
+          src="/images/difference-bg.png"
+          alt="Background"
+          fill
+          priority
+          className="object-cover opacity-40"
+        />
+        {/* Dark Overlays for depth */}
+        <div className="absolute inset-0 bg-black/60 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-0" />
+      </motion.div>
+
+      {/* Floating Logos Layer */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
         {socialLogos.map((logo, idx) => (
           <MagneticImage
             key={idx}
@@ -147,24 +167,20 @@ const GrowthBreakthrough = () => {
         ))}
       </div>
 
-      {/* Thin Glassmorphism Overlay (Reduced) */}
-      <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px] pointer-events-none z-10" />
-
       {/* Content Layer */}
-      <div className="relative z-20 max-w-6xl mx-auto text-center translate-y-12">
+      <div className="relative z-20 max-w-6xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "circOut" }}
         >
-          <h2 className="text-3xl md:text-6xl  tracking-tighter mb-20 bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight   ">
+          <h2 className="text-4xl md:text-8xl tracking-tighter mb-16 bg-gradient-to-b from-white via-white to-zinc-500 bg-clip-text text-transparent leading-[0.9]">
             Transform Potential <br />
             Into Digital{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-blue-400 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700">
               Dominance
-            </span>{" "}
-            <br />
+            </span>
           </h2>
         </motion.div>
 
@@ -175,15 +191,15 @@ const GrowthBreakthrough = () => {
           transition={{ delay: 0.3, duration: 0.8 }}
         >
           <Link href="/lets-connect">
-            <button className="bg-white cursor-pointer text-black px-8 py-3 rounded-full font-semibold text-xl tracking-tighter transition-all duration-700 hover:tracking-widest active:scale-95 hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] flex items-center gap-4 mx-auto group">
+            <button className="bg-white text-black px-12 py-5 rounded-full font-bold text-xl tracking-tighter transition-all duration-700 hover:tracking-widest active:scale-95 hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] flex items-center gap-4 mx-auto group">
               Let's Talk
             </button>
           </Link>
         </motion.div>
       </div>
 
-      {/* Decorative Bottom Vignette */}
-      <div className="absolute bottom-0 left-0 w-full h-[60%] bg-linear-to-t from-black via-black/40 to-transparent pointer-events-none z-[15]" />
+      {/* Decorative Vignette */}
+      <div className="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-black to-transparent pointer-events-none z-15" />
     </section>
   );
 };

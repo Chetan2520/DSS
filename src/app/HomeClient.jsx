@@ -11,10 +11,12 @@ import ProjectMarquee from "@/components/ProjectMarquee";
 import TechnicalExcellence from "@/components/TechnicalExcellence";
 import Feedback from "@/components/Feedback";
 import OrbitingTestimonials from "@/components/OrbitingTestimonials";
-
+import HomeMix  from "@/components/HomeMix";
 // Lazy Imports
 import dynamic from "next/dynamic";
 import AgencyWelcome from "@/components/AgencyWelcome";
+import SuccessOrbit from "@/components/SuccessOrbit";
+import DiscussProject from "@/components/DiscussProject";
 
 const Loader = () => (
   <div className="h-screen w-full bg-[#050505] flex items-center justify-center">
@@ -86,19 +88,21 @@ export default function HomeClient() {
         <HeroBg />
       
       </section>
-        <AgencyWelcome /> 
+      {/* <HomeMix /> */}
+      <AgencyWelcome /> 
       {/* <Feedback /> */}
 
       <Suspense fallback={<Loader />}>
         {/* 3️⃣ Services */}
         <section id="services">
-          <ModernServices />
-          <TechnicalExcellence />
+         <ModernServices />
+     
+          {/* <TechnicalExcellence /> */}
         </section>
 
         {/* 4️⃣ Dss Philosophy */}
         <section id="dssphilosophy">
-          <DssPhilosophy />
+          {/* <DssPhilosophy /> */}
         </section>
 
     
@@ -108,18 +112,25 @@ export default function HomeClient() {
 
         {/* 8️⃣ Vision & Mission */}
         <section id="visionmission">
-          <NewVisionMission />
+          {/* <NewVisionMission /> */}
         </section>
 
         {/* 9️⃣ Clients */}
         <section id="clients">
           <Clients />
         </section>
+
+
+ <SuccessOrbit />
+       
+
+
   {/* 7️⃣ Portfolio */}
         <section id="portfolio">
           <ProjectMarquee />
         </section>
 
+        <DiscussProject />
         {/* <OrbitingTestimonials /> */}
       </Suspense>
     </div>

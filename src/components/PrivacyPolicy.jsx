@@ -186,7 +186,7 @@ const PrivacyPolicy = () => {
                 Email
               </span>
               <span className="text-sm font-medium text-white break-all">
-                info@digitalsuccesssolutions.in
+                Info@digitalsuccesssolutions.in
               </span>
             </a>
             <a
@@ -198,7 +198,7 @@ const PrivacyPolicy = () => {
                 Phone
               </span>
               <span className="text-sm font-medium text-white font-mono">
-                +91 62643 98990
+                +91 62643 98990, +91 87189 80114
               </span>
             </a>
             <a

@@ -7,56 +7,50 @@ import Link from "next/link";
 const ServiceBanner = ({
   title,
   description,
-  bgImage,
   currentPage,
   videoSrc,
   imageSrc,
 }) => {
-  // Helper to split the title for highlighting (last word or custom)
+  // Helper to split the title for highlighting
   const words = title.split(" ");
   const lastWord = words.pop();
   const prefix = words.join(" ");
 
   return (
-    <section
-      className={`relative w-full flex items-center bg-black overflow-hidden min-h-[80vh]  py-20 md:py-0`}
-    >
-      {/* Background Image - Only if no video/image or as a fallback/underlay */}
-      {!videoSrc && !imageSrc && bgImage && (
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={bgImage}
-            alt={title}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-transparent z-10" />
-        </div>
-      )}
+    <section className="relative w-full flex items-center bg-black overflow-hidden min-h-[90vh] py-20 lg:py-0">
+      
+      {/* --- Background Image Layer (/hero.webp) --- */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero.webp" // Hardcoded as per your request
+          alt="Hero Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-100" // Opacity adjusted for premium look
+        />
+        {/* Gradients for depth and readability */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" /> */}
+      </div>
 
       {/* Content Container */}
       <div className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-12 w-full">
-        <div
-          className={`grid grid-cols-1 ${videoSrc || imageSrc ? "lg:grid-cols-12" : ""} gap-12 items-center`}
-        >
+        <div className={`grid grid-cols-1 ${videoSrc || imageSrc ? "lg:grid-cols-12" : ""} gap-12 items-center`}>
+          
           {/* Left Content Column */}
-          <div
-            className={`${videoSrc || imageSrc ? "lg:col-span-7" : "max-w-4xl"}`}
-          >
-            {/* Heading & Description */}
+          <div className={`${videoSrc || imageSrc ? "lg:col-span-7" : "max-w-4xl"}`}>
             <div className="space-y-6">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-4xl md:text-7xl tracking-tighter leading-[1.05] "
+                className="text-4xl md:text-8xl tracking-tighter leading-[0.95]"
               >
-                <span className="bg-linear-to-b from-white via-white to-zinc-500 bg-clip-text text-transparent block">
+                <span className="bg-gradient-to-b from-white via-white to-zinc-500 bg-clip-text text-transparent block">
                   {prefix}
                 </span>
-                <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-orange-300 to-orange-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-300 to-orange-600">
                   {lastWord}
                 </span>
               </motion.h1>
@@ -65,39 +59,38 @@ const ServiceBanner = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-xl font-medium"
+                className="text-zinc-400 text-lg md:text-2xl leading-relaxed max-w-xl font-light"
               >
                 {description}
               </motion.p>
 
-              {/* Action Button - Visible for split layout */}
               {(videoSrc || imageSrc) && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="pt-6"
+                  className="pt-8"
                 >
                   <Link
                     href="/lets-connect"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-white text-black font-bold   tracking-widest text-xs rounded-full hover:bg-orange-600 hover:text-white transition-all transform hover:scale-105 active:scale-95"
+                    className="inline-flex items-center justify-center px-10 py-5 bg-white text-black font-bold tracking-widest text-xs rounded-full hover:bg-orange-600 hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
                   >
-                    Start Your Project
+                    START YOUR PROJECT
                   </Link>
                 </motion.div>
               )}
             </div>
           </div>
 
-          {/* Right Media Column (Video or Image) */}
+          {/* Right Media Column */}
           {(videoSrc || imageSrc) && (
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.9, x: 30 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
               className="lg:col-span-5 relative"
             >
-              <div className="relative w-full aspect-square md:aspect-auto md:h-full overflow-hidden  group">
+              <div className="relative w-full aspect-square rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl backdrop-blur-sm">
                 {videoSrc ? (
                   <video
                     src={videoSrc}
@@ -114,10 +107,10 @@ const ServiceBanner = ({
                     width={1000}
                     height={1000}
                     priority
-                    className="w-full h-full object-cover  "
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
                 )}
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </motion.div>
           )}

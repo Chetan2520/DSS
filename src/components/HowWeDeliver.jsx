@@ -11,7 +11,7 @@ const cards = [
   },
   {
     num: "02.",
-    title: "Cloud  That Scale",
+    title: "Cloud That Scale",
     desc: "Resilient platforms with clear SLOs and cost controls.",
     color: "#3B82F6",
   },
@@ -31,8 +31,20 @@ const cards = [
 
 const HowWeDeliver = () => {
   return (
-    <section className="bg-black text-white py-24 md:py-32 px-3 md:px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section 
+      className="relative bg-black text-white py-24 md:py-32 px-3 md:px-6 overflow-hidden"
+      style={{
+        // 🖼️ BG Image linked properly
+        // backgroundImage: "url('/images/about3.png')", 
+        backgroundSize: "cover", 
+        backgroundPosition: "center",
+        backgroundRepeat: "no-scrollbar"
+      }}
+    >
+      {/* 🌑 Dark Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/40 z-0" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20">
           {/* Left Column: Heading & Intro */}
           <div className="lg:col-span-4 space-y-12">
@@ -41,7 +53,7 @@ const HowWeDeliver = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-7xl  tracking-tighter leading-tight bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent"
+                className="text-4xl md:text-7xl tracking-tighter leading-tight bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent"
               >
                 How We Deliver <br />
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-blue-400 to-blue-600">
@@ -76,17 +88,17 @@ const HowWeDeliver = () => {
                     delay: idx * 0.1,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="p-4 md:p-10 rounded-3xl bg-zinc-950/50 border border-white/5 hover:border-blue-500/30 transition-all duration-700 h-full flex flex-col justify-between group overflow-hidden relative"
+                  className="p-4 md:p-10 rounded-3xl bg-zinc-950/40 backdrop-blur-sm border border-white/5 hover:border-blue-500/30 transition-all duration-700 h-full flex flex-col justify-between group overflow-hidden relative"
                 >
                   <div className="space-y-10 relative z-10">
                     <span
-                      className="text-1xl md:text-6xl  tracking-tighter opacity-10 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 block mb-1 md:mb-4"
+                      className="text-1xl md:text-6xl tracking-tighter opacity-10 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 block mb-1 md:mb-4"
                       style={{ color: card.color }}
                     >
                       {card.num}
                     </span>
                     <div className="space-y-2 md:space-y-4">
-                      <h3 className="text-xl md:text-3xl  tracking-tighter text-white transition-colors duration-500  ">
+                      <h3 className="text-xl md:text-3xl tracking-tighter text-white transition-colors duration-500">
                         {card.title}
                       </h3>
                       <p className="text-zinc-500 text-xs md:text-base leading-relaxed font-medium">
@@ -102,7 +114,6 @@ const HowWeDeliver = () => {
           </div>
         </div>
       </div>
-     
     </section>
   );
 };

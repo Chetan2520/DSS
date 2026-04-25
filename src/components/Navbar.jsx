@@ -154,24 +154,25 @@ export default function Navbar() {
                 Services <ChevronDown size={14} className={`transition-transform duration-300 ${isServicesOpen ? "rotate-180" : ""}`} />
               </button>
 
-              <div ref={dropdownRef} className="absolute top-[calc(100%+0px)] left-1/2 -translate-x-1/2 w-[1000px] bg-zinc-950 border border-white/10 rounded-[2.5rem] p-2 hidden shadow-2xl backdrop-blur-3xl z-[60] overflow-hidden">
-                <div className="w-[35%] p-8 space-y-1 border-r border-white/5">
+              {/* DROPDOWN CHANGED TO WHITE */}
+              <div ref={dropdownRef} className="absolute top-[calc(100%+0px)] left-1/2 -translate-x-1/2 w-[1000px] bg-white border border-gray-200 rounded-[2.5rem] p-2 hidden shadow-2xl z-[60] overflow-hidden">
+                <div className="w-[35%] p-8 space-y-1 border-r border-gray-100">
                   {services.map((service) => (
-                    <div key={service.name} onMouseEnter={() => setActiveService(service)} onClick={() => handleNavClick(service.path)} className={`flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all ${activeService.name === service.name ? "bg-zinc-950 border border-white/10 shadow-[inset_0_0_20px_rgba(255,255,255,0.02)]" : "hover:bg-white/5"}`}>
-                      <service.icon size={18} className={activeService.name === service.name ? "text-orange-500" : "text-white/30"} />
-                      <span className={`text-sm font-bold ${activeService.name === service.name ? "text-white" : "text-white/60"}`}>{service.name}</span>
+                    <div key={service.name} onMouseEnter={() => setActiveService(service)} onClick={() => handleNavClick(service.path)} className={`flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all ${activeService.name === service.name ? "bg-gray-50 border border-gray-200 shadow-sm" : "hover:bg-gray-50"}`}>
+                      <service.icon size={18} className={activeService.name === service.name ? "text-orange-500" : "text-gray-400"} />
+                      <span className={`text-sm font-bold ${activeService.name === service.name ? "text-black" : "text-gray-500"}`}>{service.name}</span>
                     </div>
                   ))}
                 </div>
-                <div className="w-[65%] p-10 flex flex-col justify-center">
+                <div className="w-[65%] p-10 flex flex-col justify-center bg-gray-50/30">
                    <div key={activeService.name} className="animate-in fade-in slide-in-from-right-8 duration-700 w-full">
-                      <div className="relative aspect-video w-full rounded-3xl overflow-hidden mb-6 shadow-2xl">
+                      <div className="relative aspect-video w-full rounded-3xl overflow-hidden mb-6 shadow-xl border border-gray-200">
                         <img src={activeService.image} alt={activeService.name} className="w-full h-full object-cover" />
                       </div>
-                      <h3 className="text-5xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-400 to-orange-500 font-bold leading-tight">
+                      <h3 className="text-5xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-black via-gray-700 to-orange-500 font-bold leading-tight">
                         {activeService.name}
                       </h3>
-                      <p className="text-zinc-500 text-base mt-3 max-w-xl leading-relaxed font-medium">
+                      <p className="text-gray-600 text-base mt-3 max-w-xl leading-relaxed font-medium">
                         {activeService.description}
                       </p>
                       <div className="pt-6">
@@ -186,6 +187,9 @@ export default function Navbar() {
             </div>
             <button onClick={() => handleNavClick("/portfoliopage")} className="text-sm md:text-lg text-white tracking-wide">Portfolio</button>
             <button onClick={() => handleNavClick("/blogs")} className="text-sm md:text-lg text-white tracking-wide">Blogs</button>
+            <button onClick={() => handleNavClick("/contact-us")} className="text-sm md:text-lg text-white tracking-wide">Contact Us</button>
+         
+         
           </div>
 
           {/* ACTION BUTTONS */}
@@ -203,11 +207,11 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* MOBILE DRAWER */}
+      {/* MOBILE DRAWER (ALREADY WHITE) */}
       <div ref={overlayRef} className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[100] invisible opacity-0" onClick={() => setIsMobileMenuOpen(false)} />
       <div ref={mobileMenuRef} className="fixed top-4 right-4 bottom-4 w-[calc(100%-32px)] max-w-[450px] bg-white z-[101] rounded-[2rem] shadow-2xl flex flex-col overflow-hidden invisible translate-x-full">
         <div className="flex items-center justify-between px-6 pt-6 pb-2">
-          <img src="/images/logo-dark.png" alt="Logo" className="h-8 w-auto" />
+          <img src="/images/logo.png" alt="Logo" className="h-8 w-auto" />
           <button onClick={() => setIsMobileMenuOpen(false)} className="w-9 h-9 flex items-center justify-center bg-black rounded-full text-white"><X size={18} /></button>
         </div>
         <div className="flex-1 px-6 overflow-y-auto no-scrollbar">

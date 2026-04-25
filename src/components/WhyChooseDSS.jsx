@@ -306,7 +306,7 @@ const WhyChooseDSS = () => {
     <section className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-8 overflow-hidden font-sans">
       <div className="absolute inset-0 z-0 text-white">
         <Image
-          src="/images/hero.jpg.jpeg"
+          src="/images/hero.webp"
           alt="Hero Background"
           fill
           priority

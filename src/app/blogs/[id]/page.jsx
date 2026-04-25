@@ -1,4 +1,11 @@
 import BlogDetail from "@/components/BlogDetail";
+import { blogs } from "@/components/blogData";
+
+export async function generateStaticParams() {
+  return blogs.map((blog) => ({
+    id: blog.id.toString(),
+  }));
+}
 
 export async function generateMetadata({ params }) {
   // Use 'await' on params if required (in Next 15+ params should be awaited)

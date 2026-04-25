@@ -185,7 +185,7 @@ const EcommerceApplications = () => {
         {/* --- WHAT WE DO SECTION (WHITE GRID) --- */}
         <section
           className="what-we-build-wrapper relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('/services.webp')` }}
+          style={{ backgroundImage: `url('/images/bg-cover.png')` }}
         >
           <div className="absolute inset-0 bg-black/60 z-0" />
 
@@ -228,7 +228,7 @@ const EcommerceApplications = () => {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 mt-40">
           {/* --- PROCESS SECTION (EDITORIAL LAYOUT) --- */}
-          <div className="mb-40 relative">
+          <div className="mb-40 px-6 relative">
             <div className="mb-32 text-center max-w-4xl mx-auto px-6">
               <h2 className="text-3xl md:text-7xl   tracking-tighter leading-[0.8] bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent  ml-2">
                 The Retail
@@ -379,11 +379,14 @@ const EcommerceApplications = () => {
           </div>
 
           {/* --- GROWTH BREAKTHROUGH CTA --- */}
-          <GrowthBreakthrough />
-
+        
           {/* --- FAQ SECTION --- */}
-          <FAQ faqs={ecommerceFaqs} />
+        
         </div>
+            <GrowthBreakthrough />
+
+          <FAQ faqs={ecommerceFaqs} />
+        
       </div>
     </div>
   );

@@ -195,7 +195,7 @@ const InfluencerMarketing = () => {
         {/* --- WHAT WE DO SECTION (WHITE GRID) --- */}
         <section
           className="what-we-build-wrapper relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('/services.webp')` }}
+          style={{ backgroundImage: `url('/images/bg-cover.png')` }}
         >
           <div className="absolute inset-0 bg-black/60 z-0" />
 
@@ -386,11 +386,12 @@ const InfluencerMarketing = () => {
           </div>
 
           {/* --- GROWTH BREAKTHROUGH CTA --- */}
+        
+        </div>
           <GrowthBreakthrough />
 
           {/* --- FAQ SECTION --- */}
           <FAQ faqs={influencerFaqs} />
-        </div>
       </div>
     </div>
   );

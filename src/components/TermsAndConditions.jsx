@@ -177,7 +177,7 @@ const TermsAndConditions = () => {
                   Email Us
                 </span>
                 <span className="text-sm font-medium text-white">
-                  info@digitalsuccesssolutions.in
+                  Info@digitalsuccesssolutions.in
                 </span>
               </div>
             </a>

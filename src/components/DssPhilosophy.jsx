@@ -19,43 +19,43 @@ const philosophyData = [
     icon: <Brain size={32} />,
     title: "Client-Centric Approach",
     desc: "Every strategy we build is tailored to match your unique business goals.",
-    color: "text-orange-500",
-    border: "hover:border-orange-500/30",
+    color: "text-blue-400",
+    border: "hover:border-blue-400/30",
   },
   {
     icon: <Handshake size={32} />,
     title: "Strong Collaboration",
     desc: "We work closely with clients to ensure transparency and success.",
-    color: "text-orange-500",
-    border: "hover:border-orange-500/30",
+    color: "text-blue-400",
+    border: "hover:border-blue-400/30",
   },
   {
     icon: <Briefcase size={32} />,
     title: "Accountability & Commitment",
     desc: "We take full responsibility for delivering high-quality results.",
-    color: "text-orange-500",
-    border: "hover:border-orange-500/30",
+    color: "text-blue-400",
+    border: "hover:border-blue-400/30",
   },
   {
     icon: <ShieldCheck size={32} />,
     title: "Transparency & Honesty",
     desc: "Clear communication at every stage of your project.",
-    color: "text-orange-500",
-    border: "hover:border-orange-500/30",
+    color: "text-blue-400",
+    border: "hover:border-blue-400/30",
   },
   {
     icon: <Lightbulb size={32} />,
     title: "Creative Innovation",
     desc: "Fresh ideas that help your brand stand out.",
-    color: "text-orange-500",
-    border: "hover:border-orange-500/30",
+    color: "text-blue-400",
+    border: "hover:border-blue-400/30",
   },
   {
     icon: <Smile size={32} />,
     title: "Positive Work Culture",
     desc: "A motivated team that drives better results.",
-    color: "text-orange-500",
-    border: "hover:border-orange-500/30",
+    color: "text-blue-400",
+    border: "hover:border-blue-400/30",
   },
 ];
 
@@ -65,7 +65,6 @@ export default function DssPhilosophy() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // 1. Header Reveal
       gsap.fromTo(
         ".phil-header",
         { y: 50, opacity: 0 },
@@ -79,10 +78,9 @@ export default function DssPhilosophy() {
             trigger: ".phil-header-container",
             start: "top 80%",
           },
-        },
+        }
       );
 
-      // 2. Cards Stagger Animation
       gsap.fromTo(
         cardsRef.current,
         { y: 30, opacity: 0, scale: 0.98 },
@@ -94,7 +92,7 @@ export default function DssPhilosophy() {
           stagger: 0.1,
           ease: "back.out(1.2)",
           scrollTrigger: { trigger: ".phil-grid", start: "top 75%" },
-        },
+        }
       );
     }, containerRef);
 
@@ -106,7 +104,7 @@ export default function DssPhilosophy() {
       ref={containerRef}
       className="relative py-16 sm:py-20 md:py-24 bg-[#050505] text-white overflow-hidden font-sans"
     >
-      {/* Background Image Layer */}
+      {/* 🔥 Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -114,19 +112,30 @@ export default function DssPhilosophy() {
         />
       </div>
 
+      {/* 🔥 Blue Overlay Blend */}
+      <div className="absolute inset-0 bg-black/80 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 via-black/70 to-black z-0" />
+
+      {/* 🔥 Minimal Blue Glow */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-[30%] right-[-5%] w-[400px] h-[400px] bg-blue-600/20 blur-[120px] rounded-full" />
+        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-blue-500/10 blur-[130px] rounded-full" />
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        {/* --- HEADER --- */}
+
+        {/* HEADER */}
         <div className="phil-header-container mb-16 md:mb-20">
           <div className="phil-header flex items-center gap-3 mb-6">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-orange-500"></div>
-            <span className="text-orange-500 text-xs font-bold tracking-[0.3em] uppercase">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-blue-400"></div>
+            <span className="text-blue-400 text-xs font-bold tracking-[0.3em] uppercase">
               Our Values
             </span>
           </div>
 
           <h2 className="phil-header text-4xl md:text-5xl lg:text-6xl tracking-tighter bg-gradient-to-b from-white via-white to-zinc-500 bg-clip-text text-transparent leading-[1.1] mb-6 font-bold">
             Built for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-400 to-orange-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-300 to-blue-500">
               Real Business Growth
             </span>
           </h2>
@@ -137,7 +146,7 @@ export default function DssPhilosophy() {
           </p>
         </div>
 
-        {/* --- CARDS GRID --- */}
+        {/* CARDS */}
         <div className="phil-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {philosophyData.map((item, i) => (
             <div
@@ -145,14 +154,12 @@ export default function DssPhilosophy() {
               ref={(el) => (cardsRef.current[i] = el)}
               className={`group relative p-6 md:p-8 rounded-2xl bg-white/5 border border-white/10 transition-all duration-500 hover:bg-white/[0.08] hover:-translate-y-2 ${item.border}`}
             >
-              {/* Icon */}
               <div
-                className={`${item.color} mb-4 md:mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
+                className={`${item.color} mb-4 md:mb-6 transition-transform duration-500 group-hover:scale-110`}
               >
                 {item.icon}
               </div>
 
-              {/* Content */}
               <div className="relative z-10">
                 <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">
                   {item.title}
@@ -165,7 +172,7 @@ export default function DssPhilosophy() {
           ))}
         </div>
 
-        {/* --- BOTTOM TRUST INDICATORS --- */}
+        {/* TRUST */}
         <div className="phil-header mt-16 pt-8 hidden md:flex border-t border-white/5 flex-wrap justify-center md:justify-start gap-8 md:gap-16">
           {[
             "100% Transparency",
@@ -176,7 +183,7 @@ export default function DssPhilosophy() {
               key={i}
               className="flex items-center gap-3 text-zinc-500 text-sm font-medium"
             >
-              <CheckCircle2 size={18} className="text-orange-500" />
+              <CheckCircle2 size={18} className="text-blue-400" />
               {text}
             </div>
           ))}

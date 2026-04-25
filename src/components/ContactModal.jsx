@@ -140,17 +140,27 @@ const ContactModal = ({ isOpen, onClose }) => {
 
           {/* Direct Contact Info */}
           <div className="relative z-10 space-y-4 pt-8 border-t border-white/10">
-            <div className="flex items-center gap-4 text-sm text-zinc-200">
-              <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                <Phone size={14} />
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-4 text-sm text-zinc-200">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                  <Phone size={14} />
+                </div>
+                <span>+91 62643 98990</span>
               </div>
-              <span>+91 62643 98990</span>
+              <div className="flex items-center gap-4 text-sm text-zinc-200 pl-12">
+                <span>+91 87189 80114</span>
+              </div>
             </div>
-            <div className="flex items-center gap-4 text-sm text-zinc-200">
-              <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-                <Mail size={14} />
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-4 text-sm text-zinc-200">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                  <Mail size={14} />
+                </div>
+                <span className="text-[11px]">Info@digitalsuccesssolutions.in</span>
               </div>
-              <span>business@dss.in</span>
+              <div className="flex items-center gap-4 text-sm text-zinc-200 pl-12">
+                <span className="text-[11px]">business@digitalsuccesssolutions.in</span>
+              </div>
             </div>
           </div>
         </div>
@@ -232,14 +242,13 @@ const ContactModal = ({ isOpen, onClose }) => {
 
             {/* Budget Select */}
             <div className="relative group">
-              <select className="w-full bg-[#050505] border border-white/10 rounded-full px-6 py-4 text-white appearance-none focus:outline-none focus:border-[#0078f0] transition-colors cursor-pointer text-sm">
-                <option value="" disabled selected>
-                  Select Budget Range *
-                </option>
-                <option value="1">₹50k - ₹1 Lakh</option>
-                <option value="2">₹1 Lakh - ₹5 Lakh</option>
-                <option value="3">₹5 Lakh - ₹10 Lakh</option>
-                <option value="4">₹10 Lakh+</option>
+              <select className="w-full bg-[#1a1a1a] border border-white/10 rounded-full px-6 py-4 text-white appearance-none focus:outline-none focus:border-[#0078f0] transition-colors cursor-pointer text-sm">
+                <option value="" disabled selected className="bg-[#050505]">Select Budget Range *</option>
+                <option value="10k-25k" className="bg-[#050505]">₹10k - ₹25k</option>
+                <option value="25k-50k" className="bg-[#050505]">₹25k - ₹50k</option>
+                <option value="50k-1lakh" className="bg-[#050505]">₹50k - ₹1 Lakh</option>
+                <option value="1lakh-3lakh" className="bg-[#050505]">₹1 Lakh - ₹3 Lakh</option>
+                <option value="3lakh+" className="bg-[#050505]">₹3 Lakh+</option>
               </select>
               <ChevronDown
                 className="absolute right-6 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none"
@@ -272,9 +281,18 @@ const ContactModal = ({ isOpen, onClose }) => {
 
             {/* Submit Button */}
             <div className="pt-4">
-              <button className="w-full bg-gradient-to-r from-[#0078f0] to-[#0062c4] text-white font-bold   tracking-widest py-4 rounded-full hover:shadow-[0_0_30px_-5px_rgba(0,120,240,0.5)] transition-all duration-300 transform active:scale-95">
-                {activeTab === "quote" ? "Get Free Quote" : "Schedule Call"}
-              </button>
+              {activeTab === "quote" ? (
+                <button className="w-full bg-gradient-to-r from-[#0078f0] to-[#0062c4] text-white font-bold tracking-widest py-4 rounded-full hover:shadow-[0_0_30px_-5px_rgba(0,120,240,0.5)] transition-all duration-300 transform active:scale-95">
+                  Get Free Quote
+                </button>
+              ) : (
+                <a 
+                  href="tel:+916264398990" 
+                  className="w-full bg-gradient-to-r from-[#0078f0] to-[#0062c4] text-white font-bold tracking-widest py-4 rounded-full hover:shadow-[0_0_30px_-5px_rgba(0,120,240,0.5)] transition-all duration-300 transform active:scale-95 flex items-center justify-center text-center"
+                >
+                  Schedule Call
+                </a>
+              )}
             </div>
           </form>
         </div>

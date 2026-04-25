@@ -176,13 +176,25 @@ export default function Footer() {
                   href="mailto:Info@digitalsuccesssolutions.in"
                   className="hover:text-white transition-colors"
                 >
-                  info@dss.in
+                  Info@digitalsuccesssolutions.in
+                </a>
+                <a
+                  href="mailto:business@digitalsuccesssolutions.in"
+                  className="hover:text-white transition-colors"
+                >
+                  business@digitalsuccesssolutions.in
                 </a>
                 <a
                   href="tel:+916264398990"
                   className="hover:text-white transition-colors"
                 >
                   +91 62643 98990
+                </a>
+                <a
+                  href="tel:+918718980114"
+                  className="hover:text-white transition-colors"
+                >
+                  +91 87189 80114
                 </a>
               </div>
             </div>
@@ -192,7 +204,7 @@ export default function Footer() {
         {/* Bottom Bar Container */}
         <div className="flex flex-col items-center pt-8   text-[10px] text-white   tracking-[0.15em] gap-4">
           <div className="text-center">
-            © 2025 DSS LLP. All Rights Reserved.
+            © 2026 DSS LLP. All Rights Reserved.
           </div>
           <div className="flex flex-wrap justify-center gap-8">
             <Link

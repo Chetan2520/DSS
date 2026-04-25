@@ -350,7 +350,7 @@ const WebDevAgency = () => {
       {/* What We Build Section - REVERTED TO PREVIOUS LIGHT THEME */}
       <section
         className="what-we-build-wrapper relative py-16 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('/services.webp')` }}
+        style={{ backgroundImage: `url('/images/bg-cover.png')` }}
       >
         {/* Subtle Overlay to make text readable on white */}
         <div className="absolute inset-0 bg-black/30 z-0" />
