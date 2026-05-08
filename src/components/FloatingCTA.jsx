@@ -38,7 +38,7 @@ export default function FloatingWhatsApp() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           // Size chota kiya: w-16 h-16 (pehle w-24 tha)
-          className="relative w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg shadow-green-900/20 cursor-pointer group"
+          className="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg shadow-green-900/20 cursor-pointer group"
         >
           {/* 1. Rotating Text Ring (Chota text size) */}
           <motion.div
@@ -52,11 +52,7 @@ export default function FloatingWhatsApp() {
                 d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
                 fill="none"
               />
-              <text className="text-[10px] font-bold fill-white uppercase tracking-[2px]">
-                <textPath xlinkHref="#circlePath">
-                  • WHATSAPP • CHAT NOW 
-                </textPath>
-              </text>
+               
             </svg>
           </motion.div>
 

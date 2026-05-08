@@ -106,39 +106,45 @@ const serviceData = {
       name: "YouTube",
       logo: "https://www.vectorlogo.zone/logos/youtube/youtube-icon.svg",
     },
-    
+
     {
       name: "Instagram",
       logo: "https://www.vectorlogo.zone/logos/instagram/instagram-icon.svg",
-    }
+    },
   ],
 };
 
 const influencerFaqs = [
   {
     question: "What does influencer marketing involve?",
-    answer: "It’s a collaboration between brands and digital creators to showcase products or services in a natural, engaging way to their audience, helping build trust and awareness."
+    answer:
+      "It’s a collaboration between brands and digital creators to showcase products or services in a natural, engaging way to their audience, helping build trust and awareness.",
   },
   {
     question: "How do you find suitable creators for campaigns?",
-    answer: "We carefully analyze audience demographics, content style, and performance data to partner your brand with creators who genuinely match your identity and goals."
+    answer:
+      "We carefully analyze audience demographics, content style, and performance data to partner your brand with creators who genuinely match your identity and goals.",
   },
   {
     question: "Which social platforms are included in your campaigns?",
-    answer: "Our campaigns are designed for platforms like Instagram, TikTok, YouTube, and others—depending on where your audience is most active."
+    answer:
+      "Our campaigns are designed for platforms like Instagram, TikTok, YouTube, and others—depending on where your audience is most active.",
   },
   {
     question: "How do you evaluate campaign success?",
-    answer: "We monitor performance through metrics such as audience reach, interaction rates, traffic, and conversions, delivering clear insights into campaign effectiveness."
+    answer:
+      "We monitor performance through metrics such as audience reach, interaction rates, traffic, and conversions, delivering clear insights into campaign effectiveness.",
   },
   {
     question: "What is the typical turnaround time for a campaign?",
-    answer: "Campaign timelines depend on complexity, but generally, we move from planning to launch within a few weeks while ensuring quality at every step."
+    answer:
+      "Campaign timelines depend on complexity, but generally, we move from planning to launch within a few weeks while ensuring quality at every step.",
   },
   {
     question: "Can we expand campaigns after initial success?",
-    answer: "Yes, high-performing campaigns can be scaled by increasing creator collaborations, extending content formats, and optimizing strategies for greater reach."
-  }
+    answer:
+      "Yes, high-performing campaigns can be scaled by increasing creator collaborations, extending content formats, and optimizing strategies for greater reach.",
+  },
 ];
 
 const InfluencerMarketing = () => {
@@ -184,7 +190,7 @@ const InfluencerMarketing = () => {
       <ServiceBanner
         title="Influencer Marketing"
         description={serviceData.description}
-        imageSrc="/influencer.png"
+        imageSrc="/influencer.avif"
         currentPage="Influencer Marketing"
       />
 
@@ -195,7 +201,7 @@ const InfluencerMarketing = () => {
         {/* --- WHAT WE DO SECTION (WHITE GRID) --- */}
         <section
           className="what-we-build-wrapper relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('/images/bg-cover.png')` }}
+          style={{ backgroundImage: `url('/images/final-services.jpeg')` }}
         >
           <div className="absolute inset-0 bg-black/60 z-0" />
 
@@ -210,7 +216,8 @@ const InfluencerMarketing = () => {
                 </h2>
               </div>
               <p className="text-zinc-400 text-xs max-w-xs font-medium border-l border-blue-500/30 pl-4 leading-relaxed">
-                Connect with your audience through powerful creator partnerships.
+                Connect with your audience through powerful creator
+                partnerships.
               </p>
             </div>
 
@@ -360,7 +367,7 @@ const InfluencerMarketing = () => {
                 {[...Array(4)].map((_, groupIdx) => (
                   <div
                     key={groupIdx}
-                    className="flex items-center gap-24 shrink-0"
+                    className="flex items-center gap-10 md:gap-24 shrink-0"
                   >
                     {serviceData.techStack.map((tech, i) => (
                       <div
@@ -386,12 +393,11 @@ const InfluencerMarketing = () => {
           </div>
 
           {/* --- GROWTH BREAKTHROUGH CTA --- */}
-        
         </div>
-          <GrowthBreakthrough />
+        <GrowthBreakthrough />
 
-          {/* --- FAQ SECTION --- */}
-          <FAQ faqs={influencerFaqs} />
+        {/* --- FAQ SECTION --- */}
+        <FAQ faqs={influencerFaqs} />
       </div>
     </div>
   );

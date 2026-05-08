@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Sparkles } from "lucide-react";
+import SlidingButton from "./SlidingButton";
 
 export default function LeadPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -183,14 +184,13 @@ export default function LeadPopup() {
 
                   {error && <p className="text-red-500 text-[10px] italic">{error}</p>}
 
-                  <button
+                  <SlidingButton
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition group shadow-lg shadow-blue-900/40 disabled:opacity-50"
+                    className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-900/40 disabled:opacity-50"
                   >
                     {isSubmitting ? "Sending..." : "Claim Free Audit"}
-                    <Send size={16} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </SlidingButton>
 
                   <p className="text-[10px] text-center text-zinc-500 pt-2 uppercase tracking-widest">
                     We respect your privacy. No spam, ever.

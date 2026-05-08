@@ -30,9 +30,18 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative bg-[#000000] text-white pt-24 pb-12 overflow-hidden font-sans"
+      className="relative bg-[#000000] text-white pt-10 md:pt-24 pb-12 overflow-hidden font-sans"
     >
-      {/* Custom Glowing Top Border */}
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img 
+          src="/images/footer-img.webp" 
+          alt="Footer Background" 
+          className="w-full h-full object-cover opacity-60"
+        />
+        {/* Top-to-bottom black gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-transparent" />
+      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Main Footer Links */}
@@ -42,10 +51,10 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="DSS Logo"
-                className="h-10 md:h-20 w-auto object-contain"
+                className="h-20 w-auto object-contain"
               />
             </Link>
-            <p className="text-zinc-500 text-sm leading-relaxed max-w-sm">
+            <p className="text-white/60 text-sm leading-relaxed max-w-sm">
               Digital Success Solutions. We are a global digital agency crafting
               world-class digital experiences for ambitious brands.
             </p>
@@ -56,7 +65,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-zinc-500 hover:text-white hover:border-white transition-all duration-500"
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white transition-all duration-500"
                 >
                   {social.icon}
                 </a>
@@ -65,10 +74,10 @@ export default function Footer() {
           </div>
 
           <div className="col-span-1">
-            <h4 className="text-sm md:text-base  tracking-[0.2em] text-white mb-6">
+            <h4 className="text-sm md:text-2xl   text-white mb-6">
               Explore
             </h4>
-            <ul className="flex flex-col gap-4 text-zinc-500 text-sm">
+            <ul className="flex flex-col gap-4 text-white/70 text-sm">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
                   Home
@@ -76,7 +85,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="/about-us"
                   className="hover:text-white transition-colors"
                 >
                   Who We Are
@@ -110,10 +119,10 @@ export default function Footer() {
           </div>
 
           <div className="col-span-1">
-            <h4 className="text-sm md:text-base  tracking-[0.2em] text-white mb-6">
+            <h4 className="text-sm md:text-2xl  text-white mb-6">
               Services
             </h4>
-            <ul className="flex flex-col gap-4 text-zinc-500 text-sm">
+            <ul className="flex flex-col gap-4 text-white/70 text-sm">
               <li>
                 <Link
                   href="/website-design-and-website-development"
@@ -166,10 +175,10 @@ export default function Footer() {
           </div>
 
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="text-sm md:text-base  tracking-[0.2em] text-white mb-6">
+            <h4 className="text-sm md:text-2xl    text-white mb-6">
               Indore HQ
             </h4>
-            <div className="flex flex-col gap-4 text-zinc-500 text-sm leading-relaxed">
+            <div className="flex flex-col gap-4 text-white/70 text-sm leading-relaxed">
               <p>Scheme No 53, Vijay Nagar, Indore, MP – 452010</p>
               <div className="pt-2 flex flex-col gap-2">
                 <a
@@ -223,22 +232,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Right Floating Video */}
-      <div className="absolute bottom-6 right-6 lg:bottom-12 lg:right-12 hidden md:block">
-        <div className="relative group">
-          <div className="absolute -inset-1  " />
-          <div className="relative w-48 h-48  ">
-            <video
-              src="/footer.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-          </div>
-        </div>
-      </div>
+
     </footer>
   );
 }

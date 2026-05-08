@@ -34,7 +34,7 @@ gsap.registerPlugin(ScrollTrigger);
 // --- CONTENT DATA ---
 const seoContent = {
   header: {
-    title: "SEO Services in Indore ",
+    title: "SEO Services ",
     subtitle: "Growing Multiple Businesses in a Short Time.",
     desc: "In today’s digital landscape, a website alone can’t deliver results without visibility. Our SEO services in Indore boost your online presence, drive targeted traffic, and convert visitors into leads. At Digital Success Solutions, we use data driven strategies and advanced tools to create customized SEO plans for long term growth and measurable success.",
   },
@@ -108,7 +108,7 @@ const seoContent = {
       name: "SEMrush",
       logo: "https://tse4.mm.bing.net/th/id/OIP.LgZbPbNyI_YvX_tYFUIhHgHaEK?pid=Api&P=0&h=220",
     },
-    
+
     {
       name: "GA4",
       logo: "https://www.vectorlogo.zone/logos/google_analytics/google_analytics-icon.svg",
@@ -127,6 +127,39 @@ const seoContent = {
     },
   ],
 };
+
+const seoFaqs = [
+  {
+    question: "Why should I choose Digital Success Solutions for SEO in Indore?",
+    answer:
+      "We focus on creating personalized SEO strategies backed by real data and industry insights, helping businesses achieve better rankings, consistent traffic, and measurable growth.",
+  },
+  {
+    question: "When can I expect results from SEO services?",
+    answer:
+      "SEO takes time to show impact. Most websites start seeing positive changes within a few months, depending on competition, website condition, and strategy implementation.",
+  },
+  {
+    question: "Do you help businesses rank in local searches?",
+    answer:
+      "Yes, we optimize your business for local search results so you can attract customers in your area and increase calls, visits, and inquiries.",
+  },
+  {
+    question: "What all services are covered under your SEO plans?",
+    answer:
+      "Our SEO solutions include website optimization, keyword research, content planning, technical improvements, link building, and regular performance monitoring.",
+  },
+  {
+    question: "Can SEO increase my sales and conversions?",
+    answer:
+      "Yes, by bringing relevant and interested users to your website, SEO improves your chances of converting visitors into customers.",
+  },
+  {
+    question: "Do you work on SEO for online stores?",
+    answer:
+      "Yes, we optimize e-commerce websites by improving product visibility, enhancing site structure, and targeting high-converting keywords.",
+  },
+];
 
 const SeoOptimization = () => {
   const containerRef = useRef(null);
@@ -169,9 +202,9 @@ const SeoOptimization = () => {
 
       {/* --- HERO BANNER SECTION --- */}
       <ServiceBanner
-        title="SEO Services in Indore "
+        title="SEO Services  "
         description={seoContent.header.desc}
-        imageSrc="/seo.png"
+        imageSrc="/seo.avif"
         currentPage="SEO"
       />
 
@@ -269,8 +302,8 @@ const SeoOptimization = () => {
               {/* Title Card */}
               <div className="animate-card group relative p-10 rounded-4xl bg-white  border border-orange-600 flex flex-col justify-center min-h-[300px]">
                 <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 tracking-tighter leading-[1.1]  ">
-                 Our Complete 
- <br /> SEO Services
+                  Our Complete
+                  <br /> SEO Services
                 </h2>
               </div>
 
@@ -349,7 +382,7 @@ const SeoOptimization = () => {
                 {[...Array(4)].map((_, groupIdx) => (
                   <div
                     key={groupIdx}
-                    className="flex items-center gap-24 shrink-0"
+                    className="flex items-center gap-10 md:gap-24 shrink-0"
                   >
                     {seoContent.techStack.map((tech, i) => (
                       <div
@@ -375,12 +408,11 @@ const SeoOptimization = () => {
           </div>
 
           {/* --- GROWTH BREAKTHROUGH CTA --- */}
-       
         </div>
-           <GrowthBreakthrough />
+        <GrowthBreakthrough />
 
-          {/* --- FAQ SECTION --- */}
-          <FAQ />
+        {/* --- FAQ SECTION --- */}
+        <FAQ faqs={seoFaqs} />
       </div>
     </div>
   );

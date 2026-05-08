@@ -106,7 +106,7 @@ const serviceData = {
       "So you need a high-quality, fast, mobile-friendly, and conversion-optimized website.",
   },
 
-  types:[
+  types: [
     {
       title: "We Provide Custom Website Solutions",
       desc: "We build fully personalized websites that align perfectly with your brand and business objectives.",
@@ -242,29 +242,36 @@ const serviceData = {
 
 const webDevFaqs = [
   {
-    question: "What services does Digital Success Solutions offer in website development?",
-    answer: "We offer full website development services, including custom website design, responsive development, e-commerce solutions, website optimization, and continuous maintenance support."
+    question:
+      "What services does Digital Success Solutions offer in website development?",
+    answer:
+      "We offer full website development services, including custom website design, responsive development, e-commerce solutions, website optimization, and continuous maintenance support.",
   },
   {
     question: "How much time is required to create a website?",
-    answer: "The time needed depends on the website’s specific requirements and features. Simple websites can be completed quickly, while more complex or e-commerce projects require additional time for development and quality assurance."
+    answer:
+      "The time needed depends on the website’s specific requirements and features.\nSimple websites can be completed quickly, while more complex or e-commerce projects require additional time for development and quality assurance.",
   },
   {
     question: "Do you create mobile-friendly websites?",
-    answer: "Yes, all our websites are fully responsive and designed to work well on mobile, tablet, and desktop devices."
+    answer:
+      "Yes, all our websites are fully responsive and designed to work well on mobile, tablet, and desktop devices.",
   },
   {
     question: "Will my website be SEO-friendly?",
-    answer: "Yes, we ensure that all websites are built with an SEO-friendly structure, fast loading speeds, and proper coding to help improve your search engine rankings."
+    answer:
+      "Yes, we ensure that all websites are built with an SEO-friendly structure, fast loading speeds, and proper coding to help improve your search engine rankings.",
   },
   {
     question: "Can you redesign my existing website?",
-    answer: "Yes, we can update and improve your current website to provide a modern design, better performance, and a more enhanced user experience."
+    answer:
+      "Yes, we can update and improve your current website to provide a modern design, better performance, and a more enhanced user experience.",
   },
   {
     question: "Do you provide e-commerce website development?",
-    answer: "Yes, we develop secure and user-friendly e-commerce websites that make online selling efficient and easy."
-  }
+    answer:
+      "Yes, we develop secure and user-friendly e-commerce websites that make online selling efficient and easy.",
+  },
 ];
 
 const WebDevAgency = () => {
@@ -367,7 +374,8 @@ const WebDevAgency = () => {
               </h2>
             </div>
             <p className="text-zinc-400 text-xs max-w-xs font-medium border-l border-orange-500/30 pl-4 leading-relaxed">
-              We offer complete web solutions designed to meet the unique needs of every business.
+              We offer complete web solutions designed to meet the unique needs
+              of every business.
             </p>
           </div>
 
@@ -518,7 +526,7 @@ const WebDevAgency = () => {
               {[...Array(4)].map((_, groupIdx) => (
                 <div
                   key={groupIdx}
-                  className="flex items-center gap-24 shrink-0"
+                  className="flex items-center gap-10 md:gap-24 shrink-0"
                 >
                   {serviceData.techStack.map((tech, i) => (
                     <div

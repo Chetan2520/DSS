@@ -37,7 +37,7 @@ const projects = [
     id: 4,
     title: "Vanya Resort",
     category: "Hospitality",
-    img: "/images/vanya.png",
+    img: "/images/vanya.webp",
     accent:
       "group-hover:shadow-purple-500/30 border-purple-500/50 text-purple-400",
     theme: "from-purple-900/20 to-transparent",

@@ -161,35 +161,41 @@ const serviceData = {
     {
       name: "LinkedIn",
       logo: "https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg",
-    }
+    },
   ],
 };
 
 const socialMediaFaqs = [
   {
     question: "How can social media marketing help grow my business?",
-    answer: "Social media marketing helps your business reach a wider audience, build trust, and convert followers into paying customers through consistent and strategic engagement."
+    answer:
+      "Social media marketing helps your business reach a wider audience, build trust, and convert followers into paying customers through consistent and strategic engagement.",
   },
   {
     question: "Which platforms should I focus on for better results?",
-    answer: "The choice of platform depends on your business type, target audience, and goals. We analyze your niche to select the most effective channels for maximum impact."
+    answer:
+      "The choice of platform depends on your business type, target audience, and goals. We analyze your niche to select the most effective channels for maximum impact.",
   },
   {
     question: "Do I need paid ads along with organic marketing?",
-    answer: "While organic growth builds trust over time, paid advertising accelerates reach and delivers faster results by targeting the right audience."
+    answer:
+      "While organic growth builds trust over time, paid advertising accelerates reach and delivers faster results by targeting the right audience.",
   },
   {
     question: "How do you create engaging social media content?",
-    answer: "We combine creative visuals, compelling captions, and trending strategies to produce content that captures attention and encourages interaction."
+    answer:
+      "We combine creative visuals, compelling captions, and trending strategies to produce content that captures attention and encourages interaction.",
   },
   {
     question: "Will I get measurable results from social media marketing?",
-    answer: "Yes, we track performance through analytics such as reach, engagement, and conversions to ensure your campaigns deliver real business outcomes."
+    answer:
+      "Yes, we track performance through analytics such as reach, engagement, and conversions to ensure your campaigns deliver real business outcomes.",
   },
   {
     question: "How do you maintain brand consistency across platforms?",
-    answer: "We follow a structured content strategy, consistent design elements, and brand voice guidelines to ensure a strong and unified brand presence."
-  }
+    answer:
+      "We follow a structured content strategy, consistent design elements, and brand voice guidelines to ensure a strong and unified brand presence.",
+  },
 ];
 
 const SocialMediaMarketing = () => {
@@ -235,7 +241,7 @@ const SocialMediaMarketing = () => {
       <ServiceBanner
         title="Social Media Marketing"
         description={serviceData.description}
-        imageSrc="/social-media.png"
+        imageSrc="/social-media.avif"
         currentPage="Social Media"
       />
 
@@ -269,7 +275,7 @@ const SocialMediaMarketing = () => {
               <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-8 md:gap-12">
                 {serviceData.services.map((service, i) => (
                   <div key={i} className="group relative">
-                  <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
+                    <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
                       <h3 className="text-xl md:text-2xl   text-zinc-900 mb-3 tracking-tight  ">
                         {service.title}
                       </h3>
@@ -411,7 +417,7 @@ const SocialMediaMarketing = () => {
                 {[...Array(4)].map((_, groupIdx) => (
                   <div
                     key={groupIdx}
-                    className="flex items-center gap-24 shrink-0"
+                    className="flex items-center gap-10 md:gap-24 shrink-0"
                   >
                     {serviceData.techStack.map((tech, i) => (
                       <div
@@ -437,12 +443,11 @@ const SocialMediaMarketing = () => {
           </div>
 
           {/* --- GROWTH BREAKTHROUGH CTA --- */}
-        
         </div>
-          <GrowthBreakthrough />
+        <GrowthBreakthrough />
 
-          {/* --- FAQ SECTION --- */}
-          <FAQ faqs={socialMediaFaqs} />
+        {/* --- FAQ SECTION --- */}
+        <FAQ faqs={socialMediaFaqs} />
       </div>
     </div>
   );

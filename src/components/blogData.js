@@ -2,9 +2,9 @@
 
 export const blogs = [
   {
-    id: 1, 
+    id: 1,
     title: "Why SEO Is Important For Your Business",
-    image: "/images/Blogs/SEO.png",
+    image: "/images/Blogs/seo.avif",
     category: "Digital Marketing",
     date: "Jan 07, 2026",
     author: "Digital Success Solutions",
@@ -80,14 +80,15 @@ export const blogs = [
         While SEO may not bring you significant changes overnight, it helps your competitive edge by helping you nurture leads and establish your authority with one piece of content at a time. 
         Provided that your website ticks all the right boxes, incremental improvements in your search engine results will compound over time, allowing you to remain relevant.
       </p>
-    `
+    `,
   },
 
   // --- BLOG 2 START ---
   {
     id: 2,
     title: "Top Digital Marketing Strategies to Grow Your Business",
-    image: "https://plus.unsplash.com/premium_photo-1661425715124-310ec1b49b8a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RGlnaXRhbCUyME1hcmtldGluZyUyMFN0cmF0ZWdpZXN8ZW58MHx8MHx8fDA%3D", // Main Thumbnail Image
+    image:
+      "https://plus.unsplash.com/premium_photo-1661425715124-310ec1b49b8a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RGlnaXRhbCUyME1hcmtldGluZyUyMFN0cmF0ZWdpZXN8ZW58MHx8MHx8fDA%3D", // Main Thumbnail Image
     category: "Digital Marketing",
     date: "Jan 08, 2026",
     author: "Digital Success Solutions",
@@ -188,13 +189,14 @@ export const blogs = [
         Our team has already grown many businesses like real estate, hospitals, restaurants, e-commerce, and more.
       </p>
       <p><strong>Contact us today to skyrocket your growth!</strong></p>
-    `
+    `,
   },
   // --- BLOG 3 START ---
   {
     id: 3,
     title: "Top 5 Digital Marketing Strategies For Doctors",
-    image: "https://plus.unsplash.com/premium_photo-1661376778929-dc539f9ebb0d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VG9wJTIwNSUyMERpZ2l0YWwlMjBNYXJrZXRpbmclMjBTdHJhdGVnaWVzJTIwRm9yJTIwRG9jdG9yc3xlbnwwfHwwfHx8MA%3D%3D", // Main Thumbnail Image
+    image:
+      "https://plus.unsplash.com/premium_photo-1661376778929-dc539f9ebb0d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VG9wJTIwNSUyMERpZ2l0YWwlMjBNYXJrZXRpbmclMjBTdHJhdGVnaWVzJTIwRm9yJTIwRG9jdG9yc3xlbnwwfHwwfHx8MA%3D%3D", // Main Thumbnail Image
     category: "Healthcare Marketing",
     date: "Jan 09, 2026",
     author: "Digital Success Solutions",
@@ -289,12 +291,13 @@ export const blogs = [
         Though digital channels dominate healthcare marketing, offline tactics like community health fairs can still drive patient engagement. Combining these strategies ensures your practice stays competitive and accessible.
       </p>
       <p><strong>Ready to grow your medical practice? Contact our team today for a specialized strategy!</strong></p>
-    `
+    `,
   },
   {
     id: 4,
     title: "What is Performance Marketing? A Complete Guide",
-    image: "https://media.istockphoto.com/id/658096062/photo/notebook-with-toolls-and-notes-about-performance-management.webp?a=1&b=1&s=612x612&w=0&k=20&c=ZKmTFApXnbxFn4MlP8PY95B3PKp9RDJpxzIBSqOc6d0=", // Main Thumbnail Image
+    image:
+      "https://media.istockphoto.com/id/658096062/photo/notebook-with-toolls-and-notes-about-performance-management.webp?a=1&b=1&s=612x612&w=0&k=20&c=ZKmTFApXnbxFn4MlP8PY95B3PKp9RDJpxzIBSqOc6d0=", // Main Thumbnail Image
     category: "Performance Marketing",
     date: "Jan 10, 2026",
     author: "Digital Success Solutions",
@@ -429,14 +432,16 @@ export const blogs = [
         <li><strong>Boosted-Brand Awareness:</strong> Because you will be focusing on reaching the correct audience and letting them know your brand is out there, brand awareness is a natural by-product of performance activities.</li>
         <li><strong>Trackable performance:</strong> Performance marketing is easy to measure, letting you see the entire purchasing journey of each buyer. This fully trackable marketing method gives you insight into which strategies you should invest more in and which partners or channels produce the best results.</li>
       </ul>
-    `
-},
+    `,
+  },
 
-// --- BLOG 5 START ---
+  // --- BLOG 5 START ---
   {
     id: 5,
-    title: "The 2026 Mega Strategy: Promoting Your Restaurant in Indore Using Instagram Reels",
-    image: "https://media.istockphoto.com/id/2230216390/photo/2026-strategy-cube-block-wooden-sign-symbol-decoration-business-financial-idea-2026-strategy.webp?a=1&b=1&s=612x612&w=0&k=20&c=Z9Zk1lavmJQSAcYzdETQBsfXdCa1RYK5Jmbm-O1C-Ok=", // Main Thumbnail
+    title:
+      "The 2026 Mega Strategy: Promoting Your Restaurant in Indore Using Instagram Reels",
+    image:
+      "https://media.istockphoto.com/id/2230216390/photo/2026-strategy-cube-block-wooden-sign-symbol-decoration-business-financial-idea-2026-strategy.webp?a=1&b=1&s=612x612&w=0&k=20&c=Z9Zk1lavmJQSAcYzdETQBsfXdCa1RYK5Jmbm-O1C-Ok=", // Main Thumbnail
     category: "Social Media Marketing",
     date: "Jan 12, 2026",
     author: "Digital Success Solutions",
@@ -564,13 +569,14 @@ export const blogs = [
       <p>
         In 2026, your restaurant’s success is determined as much by your content quality as your food quality. By leveraging the local culture of Indore, using smart SEO, and creating human-centric Reels, you can transform your establishment from a "hidden gem" into the city's most talked-about destination.
       </p>
-    `
+    `,
   },
   // --- BLOG 6 START ---
   {
     id: 6,
     title: "Digital Marketing Strategy for Real Estate (2026 Guide)",
-    image: "https://images.unsplash.com/flagged/photo-1558954157-aa76c0d246c6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RGlnaXRhbCUyME1hcmtldGluZyUyMFN0cmF0ZWd5JTIwZm9yJTIwUmVhbCUyMEVzdGF0ZXxlbnwwfHwwfHx8MA%3D%3D", // Main Thumbnail Image
+    image:
+      "https://images.unsplash.com/flagged/photo-1558954157-aa76c0d246c6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RGlnaXRhbCUyME1hcmtldGluZyUyMFN0cmF0ZWd5JTIwZm9yJTIwUmVhbCUyMEVzdGF0ZXxlbnwwfHwwfHx8MA%3D%3D", // Main Thumbnail Image
     category: "Real Estate Marketing",
     date: "Jan 13, 2026",
     author: "Digital Success Solutions",
@@ -676,6 +682,6 @@ export const blogs = [
       <p>
         In the competitive real estate market of Indore, digital marketing is no longer an option—it is the foundation. By focusing on Local SEO, High-Quality Visuals, and Lead Nurturing, you don't just sell properties; you build a legacy brand that Indoris trust.
       </p>
-    `
+    `,
   },
 ];

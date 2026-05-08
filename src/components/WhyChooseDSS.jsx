@@ -1,7 +1,14 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
-import { Minus, Square, X, MousePointer2 } from "lucide-react";
+import {
+  Minus,
+  Square,
+  X,
+  MousePointer2,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -60,32 +67,19 @@ const WhyChooseDSS = () => {
     {
       title: "Mobile\nApps",
       visual: (
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="absolute inset-0 bg-cyan-400/10 blur-3xl rounded-full translate-x-10 translate-y-10" />
-          <div className="relative w-full max-w-[240px] h-full flex items-center justify-center">
-            <motion.div
-              initial={{ rotate: -15, x: -20, opacity: 0 }}
-              animate={{ rotate: -12, x: 0, opacity: 1 }}
-              className="absolute left-0 bottom-4 w-[110px] sm:w-[140px] aspect-9/19 bg-slate-900 rounded-2xl md:rounded-3xl border-[3px] md:border-4 border-white/10 shadow-2xl overflow-hidden z-10"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2670&auto=format&fit=crop"
-                alt="App 1"
-                className="w-full h-full object-cover opacity-80"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ rotate: 12, x: 20, opacity: 0 }}
-              animate={{ rotate: 8, x: 0, opacity: 1 }}
-              className="absolute right-0 top-0 w-[110px] sm:w-[140px] aspect-9/19 bg-slate-900 rounded-2xl md:rounded-3xl border-[3px] md:border-4 border-white/10 shadow-2xl overflow-hidden z-20"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=2670&auto=format&fit=crop"
-                alt="App 2"
-                className="w-full h-full object-cover opacity-80"
-              />
-            </motion.div>
-          </div>
+        <div className="relative w-full h-full flex items-center justify-center p-4">
+          <div className="absolute inset-0 " />
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="relative w-full h-full rounded-2xl md:rounded-3xl overflow-hidden    "
+          >
+            <img
+              src="/images/apps.png"
+              alt="Mobile Apps"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
         </div>
       ),
     },
@@ -93,11 +87,11 @@ const WhyChooseDSS = () => {
       title: "Web\nDevelopment",
       visual: (
         <div className="relative w-full h-full flex items-center justify-center">
-          <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full" />
+          <div className="absolute inset-0 " />
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="relative w-full max-w-[260px] md:max-w-[320px] aspect-[16/10] bg-[#282c34] rounded-xl border border-white/10 shadow-2xl overflow-hidden flex flex-col"
+            className="relative w-full max-w-[260px] md:max-w-[320px] aspect-[16/10] rounded-xl border border-white/10 shadow-2xl overflow-hidden flex flex-col"
           >
             <div className="w-full h-7 bg-[#21252b] border-b border-black/20 flex items-center px-3 gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
@@ -148,7 +142,7 @@ const WhyChooseDSS = () => {
       title: "Graphic\nDesigning",
       visual: (
         <div className="relative w-full h-full flex items-center justify-center p-8">
-          <div className="absolute inset-0 bg-pink-500/5 blur-3xl rounded-full" />
+          <div className="absolute inset-0  " />
           <div className="relative w-full h-full flex flex-col items-center justify-center">
             <svg
               viewBox="0 0 200 200"
@@ -214,15 +208,19 @@ const WhyChooseDSS = () => {
       title: "Digital\nMarketing",
       visual: (
         <div className="relative w-full h-full flex items-center justify-center">
-          <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full opacity-40 animate-pulse" />
+          <div className="absolute inset-0    " />
           <div className="relative w-full h-full flex items-center justify-center scale-75 md:scale-100">
             <motion.div
               initial={{ scale: 0, rotate: -45 }}
               animate={{ scale: 1, rotate: 0 }}
-              className="w-24 h-24 bg-white/10 backdrop-blur-3xl rounded-4xl border border-white/40 flex items-center justify-center shadow-2xl z-20 group-hover:rotate-6 transition-transform"
+              className="w-24 h-24   backdrop-blur-3xl rounded-4xl border border-black/40 flex items-center justify-center shadow-2xl z-20 group-hover:rotate-6 transition-transform"
             >
-              <span className="text-white   text-2xl tracking-tighter">
-                <img src="/images/logo.png" alt="DSS Logo" className="w-14 h-14 object-contain" />
+              <span className="text-white  bg-black  text-2xl tracking-tighter">
+                <img
+                  src="/images/logo.png"
+                  alt="DSS Logo"
+                  className="w-14 h-14 object-contain"
+                />
               </span>
               <div className="absolute inset-0 bg-white/5 rounded-4xl animate-ping" />
             </motion.div>
@@ -266,7 +264,7 @@ const WhyChooseDSS = () => {
                 initial={{ opacity: 0, x: 0, y: 0 }}
                 animate={{ opacity: 1, x: app.x, y: app.y }}
                 transition={{ duration: 1, delay: app.delay, ease: "backOut" }}
-                className="absolute w-14 h-14 bg-white rounded-2xl border-2 border-white/20 p-2.5 shadow-2xl"
+                className="absolute w-14 h-14    "
               >
                 <img
                   src={app.icon}
@@ -275,20 +273,23 @@ const WhyChooseDSS = () => {
                 />
               </motion.div>
             ))}
-            <div className="absolute inset-0 pointer-events-none opacity-20">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full border border-dashed border-white/40 rounded-full animate-spin-slow" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 border border-dashed border-blue-400/40 rounded-full animate-spin-slow-reverse" />
-            </div>
+            <div className="absolute inset-0 pointer-events-none opacity-20"></div>
           </div>
         </div>
       ),
     },
   ];
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, slideDuration);
+    const timer = setInterval(nextSlide, slideDuration);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -303,16 +304,16 @@ const WhyChooseDSS = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-8 overflow-hidden font-sans">
-      <div className="absolute inset-0 z-0 text-white">
-        <Image
-          src="/images/hero.webp"
-          alt="Hero Background"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
+    <section className="relative min-h-screen flex items-center justify-center py-20 px-4 md:px-8 overflow-hidden font-sans bg-[#050505]">
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <img
+          src="/images/about.avif"
+          alt="Background"
+          className="w-full h-full object-cover"
+          loading="lazy"
         />
+        {/* Subtle dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40 z-1" />
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
@@ -346,8 +347,9 @@ const WhyChooseDSS = () => {
               </svg>
 
               {/* Bulletproof Desktop Clip Path */}
-              <style dangerouslySetInnerHTML={{
-                __html: `
+              <style
+                dangerouslySetInnerHTML={{
+                  __html: `
                   @media (min-width: 768px) {
                     .desktop-clip {
                       clip-path: url(#main-asset-clip);
@@ -355,13 +357,12 @@ const WhyChooseDSS = () => {
                       border-radius: 0 !important;
                     }
                   }
-                `
-              }} />
+                `,
+                }}
+              />
 
               {/* Clipped Container using Asset Path */}
-              <div
-                className="h-full w-full p-5 pb-20 md:p-12 flex flex-col justify-between relative border border-white/20 rounded-3xl desktop-clip"
-              >
+              <div className="h-full w-full p-5 pb-20 md:p-12 flex flex-col justify-between relative border border-white/20 rounded-3xl desktop-clip">
                 {/* SVG for Responsive ClipPath derivation */}
                 <svg width="0" height="0" className="absolute">
                   <defs>
@@ -409,9 +410,8 @@ const WhyChooseDSS = () => {
                     transition={{ delay: 0.5 }}
                     className="text-white/60 text-lg max-w-lg leading-relaxed mb-12"
                   >
-                    For over 7 years, DSS has been the powerhouse for brands,
-                    merging creative vision with data-driven strategy to deliver
-                    unmatched growth.
+                    At Digital Success Solutions (DSS), we are redefining how brands grow in the digital era. As a leading force in Indore’s digital marketing landscape, we go beyond managing campaigns—we engineer complete business transformations using cutting-edge, data-driven strategies.
+
                   </motion.p>
 
                   <div className="mb-8 md:mb-12">
@@ -419,7 +419,12 @@ const WhyChooseDSS = () => {
                       Our Expertise
                     </p>
                     <div className="flex flex-wrap gap-2 md:gap-3">
-                      {["Digital Strategy", "Creative Design", "Growth Marketing", "Web Solutions"].map((skill, idx) => (
+                      {[
+                        "Digital Strategy",
+                        "Creative Design",
+                        "Growth Marketing",
+                        "Web Solutions",
+                      ].map((skill, idx) => (
                         <span
                           key={idx}
                           className="px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-white/20 bg-white/5 text-[10px] md:text-xs text-white/90 backdrop-blur-md"
@@ -431,27 +436,48 @@ const WhyChooseDSS = () => {
                   </div>
 
                   {/* Continuous Clients Marquee in empty space */}
-                  <div 
-                    className="mt-6 md:mt-8 w-[85%] md:w-[90%] overflow-hidden relative opacity-60 hover:opacity-100 transition-opacity duration-500"
-                    style={{ maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)' }}
+                  <div
+                    className="mt-6 md:mt-8 w-[85%] md:w-[90%] overflow-hidden relative    "
+                    style={{
+                      maskImage:
+                        "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+                      WebkitMaskImage:
+                        "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+                    }}
                   >
                     <motion.div
                       className="flex w-max"
                       animate={{ x: ["0%", "-50%"] }}
-                      transition={{ duration: 40, ease: "linear", repeat: Infinity }}
+                      transition={{
+                        duration: 40,
+                        ease: "linear",
+                        repeat: Infinity,
+                      }}
                     >
                       {[1, 2].map((set) => (
-                        <div key={set} className="flex items-center gap-6 md:gap-12 shrink-0 px-3 md:px-6">
+                        <div
+                          key={set}
+                          className="flex items-center gap-6 md:gap-12 shrink-0 px-3 md:px-6"
+                        >
                           {[
-                            "10.png", "12.png", "13.png", "14.png", "16.png", 
-                            "17.png", "19.png", "20.png", "21.png", "22.png", 
-                            "25.png", "26.png"
+                            "10.png",
+                            "12.png",
+                            "13.png",
+                            "14.png",
+                            "16.png",
+                            "17.png",
+                            "19.png",
+                            "20.png",
+                            "21.png",
+                            "22.png",
+                            "25.png",
+                            "26.png",
                           ].map((img, i) => (
-                            <img 
-                              key={`${set}-${i}`} 
-                              src={`/images/clients/${img}`} 
-                              alt={`Client ${i}`} 
-                              className="h-10 md:h-12 w-auto object-contain " 
+                            <img
+                              key={`${set}-${i}`}
+                              src={`/images/clients/${img}`}
+                              alt={`Client ${i}`}
+                              className="h-10 md:h-12 w-auto object-contain "
                             />
                           ))}
                         </div>
@@ -461,10 +487,12 @@ const WhyChooseDSS = () => {
                 </div>
               </div>
               {/* Refined Arrow Button - Repositioned and Animated Loop */}
-              <Link href="/lets-connect" onClick={(e) => e.stopPropagation()} className="absolute z-40 right-2 bottom-2 md:right-[1%] md:bottom-[3%]">
-                <motion.div
-                  className="w-16 h-16 md:w-28 md:h-28 bg-white rounded-full flex items-center justify-center shadow-2xl cursor-pointer transition-all p-5 md:p-8"
-                >
+              <Link
+                href="/lets-connect"
+                onClick={(e) => e.stopPropagation()}
+                className="absolute z-40 right-2 bottom-2 md:right-[1%] md:bottom-[3%]"
+              >
+                <motion.div className="w-16 h-16 md:w-28 md:h-28 bg-white rounded-full flex items-center justify-center shadow-2xl cursor-pointer transition-all p-5 md:p-8">
                   <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
                     <motion.img
                       animate={arrowControls}
@@ -479,105 +507,122 @@ const WhyChooseDSS = () => {
           </motion.div>
 
           <div className="lg:col-span-4 flex flex-col gap-6">
-  <motion.div
-    initial={{ opacity: 0, x: 20 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8, delay: 0.2 }}
-    className="relative h-full border border-white/20 rounded-3xl md:rounded-[2.5rem] p-6 md:p-8 overflow-hidden min-h-[400px] md:min-h-[500px] flex flex-col group bg-zinc-900/20"
-  >
-    {/* Progress Bar Layer */}
-    <div className="flex gap-2 mb-8 relative z-20">
-      {slides.map((_, i) => (
-        <div
-          key={i}
-          className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden"
-        >
-          {i === currentSlide ? (
             <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{
-                duration: slideDuration / 1000,
-                ease: "linear",
-              }}
-              className="h-full bg-orange-500" // Changed to orange for better visibility
-            />
-          ) : i < currentSlide ? (
-            <div className="w-full h-full bg-white/60" />
-          ) : null}
-        </div>
-      ))}
-    </div>
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative h-full border border-white/20 rounded-3xl md:rounded-[2.5rem] p-6 md:p-8 overflow-hidden min-h-[400px] md:min-h-[500px] flex flex-col group bg-zinc-900/20"
+            >
+              {/* Progress Bar Layer & Controls */}
+              <div className="flex items-center gap-4 mb-8 relative z-20">
+                <div className="flex flex-1 gap-2">
+                  {slides.map((_, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden"
+                    >
+                      {i === currentSlide ? (
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: "100%" }}
+                          transition={{
+                            duration: slideDuration / 1000,
+                            ease: "linear",
+                          }}
+                          className="h-full bg-orange-500"
+                        />
+                      ) : i < currentSlide ? (
+                        <div className="w-full h-full bg-white/60" />
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
 
-    {/* Title Section */}
-    <div className="relative z-10 min-h-[4em] mb-4">
-      <AnimatePresence mode="wait">
-        <motion.h3
-          key={currentSlide}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          className="text-white text-xl md:text-3xl font-bold leading-tight whitespace-pre-line"
-        >
-          {slides[currentSlide].title}
-        </motion.h3>
-      </AnimatePresence>
-    </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={prevSlide}
+                    className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+                  >
+                    <ChevronLeft size={16} />
+                  </button>
+                  <button
+                    onClick={nextSlide}
+                    className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+                  >
+                    <ChevronRight size={16} />
+                  </button>
+                </div>
+              </div>
 
-    {/* Visual Container - Fixed for no-cutting */}
-    <div className="relative flex-grow flex items-center justify-center overflow-hidden rounded-2xl">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.05 }}
-          transition={{ duration: 0.6 }}
-          className="w-full h-full flex items-center justify-center p-0"
-        >
-          {/* Important: Visual component ke andar img/video par 'object-contain' class honi chahiye */}
-          <div className="w-full h-full relative">
-             {slides[currentSlide].visual}
+              {/* Title Section */}
+              <div className="relative z-10 min-h-[4em] mb-4">
+                <AnimatePresence mode="wait">
+                  <motion.h3
+                    key={currentSlide}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="text-white text-xl md:text-3xl font-bold leading-tight whitespace-pre-line"
+                  >
+                    {slides[currentSlide].title}
+                  </motion.h3>
+                </AnimatePresence>
+              </div>
+
+              {/* Visual Container - Fixed for no-cutting */}
+              <div className="relative flex-grow flex items-center justify-center overflow-hidden rounded-2xl">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentSlide}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.05 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-full h-full flex items-center justify-center p-0"
+                  >
+                    {/* Important: Visual component ke andar img/video par 'object-contain' class honi chahiye */}
+                    <div className="w-full h-full relative">
+                      {slides[currentSlide].visual}
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </motion.div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-4 md:gap-6 h-fit lg:mt-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="border border-white/20 rounded-3xl md:rounded-4xl p-6 md:p-8 text-center group hover:bg-white/5 transition-all duration-300"
+              >
+                <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">
+                  6Y+
+                </h4>
+                <p className="text-zinc-500 text-xs md:text-sm tracking-widest uppercase font-semibold">
+                  of Experience
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="border border-white/20 rounded-3xl md:rounded-4xl p-6 md:p-8 text-center group hover:bg-white/5 transition-all duration-300"
+              >
+                <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">
+                  1200+
+                </h4>
+                <p className="text-zinc-500 text-xs md:text-sm tracking-widest uppercase font-semibold">
+                  Clients
+                </p>
+              </motion.div>
+            </div>
           </div>
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  </motion.div>
-
-  {/* Stats Grid */}
-  <div className="grid grid-cols-2 gap-4 md:gap-6 h-fit lg:mt-auto">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.4 }}
-      className="border border-white/20 rounded-3xl md:rounded-4xl p-6 md:p-8 text-center group hover:bg-white/5 transition-all duration-300"
-    >
-      <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">
-        7Y+
-      </h4>
-      <p className="text-zinc-500 text-xs md:text-sm tracking-widest uppercase font-semibold">
-        of Experience
-      </p>
-    </motion.div>
-    
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.5 }}
-      className="border border-white/20 rounded-3xl md:rounded-4xl p-6 md:p-8 text-center group hover:bg-white/5 transition-all duration-300"
-    >
-      <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">
-        1200+
-      </h4>
-      <p className="text-zinc-500 text-xs md:text-sm tracking-widest uppercase font-semibold">
-        Global Clients
-      </p>
-    </motion.div>
-  </div>
-</div>
         </div>
       </div>
     </section>

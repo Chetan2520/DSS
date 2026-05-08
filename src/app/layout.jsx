@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
       <body>
         <ClientLayout>
           {children}
-          <LeadPopup /> 
+          {/* <LeadPopup />  */}
           <FloatingCTA  />
         </ClientLayout>
       </body>

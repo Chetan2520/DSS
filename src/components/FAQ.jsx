@@ -1,66 +1,61 @@
 "use client";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Plus } from "lucide-react";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Plus, Minus } from 'lucide-react';
 
-const defaultFaqData = [
+const faqData = [
   {
-    question: "Why should I choose Digital Success Solutions for SEO in Indore?",
-    answer: "We focus on creating personalized SEO strategies backed by real data and industry insights, helping businesses achieve better rankings, consistent traffic, and measurable growth."
+    question: "What digital services do you offer?",
+    answer: "We provide comprehensive digital solutions including Website Development (React, Next.js), UI/UX Design, Performance Marketing (Google Ads, PPC), SEO Optimization, and Branding strategies tailored to your business needs."
   },
   {
-    question: "When can I expect results from SEO services?",
-    answer: "SEO takes time to show impact. Most websites start seeing positive changes within a few months, depending on competition, website condition, and strategy implementation."
+    question: "How long does a typical website project take?",
+    answer: "A standard professional website usually takes 2-4 weeks, while complex web applications can take 6-12 weeks. We prioritize quality and performance-driven results in every timeline."
   },
   {
-    question: "Do you help businesses rank in local searches?",
-    answer: "Yes, we optimize your business for local search results so you can attract customers in your area and increase calls, visits, and inquiries."
+    question: "Do you offer post-launch support?",
+    answer: "Yes, we believe in long-term partnerships. We provide dedicated technical support, maintenance, and strategic guidance to ensure your platform continues to perform flawlessly."
   },
   {
-    question: "What all services are covered under your SEO plans?",
-    answer: "Our SEO solutions include website optimization, keyword research, content planning, technical improvements, link building, and regular performance monitoring."
+    question: "How do you handle SEO and Performance?",
+    answer: "Every project we build is SEO-friendly and performance-driven from the ground up. We use modern frameworks like Next.js for speed and implement best practices in technical SEO and conversion optimization."
   },
   {
-    question: "Can SEO increase my sales and conversions?",
-    answer: "Yes, by bringing relevant and interested users to your website, SEO improves your chances of converting visitors into customers."
-  },
-  {
-    question: "Do you work on SEO for online stores?",
-    answer: "Yes, we optimize e-commerce websites by improving product visibility, enhancing site structure, and targeting high-converting keywords."
+    question: "Can you help with digital marketing as well?",
+    answer: "Absolutely. Our performance marketing team specializes in data-driven Google Ads and PPC campaigns focused on generating high-quality leads and maximum ROI for your business."
   }
 ];
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div className="border-b border-white/10">
+    <div className="border-b border-white/10 overflow-hidden">
       <button
         onClick={onClick}
-        className="w-full py-8 flex items-center justify-between text-left group focus:outline-none"
+        className="w-full py-6 flex items-center justify-between text-left group"
       >
-        <span className={`text-xl md:text-2xl font-semibold tracking-tight transition-colors duration-300 ${isOpen ? 'text-white' : 'text-zinc-400 group-hover:text-zinc-200'}`}>
+        <span className={`text-lg md:text-xl font-medium transition-colors duration-300 ${isOpen ? 'text-white' : 'text-zinc-400 group-hover:text-white'}`}>
           {question}
         </span>
-        <motion.div
-          animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.3, ease: [0.45, 0, 0.55, 1] }}
-          className={`shrink-0 ml-4 p-2 cursor-pointer rounded-full border transition-colors duration-300 ${isOpen ? 'bg-white border-white text-black' : 'border-white/20 text-white group-hover:border-white/40'}`}
-        >
-          <Plus  size={24} />
-        </motion.div>
+        <div className={`flex-shrink-0 ml-4 transition-transform duration-500 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+          {isOpen ? (
+            <Minus className="w-6 h-6 text-blue-500" />
+          ) : (
+            <Plus className="w-6 h-6 text-zinc-600 group-hover:text-white" />
+          )}
+        </div>
       </button>
       
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
+            animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.45, 0, 0.55, 1] }}
-            className="overflow-hidden"
+            transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
-            <p className="pb-8 text-zinc-500 text-sm md:text-lg leading-relaxed max-w-4xl">
+            <div className="pb-8 text-zinc-500 leading-relaxed max-w-3xl">
               {answer}
-            </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -70,36 +65,36 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
 
 const FAQ = ({ faqs }) => {
   const [openIndex, setOpenIndex] = useState(0);
-  const displayFaqs = faqs && faqs.length > 0 ? faqs : defaultFaqData;
+  const displayData = faqs || faqData;
 
   return (
-    <section className="relative bg-black py-24 md:py-32 overflow-hidden border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
-        {/* Header - Stood out for FAQ */}
-        <div className="max-w-4xl mx-auto text-center mb-20 md:mb-24">
-          <motion.h2 
+    <section className="relative py-24 px-6 md:px-12 bg-black overflow-hidden border-t border-white/5">
+      {/* Subtle Glows */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/5 blur-[150px] rounded-full pointer-events-none"></div>
+
+      <div className="max-w-4xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-6xl tracking-tighter mb-3 bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent leading-tight"
+            className="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-4"
           >
-            Frequently Asked <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-blue-400 to-blue-600">Questions</span>
+            Frequently Asked <span className="text-zinc-400 italic">Questions</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-zinc-500 text-sm md:text-base max-w-xl mx-auto font-medium leading-relaxed"
+            className="text-zinc-500"
           >
-            Find answers to common inquiries about our digital marketing and web scaling excellence.
+            Everything you need to know about our process and services.
           </motion.p>
         </div>
 
-        {/* Accordion List */}
-        <div className="max-w-5xl mx-auto">
-          {displayFaqs.map((item, index) => (
+        <div className="mt-8">
+          {displayData.map((item, index) => (
             <FAQItem
               key={index}
               question={item.question}
@@ -110,9 +105,6 @@ const FAQ = ({ faqs }) => {
           ))}
         </div>
       </div>
-
-      {/* Decorative Glow */}
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
     </section>
   );
 };

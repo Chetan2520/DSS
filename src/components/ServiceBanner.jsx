@@ -18,28 +18,27 @@ const ServiceBanner = ({
 
   return (
     <section className="relative w-full flex items-center bg-black overflow-hidden min-h-[90vh] py-20 lg:py-0">
-      
-      {/* --- Background Image Layer (/hero.webp) --- */}
-      <div className="absolute inset-0 z-0">
+      {/* --- Background Layer: Service Hero Background --- */}
+      {/* <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero.webp" // Hardcoded as per your request
-          alt="Hero Background"
+          src="/images/services.jpegu"
+          alt="Background"
           fill
           priority
-          sizes="100vw"
-          className="object-cover opacity-100" // Opacity adjusted for premium look
+          className="object-contain "
         />
-        {/* Gradients for depth and readability */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" /> */}
-      </div>
+      
+       </div> */}
 
       {/* Content Container */}
       <div className="relative z-20 max-w-[1440px] mx-auto px-6 md:px-12 w-full">
-        <div className={`grid grid-cols-1 ${videoSrc || imageSrc ? "lg:grid-cols-12" : ""} gap-12 items-center`}>
-          
+        <div
+          className={`grid grid-cols-1 ${videoSrc || imageSrc ? "lg:grid-cols-12" : ""} gap-12 items-center`}
+        >
           {/* Left Content Column */}
-          <div className={`${videoSrc || imageSrc ? "lg:col-span-7" : "max-w-4xl"}`}>
+          <div
+            className={`${videoSrc || imageSrc ? "lg:col-span-7" : "max-w-4xl"}`}
+          >
             <div className="space-y-6">
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
@@ -90,7 +89,7 @@ const ServiceBanner = ({
               transition={{ duration: 1, ease: "easeOut" }}
               className="lg:col-span-5 relative"
             >
-              <div className="relative w-full aspect-square rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl backdrop-blur-sm">
+              <div className="relative w-full aspect-square rounded-[1rem] overflow-hidden group   shadow-2xl backdrop-blur-sm">
                 {videoSrc ? (
                   <video
                     src={videoSrc}
@@ -107,7 +106,7 @@ const ServiceBanner = ({
                     width={1000}
                     height={1000}
                     priority
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                    className="w-full h-full object-cover  "
                   />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

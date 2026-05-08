@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import SlidingButton from "./SlidingButton";
 
 // Client Testimonials Data
 const clientTestimonials = [
@@ -29,7 +30,7 @@ const ClientOrbit = () => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen bg-[#050505] flex items-center justify-center py-24 px-6 overflow-hidden font-sans">
+    <section className="relative w-full min-h-screen bg-black flex items-center justify-center py-24 px-6 overflow-hidden font-sans">
       
       {/* Background Neural Network Glow */}
       <div className="absolute w-[900px] h-[900px] bg-[#0078f0]/5 blur-[180px] rounded-full pointer-events-none" />
@@ -101,7 +102,7 @@ const ClientOrbit = () => {
                     </div>
                     {/* Floating Name Label */}
                     <div className="absolute -bottom-10 opacity-0 group-hover/client:opacity-100 transition-all bg-white text-black px-2 py-0.5 rounded-sm">
-                        <p className="text-[9px] font-black whitespace-nowrap uppercase tracking-tighter">
+                        <p className="text-[9px] font-semibold whitespace-nowrap uppercase tracking-tighter">
                             {item.name} • {item.role}
                         </p>
                     </div>
@@ -114,39 +115,45 @@ const ClientOrbit = () => {
 
         {/* --- RIGHT SIDE: IT SERVICES CONTENT --- */}
         <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
-          <div className="flex items-center gap-3 mb-6">
-             <span className="text-[#0078f0] font-mono font-black uppercase tracking-[0.4em] text-[10px] md:text-xs italic">Global Partnerships</span>
+          {/* <div className="flex items-center gap-3 mb-6">
+             <span className="text-[#0078f0] font-mono font-semibold uppercase tracking-[0.4em] text-[10px] md:text-xs italic">Global Partnerships</span>
              <div className="w-12 h-[1px] bg-white/10" />
-          </div>
+          </div> */}
 
-          <h2 className="text-4xl md:text-6xl font-black text-white leading-[0.95] tracking-tighter mb-8 uppercase">
+          <h2 className="text-4xl md:text-6xl font-semibold text-white leading-[0.95] tracking-tighter mb-8 uppercase">
             Fueling 
-            <span className="text-[#ff9a20]"> Innovation</span> <br />
+            <span className="text-[#ffffff]"> Innovation</span> <br />
           </h2>
 
-          <p className="text-zinc-500 text-base md:text-xl font-medium mb-12 max-w-lg leading-relaxed">
+          <p className="text-zinc-500 text-base md:text-xl    mb-12 max-w-lg leading-relaxed">
             From Indore to the world. We deliver high-performance IT solutions 
             that help businesses scale, optimize, and dominate their digital landscape.
           </p>
 
           <div className="grid grid-cols-2 gap-8 mb-12 w-full max-w-md">
             <div>
-                <h4 className="text-white text-3xl font-black italic tracking-tighter">98%</h4>
+                <h4 className="text-white text-3xl font-semibold   tracking-tighter">98%</h4>
                 <p className="text-[#0078f0] text-[10px] font-bold uppercase tracking-widest">Client Retention</p>
             </div>
             <div>
-                <h4 className="text-white text-3xl font-black italic tracking-tighter">150+</h4>
+                <h4 className="text-white text-3xl font-semibold   tracking-tighter">150+</h4>
                 <p className="text-[#ff9a20] text-[10px] font-bold uppercase tracking-widest">Projects Delivered</p>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
-            <button className="px-10 py-4 bg-[#0078f0] text-white font-black uppercase text-xs tracking-widest hover:bg-[#ff9a20] hover:text-black transition-all duration-300 rounded-full shadow-lg shadow-[#0078f0]/20">
-              Explore Our Cases
-            </button>
-            <button className="px-10 py-4 border border-white/10 text-white font-black uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all duration-300 rounded-full">
-              Get A Quote
-            </button>
+            <SlidingButton 
+              href="#services"
+              className="px-10 py-4 bg-[#0078f0] text-white font-semibold uppercase text-xs tracking-widest rounded-full shadow-lg shadow-[#0078f0]/20"
+            >
+              Explore Services
+            </SlidingButton>
+            <SlidingButton 
+              href="/lets-connect"
+              className="px-10 py-4 border border-white/10 text-white font-semibold uppercase text-xs tracking-widest rounded-full"
+            >
+              Let's Talk
+            </SlidingButton>
           </div>
         </div>
       </div>

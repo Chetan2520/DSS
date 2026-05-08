@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -27,148 +26,126 @@ const points = [
 ];
 
 const WhatMakesUsDifferent = () => {
-  const bgRef = useRef(null);
   const sectionRef = useRef(null);
+  const gridRef = useRef(null);
+  const centerCardRef = useRef(null);
 
   useEffect(() => {
-    // Parallax effect for the background image
-    gsap.to(bgRef.current, {
-      yPercent: 20,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+    let ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=1200", // Shortened from 2000 to make the section unpin much sooner
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        }
+      });
+
+      // 1. Fade out all other grid items as we scroll, so only the center remains
+      tl.to(".grid-item-fade", {
+        opacity: 0,
+        ease: "power2.inOut",
+      }, 0);
+
+      // 2. Scale the ENTIRE grid together so EVERYTHING zooms
+      // At exactly 2.0x scale, the 50vw center card hits EXACTLY 100vw (Full Width)
+      // And the 35vh height hits EXACTLY 70vh (fully visible, no bleeding)
+      tl.to(gridRef.current, {
+        scale: 2.0,
+        transformOrigin: "50% 40%", // Moved origin up to mathematically push the final zoomed image DOWN
+        ease: "power2.inOut",
+      }, 0);
+      
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section 
-      ref={sectionRef}
-      className="relative py-24 md:py-40 overflow-hidden bg-black"
-    >
-      
-      {/* 1. Full Background Image (FIXED: Full Cover) */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div ref={bgRef} className="relative w-full h-[120%] -top-[10%]">
-          <Image
-            src="/images/difference-bg.png"
-            alt="Background pattern"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-40" // object-contain -> object-cover
-          />
-        </div>
-        {/* Deep Overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-black z-10" /> 
-      </div>
-
-      {/* 2. Main Content */}
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 z-20">
+    <div className="w-full block">
+      {/* Pinned Animation Section */}
+      <section ref={sectionRef} className="relative w-full h-screen bg-black overflow-hidden z-10 flex items-center justify-center">
         
-        {/* Section Header */}
-        <div className="max-w-4xl mx-auto text-center mb-20 md:mb-32">
-          <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-7xl tracking-tighter mb-6 bg-gradient-to-b from-white via-white to-zinc-500 bg-clip-text text-transparent leading-[0.9]"
-          >
-            What Makes Us <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700">Different</span>
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed"
-          >
-            Our Philosophy is centered around quality, speed, and real-world results. 
-            Experience a partnership that prioritizes your business growth.
-          </motion.p>
-        </div>
+        {/* 
+          Masterfully engineered CSS Grid layout.
+          Center item is 50vw wide and 35vh tall. 
+          When scaled by 1.85, it hits ~92vw and ~64vh (Very wide, fully visible).
+        */}
+        <div 
+          ref={gridRef}
+          className="absolute inset-0 w-full h-full p-1 md:p-2 origin-center"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 2fr 1fr",
+            gridTemplateRows: "repeat(100, 1fr)",
+            gap: "4px",
+          }}
+        >
+          {/* Column 1 (Left Side) */}
+          <div className="grid-item-fade relative w-full h-full bg-zinc-900 overflow-hidden" style={{ gridColumn: "1 / 2", gridRow: "1 / 40" }}>
+            <img src="/images/team/4.jpeg" alt="Team member 1" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          <div className="grid-item-fade relative w-full h-full bg-zinc-900 overflow-hidden" style={{ gridColumn: "1 / 2", gridRow: "40 / 70" }}>
+            <img src="/images/team/2.jpeg" alt="Team member 2" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          <div className="grid-item-fade relative w-full h-full bg-zinc-900 overflow-hidden" style={{ gridColumn: "1 / 2", gridRow: "70 / 101" }}>
+            <img src="/images/team/3.jpeg" alt="Team member 3" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
 
-        <div className="flex flex-col lg:flex-row gap-20 items-center">
+          {/* Column 2 (Center Area) */}
+          <div className="grid-item-fade relative w-full h-full bg-zinc-900 overflow-hidden" style={{ gridColumn: "2 / 3", gridRow: "1 / 30" }}>
+            <img src="/images/team/5.jpeg" alt="Team member 4" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
           
-          {/* Left Column: Text Points */}
-          <div className="flex-1 space-y-12 order-2 lg:order-1">
-            <div className="grid grid-cols-1 gap-12 md:gap-16">
-              {points.map((point, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.8 }}
-                  className="space-y-3 group"
-                >
-                  <h3 className="text-3xl md:text-4xl font-bold tracking-tighter transition-all duration-700 text-white">
-                    {point.title}
-                  </h3>
-                  <p className="text-zinc-400 text-base md:text-xl font-light leading-relaxed max-w-md ">
-                    {point.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+          {/* EXACT CENTER ZOOM TARGET - Pure Simple Image */}
+          <div 
+            ref={centerCardRef}
+            className="relative w-full h-full bg-black overflow-hidden z-20" 
+            style={{ gridColumn: "2 / 3", gridRow: "30 / 65" }}
+          >
+            <img src="/images/team/1.jpeg" alt="Team Lead" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          
+          <div className="grid-item-fade relative w-full h-full bg-zinc-900 overflow-hidden" style={{ gridColumn: "2 / 3", gridRow: "65 / 101" }}>
+            <img src="/images/team/2.jpeg" alt="Team member 6" className="absolute inset-0 w-full h-full object-cover" />
           </div>
 
-          {/* Right Column: Premium 2x2 Image Grid */}
-          <div className="flex-1 order-1 lg:order-2 w-full">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "circOut" }}
-              className="grid grid-cols-2 gap-4 md:gap-6"
-            >
-              {[
-                "/images/grid/2.jpg",
-                "/images/grid/3.jpg",
-                "/images/grid/4.jpg",
-                "/images/grid/6.jpg"
-              ].map((src, idx) => (
-                <div 
-                  key={idx} 
-                  className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl group/img"
-                >
-                  <Image
-                    src={src}
-                    alt={`Insight ${idx + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                    className="object-cover transition-all duration-1000 group-hover/img:scale-110 brightness-75 group-hover/img:brightness-100"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
-                </div>
-              ))}
-            </motion.div>
+          {/* Column 3 (Right Side) */}
+          <div className="grid-item-fade relative w-full h-full bg-zinc-900 overflow-hidden" style={{ gridColumn: "3 / 4", gridRow: "1 / 50" }}>
+            <img src="/images/team/6.jpeg" alt="Team member 7" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          <div className="grid-item-fade relative w-full h-full bg-zinc-900 overflow-hidden" style={{ gridColumn: "3 / 4", gridRow: "50 / 80" }}>
+            <img src="/images/team/8.jpeg" alt="Team member 8" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
+          <div className="grid-item-fade relative w-full h-full bg-zinc-900 overflow-hidden" style={{ gridColumn: "3 / 4", gridRow: "80 / 101" }}>
+            <img src="/images/team/9.jpeg" alt="Team member 9" className="absolute inset-0 w-full h-full object-cover" />
+          </div>
+        </div>
+
+      </section>
+
+      {/* Content Below (Margin adjusted to perfectly align with the lower image) */}
+      <section className="relative bg-black text-white z-20 pb-32 -mt-[10vh] pt-8">
+        <div className="max-w-5xl mx-auto px-6 md:px-12">
+          
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6 text-white">
+            Here is some content
+          </h2>
+
+          <div className="space-y-6 text-zinc-300 text-base leading-relaxed font-light">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
           </div>
 
         </div>
-      </div>
-
-      {/* Decorative Glows */}
-      <div className="absolute top-1/4 -right-24 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full pointer-events-none z-10" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none z-10" />
-
-      {/* Floating Video Layer */}
-      <div className="absolute top-20 right-20 hidden xl:block z-30">
-        <div className="relative w-72 h-44 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 rounded-2xl backdrop-blur-md">
-          <video
-            src="/footer.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-80"
-          />
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

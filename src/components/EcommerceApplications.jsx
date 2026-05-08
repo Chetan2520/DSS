@@ -92,7 +92,7 @@ const serviceData = {
       name: "WooCommerce",
       logo: "https://www.svgrepo.com/show/354569/woocommerce-icon.svg",
     },
-    
+
     {
       name: "WordPress",
       logo: "https://www.svgrepo.com/show/475696/wordpress-color.svg",
@@ -106,29 +106,35 @@ const serviceData = {
 
 const ecommerceFaqs = [
   {
-    question: "What e-commerce platforms do you build websites on?",
-    answer: "We build tailored e-commerce solutions on platforms like Shopify, WooCommerce, and custom frameworks based on your specific scalability and operational needs."
+    question: "What does influencer marketing mean for my business?",
+    answer:
+      "Influencer marketing involves partnering with trusted content creators who promote your brand to their audience in a natural and relatable way, helping you build credibility and attract potential customers.",
   },
   {
-    question: "Will my e-commerce website be mobile-friendly?",
-    answer: "Yes, all our e-commerce websites are optimized with a mobile-first approach ensuring a smooth shopping experience across all smartphones and tablets."
+    question: "How do you find influencers that match my brand?",
+    answer:
+      "We conduct detailed research based on your industry, audience preferences, content style, and engagement quality to shortlist influencers who truly represent your brand values.",
   },
   {
-    question: "Do you integrate secure payment gateways?",
-    answer: "Absolutely! We integrate highly secure and widely trusted payment gateways like Razorpay, Stripe, and PayPal to ensure safe and seamless transactions for your customers."
+    question: "Which social media platforms are best for influencer campaigns?",
+    answer:
+      "The right platform depends on your target audience. We typically use channels like Instagram, YouTube, and emerging platforms to ensure maximum visibility and impact.",
   },
   {
-    question: "Can you help optimize product pages for better sales?",
-    answer: "Our UI/UX and SEO teams work together to structure product pages with clear CTAs, high-quality visuals, and persuasive copy to maximize your conversion rates."
+    question: "What is the typical timeline for a campaign?",
+    answer:
+      "Campaign timelines vary depending on the scope and objectives, but most campaigns are planned and executed within a few weeks to ensure timely results.",
   },
   {
-    question: "How do I manage my products and inventory?",
-    answer: "We provide an easy-to-use admin dashboard that enables you to add, edit, or remove products, track inventory, and manage customer orders efficiently."
+    question: "How will I know if the campaign is successful?",
+    answer:
+      "We provide detailed performance reports including reach, audience interaction, website visits, and conversions to clearly show the effectiveness of the campaign.",
   },
   {
-    question: "Do you offer post-launch support and maintenance?",
-    answer: "Yes, we provide ongoing technical support, security updates, and performance monitoring to ensure your e-commerce store runs smoothly and efficiently at all times."
-  }
+    question: "Can influencer marketing work within a limited budget?",
+    answer:
+      "Yes, we design flexible strategies that suit your budget by collaborating with micro and niche influencers who deliver strong engagement at cost-effective rates.",
+  },
 ];
 
 const EcommerceApplications = () => {
@@ -174,7 +180,7 @@ const EcommerceApplications = () => {
       <ServiceBanner
         title="E-commerce Applications"
         description={serviceData.description}
-        imageSrc="/ecom.png"
+        imageSrc="/ecom.avif"
         currentPage="E-commerce"
       />
 
@@ -353,7 +359,7 @@ const EcommerceApplications = () => {
                 {[...Array(4)].map((_, groupIdx) => (
                   <div
                     key={groupIdx}
-                    className="flex items-center gap-24 shrink-0"
+                    className="flex items-center gap-10 md:gap-24 shrink-0"
                   >
                     {serviceData.techStack.map((tech, i) => (
                       <div
@@ -379,14 +385,12 @@ const EcommerceApplications = () => {
           </div>
 
           {/* --- GROWTH BREAKTHROUGH CTA --- */}
-        
-          {/* --- FAQ SECTION --- */}
-        
-        </div>
-            <GrowthBreakthrough />
 
-          <FAQ faqs={ecommerceFaqs} />
-        
+          {/* --- FAQ SECTION --- */}
+        </div>
+        <GrowthBreakthrough />
+
+        <FAQ faqs={ecommerceFaqs} />
       </div>
     </div>
   );

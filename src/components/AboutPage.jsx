@@ -27,7 +27,6 @@ import WhatMakesUsDifferent from "@/components/WhatMakesUsDifferent";
 import FAQ from "@/components/FAQ";
 import GrowthBreakthrough from "@/components/GrowthBreakthrough";
 import HowWeDeliver from "@/components/HowWeDeliver";
-import Testimonials from "@/components/Testimonials";
 
 gsap.registerPlugin(ScrollTrigger);
                                         
@@ -116,7 +115,7 @@ const AboutPage = () => {
       ></div>
 
       {/* --- HERO SECTION: WHY CHOOSE SLIDER (SEO H1) --- */}
-      <section className="relative pt-8 md:pt-32 pb-24 px-6 md:px-12 max-w-[1284px] mx-auto z-10 overflow-hidden">
+      <section className="relative pt-8 md:pt-32 pb-1 md:pb-24 px-6 md:px-12 max-w-[1284px] mx-auto z-10 overflow-hidden">
         <div className="relative">
           {/* Header & Controls */}
           <div className="flex flex-col md:flex-row justify-between   mb-16 gap-8">
@@ -161,7 +160,7 @@ const AboutPage = () => {
             {[
               {
                 title: "Skyrocket Brand Visibility",
-                desc: "Lead with 5+ years of digital excellence, making your business the benchmark in Indore with high-impact strategies.",
+                desc: "Lead with 6+ years of digital excellence, making your business the benchmark in Indore with high-impact strategies.",
                 icon: Rocket,
               },
               {
@@ -186,9 +185,24 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="flex-shrink-0 w-[300px] md:w-[380px] bg-white rounded-[2.5rem] p-6 md:p-8 flex flex-col justify-between group shadow-2xl snap-start"
+                className="relative overflow-hidden flex-shrink-0 w-[300px] md:w-[380px] bg-white rounded-[2.5rem] p-6 md:p-8 flex flex-col justify-between group shadow-2xl snap-start"
               >
-                <div>
+                {/* Diagonal Blue Gradient Overlay */}
+                <div 
+                  className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-tl from-blue-500/50 via-blue-100/10 to-transparent"
+                />
+                
+                {/* Grainy Texture Blended Over the Gradient */}
+                <div 
+                  className="absolute inset-0 pointer-events-none z-0 opacity-30 mix-blend-multiply"
+                  style={{ 
+                    backgroundImage: 'url("/images/grainy_png.png")', 
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
+
+                <div className="relative z-10">
                   <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-500">
                     <card.icon size={32} />
                   </div>
@@ -218,7 +232,7 @@ const AboutPage = () => {
       </section>
 
       {/* --- WHAT MAKES US DIFFERENT SECTION --- */}
-      <WhatMakesUsDifferent />
+      {/* <WhatMakesUsDifferent /> */}
       {/* --- HOW WE DELIVER RESULTS SECTION --- */}
       <HowWeDeliver />
       {/* --- GROWTH BREAKTHROUGH CTA --- */}
@@ -226,27 +240,6 @@ const AboutPage = () => {
 
       {/* --- FAQ SECTION --- */}
       <FAQ />
-
-      {/* --- TESTIMONIALS SECTION --- */}
-      {/* <Testimonials /> */}
-
-      {/* --- CTA SECTION --- */}
-      {/* <section className="py-24 z-10 relative">
-        <div className="max-w-5xl mx-auto px-6 text-center fade-up bg-gradient-to-b from-white/5 to-transparent p-16 rounded-[4rem] border border-white/5">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
-                Ready to dominate the <span className="text-[#0078f0]">Digital World?</span>
-            </h2>
-            <p className="text-zinc-400 text-lg mb-10 max-w-2xl mx-auto">
-                Choose our digital marketing company in Indore to make your business strong and competitive. Let's build your new identity together.
-            </p>
-            <Link 
-                href="/contact#top"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#0078f0] text-white font-bold rounded-full hover:bg-[#0062c4] transition-all hover:scale-105 active:scale-95"
-            >
-                Start Your Growth Journey <ArrowUpRight size={20} />
-            </Link>
-        </div>
-      </section> */}
     </div>
   );
 };

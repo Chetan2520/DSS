@@ -197,7 +197,7 @@ const GraphicDesign = () => {
       <ServiceBanner
         title="Graphic Designing"
         description={serviceData.description}
-        imageSrc="/graphic.png"
+        imageSrc="/graphic.avif"
         currentPage="Graphic Designing"
       />
 
@@ -367,7 +367,10 @@ const GraphicDesign = () => {
             }}
           >
             {[...Array(4)].map((_, groupIdx) => (
-              <div key={groupIdx} className="flex items-center gap-24 shrink-0">
+              <div
+                key={groupIdx}
+                className="flex items-center gap-10 md:gap-24 shrink-0"
+              >
                 {serviceData.techStack.map((tech, i) => (
                   <div
                     key={i}

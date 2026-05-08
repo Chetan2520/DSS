@@ -14,84 +14,164 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     id: 1,
+    title: "Jeevan Shaadi",
+    category: "Other",
+    image: "/images/clients_website/jeevanshaadi.avif",
+    desc: "Matrimonial platform with user profiles, matchmaking features, and secure authentication.",
+    link: "#",
+  },
+  {
+    id: 2,
+    title: "TDSA",
+    category: "Ed-tech Platform",
+    image: "/images/clients_website/tdsa.avif",
+    desc: "EdTech platform offering courses with live teaching and interactive learning experiences.",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Crack4Success",
+    category: "Ed-tech Platform",
+    image: "/images/clients_website/crack4success.avif",
+    desc: "Interactive coding practice platform designed for developers to hone their skills.",
+    link: "#",
+  },
+  {
+    id: 4,
+    title: "Trade Ved",
+    category: "Other",
+    image: "/images/clients_website/trade-ved.avif",
+    desc: "Advanced trading application providing real-time insights and professional tools.",
+    link: "#",
+  },
+  {
+    id: 5,
+    title: "Flyzel International",
+    category: "Other",
+    image: "/images/clients_website/flyzel.avif",
+    desc: "Professional visa processing and consultation services for seamless global travel.",
+    link: "#",
+  },
+  {
+    id: 6,
+    title: "PaushtEAT",
+    category: "E-commerce Store",
+    image: "/images/clients_website/paushteat.avif",
+    desc: "Healthy, maida-free pasta store focusing on nutritious and delicious alternatives.",
+    link: "#",
+  },
+  {
+    id: 7,
+    title: "Noorzaar",
+    category: "E-commerce Store",
+    image: "/images/clients_website/noorzar.avif",
+    desc: "Shopify store featuring an exclusive collection of traditional Pakistani attire.",
+    link: "#",
+  },
+  {
+    id: 8,
+    title: "Devangi Vastra",
+    category: "E-commerce Store",
+    image: "/images/clients_website/devangi.avif",
+    desc: "Premium Shopify store offering a curated selection of ethnic dresses for women.",
+    link: "#",
+  },
+  {
+    id: 9,
     title: "Starlight Solar",
-    category: "Development",
+    category: "Other",
     image: "/images/starlightsolar.webp",
     desc: "Modern solar energy website focused on clean UI, performance, and lead generation.",
     link: "#",
   },
   {
-    id: 2,
+    id: 10,
     title: "Sadabahar Handloom",
-    category: "E-Commerce",
+    category: "E-commerce Store",
     image: "/images/sadabahaar.webp",
-    desc: "Handloom e-commerce store showcasing traditional fabrics with smooth shopping experience.",
+    desc: "Handloom E-commerce Store showcasing traditional fabrics with smooth shopping experience.",
     link: "#",
   },
   {
-    id: 3,
+    id: 11,
     title: "Lithoveda",
-    category: "E-Commerce",
+    category: "E-commerce Store",
     image: "/images/lithoveda.webp",
     desc: "Ayurvedic and wellness e-commerce platform with product-focused UI and fast checkout.",
     link: "#",
   },
   {
-    id: 4,
+    id: 12,
     title: "Vanya Resort",
-    category: "Development",
+    category: "Other",
     image: "/images/vanya.webp",
     desc: "Hospitality website designed for resorts with booking flow and immersive visuals.",
     link: "#",
   },
   {
-    id: 5,
-    title: "Jeevan Shaadi",
-    category: "Development",
-    image: "/images/jeewanshaadi.webp",
-    desc: "Matrimonial platform with user profiles, matchmaking features, and secure authentication.",
-    link: "#",
-  },
-  {
-    id: 6,
+    id: 13,
     title: "Edmirai",
-    category: "Development",
+    category: "Ed-tech Platform",
     image: "/images/edmirai.webp",
     desc: "EdTech platform built for online learning, courses, and student engagement.",
     link: "#",
   },
   {
-    id: 7,
+    id: 14,
     title: "Amla Pharma",
-    category: "Development",
+    category: "E-commerce Store",
     image: "/images/amla-pharma.webp",
     desc: "Skincare and pharma product website focused on trust, branding, and product clarity.",
     link: "#",
   },
   {
-    id: 8,
+    id: 15,
     title: "RudraGroup Indore",
-    category: "Development",
+    category: "Other",
     image: "/images/rudragroupindore.webp",
     desc: "Professional security service provider website with service listings and enquiry system.",
     link: "#",
   },
   {
-    id: 9,
+    id: 16,
     title: "MJ Finserv",
-    category: "Development",
+    category: "Other",
     image: "/images/mjfinserv.webp",
     desc: "Finance and investment services website with clean layout and lead-focused design.",
+    link: "#",
+  },
+  {
+    id: 17,
+    title: "Rasa Aroma",
+    category: "E-commerce Store",
+    image: "/images/clients_website/rasaaroma.avif",
+    desc: "Herbs and spices store specializing in products for stress relief and wellness.",
+    link: "#",
+  },
+  {
+    id: 18,
+    title: "SpineJadex",
+    category: "E-commerce Store",
+    image: "/images/clients_website/spinejadex.avif",
+    desc: "Luxury spine massage chairs designed for ergonomic support and ultimate comfort.",
+    link: "#",
+  },
+  {
+    id: 19,
+    title: "Wardrobe",
+    category: "App Development",
+    image: "/images/clients_website/wardrobe.avif",
+    desc: "Modern clothing store showcasing the latest trends in fashion and lifestyle.",
     link: "#",
   },
 ];
 
 const categories = [
   "All",
-  "Development",
-  "Social Media",
-  "Performance",
-  "Branding",
+  "E-commerce Store",
+  "Ed-tech Platform",
+  "App Development",
+  "Other"
 ];
 
 const PortfolioPage = () => {
@@ -167,12 +247,11 @@ const PortfolioPage = () => {
         <ServiceBanner
           title="Selected Digital Works"
           description="A showcase of high-fidelity digital excellence. From strategic development to creative brand engineering, see how we transform vision into impact."
-          imageSrc="/social-media.png"
+          imageSrc="/social-media.avif"
           currentPage="Products"
         />
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 pt-20">
-
           {/* --- FILTER TABS --- */}
           <div className="flex flex-wrap justify-center gap-3 mb-16 page-header-item">
             {categories.map((cat) => (
@@ -196,7 +275,7 @@ const PortfolioPage = () => {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="project-card group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer bg-[#0a0a0a] border border-white/5"
+                className="project-card group relative h-[200px] md:h-[180px] lg:h-[220px] rounded-lg overflow-hidden cursor-pointer bg-[#0a0a0a] border border-white/5"
                 style={{ willChange: "transform, opacity" }} // GPU Hint
               >
                 {/* Image Layer - Optimized */}
@@ -206,12 +285,12 @@ const PortfolioPage = () => {
                     alt={project.title}
                     loading="lazy" // Lazy load
                     decoding="async" // Don't block main thread
-                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                    className="w-full h-full object-cover object-top transition-all duration-1000 ease-out group-hover:scale-103 opacity-100 group-hover:opacity-100"
                   />
                 </div>
 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-100 group-hover:opacity-90 transition-opacity duration-300" />
 
                 {/* Content Layer */}
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
@@ -221,13 +300,13 @@ const PortfolioPage = () => {
                   </div>
 
                   <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                    <span className="text-[#0078f0] text-xs font-bold   tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                    {/* <span className="text-[#0078f0] text-xs font-bold   tracking-widest mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
                       {project.category}
-                    </span>
-                    <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
+                    </span> */}
+                    <h3 className="text-lg md:text-2xl font-semibold text-white   leading-tight">
                       {project.title}
                     </h3>
-                    <p className="text-zinc-400 text-sm line-clamp-2 opacity-0 h-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-300 delay-100">
+                    <p className="text-zinc-200 text-sm line-clamp-2 opacity-0 h-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-300 delay-100">
                       {project.desc}
                     </p>
                   </div>

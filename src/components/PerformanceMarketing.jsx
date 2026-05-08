@@ -108,39 +108,48 @@ const serviceData = {
       name: "Google Ads",
       logo: "https://www.vectorlogo.zone/logos/google_ads/google_ads-icon.svg",
     },
-    
+
     {
       name: "Tag Manager",
       logo: "https://www.svgrepo.com/show/353827/google-tag-manager.svg",
-    }
+    },
   ],
 };
 
 const performanceFaqs = [
   {
     question: "What does performance marketing mean for my business?",
-    answer: "Performance marketing is a strategy where your investment is directly linked to results. It focuses on generating measurable actions such as leads, inquiries, or sales, ensuring your budget is used efficiently."
+    answer:
+      "Performance marketing is a strategy where your investment is directly linked to results. It focuses on generating measurable actions such as leads, inquiries, or sales, ensuring your budget is used efficiently.",
   },
   {
-    question: "Why should I choose performance marketing over other marketing methods?",
-    answer: "Performance marketing gives you complete transparency and control. You can track every campaign, measure outcomes in real time, and adjust strategies instantly to achieve better results."
+    question:
+      "Why should I choose performance marketing over other marketing methods?",
+    answer:
+      "Performance marketing gives you complete transparency and control. You can track every campaign, measure outcomes in real time, and adjust strategies instantly to achieve better results.",
   },
   {
-    question: "How do you ensure better ROI in performance marketing campaigns?",
-    answer: "We use advanced targeting, continuous monitoring, and data-driven optimization to focus on high-performing audiences, ensuring maximum returns with minimum wasted spend."
+    question:
+      "How do you ensure better ROI in performance marketing campaigns?",
+    answer:
+      "We use advanced targeting, continuous monitoring, and data-driven optimization to focus on high-performing audiences, ensuring maximum returns with minimum wasted spend.",
   },
   {
-    question: "Which industries can benefit from performance marketing services?",
-    answer: "Performance marketing works for almost every industry, including e-commerce, healthcare, real estate, education, and service-based businesses looking to generate leads and sales."
+    question:
+      "Which industries can benefit from performance marketing services?",
+    answer:
+      "Performance marketing works for almost every industry, including e-commerce, healthcare, real estate, education, and service-based businesses looking to generate leads and sales.",
   },
   {
     question: "Do I need a large budget to start performance marketing?",
-    answer: "No, performance marketing is flexible and works with different budget sizes. Campaigns can be scaled up or down based on your goals and performance results."
+    answer:
+      "No, performance marketing is flexible and works with different budget sizes. Campaigns can be scaled up or down based on your goals and performance results.",
   },
   {
     question: "How do you track and measure campaign success?",
-    answer: "We track key performance indicators like clicks, conversions, cost per lead, and return on ad spend using advanced analytics tools, ensuring complete transparency in campaign performance."
-  }
+    answer:
+      "We track key performance indicators like clicks, conversions, cost per lead, and return on ad spend using advanced analytics tools, ensuring complete transparency in campaign performance.",
+  },
 ];
 
 const PerformanceMarketing = () => {
@@ -186,7 +195,7 @@ const PerformanceMarketing = () => {
       <ServiceBanner
         title="Performance Marketing"
         description={serviceData.description}
-        imageSrc="/performance.png"
+        imageSrc="/performance.avif"
         currentPage="Performance"
       />
 
@@ -362,7 +371,7 @@ const PerformanceMarketing = () => {
                 {[...Array(4)].map((_, groupIdx) => (
                   <div
                     key={groupIdx}
-                    className="flex items-center gap-24 shrink-0"
+                    className="flex items-center gap-10 md:gap-24 shrink-0"
                   >
                     {serviceData.techStack.map((tech, i) => (
                       <div
@@ -386,14 +395,12 @@ const PerformanceMarketing = () => {
               </motion.div>
             </div>
           </div>
-
-       
         </div>
-           {/* --- GROWTH BREAKTHROUGH CTA --- */}
-          <GrowthBreakthrough />
+        {/* --- GROWTH BREAKTHROUGH CTA --- */}
+        <GrowthBreakthrough />
 
-          {/* --- FAQ SECTION --- */}
-          <FAQ faqs={performanceFaqs} />
+        {/* --- FAQ SECTION --- */}
+        <FAQ faqs={performanceFaqs} />
       </div>
     </div>
   );
