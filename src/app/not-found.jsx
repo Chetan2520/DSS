@@ -1,18 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
+import BlogDetail from "@/components/BlogDetail";
 
 export default function NotFound() {
+  const [isBlog, setIsBlog] = useState(false);
+  const pathname = usePathname();
+
   useEffect(() => {
-    // Simple entry animation using GSAP which is pre-loaded in the project
+    // Aggressive check: if URL contains /blogs/, we try to load it dynamically.
+    const checkIsBlog = () => {
+      const href = typeof window !== "undefined" ? window.location.href : "";
+      const path = typeof window !== "undefined" ? window.location.pathname : "";
+      
+      return href.includes("/blogs/") || path.includes("/blogs/");
+    };
+
+    if (checkIsBlog()) {
+      setIsBlog(true);
+    }
+
+    // Simple entry animation
     gsap.fromTo(
       ".not-found-content",
       { opacity: 0, y: 30 },
       { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
     );
-  }, []);
+  }, [pathname]);
+
+  if (isBlog) {
+    return <BlogDetail />;
+  }
 
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 py-20 relative overflow-hidden">

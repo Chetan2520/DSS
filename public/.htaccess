@@ -1,20 +1,28 @@
-# Disable directory listing to prevent 403 errors
+# Disable directory listing
 Options -Indexes
 
 RewriteEngine On
 RewriteBase /
 
-# If the request is for a directory without a trailing slash, redirect to add it
-# This helps Apache find the index.html inside the folder
-RewriteCond %{REQUEST_FILENAME} -d
+# 1. Redirect /index.html to /
+RewriteRule ^index\.html$ / [R=301,L]
+
+# 2. Handle Trailing Slash (Next.js trailingSlash: true generates folders with index.html)
+# If a request is for a path that doesn't end in a slash, and it's not a physical file, redirect to include the slash.
+# CRITICAL: Exclude file extensions from being redirected to have a slash (e.g., .txt, .json)
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteCond %{REQUEST_URI} !(\.txt|\.html|\.json|\.js|\.css|\.png|\.jpg|\.jpeg|\.svg|\.gif|\.webp)$
 RewriteRule ^(.*)$ $1/ [L,R=301]
 
-# If the request is for a path that doesn't exist as a file, 
-# and folder/index.html exists, redirect to the folder (with trailing slash)
+# 3. Serve the index.html from within the folder (Internal Rewrite)
+# This ensures that /blogs/my-slug/ serves /blogs/my-slug/index.html without a 404
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
-RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
+RewriteRule ^(.*)/$ $1/index.html [L]
 
-# Fallback for 404 errors
+# 4. Fallback for SPA behavior (Optional but helpful)
+# If the path doesn't exist at all, send it to the 404 page
 ErrorDocument 404 /404.html
+

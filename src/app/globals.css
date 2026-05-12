@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -250,7 +251,6 @@ html, body {
 
 
 /* curosr poiter  */
-/* globals.css */
 a, 
 button, 
 [role="button"],
@@ -258,3 +258,45 @@ input[type="button"],
 input[type="submit"] {
   cursor: pointer !important;
 }
+
+/* Tiptap Editor Styles */
+.prose {
+  @apply text-slate-800 leading-relaxed;
+}
+
+.prose h1 {
+  @apply text-4xl font-extrabold text-slate-900 mb-6 mt-8;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold text-slate-800 mb-4 mt-6 border-b pb-2;
+}
+
+.prose p {
+  @apply mb-4 text-lg;
+}
+
+.prose ul {
+  @apply list-disc ml-6 mb-4 space-y-2;
+}
+
+.prose ol {
+  @apply list-decimal ml-6 mb-4 space-y-2;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-blue-500 pl-4 italic text-slate-600 my-6 bg-slate-50 py-2;
+}
+
+.prose a {
+  @apply text-blue-600 underline decoration-blue-300 hover:decoration-blue-600 transition-all;
+}
+
+.prose img {
+  @apply rounded-xl max-w-full h-auto my-8 shadow-lg mx-auto block;
+}
+
+.tiptap:focus {
+  outline: none;
+}
+

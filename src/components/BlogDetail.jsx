@@ -5,18 +5,36 @@ import { useParams } from "next/navigation";
 
 import axios from "axios";
 import { FiArrowLeft, FiClock, FiUser, FiCalendar } from "react-icons/fi";
+import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa6";
 
 const BlogDetail = () => {
   const params = useParams();
-  const title = params?.id || params?.title;
+  const [slug, setSlug] = useState(params?.id);
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // If slug is not in params (e.g. on 404 page), try to get it from URL
+    if (!slug && typeof window !== "undefined") {
+      const parts = window.location.pathname.split("/").filter(Boolean);
+      const blogIndex = parts.indexOf("blogs");
+      if (blogIndex !== -1 && parts[blogIndex + 1]) {
+        setSlug(parts[blogIndex + 1]);
+      } else if (window.location.href.includes("/blogs/")) {
+        // Fallback for weird path handling on some hosts
+        const match = window.location.href.match(/\/blogs\/([^/?#]+)/);
+        if (match && match[1]) setSlug(match[1]);
+      }
+    }
+  }, [params, slug]);
+
+  useEffect(() => {
+    if (!slug) return;
+    
     const fetchBlog = async () => {
       try {
         const res = await axios.get(
-          `https://digitalsuccesssolutions.in/php_backend/api/read_single.php?title=${title}`,
+          `https://digitalsuccesssolutions.in/php_backend/api/read_single.php?slug=${slug}`,
         );
         setBlog(res.data);
       } catch (err) {
@@ -28,23 +46,26 @@ const BlogDetail = () => {
 
     fetchBlog();
     window.scrollTo(0, 0);
-  }, [title]);
+  }, [slug]);
 
   if (loading)
     return (
-      <div className="h-screen flex items-center justify-center font-bold bg-white">
-        Loading Content...
+      <div className="h-screen flex items-center justify-center font-bold bg-gray-900 text-white">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          <p className="tracking-widest text-sm uppercase opacity-70">Loading Blog...</p>
+        </div>
       </div>
     );
   if (!blog)
     return (
-      <div className="h-screen flex items-center justify-center font-bold bg-white">
+      <div className="h-screen flex items-center justify-center font-bold bg-gray-900 text-white">
         Blog not found.
       </div>
     );
 
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-gray-900 text-white">
       {/* --- HERO SECTION --- 
           pt-[100px] add kiya hai taaki content navbar ke niche se start ho 
       */}
@@ -194,13 +215,32 @@ const BlogDetail = () => {
                 </p>
               </div>
               <div className="flex gap-4">
-                {["Facebook", "Twitter", "LinkedIn"].map((platform) => (
-                  <button
-                    key={platform}
-                    className="px-6 py-3 rounded-full border border-gray-200 font-bold text-xs   tracking-widest hover:bg-black hover:text-white transition-all duration-300"
+                {[
+                  {
+                    icon: <FaFacebookF size={14} />,
+                    href: "https://www.facebook.com/p/Digital-Success-Solutions-61567317789854/",
+                    label: "Facebook",
+                  },
+                  {
+                    icon: <FaInstagram size={16} />,
+                    href: "https://www.instagram.com/digitalsuccess_solutions/",
+                    label: "Instagram",
+                  },
+                  {
+                    icon: <FaLinkedinIn size={14} />,
+                    href: "https://www.linkedin.com/company/digital-success-solutions-dss/",
+                    label: "LinkedIn",
+                  },
+                ].map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 font-bold text-xs tracking-widest hover:bg-black hover:text-white transition-all duration-300"
                   >
-                    {platform}
-                  </button>
+                    {social.icon} {social.label}
+                  </a>
                 ))}
               </div>
             </div>
