@@ -53,7 +53,7 @@ export default function HomeClient() {
     }
   }, [isReady]);
 
-  if (!isReady) return <Loader />;
+  // Removed loader that blocked SEO for static export
 
   return (
     <div className="bg-[#050505] text-white">

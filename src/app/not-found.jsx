@@ -7,36 +7,38 @@ import { gsap } from "gsap";
 import BlogDetail from "@/components/BlogDetail";
 
 export default function NotFound() {
-  const [isBlog, setIsBlog] = useState(false);
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+  const [isBlog, setIsBlog] = useState(false);
 
   useEffect(() => {
-    // Aggressive check: if URL contains /blogs/, we try to load it dynamically.
-    const checkIsBlog = () => {
-      const href = typeof window !== "undefined" ? window.location.href : "";
-      const path = typeof window !== "undefined" ? window.location.pathname : "";
-      
-      return href.includes("/blogs/") || path.includes("/blogs/");
-    };
-
-    if (checkIsBlog()) {
+    setMounted(true);
+    // Check if current path belongs to blogs
+    if (pathname?.includes("/blogs/")) {
       setIsBlog(true);
     }
-
-    // Simple entry animation
-    gsap.fromTo(
-      ".not-found-content",
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
-    );
+    
+    // Simple entry animation for 404 UI
+    if (!pathname?.includes("/blogs/")) {
+      gsap.fromTo(
+        ".not-found-content",
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+      );
+    }
   }, [pathname]);
 
-  if (isBlog) {
+  // If it's a blog path, we render BlogDetail. 
+  // BlogDetail now has its own internal loader and H1 for SEO.
+  if (isBlog || (pathname && pathname.includes("/blogs/"))) {
     return <BlogDetail />;
   }
 
   return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 py-20 relative overflow-hidden">
+    <div 
+      className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 py-20 relative overflow-hidden"
+      style={{ opacity: mounted ? 1 : 0 }} // Prevent flash of content before JS determines path
+    >
       {/* Background glowing effects to match modern dark theme */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none" />
       

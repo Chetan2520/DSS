@@ -107,9 +107,9 @@ const HeroBg = () => {
           className="relative z-10 w-full md:w-1/2 pointer-events-none py-20 md:py-0 md:h-full flex flex-col justify-center"
         >
           <div className="pointer-events-auto space-y-4 md:space-y-6 px-4 md:px-0">
-            <h2 className="text-4xl md:text-6xl font-semibold text-white tracking-tight">
-              About Us
-            </h2>
+            <h1 className="text-4xl md:text-6xl font-semibold text-white tracking-tight">
+              Digital Success Solutions | Best Digital Marketing Agency in Indore
+            </h1>
 
             <div className="max-w-xl">
               <p className="text-zinc-300 text-base md:text-lg leading-relaxed">

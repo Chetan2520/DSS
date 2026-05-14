@@ -46,12 +46,6 @@ const Blogs = () => {
     fetchBlogs();
   }, []);
 
-  if (loading)
-    return (
-      <div className="h-screen flex items-center justify-center text-xl font-bold">
-        Loading Stories...
-      </div>
-    );
 
   return (
     <div className="min-h-screen bg-white text-black py-24 px-6 md:px-20">
@@ -71,7 +65,13 @@ const Blogs = () => {
       </div>
 
       {/* --- BLOG GRID --- */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto">
+        {loading ? (
+          <div className="flex items-center justify-center py-20 text-xl font-bold">
+            Loading Stories...
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {blogs.map((blog) => (
           <Link
             href={`/blogs/${blog.slug || blog.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
@@ -119,6 +119,8 @@ const Blogs = () => {
             </div>
           </Link>
         ))}
+          </div>
+        )}
       </div>
     </div>
   );
