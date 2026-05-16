@@ -186,7 +186,7 @@ const AdminPanel = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get(`${API_BASE}/read.php`);
+      const res = await axios.get(`${API_BASE}/read.php?t=${Date.now()}`);
       setBlogs(res.data);
     } catch (error) {
       console.error("Failed to fetch blogs:", error);

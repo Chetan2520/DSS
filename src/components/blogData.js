@@ -86,7 +86,7 @@ export const blogs = [
   // --- BLOG 2 START ---
   {
     id: 2,
-    title: "Top Digital Marketing Strategies to Grow Your Business",
+    title: "Best Digital Marketing Strategies to Grow Your Business",
     image:
       "https://plus.unsplash.com/premium_photo-1661425715124-310ec1b49b8a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RGlnaXRhbCUyME1hcmtldGluZyUyMFN0cmF0ZWdpZXN8ZW58MHx8MHx8fDA%3D", // Main Thumbnail Image
     category: "Digital Marketing",
@@ -94,7 +94,7 @@ export const blogs = [
     author: "Digital Success Solutions",
     content: `
       <p class="intro-text">
-        Today we're going to talk about the top digital marketing strategies, using which many businesses have grown their business 10-fold in a short time. 
+        Today we're going to talk about the best digital marketing strategies, using which many businesses have grown their business 10-fold in a short time. 
         It's not enough to deliver every business's service or product in the right way, at the right time. It's no longer easy to do it with advertisements in newspapers, on TV, or on billboards.
       </p>
       <p>

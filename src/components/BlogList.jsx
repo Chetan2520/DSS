@@ -14,7 +14,7 @@ const Blogs = () => {
     const fetchBlogs = async () => {
       try {
         const res = await axios.get(
-          "https://digitalsuccesssolutions.in/php_backend/api/read.php",
+          `https://digitalsuccesssolutions.in/php_backend/api/read.php?t=${Date.now()}`,
         );
         let data = res.data;
 

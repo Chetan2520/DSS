@@ -7,7 +7,7 @@ export const dynamicParams = false; // Required for static export with dynamic r
 export async function generateStaticParams() {
   console.log("--- STARTING STATIC PARAMS GENERATION ---");
   try {
-    const apiUrl = "https://digitalsuccesssolutions.in/php_backend/api/read.php";
+    const apiUrl = `https://digitalsuccesssolutions.in/php_backend/api/read.php?t=${Date.now()}`;
     const res = await axios.get(apiUrl);
     
     let data = res.data;

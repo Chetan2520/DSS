@@ -34,9 +34,21 @@ const BlogDetail = () => {
     const fetchBlog = async () => {
       try {
         const res = await axios.get(
-          `https://digitalsuccesssolutions.in/php_backend/api/read_single.php?slug=${slug}`,
+          `https://digitalsuccesssolutions.in/php_backend/api/read_single.php?slug=${slug}&t=${Date.now()}`,
         );
-        setBlog(res.data);
+        let data = res.data;
+
+        // Handle the "Connected successfully" prefix if it exists (consistent with BlogList)
+        if (typeof data === "string" && data.includes("Connected successfully")) {
+          const jsonPart = data.replace("Connected successfully", "").trim();
+          try {
+            data = JSON.parse(jsonPart);
+          } catch (e) {
+            console.error("Failed to parse fixed JSON in BlogDetail", e);
+          }
+        }
+
+        setBlog(data);
       } catch (err) {
         console.error("Error fetching blog:", err);
       } finally {

@@ -1,19 +1,13 @@
 "use client";
 import React, { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-
-// Normal Imports
-import HeroBg from "@/components/HeroBg";
 import SuccessOrbit from "@/components/SuccessOrbit";
 import DiscussProject from "@/components/DiscussProject";
 
-const Loader = () => (
-  <div className="h-screen w-full bg-[#050505] flex items-center justify-center">
-    <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
-  </div>
-);
-
 // Dynamic Imports
+const HeroBg = dynamic(() => import("@/components/HeroBg"), {
+  ssr: false,
+});
 const ModernServices = dynamic(() => import("@/components/ModernServices"), {
   ssr: false,
 });
