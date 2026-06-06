@@ -12,7 +12,7 @@ export default function Footer() {
   const socialLinks = [
     {
       icon: <FaLinkedinIn size={14} />,
-      href: "https://www.linkedin.com/company/digital-success-solutions-dss/",
+      href: "https://in.linkedin.com/company/dss-digital-success-solutions-llp",
       label: "LinkedIn",
     },
     {
@@ -34,9 +34,9 @@ export default function Footer() {
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <img 
-          src="/images/footer-img.webp" 
-          alt="Footer Background" 
+        <img
+          src="/images/footer-img.webp"
+          alt="Footer Background"
           className="w-full h-full object-cover opacity-60"
         />
         {/* Top-to-bottom black gradient */}
@@ -125,7 +125,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-4 text-white/70 text-sm">
               <li>
                 <Link
-                  href="/website-design-and-website-development"
+                  href="/website-development-company-in-india"
                   className="hover:text-white transition-colors"
                 >
                   Development
@@ -133,7 +133,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/graphic-designing"
+                  href="/graphic-designing-services-in-indore"
                   className="hover:text-white transition-colors"
                 >
                   Graphic Design
@@ -141,7 +141,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/performance-marketing-ppc"
+                  href="/performance-marketing-agency-in-indore"
                   className="hover:text-white transition-colors"
                 >
                   Marketing
@@ -149,7 +149,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/social-media-marketing"
+                  href="/social-media-marketing-company-in-indore"
                   className="hover:text-white transition-colors"
                 >
                   Social
@@ -157,7 +157,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/search-engine-optimization"
+                  href="/seo-company-in-indore"
                   className="hover:text-white transition-colors"
                 >
                   SEO
@@ -165,7 +165,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/influencer-marketing"
+                  href="/influencer-marketing-agency-in-indore"
                   className="hover:text-white transition-colors"
                 >
                   Influencer

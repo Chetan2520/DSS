@@ -53,7 +53,7 @@ export default function Navbar() {
   const services = [
     {
       name: "Website Development",
-      path: "/website-design-and-website-development",
+      path: "/website-development-company-in-india",
       icon: Globe,
       description:
         "Custom, high-performance websites built with the latest technologies to drive your business forward.",
@@ -61,7 +61,7 @@ export default function Navbar() {
     },
     {
       name: "E-Commerce Apps",
-      path: "/e-commerce-applications",
+      path: "/ecommerce-development-company-in-indore",
       icon: ShoppingBag,
       description:
         "Building powerful online shopping experiences that turn visitors into loyal customers.",
@@ -69,7 +69,7 @@ export default function Navbar() {
     },
     {
       name: "Graphic Designing",
-      path: "/graphic-designing",
+      path: "/graphic-designing-services-in-indore",
       icon: Palette,
       description:
         "Creative visuals and brand identities that capture your essence and leave a lasting impression.",
@@ -77,7 +77,7 @@ export default function Navbar() {
     },
     {
       name: "Performance Marketing",
-      path: "/performance-marketing-ppc",
+      path: "/performance-marketing-agency-in-indore",
       icon: Megaphone,
       description:
         "Data-driven marketing strategies focused on conversion, ROI, and measurable business growth.",
@@ -85,7 +85,7 @@ export default function Navbar() {
     },
     {
       name: "Social Media Marketing",
-      path: "/social-media-marketing",
+      path: "/social-media-marketing-company-in-indore",
       icon: Share2,
       description:
         "Building community and increasing brand engagement across all major social platforms.",
@@ -93,7 +93,7 @@ export default function Navbar() {
     },
     {
       name: "SEO Optimization",
-      path: "/search-engine-optimization",
+      path: "/seo-company-in-indore",
       icon: Search,
       description:
         "Search engine strategies designed to improve rankings, drive traffic, and build authority.",
@@ -101,7 +101,7 @@ export default function Navbar() {
     },
     {
       name: "Influencer Marketing",
-      path: "/influencer-marketing",
+      path: "/influencer-marketing-agency-in-indore",
       icon: Users,
       description:
         "Collaborating with key industry voices to amplify your brand's reach and credibility.",
@@ -207,19 +207,18 @@ export default function Navbar() {
     <>
       <nav
         ref={navRef}
-        className={`top-0 left-0 w-full z-50 transition-all duration-300 ${isSubPage ? "sticky" : "fixed"} ${
-          isScrolled
-            ? "bg-black/60 backdrop-blur-xl py-4 border-b border-white/5"
-            : isSubPage
-              ? "bg-black py-4 border-b border-white/10"
-              : "bg-transparent py-5"
-        }`}
+        className={`top-0 left-0 w-full z-50 transition-all duration-300 ${isSubPage ? "sticky" : "fixed"} ${isScrolled
+          ? "bg-black/60 backdrop-blur-xl py-4 border-b border-white/5"
+          : isSubPage
+            ? "bg-black py-4 border-b border-white/10"
+            : "bg-transparent py-5"
+          }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="flex items-center shrink-0 cursor-pointer">
             <img
               src="/images/logo.png"
-              alt="digiPanda"
+              alt="Digital Success Solutions"
               className="h-14 md:h-18 w-auto object-contain"
             />
           </Link>
@@ -424,10 +423,10 @@ export default function Navbar() {
                       !link.submenu
                         ? handleNavClick(link.path)
                         : setActiveMobileSubmenu(
-                            activeMobileSubmenu === link.name
-                              ? null
-                              : link.name,
-                          )
+                          activeMobileSubmenu === link.name
+                            ? null
+                            : link.name,
+                        )
                     }
                     className="text-[24px] font-semibold text-black tracking-tight text-left"
                   >

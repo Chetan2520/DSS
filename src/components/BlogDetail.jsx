@@ -30,7 +30,7 @@ const BlogDetail = () => {
 
   useEffect(() => {
     if (!slug) return;
-    
+
     const fetchBlog = async () => {
       try {
         const res = await axios.get(
@@ -90,11 +90,11 @@ const BlogDetail = () => {
 
           <div className="max-w-4xl mt-12 md:mt-20">
             {loading ? (
-               <div className="animate-pulse space-y-4">
-                 <div className="h-8 bg-white/20 w-24 rounded-full"></div>
-                 <div className="h-16 bg-white/20 w-full rounded-xl"></div>
-                 <div className="h-10 bg-white/20 w-48 rounded-lg"></div>
-               </div>
+              <div className="animate-pulse space-y-4">
+                <div className="h-8 bg-white/20 w-24 rounded-full"></div>
+                <div className="h-16 bg-white/20 w-full rounded-xl"></div>
+                <div className="h-10 bg-white/20 w-48 rounded-lg"></div>
+              </div>
             ) : blog ? (
               <>
                 <div className="mb-6 flex flex-wrap gap-3 items-center text-[10px] md:text-xs font-bold   tracking-widest">
@@ -233,7 +233,7 @@ const BlogDetail = () => {
                     },
                     {
                       icon: <FaLinkedinIn size={14} />,
-                      href: "https://www.linkedin.com/company/digital-success-solutions-dss/",
+                      href: "https://in.linkedin.com/company/dss-digital-success-solutions-llp",
                       label: "LinkedIn",
                     },
                   ].map((social) => (

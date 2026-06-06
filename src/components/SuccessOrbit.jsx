@@ -31,18 +31,18 @@ const ClientOrbit = () => {
 
   return (
     <section className="relative w-full min-h-screen bg-black flex items-center justify-center py-24 px-6 overflow-hidden font-sans">
-      
+
       {/* Background Neural Network Glow */}
       <div className="absolute w-[900px] h-[900px] bg-[#0078f0]/5 blur-[180px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl w-full grid lg:grid-cols-2 gap-20 items-center z-10">
-        
+
         {/* --- LEFT SIDE: THE TRUST ORBIT --- */}
         <div className="relative flex justify-center items-center h-[500px] md:h-[650px]">
-          
+
           {/* Technology Rings */}
           {[300, 500, 700].map((size, i) => (
-            <div 
+            <div
               key={i}
               className="absolute border border-white/[0.03] rounded-full"
               style={{ width: size, height: size }}
@@ -53,18 +53,18 @@ const ClientOrbit = () => {
           <div className="relative z-30 text-center group">
             <div className="absolute inset-0 bg-[#0078f0] blur-3xl opacity-20" />
             <div className="relative w-36 h-36 md:w-52 md:h-52 rounded-full border border-white/10 p-2 bg-[#0a0a0a] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#0078f0]/20 to-transparent" />
-                <div className="relative text-center p-4">
-                    <Quote className="text-[#ff9a20] w-8 h-8 mx-auto mb-2 opacity-60" />
-                    <p className="text-white text-[10px] md:text-xs font-medium leading-relaxed italic opacity-80">
-                      "{activeFeedback.feedback.substring(0, 60)}..."
-                    </p>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#0078f0]/20 to-transparent" />
+              <div className="relative text-center p-4">
+                <Quote className="text-[#ff9a20] w-8 h-8 mx-auto mb-2 opacity-60" />
+                <p className="text-white text-[10px] md:text-xs font-medium leading-relaxed italic opacity-80">
+                  "{activeFeedback.feedback.substring(0, 60)}..."
+                </p>
+              </div>
             </div>
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-[#0078f0] px-4 py-1.5 rounded-full shadow-xl">
-               <p className="text-white font-bold text-[9px] md:text-[10px] uppercase tracking-widest whitespace-nowrap">
-                 Trusted Worldwide
-               </p>
+              <p className="text-white font-bold text-[9px] md:text-[10px] uppercase tracking-widest whitespace-nowrap">
+                Trusted Worldwide
+              </p>
             </div>
           </div>
 
@@ -102,9 +102,9 @@ const ClientOrbit = () => {
                     </div>
                     {/* Floating Name Label */}
                     <div className="absolute -bottom-10 opacity-0 group-hover/client:opacity-100 transition-all bg-white text-black px-2 py-0.5 rounded-sm">
-                        <p className="text-[9px] font-semibold whitespace-nowrap uppercase tracking-tighter">
-                            {item.name} • {item.role}
-                        </p>
+                      <p className="text-[9px] font-semibold whitespace-nowrap uppercase tracking-tighter">
+                        {item.name} • {item.role}
+                      </p>
                     </div>
                   </motion.div>
                 </div>
@@ -121,34 +121,34 @@ const ClientOrbit = () => {
           </div> */}
 
           <h2 className="text-4xl md:text-6xl font-semibold text-white leading-[0.95] tracking-tighter mb-8 uppercase">
-            Fueling 
+            Fueling
             <span className="text-[#ffffff]"> Innovation</span> <br />
           </h2>
 
           <p className="text-zinc-500 text-base md:text-xl    mb-12 max-w-lg leading-relaxed">
-            From Indore to the world. We deliver high-performance IT solutions 
+            From Indore to the world. We deliver high-performance IT solutions
             that help businesses scale, optimize, and dominate their digital landscape.
           </p>
 
           <div className="grid grid-cols-2 gap-8 mb-12 w-full max-w-md">
             <div>
-                <h4 className="text-white text-3xl font-semibold   tracking-tighter">98%</h4>
-                <p className="text-[#0078f0] text-[10px] font-bold uppercase tracking-widest">Client Retention</p>
+              <h4 className="text-white text-3xl font-semibold   tracking-tighter">98%</h4>
+              <p className="text-[#0078f0] text-[10px] font-bold uppercase tracking-widest">Client Retention</p>
             </div>
             <div>
-                <h4 className="text-white text-3xl font-semibold   tracking-tighter">150+</h4>
-                <p className="text-[#ff9a20] text-[10px] font-bold uppercase tracking-widest">Projects Delivered</p>
+              <h4 className="text-white text-3xl font-semibold   tracking-tighter">150+</h4>
+              <p className="text-[#ff9a20] text-[10px] font-bold uppercase tracking-widest">Projects Delivered</p>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
-            <SlidingButton 
+            <SlidingButton
               href="#services"
               className="px-10 py-4 bg-[#0078f0] text-white font-semibold uppercase text-xs tracking-widest rounded-full shadow-lg shadow-[#0078f0]/20"
             >
               Explore Services
             </SlidingButton>
-            <SlidingButton 
+            <SlidingButton
               href="/lets-connect"
               className="px-10 py-4 border border-white/10 text-white font-semibold uppercase text-xs tracking-widest rounded-full"
             >
@@ -160,7 +160,7 @@ const ClientOrbit = () => {
 
       {/* Decorative Bottom Tag */}
       <div className="absolute bottom-10 right-10 opacity-20 hidden md:block">
-          <p className="font-mono text-white text-[9px] uppercase tracking-[1em]">Agile / Scalable / Robust</p>
+        <p className="font-mono text-white text-[9px] uppercase tracking-[1em]">Agile / Scalable / Robust</p>
       </div>
     </section>
   );

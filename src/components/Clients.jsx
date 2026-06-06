@@ -31,7 +31,7 @@ export default function ClientsCreative() {
   return (
     <section className="relative bg-[#050505] py-24 md:py-40 flex flex-col items-center overflow-hidden">
       <div className="w-full max-w-[1400px] px-6">
-        
+
         {/* HEADER SECTION */}
         <div className="text-center mb-20 md:mb-32">
           <p className="text-blue-500 font-semibold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4">
@@ -93,7 +93,7 @@ export default function ClientsCreative() {
                     />
                     <text className="text-[8px] fill-white uppercase tracking-[0.2em] font-bold">
                       <textPath xlinkHref="#circlePath">
-                        Explore All Projects • Case Studies • 
+                        Explore All Projects • Case Studies •
                       </textPath>
                     </text>
                   </svg>

@@ -207,7 +207,7 @@ export default function DiscussProject() {
                   ) : (
                     <>
                       Send a Message{" "}
-                       
+
                     </>
                   )}
                 </SlidingButton>

@@ -3,7 +3,7 @@ import SocialMediaMarketing from "@/components/SocialMediaMarketing";
 export const metadata = {
   title: "social media marketing company in indore | Digital Success Solutions",
   description: "Social media marketing is an important part of digital marketing, we can help you expand your network through social media management, call now- +91 62643 98990, +91 87189 80114",
-  alternates: { canonical: "https://digitalsuccesssolutions.in/social-media-marketing" }
+  alternates: { canonical: "https://digitalsuccesssolutions.in/social-media-marketing-company-in-indore" }
 };
 
 export default function SocialMediaMarketingRoute() {

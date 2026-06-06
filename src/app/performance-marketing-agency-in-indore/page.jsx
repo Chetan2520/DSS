@@ -3,7 +3,7 @@ import PerformanceMarketing from "@/components/PerformanceMarketing";
 export const metadata = {
   title: "Performance Marketing Agency in Indore | Digital Success Solutions",
   description: "Drive measurable growth with Digital Success Solutions, a trusted performance marketing agency in Indore delivering leads, sales, and ROI-focused campaigns.",
-  alternates: { canonical: "https://digitalsuccesssolutions.in/performance-marketing-ppc" }
+  alternates: { canonical: "https://digitalsuccesssolutions.in/performance-marketing-agency-in-indore" }
 };
 
 export default function PerformanceMarketingRoute() {

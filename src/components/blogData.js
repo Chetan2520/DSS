@@ -470,7 +470,7 @@ export const blogs = [
 
       <h3>2. Content Pillars for Viral Growth</h3>
       <p>
-        Forget generic food shots. In 2026, your <a href="https://digitalsuccesssolutions.in/social-media-marketing/" target="_blank" style="color: #007bff; text-decoration: none; font-weight: bold;">content needs a narrative</a>. Use these pillars to keep your feed fresh and engaging:
+        Forget generic food shots. In 2026, your <a href="https://digitalsuccesssolutions.in/social-media-marketing-company-in-indore/" target="_blank" style="color: #007bff; text-decoration: none; font-weight: bold;">content needs a narrative</a>. Use these pillars to keep your feed fresh and engaging:
       </p>
       
       <h4>1: The ASMR "Process" Video</h4>
@@ -616,7 +616,7 @@ export const blogs = [
 
       <img src="https://plus.unsplash.com/premium_photo-1683288662019-c92caea8276d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bW9iaWxlJTIwd2Vic2l0ZXxlbnwwfHwwfHx8MA%3D%3D" alt="Mobile First Real Estate Website" class="blog-inner-img" style="width:100%; height:auto; border-radius:10px; margin: 20px 0;" />
 
-      <h3>3. <a href="https://digitalsuccesssolutions.in/performance/search-engine-optimization" target="_blank" style="color: #007bff; text-decoration: none;">Dominating Local SEO</a> (The "Indore-First" Approach)</h3>
+      <h3>3. <a href="https://digitalsuccesssolutions.in/seo-company-in-indore/" target="_blank" style="color: #007bff; text-decoration: none;">Dominating Local SEO</a> (The "Indore-First" Approach)</h3>
       <p>
         When a buyer searches for "Luxury flats in Vijay Nagar" or "Best township near Super Corridor," your presence must be unavoidable.
       </p>
@@ -638,12 +638,12 @@ export const blogs = [
 
       <img src="https://images.unsplash.com/photo-1516937941348-c09e5548e1a9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZHJvbmUlMjByZWFsJTIwZXN0YXRlfGVufDB8fDB8fHww" alt="Drone View Real Estate" class="blog-inner-img" style="width:100%; height:auto; border-radius:10px; margin: 20px 0;" />
 
-      <h3>5. <a href="https://digitalsuccesssolutions.in/performance-marketing-ppc" target="_blank" style="color: #007bff; text-decoration: none;">Performance Marketing</a>: Precision Targeting</h3>
+      <h3>5. <a href="https://digitalsuccesssolutions.in/performance-marketing-agency-in-indore/" target="_blank" style="color: #007bff; text-decoration: none;">Performance Marketing</a>: Precision Targeting</h3>
       <p>
         Organic reach takes time; Performance Marketing brings immediate leads.
       </p>
       <ul>
-        <li><strong><a href="https://digitalsuccesssolutions.in/performance-marketing-ppc" target="_blank" style="color: #007bff; text-decoration: none;">Google Search Ads</a>:</strong> Target "High-Intent" keywords like "Ready to move flats in Indore" to catch buyers at the bottom of the funnel.</li>
+        <li><strong><a href="https://digitalsuccesssolutions.in/performance-marketing-agency-in-indore/" target="_blank" style="color: #007bff; text-decoration: none;">Google Search Ads</a>:</strong> Target "High-Intent" keywords like "Ready to move flats in Indore" to catch buyers at the bottom of the funnel.</li>
         <li><strong>Meta Ads (FB & Instagram):</strong> Use interest-based targeting. For example, target people interested in "Property Investment" living in a 50km radius of Indore.</li>
         <li><strong>Advanced Retargeting:</strong> Use tracking pixels to show your ads to users who visited your "Pricing" page but didn't fill out the form.</li>
       </ul>

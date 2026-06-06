@@ -1,33 +1,15 @@
 "use client";
 import React, { Suspense, useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import SuccessOrbit from "@/components/SuccessOrbit";
 import DiscussProject from "@/components/DiscussProject";
-
-// Dynamic Imports
-const HeroBg = dynamic(() => import("@/components/HeroBg"), {
-  ssr: false,
-});
-const ModernServices = dynamic(() => import("@/components/ModernServices"), {
-  ssr: false,
-});
-const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"), {
-  ssr: false,
-});
-const WitnessedGrowth = dynamic(() => import("@/components/WitnessedGrowth"), {
-  ssr: false,
-});
-const Quotes = dynamic(() => import("@/components/Quotes"), { ssr: false });
-const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: false });
-const TeamSection = dynamic(() => import("@/components/TeamSection"), {
-  ssr: false,
-});
-const AIAgentsSection = dynamic(() => import("@/components/AIAgentsSection"), {
-  ssr: false,
-});
-const IndustrySectors = dynamic(() => import("@/components/IndustrySectors"), {
-  ssr: false,
-});
+import HeroBg from "@/components/HeroBg";
+import ModernServices from "@/components/ModernServices";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import WitnessedGrowth from "@/components/WitnessedGrowth";
+import Quotes from "@/components/Quotes";
+import FAQ from "@/components/FAQ";
+import AIAgentsSection from "@/components/AIAgentsSection";
+import IndustrySectors from "@/components/IndustrySectors";
 
 
 export default function HomeClient() {

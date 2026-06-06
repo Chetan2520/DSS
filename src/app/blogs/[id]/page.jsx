@@ -9,16 +9,16 @@ export async function generateStaticParams() {
   try {
     const apiUrl = `https://digitalsuccesssolutions.in/php_backend/api/read.php?t=${Date.now()}`;
     const res = await axios.get(apiUrl);
-    
+
     let data = res.data;
     // Handle the "Connected successfully" prefix if it exists
     if (typeof data === 'string' && data.includes('Connected successfully')) {
       data = JSON.parse(data.replace('Connected successfully', '').trim());
     }
-    
+
     const blogs = Array.isArray(data) ? data : [];
     console.log(`Found ${blogs.length} blogs for static generation.`);
-    
+
     if (blogs.length === 0) {
       console.warn("WARNING: No blogs found in API. Only generating test-blog.");
       return [{ id: 'test-blog' }];
@@ -40,11 +40,11 @@ export async function generateStaticParams() {
 // Fetch metadata dynamically from the PHP API for SEO
 export async function generateMetadata({ params }) {
   const { id } = await params; // 'id' is our slug in the URL
-  
+
   try {
     const res = await axios.get(`https://digitalsuccesssolutions.in/php_backend/api/read_single.php?slug=${id}`);
     const blog = res.data;
-    
+
     return {
       title: blog.meta_title || blog.title,
       description: blog.meta_desc || "Read the latest digital marketing insights from Digital Success Solutions.",

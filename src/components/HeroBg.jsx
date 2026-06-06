@@ -113,7 +113,7 @@ const HeroBg = () => {
         >
           <div className="pointer-events-auto space-y-4 md:space-y-6 px-4 md:px-0">
             <h1 className="text-4xl md:text-6xl font-semibold text-white tracking-tight leading-tight">
-              Smart Growth Starts Here
+              Best Digital Marketing Agency in Indore
             </h1>
 
             <div className="max-w-xl">
