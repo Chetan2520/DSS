@@ -215,7 +215,7 @@ const SeoOptimization = () => {
         {/* --- WHAT WE DO SECTION (WHITE GRID) --- */}
         <section
           className="what-we-build-wrapper relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('/images/bg-cover.png')` }}
+          style={{ backgroundImage: `url('/images/final-services.jpeg')` }}
         >
           <div className="absolute inset-0 bg-black/60 z-0" />
 
@@ -287,7 +287,7 @@ const SeoOptimization = () => {
                         {item.title}
                       </h3>
                     </div>
-                    <p className="text-zinc-500 text-lg md:text-xl leading-relaxed max-w-2xl transition-colors group-hover:text-zinc-300 duration-500 font-medium">
+                    <p className="text-zinc-300 text-lg md:text-xl leading-relaxed max-w-2xl transition-colors group-hover:text-zinc-300 duration-500 font-medium">
                       {item.text}
                     </p>
                   </div>
@@ -343,9 +343,9 @@ const SeoOptimization = () => {
                       {benefit.icon}
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-xl font-bold text-white tracking-tight  ">
+                      <h3 className="text-xl font-bold text-white tracking-tight  ">
                         {benefit.title}
-                      </h4>
+                      </h3>
                       <p className="text-white/70 text-sm font-medium leading-normal">
                         {benefit.text}
                       </p>
@@ -390,13 +390,15 @@ const SeoOptimization = () => {
                         className="flex flex-col items-center gap-6 group"
                       >
                         <div className="h-10 md:h-14 w-auto flex items-center justify-center  transition-all duration-500 scale-90 group-hover:scale-110">
-                          <img
+                          <Image
                             src={tech.logo}
                             alt={tech.name}
+                            width={100}
+                            height={100}
                             className="h-full w-auto object-contain pointer-events-none"
                           />
                         </div>
-                        <span className="text-[9px] tracking-[0.3em] text-zinc-600   group-hover:text-white transition-all duration-500 group-hover:tracking-[0.4em]">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 group-hover:text-white transition-all duration-500">
                           {tech.name}
                         </span>
                       </div>

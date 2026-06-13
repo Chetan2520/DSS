@@ -48,17 +48,17 @@ const Blogs = () => {
 
 
   return (
-    <div className="min-h-screen bg-white text-black py-24 px-6 md:px-20">
+    <div className="min-h-screen bg-[#050505] text-white py-24 px-6 md:px-20 font-sans">
       {/* --- HEADER --- */}
-      <div className="max-w-7xl mx-auto mb-20 border-b border-gray-100 pb-10">
-        <p className="text-blue-600 font-bold   tracking-widest text-xs mb-4">
+      <div className="max-w-7xl mx-auto mb-20 border-b border-white/10 pb-10">
+        <p className="text-[#0078f0] font-semibold tracking-wider text-sm mb-4">
           The Journal
         </p>
-        <h1 className="text-5xl md:text-7xl     tracking-tighter mb-6">
+        <h1 className="text-5xl md:text-7xl tracking-tighter mb-6">
           Insights & <br />
-          <span className="text-gray-400">Updates.</span>
+          <span className="text-white/40">Updates.</span>
         </h1>
-        <p className="text-xl text-gray-500 max-w-2xl leading-relaxed">
+        <p className="text-xl text-white/60 max-w-2xl leading-relaxed">
           Explore our latest thoughts on design, technology, and business
           growth.
         </p>
@@ -79,20 +79,20 @@ const Blogs = () => {
             className="group block"
           >
             {/* Image Card */}
-            <div className="overflow-hidden rounded-2xl mb-6 relative h-[300px] w-full bg-gray-100">
+            <div className="overflow-hidden rounded-2xl mb-6 relative h-[300px] w-full bg-white/5 border border-white/10">
               <img
                 src={blog.image || "https://placehold.co/600x400"}
                 alt={blog.title}
                 className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold   tracking-widest">
+              <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold tracking-widest text-white border border-white/10">
                 {blog.category || "Tech"}
               </div>
             </div>
 
             {/* Content */}
             <div className="pr-4">
-              <div className="flex items-center gap-4 text-xs text-gray-400 font-medium   tracking-wider mb-3">
+              <div className="flex items-center gap-4 text-xs text-white/40 font-medium tracking-wider mb-3">
                 <span className="flex items-center gap-1">
                   <FiCalendar /> {new Date(blog.createdAt).toLocaleDateString()}
                 </span>
@@ -101,19 +101,16 @@ const Blogs = () => {
                 </span>
               </div>
 
-              <h2 className="text-2xl font-bold leading-tight mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+              <h2 className="text-2xl font-bold leading-tight mb-3 group-hover:text-[#0078f0] transition-colors line-clamp-2">
                 {blog.title}
               </h2>
 
-              {/* HTML Content ka Plain Text Preview nikalne ka hack */}
-              <div
-                className="text-gray-500 leading-relaxed mb-4 line-clamp-3 text-sm"
-                dangerouslySetInnerHTML={{
-                  __html: blog.content.substring(0, 100) + "...",
-                }}
-              ></div>
+              {/* Safely stripped Plain Text Preview */}
+              <div className="text-[#e5e7eb] leading-relaxed mb-4 line-clamp-3 text-sm">
+                {blog.content ? blog.content.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').substring(0, 150) + "..." : ""}
+              </div>
 
-              <span className="inline-flex items-center gap-2 text-xs font-bold   tracking-widest border-b border-black pb-1 group-hover:text-blue-600 group-hover:border-blue-600 transition-all">
+              <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider border-b border-white/20 pb-1 group-hover:text-[#0078f0] group-hover:border-[#0078f0] transition-all">
                 Read Full Story <FiArrowUpRight />
               </span>
             </div>

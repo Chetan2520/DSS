@@ -62,6 +62,14 @@ const ContactSection = () => {
         setIsSubmitted(true);
         e.target.reset();
         setSelectedServices([]);
+
+        // GA4 Conversion Tracking
+        if (typeof window !== "undefined" && window.gtag) {
+          window.gtag("event", "generate_lead", {
+            event_category: "Form Submission",
+            event_label: "Contact Us / Quote",
+          });
+        }
       } else {
         setError(result.message || "Something went wrong. Please try again.");
       }
@@ -77,7 +85,7 @@ const ContactSection = () => {
       {/* --- BACKGROUND IMAGE --- */}
       <div className="absolute inset-0 z-0">
         {/* <img
-          src="/images/bg-cover.png"
+          src="/images/final-services.jpeg"
           alt="background"
           className="w-full h-full object-cover opacity-50"
         /> */}
@@ -95,7 +103,7 @@ const ContactSection = () => {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="w-fit px-5 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] tracking-[0.2em] font-bold uppercase"
+            className="w-fit px-5 py-2 rounded-full border border-white/10 bg-white/5 text-xs tracking-wider font-semibold uppercase"
           >
             Start A Project
           </motion.div>
@@ -124,7 +132,7 @@ const ContactSection = () => {
 
           {/* Trusted Clients */}
           <div className="space-y-6 pt-4">
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">
+            <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
               Our Trusted Clients
             </p>
             {/* <div className="flex items-center">
@@ -145,7 +153,7 @@ const ContactSection = () => {
 
             <div className="flex items-center gap-6 pt-2">
               <div className="flex flex-col gap-1">
-                <span className="text-[10px] text-gray-500 uppercase font-bold tracking-widest">
+                <span className="text-xs text-gray-500 uppercase font-semibold tracking-wider">
                   Verified by
                 </span>
                 <img
@@ -280,7 +288,7 @@ const ContactSection = () => {
                     </div>
 
                     <div className="space-y-4">
-                      <p className="text-[11px] font-bold uppercase tracking-wider text-gray-500">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
                         Let us know how we can assist you. *
                       </p>
                       <div className="flex flex-wrap gap-2.5">
@@ -289,7 +297,7 @@ const ContactSection = () => {
                             key={s}
                             type="button"
                             onClick={() => toggleService(s)}
-                            className={`px-6 py-2.5 rounded-full border text-xs font-bold transition-all flex items-center gap-2 ${
+                            className={`px-6 py-2.5 rounded-full border text-sm font-medium transition-all flex items-center gap-2 ${
                               selectedServices.includes(s)
                                 ? "bg-white text-black border-white"
                                 : "border-white/10 bg-[#1a233a]/30 text-gray-400 hover:border-white/30"
@@ -322,7 +330,7 @@ const ContactSection = () => {
                       <SlidingButton
                         type="submit"
                         disabled={isSubmitting}
-                        className="bg-white text-black px-12 py-5 rounded-full font-black text-sm shadow-2xl disabled:opacity-50"
+                        className="bg-white text-black px-12 py-5 rounded-full font-semibold text-sm tracking-wide shadow-2xl disabled:opacity-50"
                       >
                         {isSubmitting ? "Sending..." : "Send Message"}
                       </SlidingButton>
@@ -360,13 +368,13 @@ const ContactSection = () => {
                   {/* Call Button */}
                   <SlidingButton
                     href="tel:+916264398990"
-                    className="bg-white text-black px-12 py-5 rounded-full font-black text-xl shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)]"
+                    className="bg-white text-black px-12 py-5 rounded-full font-bold tracking-wide text-xl shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)]"
                   >
                     +91 62643 98990
                   </SlidingButton>
 
                   {/* Availability */}
-                  <p className="text-gray-500 text-[10px] sm:text-xs tracking-widest uppercase text-center">
+                  <p className="text-gray-500 text-xs sm:text-sm tracking-wider uppercase text-center">
                     Available Mon - Sat | 10 AM - 7 PM
                   </p>
 

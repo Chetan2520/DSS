@@ -3,6 +3,7 @@ import React, { useRef, useLayoutEffect, useState, useEffect } from "react";
 import gsap from "gsap";
 import { MoveRight, Loader2, CheckCircle2, SendIcon, Send, SendHorizonal } from "lucide-react";
 import SlidingButton from "./SlidingButton";
+import Image from "next/image";
 
 export default function DiscussProject() {
   const marqueeRef = useRef(null);
@@ -24,7 +25,7 @@ export default function DiscussProject() {
         availableIds.map((i) => {
           const src = `/images/clients/${i}.png`;
           return new Promise((resolve) => {
-            const img = new Image();
+            const img = new window.Image();
             img.src = src;
             img.onload = () => resolve({ id: i, src, valid: true });
             img.onerror = () => resolve({ id: i, valid: false });
@@ -98,6 +99,14 @@ export default function DiscussProject() {
       if (result.status === "success") {
         setIsSubmitted(true);
         e.target.reset();
+
+        // GA4 Conversion Tracking
+        if (typeof window !== "undefined" && window.gtag) {
+          window.gtag("event", "generate_lead", {
+            event_category: "Form Submission",
+            event_label: "Discuss Project",
+          });
+        }
       } else {
         setError(result.message || "Failed to send. Please try again.");
       }
@@ -112,10 +121,11 @@ export default function DiscussProject() {
     <section className="relative   py-16 px-4 md:px-10 overflow-hidden flex flex-col justify-center items-center font-sans">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/images/final-services.jpeg"
           alt="background"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
         />
       </div>
 
@@ -198,7 +208,7 @@ export default function DiscussProject() {
                 <SlidingButton
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-10 py-4 bg-white text-black  font-bold  rounded-full text-xs md:text-sm shadow-lg   tracking-widest"
+                  className="px-10 py-4 bg-white text-black font-semibold rounded-full text-sm shadow-lg tracking-wide"
                 >
                   {isSubmitting ? (
                     <>
@@ -222,7 +232,7 @@ export default function DiscussProject() {
             <h3 className="text-lg md:text-xl font-bold text-white mb-2 tracking-tight  not-[]:">
               Driven by Trust
             </h3>
-            <p className="text-gray-300 text-[10px] md:text-base md:text-xs leading-relaxed">
+            <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
               Our work speaks through the trust placed in us by top names across
               the globe.
             </p>
@@ -246,9 +256,11 @@ export default function DiscussProject() {
                       key={`${loopIdx}-${idx}`}
                       className="flex-shrink-0 w-20 h-16 md:w-28 lg:w-full lg:h-20 flex items-center justify-center bg-gray-800 rounded-xl md:rounded-2xl       transition-all duration-300 p-2 md:p-4"
                     >
-                      <img
+                      <Image
                         src={logo.src}
                         alt={`Client ${logo.id}`}
+                        width={120}
+                        height={80}
                         className="h-full w-full object-contain filter-none opacity-100"
                       />
                     </div>

@@ -299,4 +299,22 @@ input[type="submit"] {
 .tiptap:focus {
   outline: none;
 }
-
+
+/* Custom Thin Scrollbar with Brand Colors */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #0078f0, #ff9f20);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #005bb5, #e68a00);
+}

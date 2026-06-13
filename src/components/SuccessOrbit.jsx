@@ -125,7 +125,7 @@ const ClientOrbit = () => {
             <span className="text-[#ffffff]"> Innovation</span> <br />
           </h2>
 
-          <p className="text-zinc-500 text-base md:text-xl    mb-12 max-w-lg leading-relaxed">
+          <p className="text-zinc-300 text-base md:text-xl    mb-12 max-w-lg leading-relaxed">
             From Indore to the world. We deliver high-performance IT solutions
             that help businesses scale, optimize, and dominate their digital landscape.
           </p>

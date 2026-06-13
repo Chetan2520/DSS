@@ -38,7 +38,7 @@ export default function ClientsCreative() {
             Trusted Partners
           </p>
           <h2 className="text-4xl md:text-7xl font-bold text-white tracking-tighter leading-none">
-            Witnessed the <span className="italic font-light text-zinc-500">Growth.</span>
+            Witnessed the <span className="italic font-light text-zinc-300">Growth.</span>
           </h2>
         </div>
 

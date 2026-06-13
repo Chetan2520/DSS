@@ -1,8 +1,9 @@
 "use client";
 import React, { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa6";
+import { FaLinkedinIn, FaInstagram, FaFacebookF, FaEnvelope, FaPhone, FaLocationDot } from "react-icons/fa6";
 
 export default function Footer() {
   const footerRef = useRef(null);
@@ -14,16 +15,19 @@ export default function Footer() {
       icon: <FaLinkedinIn size={14} />,
       href: "https://in.linkedin.com/company/dss-digital-success-solutions-llp",
       label: "LinkedIn",
+      hoverClass: "hover:text-[#0077b5] hover:border-[#0077b5]",
     },
     {
       icon: <FaInstagram size={16} />,
       href: "https://www.instagram.com/digitalsuccess_solutions/",
       label: "Instagram",
+      hoverClass: "hover:text-[#E1306C] hover:border-[#E1306C]",
     },
     {
       icon: <FaFacebookF size={14} />,
       href: "https://www.facebook.com/p/Digital-Success-Solutions-61567317789854/",
       label: "Facebook",
+      hoverClass: "hover:text-[#1877F2] hover:border-[#1877F2]",
     },
   ];
 
@@ -34,10 +38,11 @@ export default function Footer() {
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <img
+        <Image
           src="/images/footer-img.webp"
           alt="Footer Background"
-          className="w-full h-full object-cover opacity-60"
+          fill
+          className="object-cover opacity-60"
         />
         {/* Top-to-bottom black gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-transparent" />
@@ -48,10 +53,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-24 pt-8">
           <div className="col-span-2 lg:col-span-2 flex flex-col gap-6">
             <Link href="/" className="block shrink-0">
-              <img
+              <Image
                 src="/images/logo.png"
                 alt="DSS Logo"
+                width={160}
+                height={80}
                 className="h-20 w-auto object-contain"
+                style={{ width: "auto" }}
               />
             </Link>
             <p className="text-white/60 text-sm leading-relaxed max-w-sm">
@@ -65,7 +73,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white transition-all duration-500"
+                  className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 transition-all duration-500 ${social.hoverClass}`}
                 >
                   {social.icon}
                 </a>
@@ -74,9 +82,12 @@ export default function Footer() {
           </div>
 
           <div className="col-span-1">
-            <h4 className="text-sm md:text-2xl   text-white mb-6">
-              Explore
-            </h4>
+            <div className="mb-6 inline-block">
+              <h4 className="text-sm md:text-2xl text-white mb-2">
+                Explore
+              </h4>
+              <div className="w-10 h-1 bg-[#FF6900] rounded-full"></div>
+            </div>
             <ul className="flex flex-col gap-4 text-white/70 text-sm">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
@@ -119,9 +130,12 @@ export default function Footer() {
           </div>
 
           <div className="col-span-1">
-            <h4 className="text-sm md:text-2xl  text-white mb-6">
-              Services
-            </h4>
+            <div className="mb-6 inline-block">
+              <h4 className="text-sm md:text-2xl text-white mb-2">
+                Services
+              </h4>
+              <div className="w-10 h-1 bg-[#FF6900] rounded-full"></div>
+            </div>
             <ul className="flex flex-col gap-4 text-white/70 text-sm">
               <li>
                 <Link
@@ -175,35 +189,45 @@ export default function Footer() {
           </div>
 
           <div className="col-span-2 lg:col-span-1">
-            <h4 className="text-sm md:text-2xl    text-white mb-6">
-              Indore HQ
-            </h4>
+            <div className="mb-6 inline-block">
+              <h4 className="text-sm md:text-2xl text-white mb-2">
+                Indore HQ
+              </h4>
+              <div className="w-10 h-1 bg-[#FF6900] rounded-full"></div>
+            </div>
             <div className="flex flex-col gap-4 text-white/70 text-sm leading-relaxed">
-              <p>Scheme No 53, Vijay Nagar, Indore, MP – 452010</p>
+              <p className="flex gap-2 items-start">
+                <FaLocationDot className="shrink-0 mt-1" />
+                <span>4th-Floor, 301/302, Plot-22, Vijay Nagar, Ratna Lok Colony, Indore, Madhya Pradesh 452010</span>
+              </p>
               <div className="pt-2 flex flex-col gap-2">
                 <a
-                  href="mailto:Info@digitalsuccesssolutions.in"
-                  className="hover:text-white transition-colors"
+                  href="mailto:info@digitalsuccesssolutions.in"
+                  className="hover:text-white transition-colors flex items-center gap-2"
                 >
-                  Info@digitalsuccesssolutions.in
+                  <FaEnvelope className="shrink-0" />
+                  <span>info@digitalsuccesssolutions.in</span>
                 </a>
                 <a
                   href="mailto:business@digitalsuccesssolutions.in"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors flex items-center gap-2"
                 >
-                  business@digitalsuccesssolutions.in
+                  <FaEnvelope className="shrink-0" />
+                  <span>business@digitalsuccesssolutions.in</span>
                 </a>
                 <a
                   href="tel:+916264398990"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors flex items-center gap-2"
                 >
-                  +91 62643 98990
+                  <FaPhone className="shrink-0" />
+                  <span>+91 62643 98990</span>
                 </a>
                 <a
                   href="tel:+918718980114"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors flex items-center gap-2"
                 >
-                  +91 87189 80114
+                  <FaPhone className="shrink-0" />
+                  <span>+91 87189 80114</span>
                 </a>
               </div>
             </div>

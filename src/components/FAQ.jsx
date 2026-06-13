@@ -33,7 +33,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
         onClick={onClick}
         className="w-full py-6 flex items-center justify-between text-left group"
       >
-        <span className={`text-lg md:text-xl font-medium transition-colors duration-300 ${isOpen ? 'text-white' : 'text-zinc-400 group-hover:text-white'}`}>
+        <span className="text-lg md:text-xl font-medium transition-colors duration-300 text-white">
           {question}
         </span>
         <div className={`flex-shrink-0 ml-4 transition-transform duration-500 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
@@ -53,7 +53,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
-            <div className="pb-8 text-zinc-500 leading-relaxed max-w-3xl">
+            <div className="pb-8 text-zinc-300 leading-relaxed max-w-3xl">
               {answer}
             </div>
           </motion.div>
@@ -87,7 +87,7 @@ const FAQ = ({ faqs }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-zinc-500"
+            className="text-zinc-300"
           >
             Everything you need to know about our process and services.
           </motion.p>

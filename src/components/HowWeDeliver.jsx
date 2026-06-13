@@ -31,12 +31,12 @@ const cards = [
 
 const HowWeDeliver = () => {
   return (
-    <section 
+    <section
       className="relative bg-black text-white py-24 md:py-32 px-3 md:px-6 overflow-hidden"
       style={{
         // 🖼️ BG Image linked properly
         // backgroundImage: "url('/images/about3.png')", 
-        backgroundSize: "cover", 
+        backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-scrollbar"
       }}
@@ -65,7 +65,7 @@ const HowWeDeliver = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-zinc-500 text-sm md:text-base font-medium leading-relaxed max-w-sm"
+                className="text-zinc-300 text-sm md:text-base font-medium leading-relaxed max-w-sm"
               >
                 Proven ways we reduce risk, move faster, and ship measurable
                 outcomes for our clients. Experience a partnership that
@@ -101,7 +101,7 @@ const HowWeDeliver = () => {
                       <h3 className="text-xl md:text-3xl tracking-tighter text-white transition-colors duration-500">
                         {card.title}
                       </h3>
-                      <p className="text-zinc-500 text-xs md:text-base leading-relaxed font-medium">
+                      <p className="text-zinc-300 text-xs md:text-base leading-relaxed font-medium">
                         {card.desc}
                       </p>
                     </div>

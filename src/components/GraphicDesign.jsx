@@ -206,7 +206,7 @@ const GraphicDesign = () => {
 
       <section
         className="relative py-20 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('/images/bg-cover.png')` }}
+        style={{ backgroundImage: `url('/images/final-services.jpeg')` }}
       >
         <div className="absolute inset-0 bg-black/60 z-0" />
 
@@ -333,7 +333,7 @@ const GraphicDesign = () => {
                     {item.step}
                   </h3>
                 </div>
-                <p className="text-zinc-500 text-lg md:text-xl leading-relaxed max-w-2xl transition-colors group-hover:text-zinc-300 duration-500 font-medium">
+                <p className="text-zinc-300 text-lg md:text-xl leading-relaxed max-w-2xl transition-colors group-hover:text-zinc-300 duration-500 font-medium">
                   {item.text}
                 </p>
               </div>
@@ -383,7 +383,7 @@ const GraphicDesign = () => {
                         className="h-full w-auto object-contain pointer-events-none"
                       />
                     </div>
-                    <span className="text-[9px] tracking-[0.3em] text-zinc-600   group-hover:text-white transition-all duration-500 group-hover:tracking-[0.4em]">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 group-hover:text-white transition-all duration-500">
                       {tech.name}
                     </span>
                   </div>

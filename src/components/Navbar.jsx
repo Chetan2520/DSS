@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import {
   ChevronDown,
@@ -203,23 +204,32 @@ export default function Navbar() {
     { name: "Contact Us", path: "/lets-connect" },
   ];
 
+  const isActive = (path) => {
+    if (path === "/") return pathname === "/";
+    return pathname.startsWith(path);
+  };
+
   return (
     <>
       <nav
         ref={navRef}
         className={`top-0 left-0 w-full z-50 transition-all duration-300 ${isSubPage ? "sticky" : "fixed"} ${isScrolled
-          ? "bg-black/60 backdrop-blur-xl py-4 border-b border-white/5"
+          ? "bg-black/60 backdrop-blur-xl py-2 border-b border-white/5"
           : isSubPage
-            ? "bg-black py-4 border-b border-white/10"
-            : "bg-transparent py-5"
+            ? "bg-black py-2 border-b border-white/10"
+            : "bg-transparent py-3"
           }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="flex items-center shrink-0 cursor-pointer">
-            <img
+            <Image
               src="/images/logo.png"
               alt="Digital Success Solutions"
-              className="h-14 md:h-18 w-auto object-contain"
+              width={200}
+              height={80}
+              priority
+              className="h-12 md:h-16 w-auto object-contain"
+              style={{ width: "auto" }}
             />
           </Link>
 
@@ -227,13 +237,13 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-10">
             <button
               onClick={() => handleNavClick("/")}
-              className="text-sm md:text-lg text-white tracking-wide"
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}
             >
               Home
             </button>
             <button
               onClick={() => handleNavClick("/about-us")}
-              className="text-sm md:text-lg text-white tracking-wide"
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/about-us") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}
             >
               Who We Are
             </button>
@@ -243,7 +253,7 @@ export default function Navbar() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <button className="text-sm md:text-lg text-white flex items-center gap-1.5 focus:outline-none">
+              <button className={`text-sm md:text-lg flex items-center gap-1.5 focus:outline-none transition-colors ${isActive("/services") || pathname.includes("service") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}>
                 Services{" "}
                 <ChevronDown
                   size={14}
@@ -253,19 +263,19 @@ export default function Navbar() {
             </div>
             <button
               onClick={() => handleNavClick("/portfoliopage")}
-              className="text-sm md:text-lg text-white tracking-wide"
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/portfoliopage") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}
             >
               Portfolio
             </button>
             <button
               onClick={() => handleNavClick("/blogs")}
-              className="text-sm md:text-lg text-white tracking-wide"
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/blogs") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}
             >
               Blogs
             </button>
             <button
               onClick={() => handleNavClick("/contact-us")}
-              className="text-sm md:text-lg text-white tracking-wide"
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/contact-us") || isActive("/lets-connect") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}
             >
               Contact Us
             </button>
@@ -277,7 +287,7 @@ export default function Navbar() {
               <SlidingButton
                 text="Let's Talk"
                 href="/lets-connect"
-                className="px-8 py-2 bg-white text-black text-sm md:text-lg font-semibold rounded-md shadow-xl"
+                className="px-8 py-2 bg-[#FF6900] hover:bg-[#0078F0] text-white transition-colors text-sm md:text-lg font-semibold rounded-md shadow-xl"
               />
             </div>
 
@@ -327,22 +337,22 @@ export default function Navbar() {
                     key={service.name}
                     onMouseEnter={() => setActiveService(service)}
                     onClick={() => handleNavClick(service.path)}
-                    className={`flex items-center gap-4 p-3.5 rounded-2xl cursor-pointer transition-all ${activeService.name === service.name ? "bg-gray-100 shadow-sm" : "hover:bg-gray-50"}`}
+                    className={`group flex items-center gap-4 p-3.5 rounded-2xl cursor-pointer transition-all ${activeService.name === service.name ? "bg-orange-500" : "hover:bg-gray-50"}`}
                   >
                     <div
-                      className={`p-2.5 rounded-xl ${activeService.name === service.name ? "bg-white shadow-sm" : "bg-gray-100"}`}
+                      className={`p-2.5 rounded-xl ${activeService.name === service.name ? "bg-white" : "bg-gray-200"}`}
                     >
                       <service.icon
                         size={20}
                         className={
                           activeService.name === service.name
                             ? "text-orange-500"
-                            : "text-gray-500"
+                            : "text-gray-700"
                         }
                       />
                     </div>
                     <span
-                      className={`text-base font-bold ${activeService.name === service.name ? "text-black" : "text-gray-600"}`}
+                      className={`text-base font-bold transition-colors ${activeService.name === service.name ? "text-white" : "text-gray-800 group-hover:text-black"}`}
                     >
                       {service.name}
                     </span>
@@ -367,7 +377,7 @@ export default function Navbar() {
                   <h3 className="text-4xl lg:text-5xl tracking-tight text-black font-semibold leading-tight mb-4">
                     {activeService.name}
                   </h3>
-                  <p className="text-gray-600 text-base max-w-2xl leading-relaxed font-medium">
+                  <p className="text-gray-800 text-base max-w-2xl leading-relaxed font-medium">
                     {activeService.description}
                   </p>
                   <div className="pt-6">
@@ -473,7 +483,7 @@ export default function Navbar() {
         <div className="p-6">
           <button
             onClick={() => handleNavClick("/lets-connect")}
-            className="w-full py-4 bg-orange-500 text-white font-bold text-base rounded-full shadow-lg active:scale-95 transition-all"
+            className="w-full py-4 bg-[#FF6900] hover:bg-[#0078F0] text-white font-bold text-base rounded-full shadow-lg active:scale-95 transition-colors"
           >
             Let's Talk
           </button>

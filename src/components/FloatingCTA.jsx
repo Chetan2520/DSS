@@ -1,72 +1,122 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useSpring } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaWhatsapp, FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa6";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function FloatingWhatsApp() {
-  const ref = useRef(null);
-  const phoneNumber = "916264398990";
-  const message = "Hello! I'm interested in your services.";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+export default function FloatingSocials() {
+  const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef(null);
 
-  // Smooth Magnetic Effect
-  const x = useSpring(0, { stiffness: 200, damping: 20 });
-  const y = useSpring(0, { stiffness: 200, damping: 20 });
-
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = ref.current.getBoundingClientRect();
-    const centerX = left + width / 2;
-    const centerY = top + height / 2;
-    x.set((clientX - centerX) * 0.4); 
-    y.set((clientY - centerY) * 0.4);
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 200);
   };
 
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const socials = [
+    {
+      name: "WhatsApp",
+      icon: <FaWhatsapp size={16} />,
+      href: "https://wa.me/916264398990?text=Hello!%20I'm%20interested%20in%20your%20services.",
+      color: "bg-[#25D366]",
+      hoverColor: "hover:bg-[#20bd5a]"
+    },
+    {
+      name: "Instagram",
+      icon: <FaInstagram size={16} />,
+      href: "https://www.instagram.com/digitalsuccess_solutions/",
+      color: "bg-[#E1306C]",
+      hoverColor: "hover:bg-[#c1275b]"
+    },
+    {
+      name: "LinkedIn",
+      icon: <FaLinkedinIn size={16} />,
+      href: "https://in.linkedin.com/company/dss-digital-success-solutions-llp",
+      color: "bg-[#0077b5]",
+      hoverColor: "hover:bg-[#006097]"
+    },
+    {
+      name: "Facebook",
+      icon: <FaFacebookF size={16} />,
+      href: "https://www.facebook.com/p/Digital-Success-Solutions-61567317789854/",
+      color: "bg-[#1877F2]",
+      hoverColor: "hover:bg-[#1464cc]"
+    }
+  ];
+
   return (
-    // Bottom se 80px upar jesa aapne manga tha
-    <div className="fixed bottom-[30px] right-6 z-[9999] pointer-events-none">
-      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="pointer-events-auto">
-        <motion.div
-          ref={ref}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          style={{ x, y }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          // Size chota kiya: w-16 h-16 (pehle w-24 tha)
-          className="relative w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg shadow-green-900/20 cursor-pointer group"
-        >
-          {/* 1. Rotating Text Ring (Chota text size) */}
+    <div 
+      className="fixed top-1/2 right-0 -translate-y-1/2 z-[9999] flex items-center shadow-[-5px_0_20px_rgba(0,0,0,0.15)] rounded-l-xl overflow-hidden"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <button
+        onClick={handleClick}
+        className="w-6 h-16 bg-[#FF6900] flex items-center justify-center text-white cursor-pointer z-10 transition-colors hover:bg-[#e65c00] flex-shrink-0 focus:outline-none"
+      >
+        <AnimatePresence mode="wait">
+          {isOpen ? (
+            <motion.div
+              key="close"
+              initial={{ rotate: -180, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 180, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ChevronRight size={16} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="open"
+              initial={{ rotate: 180, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: -180, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ChevronLeft size={16} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
           <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-0 w-full h-full"
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ width: 48, opacity: 1 }}
+            exit={{ width: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="bg-white flex flex-col items-center gap-3 py-3"
           >
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <path
-                id="circlePath"
-                d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
-                fill="none"
-              />
-               
-            </svg>
+            {socials.map((social, index) => (
+              <motion.a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0 }}
+                transition={{ delay: isOpen ? index * 0.05 : 0 }}
+                className={`w-8 h-8 rounded-full text-white flex items-center justify-center shadow-md transform transition-transform hover:scale-110 flex-shrink-0 ${social.color} ${social.hoverColor}`}
+                title={social.name}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
           </motion.div>
-
-          {/* 2. Center WhatsApp Icon */}
-          <div className="relative z-10 text-white">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-          </div>
-
-          {/* 3. Pulse Effect (Color changed to Green) */}
-          <div className="absolute inset-0 rounded-full bg-green-400 opacity-0 group-hover:opacity-20 group-hover:scale-125 transition-all duration-500 pointer-events-none" />
-        </motion.div>
-      </a>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

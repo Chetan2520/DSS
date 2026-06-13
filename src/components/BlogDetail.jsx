@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 
 import axios from "axios";
 import { FiArrowLeft, FiClock, FiUser, FiCalendar } from "react-icons/fi";
@@ -61,15 +62,16 @@ const BlogDetail = () => {
   }, [slug]);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-[#050505] text-white font-sans">
       {/* --- HERO SECTION --- */}
-      <div className="relative min-h-[85vh] w-full bg-gray-900 flex flex-col pt-[100px]">
+      <div className="relative min-h-[85vh] w-full bg-[#050505] flex flex-col pt-[100px]">
         {/* Background Image */}
         {blog && (
-          <img
-            src={blog.image}
-            alt={blog.title}
-            className="absolute inset-0 w-full h-full object-cover opacity-40"
+          <Image
+            src={blog.image || "/images/final-services.jpeg"} // fallback
+            alt={blog.title || "Blog Image"}
+            fill
+            className="object-cover opacity-40"
           />
         )}
 
@@ -81,7 +83,7 @@ const BlogDetail = () => {
           <div className="mt-4">
             <Link
               href="/blogs"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white text-xs font-bold   tracking-[0.2em] transition-all group"
+              className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-semibold tracking-wider transition-all group"
             >
               <FiArrowLeft className="group-hover:-translate-x-1 transition-transform" />{" "}
               Back to Journal
@@ -97,11 +99,11 @@ const BlogDetail = () => {
               </div>
             ) : blog ? (
               <>
-                <div className="mb-6 flex flex-wrap gap-3 items-center text-[10px] md:text-xs font-bold   tracking-widest">
-                  <span className="bg-blue-600 text-white px-4 py-1.5 rounded-full shadow-lg shadow-blue-600/20">
+                <div className="mb-6 flex flex-wrap gap-3 items-center text-xs md:text-sm font-semibold tracking-wider">
+                  <span className="bg-[#0078f0] text-white px-4 py-1.5 rounded-full shadow-lg shadow-[#0078f0]/20">
                     {blog.category || "General"}
                   </span>
-                  <span className="flex items-center gap-2 text-white/90 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
+                  <span className="flex items-center gap-2 text-white/90 bg-white/5 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10">
                     <FiClock /> 5 Min Read
                   </span>
                 </div>
@@ -111,14 +113,14 @@ const BlogDetail = () => {
                 </h1>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center font-bold text-white shadow-xl">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#0078f0] to-[#ff9f20] rounded-full flex items-center justify-center font-bold text-white shadow-xl">
                     {blog.author ? blog.author.charAt(0) : "A"}
                   </div>
                   <div className="text-sm">
-                    <p className="text-white font-bold text-base md:text-lg">
+                    <p className="text-white font-semibold text-base md:text-lg">
                       {blog.author || "DSS Team"}
                     </p>
-                    <p className="text-white/60   tracking-widest text-[10px]">
+                    <p className="text-white/60 text-xs tracking-wider">
                       {new Date(blog.createdAt).toLocaleDateString("en-US", {
                         day: "numeric",
                         month: "long",
@@ -136,66 +138,100 @@ const BlogDetail = () => {
       </div>
 
       {blog && (
-        <div className="relative bg-white">
+        <div className="relative bg-[#050505]">
           <div className="px-6 py-12 md:py-24">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <style>{`
                 .blog-content {
-                  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+                  font-family: inherit;
                   word-wrap: break-word;
                 }
-                .blog-content h1, .blog-content h2, .blog-content h3 {
-                  color: #000;
-                  font-weight: 800;
-                  margin-top: 3rem;
-                  margin-bottom: 1.5rem;
-                  line-height: 1.2;
+                .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6,
+                .blog-content h1 *, .blog-content h2 *, .blog-content h3 *, .blog-content h4 *, .blog-content h5 *, .blog-content h6 * {
+                  color: #fff !important;
+                  font-weight: 600 !important;
+                  line-height: 1.3;
                 }
-                .blog-content h2 { font-size: 2rem; }
+                .blog-content h1, .blog-content h2, .blog-content h3, .blog-content h4, .blog-content h5, .blog-content h6 {
+                  margin-top: 1.5rem;
+                  margin-bottom: 0.5rem;
+                }
+                .blog-content h2 { font-size: 1.5rem; }
+                .blog-content h3 { font-size: 1.25rem; }
+                .blog-content h4, .blog-content h5, .blog-content h6 { font-size: 1.1rem; font-weight: 600 !important; }
                 
-                .blog-content p { 
-                  font-size: 1.15rem; 
-                  line-height: 1.9; 
-                  margin-bottom: 2rem; 
-                  color: #2d3748;
+                .blog-content p, .blog-content span, .blog-content li { 
+                  font-size: 1rem; 
+                  line-height: 1.5; 
+                  color: #e5e7eb !important; 
+                }
+                .blog-content p {
+                  margin-bottom: 0.8rem;
+                }
+                
+                .blog-content a, .blog-content a * {
+                  color: #0078f0 !important;
+                  text-decoration: none !important;
+                  font-weight: 600 !important;
+                  transition: color 0.3s ease;
+                }
+                .blog-content a:hover, .blog-content a:hover * {
+                  text-decoration: underline !important;
+                  text-underline-offset: 4px;
+                }
+                .blog-content strong, .blog-content b, .blog-content strong *, .blog-content b * {
+                  font-weight: 600 !important;
+                  color: #fff !important;
+                }
+                .blog-content a:hover, .blog-content a:hover * {
+                  color: #ff9f20 !important;
                 }
                 
                 .blog-content img { 
                   width: 100%; 
                   border-radius: 20px; 
-                  margin: 3.5rem 0;
-                  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+                  margin: 2.5rem 0;
+                  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+                  border: 1px solid rgba(255, 255, 255, 0.1);
                 }
                 
                 .blog-content ul { 
                   padding-left: 1rem; 
-                  margin-bottom: 2rem; 
+                  margin-bottom: 1rem; 
+                }
+                .blog-content ol {
+                  padding-left: 1.5rem;
+                  margin-bottom: 1rem;
+                  list-style-type: decimal;
                 }
                 .blog-content li {
                   position: relative;
-                  padding-left: 1.5rem;
-                  margin-bottom: 1rem;
-                  font-size: 1.15rem;
-                  color: #2d3748;
+                  margin-bottom: 0.5rem;
                 }
-                .blog-content li::before {
+                .blog-content ul li {
+                  padding-left: 1.25rem;
+                }
+                .blog-content ul li::before {
                   content: "";
                   position: absolute;
                   left: 0;
-                  top: 12px;
-                  width: 8px;
-                  height: 8px;
-                  background: #2563eb;
+                  top: 10px;
+                  width: 6px;
+                  height: 6px;
+                  background: #0078f0;
                   border-radius: 50%;
+                }
+                .blog-content ol li {
+                  padding-left: 0.5rem;
                 }
 
                 .blog-content blockquote { 
-                  border-left: 6px solid #2563eb; 
+                  border-left: 6px solid #0078f0; 
                   padding: 2.5rem; 
                   font-style: italic; 
                   font-size: 1.4rem;
-                  color: #1a202c; 
-                  background: #f1f5f9; 
+                  color: rgba(255, 255, 255, 0.9); 
+                  background: rgba(255, 255, 255, 0.05); 
                   border-radius: 0 16px 16px 0; 
                   margin: 4rem 0; 
                 }
@@ -212,10 +248,10 @@ const BlogDetail = () => {
                 dangerouslySetInnerHTML={{ __html: blog.content }}
               />
 
-              <div className="mt-20 pt-12 border-t border-gray-100 flex flex-col md:flex-row gap-8 justify-between items-center">
+              <div className="mt-20 pt-12 border-t border-white/10 flex flex-col md:flex-row gap-8 justify-between items-center">
                 <div>
-                  <p className="  text-2xl">Liked this article?</p>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-2xl text-white">Liked this article?</p>
+                  <p className="text-white/50 text-sm">
                     Spread the word with your network.
                   </p>
                 </div>
@@ -242,7 +278,7 @@ const BlogDetail = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 font-bold text-xs tracking-widest hover:bg-black hover:text-white transition-all duration-300"
+                      className="flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 font-semibold text-sm tracking-wider text-white/70 hover:bg-[#0078f0] hover:text-white hover:border-[#0078f0] transition-all duration-300"
                     >
                       {social.icon} {social.label}
                     </a>

@@ -1,15 +1,17 @@
 "use client";
 import React, { Suspense, useEffect, useState } from "react";
-import SuccessOrbit from "@/components/SuccessOrbit";
-import DiscussProject from "@/components/DiscussProject";
+import dynamic from "next/dynamic";
 import HeroBg from "@/components/HeroBg";
-import ModernServices from "@/components/ModernServices";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import WitnessedGrowth from "@/components/WitnessedGrowth";
-import Quotes from "@/components/Quotes";
-import FAQ from "@/components/FAQ";
-import AIAgentsSection from "@/components/AIAgentsSection";
-import IndustrySectors from "@/components/IndustrySectors";
+
+const SuccessOrbit = dynamic(() => import("@/components/SuccessOrbit"));
+const DiscussProject = dynamic(() => import("@/components/DiscussProject"));
+const ModernServices = dynamic(() => import("@/components/ModernServices"));
+const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
+const WitnessedGrowth = dynamic(() => import("@/components/WitnessedGrowth"));
+const Quotes = dynamic(() => import("@/components/Quotes"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
+const AIAgentsSection = dynamic(() => import("@/components/AIAgentsSection"));
+const IndustrySectors = dynamic(() => import("@/components/IndustrySectors"));
 
 
 export default function HomeClient() {

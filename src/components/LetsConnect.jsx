@@ -174,7 +174,7 @@ const LetsConnect = () => {
           <div className="flex flex-col items-center text-center space-y-4">
             <Mail className="text-orange-500" size={36} />
             <div>
-              <h4 className="text-zinc-500 text-[10px] tracking-[0.2em]">Email Us</h4>
+              <h4 className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Email Us</h4>
               <p className="text-lg font-medium">Info@digitalsuccesssolutions.in</p>
               <p className="text-lg font-medium">business@digitalsuccesssolutions.in</p>
             </div>
@@ -182,14 +182,14 @@ const LetsConnect = () => {
           <div className="flex flex-col items-center text-center space-y-4 border-x border-white/5 px-8">
             <MapPin className="text-orange-500" size={36} />
             <div>
-              <h4 className="text-zinc-500 text-[10px] tracking-[0.2em]">Visit Us</h4>
+              <h4 className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Visit Us</h4>
               <p className="text-lg font-medium">Scheme No 53, Vijay Nagar, Indore, MP – 452010</p>
             </div>
           </div>
           <div className="flex flex-col items-center text-center space-y-4">
             <Phone className="text-orange-500" size={36} />
             <div>
-              <h4 className="text-zinc-500 text-[10px] tracking-[0.2em]">Contact No</h4>
+              <h4 className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Contact No</h4>
               <p className="text-lg font-medium">+91 62643 98990</p>
               <p className="text-lg font-medium">+91 87189 80114</p>
             </div>

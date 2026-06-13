@@ -602,7 +602,7 @@ const WhyChooseDSS = () => {
                 <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">
                   6Y+
                 </h4>
-                <p className="text-zinc-500 text-xs md:text-sm tracking-widest uppercase font-semibold">
+                <p className="text-zinc-300 text-xs md:text-sm tracking-widest uppercase font-semibold">
                   of Experience
                 </p>
               </motion.div>
@@ -617,7 +617,7 @@ const WhyChooseDSS = () => {
                 <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">
                   1200+
                 </h4>
-                <p className="text-zinc-500 text-xs md:text-sm tracking-widest uppercase font-semibold">
+                <p className="text-zinc-300 text-xs md:text-sm tracking-widest uppercase font-semibold">
                   Clients
                 </p>
               </motion.div>

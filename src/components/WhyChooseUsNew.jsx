@@ -69,7 +69,7 @@ const WhyChooseUsNew = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-zinc-500 max-w-xl mx-auto text-base md:text-lg"
+            className="text-zinc-300 max-w-xl mx-auto text-base md:text-lg"
           >
             Delivering high-performance digital solutions that set your business
             apart from the competition.
@@ -91,7 +91,7 @@ const WhyChooseUsNew = () => {
               <h3 className="text-xl font-semibold text-white mb-3 tracking-tight">
                 {item.title}
               </h3>
-              <p className="text-zinc-500 text-sm leading-relaxed group-hover:text-zinc-400 transition-colors duration-300">
+              <p className="text-zinc-300 text-sm leading-relaxed group-hover:text-zinc-400 transition-colors duration-300">
                 {item.description}
               </p>
             </motion.div>

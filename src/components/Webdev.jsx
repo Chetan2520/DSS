@@ -357,7 +357,7 @@ const WebDevAgency = () => {
       {/* What We Build Section - REVERTED TO PREVIOUS LIGHT THEME */}
       <section
         className="what-we-build-wrapper relative py-16 px-2 md:px-12 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('/images/bg-cover.png')` }}
+        style={{ backgroundImage: `url('/images/final-services.jpeg')` }}
       >
         {/* Subtle Overlay to make text readable on white */}
         <div className="absolute inset-0 bg-black/30 z-0" />
@@ -425,7 +425,7 @@ const WebDevAgency = () => {
                     Structure & Growth
                   </span>
                 </h3>
-                <p className="text-zinc-500 text-sm md:text-base leading-relaxed max-w-3xl transition-colors group-hover:text-zinc-400 duration-500">
+                <p className="text-zinc-300 text-sm md:text-base leading-relaxed max-w-3xl transition-colors group-hover:text-zinc-400 duration-500">
                   {serviceData.strategySection.part1.text}
                 </p>
               </div>
@@ -445,7 +445,7 @@ const WebDevAgency = () => {
                     User Engagement
                   </span>
                 </h3>
-                <p className="text-zinc-500 text-sm md:text-base leading-relaxed max-w-3xl transition-colors group-hover:text-zinc-400 duration-500">
+                <p className="text-zinc-300 text-sm md:text-base leading-relaxed max-w-3xl transition-colors group-hover:text-zinc-400 duration-500">
                   {serviceData.strategySection.part2.text}
                 </p>
               </div>
@@ -503,7 +503,7 @@ const WebDevAgency = () => {
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter bg-linear-to-b from-white via-white to-zinc-800 bg-clip-text text-transparent">
               Technologies We Used
             </h2>
-            {/* <p className="text-zinc-500 text-xs md:text-sm mt-6   tracking-[0.3em] font-medium opacity-50">Tools we use to build high-performance web experiences</p> */}
+            {/* <p className="text-zinc-300 text-xs md:text-sm mt-6   tracking-[0.3em] font-medium opacity-50">Tools we use to build high-performance web experiences</p> */}
           </div>
 
           {/* Marquee Container */}
@@ -540,7 +540,7 @@ const WebDevAgency = () => {
                           className="h-full w-auto object-contain pointer-events-none"
                         />
                       </div>
-                      <span className="text-[9px] tracking-[0.3em] text-zinc-600   group-hover:text-white transition-all duration-500 group-hover:tracking-[0.4em]">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-zinc-400 group-hover:text-white transition-all duration-500">
                         {tech.name}
                       </span>
                     </div>
