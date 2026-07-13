@@ -2,6 +2,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import HeroBg from "@/components/HeroBg";
+import TeamSection from "@/components/TeamSection";
 
 const SuccessOrbit = dynamic(() => import("@/components/SuccessOrbit"));
 const DiscussProject = dynamic(() => import("@/components/DiscussProject"));
@@ -47,7 +48,6 @@ export default function HomeClient() {
       </section>
 
       <SuccessOrbit />
-
       <DiscussProject />
       <FAQ />
     </div>

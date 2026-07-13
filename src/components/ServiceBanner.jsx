@@ -3,6 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { PhoneCall } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 
 const ServiceBanner = ({
   title,
@@ -68,14 +70,25 @@ const ServiceBanner = ({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="pt-8"
+                  className="pt-8 flex flex-wrap items-center gap-4"
                 >
-                  <Link
-                    href="/lets-connect"
-                    className="inline-flex items-center justify-center px-10 py-5 bg-white text-black font-bold tracking-widest text-xs rounded-full hover:bg-orange-600 hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+                  <a
+                    href="tel:+916264398990"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FF6900] text-white font-bold tracking-widest text-xs rounded-full hover:bg-[#e65c00] transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,105,0,0.3)]"
                   >
-                    START YOUR PROJECT
-                  </Link>
+                    <PhoneCall size={18} />
+                    CALL NOW
+                  </a>
+                  
+                  <a
+                    href="https://wa.me/916264398990?text=Hello!%20I'm%20interested%20in%20your%20services."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white font-bold tracking-widest text-xs rounded-full hover:bg-[#20bd5a] transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(37,211,102,0.3)]"
+                  >
+                    <FaWhatsapp size={20} />
+                    WHATSAPP NOW
+                  </a>
                 </motion.div>
               )}
             </div>

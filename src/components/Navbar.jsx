@@ -16,6 +16,7 @@ import {
   Palette,
   ArrowRight,
   X,
+  PhoneCall,
 } from "lucide-react";
 import SlidingButton from "./SlidingButton";
 
@@ -283,6 +284,18 @@ export default function Navbar() {
 
           {/* ACTION BUTTONS */}
           <div className="flex items-center gap-6">
+            <div className="hidden xl:flex items-center gap-4 border-r border-white/20 pr-6 mr-2">
+              <PhoneCall size={20} className="text-[#FF6900]" />
+              <div className="flex flex-col">
+                <span className="text-[11px] text-zinc-300 font-medium tracking-widest uppercase mb-0.5">
+                  Talk to an Expert
+                </span>
+                <a href="tel:+916264398990" className="text-white font-bold text-[15px] hover:text-[#FF6900] transition-colors leading-none tracking-wide">
+                  +91 62643 98990
+                </a>
+              </div>
+            </div>
+
             <div className="hidden lg:block">
               <SlidingButton
                 text="Let's Talk"

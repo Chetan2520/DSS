@@ -8,7 +8,9 @@ import {
   MousePointer2,
   ChevronLeft,
   ChevronRight,
+  PhoneCall,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -483,6 +485,32 @@ const WhyChooseDSS = () => {
                         </div>
                       ))}
                     </motion.div>
+                  </div>
+
+                  {/* Action Buttons Below Marquee */}
+                  <div className="mt-8 flex items-center gap-4 w-[85%] md:w-[90%] relative z-20">
+                    <a
+                      href="https://wa.me/916264398990?text=Hello!%20I'm%20interested%20in%20your%20services."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center shrink-0 hover:scale-110 transition-transform shadow-[0_4px_15px_rgba(37,211,102,0.3)]"
+                      title="WhatsApp Us"
+                    >
+                      <FaWhatsapp size={24} className="text-white" />
+                    </a>
+                    <a
+                      href="tel:+916264398990"
+                      className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center shrink-0 hover:scale-110 transition-transform shadow-[0_4px_15px_rgba(37,99,235,0.3)]"
+                      title="Call Us"
+                    >
+                      <PhoneCall size={22} className="text-white" />
+                    </a>
+                    <Link
+                      href="/lets-connect"
+                      className="w-1/2 md:w-1/3 px-6 h-12 rounded-full bg-transparent border-2 border-white hover:bg-white hover:text-black flex items-center justify-center text-white font-bold text-sm md:text-base uppercase tracking-wider transition-colors ml-2"
+                    >
+                      Let's Talk
+                    </Link>
                   </div>
                 </div>
               </div>

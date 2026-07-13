@@ -201,13 +201,7 @@ export default function Footer() {
                 <span>4th-Floor, 301/302, Plot-22, Vijay Nagar, Ratna Lok Colony, Indore, Madhya Pradesh 452010</span>
               </p>
               <div className="pt-2 flex flex-col gap-2">
-                <a
-                  href="mailto:info@digitalsuccesssolutions.in"
-                  className="hover:text-white transition-colors flex items-center gap-2"
-                >
-                  <FaEnvelope className="shrink-0" />
-                  <span>info@digitalsuccesssolutions.in</span>
-                </a>
+                
                 <a
                   href="mailto:business@digitalsuccesssolutions.in"
                   className="hover:text-white transition-colors flex items-center gap-2"

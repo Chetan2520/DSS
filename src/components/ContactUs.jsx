@@ -14,13 +14,12 @@ import SlidingButton from "./SlidingButton";
 
 const ContactSection = () => {
   const [tab, setTab] = useState("quote");
-  const [selectedServices, setSelectedServices] = useState(["Discovery"]);
+  const [selectedServices, setSelectedServices] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState("");
-
+                                                  
   const services = [
-    "Discovery",
     "Design",
     "Development",
     "Marketing",

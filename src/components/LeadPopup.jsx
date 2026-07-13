@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Sparkles } from "lucide-react";
+import { X, Sparkles, Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import SlidingButton from "./SlidingButton";
 
 export default function LeadPopup() {
@@ -11,13 +12,17 @@ export default function LeadPopup() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Check if already submitted in this session
     const hasSubmitted = sessionStorage.getItem("lead_submitted");
-    if (hasSubmitted) return;
+    if (hasSubmitted) {
+      console.log("LeadPopup: Form already submitted in this session.");
+      return;
+    }
 
     const timer = setTimeout(() => {
+      console.log("LeadPopup: Triggering popup open.");
       setIsOpen(true);
-    }, 5000);
+    }, 2000);
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -28,22 +33,25 @@ export default function LeadPopup() {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-    data.formType = "Lead Popup / Free Audit";
+    data.formType = "Discuss Project / Let's Connect";
 
     try {
-      const response = await fetch("https://digitalsuccesssolutions.in/php/send-mail.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://digitalsuccesssolutions.in/php/send-mail.php",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         },
-        body: JSON.stringify(data),
-      });
+      );
 
       const result = await response.json();
       if (result.status === "success") {
         setIsSubmitted(true);
         sessionStorage.setItem("lead_submitted", "true");
-        setTimeout(() => setIsOpen(false), 3000); // Close after 3s
+        setTimeout(() => setIsOpen(false), 3000);
       } else {
         setError(result.message || "Something went wrong.");
       }
@@ -58,148 +66,143 @@ export default function LeadPopup() {
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-[10000] flex items-center justify-center px-4">
-
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           />
 
-          {/* Modal */}
+          {/* Modal Container */}
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            initial={{ scale: 0.95, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="relative w-full max-w-md md:max-w-4xl bg-[#05070d] border border-white/10 rounded-[2rem] overflow-hidden grid grid-cols-1 md:grid-cols-2"
+            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+            className="relative w-full max-w-lg bg-white rounded-2xl overflow-hidden shadow-2xl text-zinc-900 border border-zinc-200"
           >
-
-            {/* Close */}
+            {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 z-20 p-2 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 transition"
+              className="absolute top-3 right-3 md:top-4 md:right-4 z-20 p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-500 hover:text-zinc-900 transition"
             >
-              <X size={20} />
+              <X size={18} />
             </button>
 
-            {/* 🔵 LEFT SIDE */}
-            <div className="hidden md:flex relative p-8 md:p-12 flex flex-col justify-between overflow-hidden bg-gradient-to-br from-blue-600 via-blue-800 to-[#020617]">
-
-              {/* 🔵 Image Blend */}
-              <img
-                src="/images/popupimg.png"
-                alt="bg"
-                className="absolute inset-0 w-full h-full object-cover opacity-100 mix-blend-overlay"
-              />
-
-              {/* 🔵 Dark Overlay */}
-              <div className="absolute inset-0 bg-black/30" />
-
-              {/* 🔵 Radial Highlight */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.12),transparent_60%)]" />
-
-              {/* Content */}
-              <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
-                  <Sparkles size={14} className="text-blue-300 fill-blue-300" />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white">
-                    Free Strategy Session
-                  </span>
-                </div>
-
-                <h3 className="text-3xl md:text-4xl font-black text-white leading-tight uppercase mb-4">
-                  Ready to <br />
-                  <span className="text-blue-300 underline italic">
-                    Dominate
-                  </span>{" "}
-                  <br />
-                  your market?
-                </h3>
-
-                <p className="text-blue-100 text-sm md:text-base font-medium opacity-80">
-                  Get a 15-minute free audit of your current digital presence. No strings attached.
-                </p>
-              </div>
-
-              {/* Bottom */}
-              <div className="mt-8 pt-8 border-t border-white/10 relative z-10">
-                <p className="text-white font-bold text-xs tracking-tighter uppercase opacity-60 italic">
-                  Trusted by 1200+ brands globally.
-                </p>
-              </div>
-
-              {/* Glow */}
-              <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-blue-500/30 rounded-full blur-[120px]" />
-            </div>
-
-            {/* 🔵 RIGHT SIDE */}
-            <div className="p-8 md:p-12 flex flex-col justify-center">
+            {/* Form Section */}
+            <div className="p-5 md:p-8 flex flex-col justify-center relative bg-white max-h-[90vh] overflow-y-auto">
               {isSubmitted ? (
-                <div className="text-center space-y-4 py-10">
-                  <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Sparkles className="text-blue-500" size={32} />
+                <div className="text-center space-y-4 py-8 md:py-12">
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+                    <Sparkles className="text-green-600" size={28} />
                   </div>
-                  <h4 className="text-2xl font-bold text-white uppercase tracking-tighter">Request Received!</h4>
-                  <p className="text-zinc-400 text-sm">We'll contact you within 24 hours to schedule your audit.</p>
+                  <h4 className="text-xl md:text-2xl font-bold text-zinc-900 tracking-tight">
+                    Request Received!
+                  </h4>
+                  <p className="text-zinc-500 text-xs md:text-sm">
+                    Thank you! Our team will contact you shortly.
+                  </p>
                 </div>
               ) : (
-                <>
-                  <h4 className="text-white text-xl font-bold mb-6 tracking-tight">
-                    Tell us about your business
-                  </h4>
+                <div className="relative z-10">
+                  {/* Title */}
+                  <div className="mb-5 md:mb-8 text-center px-4">
+                    <h3 className="text-xl md:text-2xl font-bold text-zinc-900 leading-tight">
+                      Get a{" "}
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
+                        Free Proposal
+                      </span>
+                    </h3>
+                    <p className="text-zinc-500 mt-1 md:mt-2 text-xs md:text-sm">
+                      Fill out the form below and we'll be in touch within 30 minutes.
+                    </p>
+                  </div>
 
-                  <form className="space-y-4" onSubmit={handleSubmit}>
+                  {/* Form */}
+                  <form className="space-y-3 md:space-y-4" onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                      <input
+                        name="name"
+                        type="text"
+                        placeholder="Full Name *"
+                        required
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-3 py-2.5 md:px-4 md:py-3 text-xs md:text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-blue-500 focus:bg-white outline-none transition font-medium"
+                      />
 
-                    <input
-                      name="name"
-                      type="text"
-                      placeholder="Full Name *"
-                      required
-                      className="w-full bg-zinc-900 border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:border-blue-500 outline-none transition"
-                    />
+                      <input
+                        name="company"
+                        type="text"
+                        placeholder="Company Name *"
+                        required
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-3 py-2.5 md:px-4 md:py-3 text-xs md:text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-blue-500 focus:bg-white outline-none transition font-medium"
+                      />
+                    </div>
 
-                    <input
-                      name="email"
-                      type="email"
-                      placeholder="Business Email *"
-                      required
-                      className="w-full bg-zinc-900 border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:border-blue-500 outline-none transition"
-                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                      <input
+                        name="phone"
+                        type="tel"
+                        placeholder="+91 Phone Number *"
+                        required
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-3 py-2.5 md:px-4 md:py-3 text-xs md:text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-blue-500 focus:bg-white outline-none transition font-medium"
+                      />
 
-                    <input
-                      name="phone"
-                      type="tel"
-                      placeholder="Phone Number *"
-                      required
-                      className="w-full bg-zinc-900 border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:border-blue-500 outline-none transition"
-                    />
+                      <input
+                        name="email"
+                        type="email"
+                        placeholder="Email Address *"
+                        required
+                        className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-3 py-2.5 md:px-4 md:py-3 text-xs md:text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-blue-500 focus:bg-white outline-none transition font-medium"
+                      />
+                    </div>
 
                     <textarea
                       name="message"
-                      placeholder="Tell us about your requirements..."
-                      className="w-full bg-zinc-900 border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:border-blue-500 outline-none transition h-20 resize-none"
-                    ></textarea>
+                      placeholder="About Your Project *"
+                      rows={2}
+                      required
+                      className="w-full bg-zinc-50 border border-zinc-200 rounded-lg px-3 py-2.5 md:px-4 md:py-3 text-xs md:text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-blue-500 focus:bg-white outline-none transition resize-none font-medium md:min-h-[80px]"
+                    />
 
-                    {error && <p className="text-red-500 text-[10px] italic">{error}</p>}
+                    {error && (
+                      <p className="text-red-500 text-xs italic">{error}</p>
+                    )}
 
-                    <SlidingButton
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-900/40 disabled:opacity-50"
-                    >
-                      {isSubmitting ? "Sending..." : "Claim Free Audit"}
-                    </SlidingButton>
+                    <div className="pt-2 flex flex-col gap-3 w-full">
+                      {/* Top Row: WhatsApp and Call */}
+                      <div className="flex flex-row gap-3 w-full">
+                        <a
+                          href="https://wa.me/916264398990?text=Hello!%20I'm%20interested%20in%20your%20services."
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 flex items-center justify-center gap-2 bg-white border border-[#25D366] text-[#25D366] rounded-lg text-xs md:text-sm font-semibold hover:bg-green-50 transition shadow-sm h-[42px] md:h-[48px]"
+                        >
+                          <FaWhatsapp size={16} />
+                          WhatsApp
+                        </a>
+                        <a
+                          href="tel:+916264398990"
+                          className="flex-1 flex items-center justify-center gap-2 bg-blue-600 text-white rounded-lg text-xs md:text-sm font-semibold hover:bg-blue-700 transition shadow-sm h-[42px] md:h-[48px]"
+                        >
+                          <Phone size={14} />
+                          Call Us
+                        </a>
+                      </div>
 
-                    <p className="text-[10px] text-center text-zinc-300 pt-2 uppercase tracking-widest">
-                      We respect your privacy. No spam, ever.
-                    </p>
+                      {/* Bottom Row: Submit Button */}
+                      <SlidingButton
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full bg-zinc-900 text-white font-bold rounded-lg shadow-md hover:bg-zinc-800 disabled:opacity-50 transition text-xs md:text-sm flex justify-center items-center h-[44px] md:h-[48px]"
+                      >
+                        {isSubmitting ? "Sending..." : "Submit Request"}
+                      </SlidingButton>
+                    </div>
                   </form>
-                </>
+                </div>
               )}
             </div>
-
           </motion.div>
         </div>
       )}

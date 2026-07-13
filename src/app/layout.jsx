@@ -3,6 +3,7 @@ import "./globals.css";
 import ClientLayout from "@/components/ClientLayout";
 import FloatingCTA from "@/components/FloatingCTA";
 import GoToTop from "@/components/GoToTop";
+import MobileBottomNav from "@/components/MobileBottomNav";
 import Script from "next/script";
 import LocalSchema from "@/components/LocalSchema";
 import FacebookPixel from "@/components/FacebookPixel";
@@ -77,8 +78,9 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning className="relative">
         <ClientLayout>
           <LocalSchema />
+          <MobileBottomNav />
           {children}
-          {/* <LeadPopup />  */}
+          <LeadPopup />
           <FloatingCTA />
           <GoToTop />
         </ClientLayout>
