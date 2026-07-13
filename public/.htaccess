@@ -4,6 +4,9 @@ Options -Indexes
 RewriteEngine On
 RewriteBase /
 
+# 0. Rewrite sitemap.xml to sitemap.php so it is always dynamic
+RewriteRule ^sitemap\.xml$ /sitemap.php [L]
+
 # 1. Redirect /index.html to /
 RewriteRule ^index\.html$ / [R=301,L]
 
@@ -15,7 +18,12 @@ RewriteCond %{REQUEST_URI} !(.*)/$
 RewriteCond %{REQUEST_URI} !(\.txt|\.html|\.json|\.js|\.css|\.png|\.jpg|\.jpeg|\.svg|\.gif|\.webp)$
 RewriteRule ^(.*)$ $1/ [L,R=301]
 
-# 3. Serve the index.html from within the folder (Internal Rewrite)
+# 2.5. Rewrite missing blog routes to render.php (if the folder doesn't exist on the server)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blogs/([^/]+)/?$ /render.php?slug=$1 [L]
+
+# 3. Serve the index.html from within the folder (Internal Rewrite for existing pages)
 # This ensures that /blogs/my-slug/ serves /blogs/my-slug/index.html without a 404
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
