@@ -23,7 +23,13 @@ import {
   Heading2,
   Quote,
   Image as ImageIcon,
-  ExternalLink
+  ExternalLink,
+  Lock,
+  User,
+  LogOut,
+  Eye,
+  EyeOff,
+  ShieldCheck
 } from 'lucide-react';
 
 const MenuBar = ({ editor, onImageUpload }) => {
@@ -137,6 +143,14 @@ const MenuBar = ({ editor, onImageUpload }) => {
 };
 
 const AdminPanel = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [checkingAuth, setCheckingAuth] = useState(true);
+  const [loginUsername, setLoginUsername] = useState('seoexpert@dss');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState('');
+  const [loginLoading, setLoginLoading] = useState(false);
+
   const [blogs, setBlogs] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [title, setTitle] = useState('');
@@ -149,6 +163,65 @@ const AdminPanel = () => {
   const [status, setStatus] = useState({ type: '', msg: '' });
 
   const API_BASE = "https://digitalsuccesssolutions.in/php_backend/api"; // UPDATED TO LIVE SERVER
+
+  // Check login authentication on mount
+  useEffect(() => {
+    const authState = localStorage.getItem('dss_admin_auth');
+    if (authState === 'true') {
+      setIsAuthenticated(true);
+    }
+    setCheckingAuth(false);
+  }, []);
+
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault();
+    setLoginError('');
+    setLoginLoading(true);
+
+    const targetUser = loginUsername.trim();
+    const targetPass = loginPassword.trim();
+
+    // Default Credential Check
+    if (targetUser === 'seoexpert@dss' && targetPass === 'dss@seo@141') {
+      localStorage.setItem('dss_admin_auth', 'true');
+      setIsAuthenticated(true);
+      setLoginLoading(false);
+      return;
+    }
+
+    // Backend API Check Fallback
+    try {
+      const res = await axios.post(`${API_BASE}/login.php`, {
+        username: targetUser,
+        password: targetPass
+      });
+      if (res.data && res.data.status === 'success') {
+        localStorage.setItem('dss_admin_auth', 'true');
+        setIsAuthenticated(true);
+        setLoginLoading(false);
+        return;
+      }
+    } catch (err) {
+      console.warn("API Login check failed, falling back to local verification.");
+    }
+
+    setLoginError('Invalid username or password! Please check your credentials.');
+    setLoginLoading(false);
+  };
+
+  const handleLogout = () => {
+    if (window.confirm("Are you sure you want to log out?")) {
+      localStorage.removeItem('dss_admin_auth');
+      setIsAuthenticated(false);
+    }
+  };
+
+  // Fetch blogs on mount
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchBlogs();
+    }
+  }, [isAuthenticated]);
 
   const editor = useEditor({
     extensions: [
@@ -311,6 +384,110 @@ const AdminPanel = () => {
     );
   };
 
+  if (checkingAuth) {
+    return (
+      <div className="min-h-screen bg-[#080c14] text-white flex items-center justify-center font-sans">
+        <div className="flex items-center gap-3 text-blue-500 font-bold">
+          <Settings className="animate-spin" size={24} /> Loading Admin Portal...
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#080c14] text-slate-100 flex items-center justify-center p-4 font-sans relative overflow-hidden">
+        {/* Background Ambient Glows */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-[300px] h-[300px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="w-full max-w-md bg-[#0f172a]/90 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl relative z-10">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-600/10 border border-blue-500/30 text-blue-400 mb-4 shadow-inner">
+              <ShieldCheck size={32} />
+            </div>
+            <h1 className="text-2xl font-black text-white tracking-tight">DSS Admin Portal</h1>
+            <p className="text-xs text-slate-400 font-medium mt-1">Authorized personnel login required</p>
+          </div>
+
+          {loginError && (
+            <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-semibold flex items-center gap-2">
+              <AlertCircle size={18} className="shrink-0" />
+              <span>{loginError}</span>
+            </div>
+          )}
+
+          <form onSubmit={handleLoginSubmit} className="space-y-5">
+            <div>
+              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                Username
+              </label>
+              <div className="relative">
+                <span className="absolute left-4 top-3.5 text-slate-500">
+                  <User size={18} />
+                </span>
+                <input
+                  type="text"
+                  required
+                  placeholder="Enter username"
+                  value={loginUsername}
+                  onChange={(e) => setLoginUsername(e.target.value)}
+                  className="w-full pl-11 pr-4 py-3 bg-slate-900/80 border border-slate-700/80 rounded-xl text-white text-sm font-medium focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all placeholder:text-slate-600"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                Password
+              </label>
+              <div className="relative">
+                <span className="absolute left-4 top-3.5 text-slate-500">
+                  <Lock size={18} />
+                </span>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  required
+                  placeholder="Enter password"
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                  className="w-full pl-11 pr-12 py-3 bg-slate-900/80 border border-slate-700/80 rounded-xl text-white text-sm font-medium focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all placeholder:text-slate-600"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-3.5 text-slate-500 hover:text-slate-300 transition-colors"
+                >
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loginLoading}
+              className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center gap-2 disabled:opacity-50 text-sm tracking-wide mt-2 cursor-pointer"
+            >
+              {loginLoading ? (
+                <>
+                  <Settings className="animate-spin" size={18} /> Authenticating...
+                </>
+              ) : (
+                'SECURE LOGIN'
+              )}
+            </button>
+          </form>
+
+          <div className="mt-8 pt-6 border-t border-slate-800 text-center">
+            <p className="text-[11px] text-slate-500 font-medium">
+              Digital Success Solutions &bull; Secure CMS Access
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans">
       <div className="max-w-6xl mx-auto">
@@ -321,11 +498,11 @@ const AdminPanel = () => {
             </h1>
             <p className="text-slate-500 font-medium">Precision SEO Content Management</p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             {editingId && (
               <button
                 onClick={cancelEdit}
-                className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-3 rounded-xl font-bold transition-all"
+                className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-3 rounded-xl font-bold transition-all text-sm"
               >
                 CANCEL
               </button>
@@ -333,9 +510,16 @@ const AdminPanel = () => {
             <button
               onClick={saveBlog}
               disabled={isSubmitting}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-200 disabled:opacity-50"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-200 disabled:opacity-50 text-sm"
             >
-              {isSubmitting ? 'PROCESSING...' : <><Save size={20} /> {editingId ? 'UPDATE BLOG' : 'PUBLISH BLOG'}</>}
+              {isSubmitting ? 'PROCESSING...' : <><Save size={18} /> {editingId ? 'UPDATE BLOG' : 'PUBLISH BLOG'}</>}
+            </button>
+            <button
+              onClick={handleLogout}
+              className="bg-red-50 hover:bg-red-500 hover:text-white text-red-600 border border-red-200 px-4 py-3 rounded-xl font-bold flex items-center gap-2 transition-all text-sm cursor-pointer"
+              title="Logout from Admin Panel"
+            >
+              <LogOut size={16} /> LOGOUT
             </button>
           </div>
         </header>
