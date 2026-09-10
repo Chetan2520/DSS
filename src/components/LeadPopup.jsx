@@ -13,17 +13,46 @@ export default function LeadPopup() {
 
   useEffect(() => {
     const hasSubmitted = sessionStorage.getItem("lead_submitted");
-    if (hasSubmitted) {
-      console.log("LeadPopup: Form already submitted in this session.");
-      return;
-    }
+    const hasClosed = sessionStorage.getItem("lead_closed");
+    if (hasSubmitted || hasClosed) return;
 
-    const timer = setTimeout(() => {
-      console.log("LeadPopup: Triggering popup open.");
-      setIsOpen(true);
-    }, 2000);
+    let triggered = false;
 
-    return () => clearTimeout(timer);
+    const triggerPopup = () => {
+      if (!triggered) {
+        triggered = true;
+        setIsOpen(true);
+      }
+    };
+
+    // Trigger 1: Exit Intent (Agar user website band karne wala ho)
+    const handleMouseLeave = (e) => {
+      if (e.clientY <= 0) {
+        triggerPopup();
+      }
+    };
+    document.addEventListener("mouseleave", handleMouseLeave);
+
+    // Trigger 2: Scroll Percentage (Agar user 40% page padh le)
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      if (scrollPosition + windowHeight >= documentHeight * 0.4) {
+        triggerPopup();
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    // Trigger 3: Time Fallback (Agar kuch na kare toh 12 seconds baad)
+    const timer = setTimeout(triggerPopup, 12000);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const handleSubmit = async (e) => {
@@ -62,6 +91,11 @@ export default function LeadPopup() {
     }
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+    sessionStorage.setItem("lead_closed", "true");
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -71,7 +105,7 @@ export default function LeadPopup() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setIsOpen(false)}
+            onClick={handleClose}
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           />
 
@@ -84,7 +118,7 @@ export default function LeadPopup() {
           >
             {/* Close Button */}
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={handleClose}
               className="absolute top-3 right-3 md:top-4 md:right-4 z-20 p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-500 hover:text-zinc-900 transition"
             >
               <X size={18} />

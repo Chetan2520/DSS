@@ -120,6 +120,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/case-studies"
+                  className="hover:text-white transition-colors"
+                >
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/lets-connect"
                   className="hover:text-white transition-colors"
                 >

@@ -201,6 +201,7 @@ export default function Navbar() {
     { name: "Who We Are", path: "/about-us" },
     { name: "Services", path: "/#services", submenu: true },
     { name: "Products", path: "/portfoliopage" },
+    { name: "Case Studies", path: "/case-studies" },
     { name: "Blogs", path: "/blogs" },
     { name: "Contact Us", path: "/lets-connect" },
   ];
@@ -210,19 +211,33 @@ export default function Navbar() {
     return pathname.startsWith(path);
   };
 
+  const isCaseStudiesList = pathname.startsWith("/case-studies");
+  const linkColor = isCaseStudiesList ? "text-slate-800 hover:text-[#FF6900]" : "text-white hover:text-[#FF6900]";
+
   return (
     <>
       <nav
         ref={navRef}
-        className={`top-0 left-0 w-full z-50 transition-all duration-300 ${isSubPage ? "sticky" : "fixed"} ${isScrolled
-          ? "bg-black/60 backdrop-blur-xl py-2 border-b border-white/5"
-          : isSubPage
-            ? "bg-black py-2 border-b border-white/10"
-            : "bg-transparent py-3"
-          }`}
+        className={`top-0 left-0 w-full z-50 transition-all duration-300 ${isSubPage ? "sticky" : "fixed"} ${
+          isCaseStudiesList
+            ? (isScrolled ? "bg-white/90 backdrop-blur-xl py-2 border-b border-slate-200" : "bg-white py-2 border-b border-slate-200")
+            : (isScrolled
+                ? "bg-black/60 backdrop-blur-xl py-2 border-b border-white/5"
+                : isSubPage
+                  ? "bg-black py-2 border-b border-white/10"
+                  : "bg-transparent py-3"
+              )
+        }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link href="/" className="flex items-center shrink-0 cursor-pointer">
+          <Link 
+            href="/" 
+            className={`flex items-center shrink-0 cursor-pointer transition-all duration-300 ${
+              isCaseStudiesList 
+                ? "bg-zinc-900 px-4 pt-2 pb-3 rounded-b-xl -mt-2 shadow-md self-start flex items-center" 
+                : ""
+            }`}
+          >
             <Image
               src="/images/logo.png"
               alt="Digital Success Solutions"
@@ -238,13 +253,13 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-10">
             <button
               onClick={() => handleNavClick("/")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/") ? "text-[#FF6900] font-semibold" : linkColor}`}
             >
               Home
             </button>
             <button
               onClick={() => handleNavClick("/about-us")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/about-us") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/about-us") ? "text-[#FF6900] font-semibold" : linkColor}`}
             >
               Who We Are
             </button>
@@ -254,7 +269,7 @@ export default function Navbar() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <button className={`text-sm md:text-lg flex items-center gap-1.5 focus:outline-none transition-colors ${isActive("/services") || pathname.includes("service") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}>
+              <button className={`text-sm md:text-lg flex items-center gap-1.5 focus:outline-none transition-colors ${isActive("/services") || pathname.includes("service") ? "text-[#FF6900] font-semibold" : linkColor}`}>
                 Services{" "}
                 <ChevronDown
                   size={14}
@@ -264,19 +279,25 @@ export default function Navbar() {
             </div>
             <button
               onClick={() => handleNavClick("/portfoliopage")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/portfoliopage") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/portfoliopage") ? "text-[#FF6900] font-semibold" : linkColor}`}
             >
               Portfolio
             </button>
             <button
+              onClick={() => handleNavClick("/case-studies")}
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/case-studies") ? "text-[#FF6900] font-semibold" : linkColor}`}
+            >
+              Case Studies
+            </button>
+            <button
               onClick={() => handleNavClick("/blogs")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/blogs") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/blogs") ? "text-[#FF6900] font-semibold" : linkColor}`}
             >
               Blogs
             </button>
             <button
               onClick={() => handleNavClick("/contact-us")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/contact-us") || isActive("/lets-connect") ? "text-[#FF6900] font-semibold" : "text-white hover:text-[#FF6900]"}`}
+              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/contact-us") || isActive("/lets-connect") ? "text-[#FF6900] font-semibold" : linkColor}`}
             >
               Contact Us
             </button>
@@ -284,13 +305,13 @@ export default function Navbar() {
 
           {/* ACTION BUTTONS */}
           <div className="flex items-center gap-6">
-            <div className="hidden xl:flex items-center gap-4 border-r border-white/20 pr-6 mr-2">
+            <div className={`hidden xl:flex items-center gap-4 border-r ${isCaseStudiesList ? "border-slate-200" : "border-white/20"} pr-6 mr-2`}>
               <PhoneCall size={20} className="text-[#FF6900]" />
               <div className="flex flex-col">
-                <span className="text-[11px] text-zinc-300 font-medium tracking-widest uppercase mb-0.5">
+                <span className={`text-[11px] ${isCaseStudiesList ? "text-slate-500" : "text-zinc-300"} font-medium tracking-widest uppercase mb-0.5`}>
                   Talk to an Expert
                 </span>
-                <a href="tel:+916264398990" className="text-white font-bold text-[15px] hover:text-[#FF6900] transition-colors leading-none tracking-wide">
+                <a href="tel:+916264398990" className={`font-bold text-[15px] ${isCaseStudiesList ? "text-slate-800 hover:text-[#FF6900]" : "text-white hover:text-[#FF6900]"} transition-colors leading-none tracking-wide`}>
                   +91 62643 98990
                 </a>
               </div>
@@ -306,11 +327,11 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 bg-white/10 rounded-full"
+              className={`lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 ${isCaseStudiesList ? "bg-slate-100" : "bg-white/10"} rounded-full`}
             >
-              <span className="w-5 h-[2px] bg-white" />
-              <span className="w-5 h-[2px] bg-white" />
-              <span className="w-5 h-[2px] bg-white" />
+              <span className={`w-5 h-[2px] ${isCaseStudiesList ? "bg-slate-800" : "bg-white"}`} />
+              <span className={`w-5 h-[2px] ${isCaseStudiesList ? "bg-slate-800" : "bg-white"}`} />
+              <span className={`w-5 h-[2px] ${isCaseStudiesList ? "bg-slate-800" : "bg-white"}`} />
             </button>
           </div>
         </div>

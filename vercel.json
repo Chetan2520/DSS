@@ -1,5 +1,11 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "redirects": [
+    { "source": "/performance-marketing-ppc(/?)", "destination": "/performance-marketing-agency-in-indore/", "permanent": true },
+    { "source": "/search-engine-optimization(/?)", "destination": "/seo-company-in-indore/", "permanent": true },
+    { "source": "/website-design-and-website-development(/?)", "destination": "/website-development-company-in-india/", "permanent": true },
+    { "source": "/social-media-marketing(/?)", "destination": "/social-media-marketing-company-in-indore/", "permanent": true },
+    { "source": "/influencer-marketing(/?)", "destination": "/influencer-marketing-agency-in-indore/", "permanent": true },
+    { "source": "/graphic-designing(/?)", "destination": "/graphic-designing-services-in-indore/", "permanent": true },
+    { "source": "/e-commerce-applications(/?)", "destination": "/ecommerce-development-company-in-indore/", "permanent": true }
   ]
 }
