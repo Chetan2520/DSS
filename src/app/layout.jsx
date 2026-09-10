@@ -1,0 +1,116 @@
+import LeadPopup from "@/components/LeadPopup";
+import "./globals.css";
+import ClientLayout from "@/components/ClientLayout";
+import FloatingCTA from "@/components/FloatingCTA";
+import GoToTop from "@/components/GoToTop";
+import MobileBottomNav from "@/components/MobileBottomNav";
+import Script from "next/script";
+import LocalSchema from "@/components/LocalSchema";
+import FacebookPixel from "@/components/FacebookPixel";
+
+export const metadata = {
+  metadataBase: new URL('https://digitalsuccesssolutions.in'),
+  title: {
+    default: "Best Digital Marketing Agency in Indore | Digital Success Solutions",
+    template: "%s | Digital Success Solutions",
+  },
+  description:
+    "Digital Success Solutions is the best digital marketing Agency in Indore, offering SEO, SMM, PPC, and web solutions to grow your business online.",
+  keywords:
+    "Digital Marketing, Digital Marketing Company in Indore, Best Digital Marketing Agency in Indore, Website Development, Website Development Company in Indore, Performance Marketing, Social Media Marketing, Social Media Management, SEO Optimization, Search Engine Optimization Services, Influencer Marketing, E-Commerce App Development, Pay Per Click, PPC Advertising, Online Marketing Services, Branding Agency in Indore",
+  verification: {
+    google: "twxBSbMIu8jvSeKn0jTy_qanRCI7907_XKsPLPCYJug",
+  },
+  alternates: {
+    canonical: "https://digitalsuccesssolutions.in/",
+  },
+  icons: {
+    icon: "/favicon.jpeg",
+  },
+  openGraph: {
+    title: 'Best Digital Marketing Agency in Indore | Digital Success Solutions',
+    description: 'Digital Success Solutions is the best digital marketing Agency in Indore, offering SEO, SMM, PPC, and web solutions to grow your business online.',
+    url: 'https://digitalsuccesssolutions.in',
+    siteName: 'Digital Success Solutions',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Digital Success Solutions',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Best Digital Marketing Agency in Indore | Digital Success Solutions',
+    description: 'Digital Success Solutions is the best digital marketing Agency in Indore, offering SEO, SMM, PPC, and web solutions to grow your business online.',
+    images: ['/images/logo.png'],
+  },
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className="relative">
+      <head>
+        <link
+          rel="preload"
+          href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+          as="script"
+        />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1747CPHFPB"
+          strategy="afterInteractive"
+        />
+        <Script strategy="afterInteractive" id="gtag-config">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1747CPHFPB');
+          `}
+        </Script>
+        <Script strategy="afterInteractive" id="gtm-script">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5HBHHBSR');`}
+        </Script>
+        <Script strategy="afterInteractive" id="ms-clarity">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "xrb3cxpq4r");
+          `}
+        </Script>
+        <FacebookPixel />
+      </head>
+      <body suppressHydrationWarning className="relative">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5HBHHBSR"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
+        <ClientLayout>
+          <LocalSchema />
+          <MobileBottomNav />
+          {children}
+          <LeadPopup />
+          <FloatingCTA />
+          <GoToTop />
+        </ClientLayout>
+      </body>
+    </html>
+  );
+}
