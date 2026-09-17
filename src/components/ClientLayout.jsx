@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import CreativeFooter from "@/components/CreativeFooter";
@@ -9,8 +9,15 @@ export default function ClientLayout({ children }) {
   const pathname = usePathname();
   const isAdmin = pathname === "/adminsurendraseo";
 
-  // Scroll to top on route change
+  const isFirstMount = useRef(true);
+
+  // Scroll to top on route change (but skip on initial refresh to allow native scroll restoration)
   useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    
     const hash = window.location.hash;
     if (hash) {
       setTimeout(() => {
