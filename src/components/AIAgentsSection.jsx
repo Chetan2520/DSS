@@ -121,44 +121,17 @@ const AIAgentsSection = () => {
       {/* Decorative Background Blurred Accents */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Large Blue Glow Top Left */}
-        <motion.div
-          animate={{
-            x: [-20, 20, -20],
-            y: [-20, 20, -20],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+        <div
           className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-[radial-gradient(circle,rgba(37,99,235,0.12)_0%,transparent_70%)] blur-[120px]"
         />
 
         {/* Large Purple Glow Bottom Right */}
-        <motion.div
-          animate={{
-            x: [20, -20, 20],
-            y: [20, -20, 20],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+        <div
           className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,transparent_70%)] blur-[120px]"
         />
 
         {/* Central Cyan Glow behind image */}
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.08, 0.12, 0.08],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+        <div
           className="absolute top-[40%] left-1/2 -translate-x-1/2 w-[80%] h-[60%] bg-[radial-gradient(circle,rgba(56,189,248,0.08)_0%,transparent_70%)] blur-[100px]"
         />
 
