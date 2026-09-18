@@ -27,7 +27,7 @@ export default function LandingPage() {
       {/* 1. Hook & Immediate Trust */}
       <Hero />
       <TrustStrip />
-      
+
       {/* 2. High Engagement Video Proof (Moved up for CRO) */}
       <ReelsShowcase />
       <ClientBrandsReels />
@@ -35,16 +35,16 @@ export default function LandingPage() {
       {/* 3. Problem Identification & Empathy */}
       <Challenge />
       <Approach />
-      
+
       {/* 4. Target Audience / Avatars */}
       <ProductGrowth />
       <ClinicGrowth />
-      
+
       {/* 5. Hard Visual Proof & Stats */}
       <Results />
       <Portfolio />
       <AuthorityStats />
-      
+
       {/* 6. How It Works / Mechanics */}
       <GrowthEngine />
       <Process />

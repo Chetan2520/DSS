@@ -15,7 +15,7 @@ export default function Process() {
   ];
 
   return (
-    <section id="our-process" className="py-20 md:py-32 bg-[#f8f5ea] relative overflow-hidden">
+    <section id="our-process" className="py-20 md:py-32 bg-[#f8f5ea] relative overflow-hidden isolate">
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 relative z-10">
         
         <div className="text-center w-full mx-auto mb-20">
