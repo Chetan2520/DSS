@@ -33,11 +33,11 @@ export default function Testimonials() {
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20">
         
         <div className="text-center mb-16">
-          <h2 className="font-playfair text-3xl md:text-4xl font-bold leading-[1.1] text-[#18221B] mb-6">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: text-[#18221B] mb-6">
             What Our Clients Say
           </h2>
           <div className="flex justify-center">
-            <Leaf className="text-[#6F8B63]" />
+            <Leaf className="text-[#5B8266]" />
           </div>
         </div>
 
@@ -52,7 +52,7 @@ export default function Testimonials() {
               className="bg-white p-8 rounded-3xl shadow-sm border border-[#DDDCCF] flex flex-col h-full relative"
             >
               {/* Quote marks decorative */}
-              <div className="font-playfair text-6xl text-[#DDE6D3] absolute top-4 left-6 leading-none">
+              <div className="font-playfair text-3xl text-[#F8F5EA] absolute top-4 left-6 leading-none">
                 "
               </div>
               
@@ -63,7 +63,7 @@ export default function Testimonials() {
               </div>
               
               <div className="flex items-center gap-4 pt-6 border-t border-[#DDDCCF]">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-[#EFE9DC] flex-shrink-0">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden bg-[#F8F5EA] flex-shrink-0">
                   {/* Using a placeholder styling in case images are missing */}
                   <Image 
                     src={testimonial.avatar} 
@@ -77,7 +77,7 @@ export default function Testimonials() {
                   <p className="text-[#5F675F] text-xs mb-1">{testimonial.title}</p>
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-[#F59E0B] text-[#F59E0B]" />
+                      <Star key={i} className="w-3 h-3 fill-[#FF6900] text-[#FF6900]" />
                     ))}
                   </div>
                 </div>

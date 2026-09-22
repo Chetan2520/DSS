@@ -29,27 +29,27 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center justify-center gap-2 mb-4 text-[#174A2A] font-bold tracking-[0.15em] text-xs md:text-sm uppercase">
+            <div className="flex items-center justify-center gap-2 mb-4 text-[#5B8266] font-bold tracking-[0.15em] text-xs md:text-sm uppercase">
               <span>LET'S BUILD A HEALTHIER, BRIGHTER TOMORROW TOGETHER</span>
             </div>
             
-            <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-6 text-[#18221B]">
+            <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: lg: mb-6 text-[#18221B]">
               Ready to Grow Your Ayurvedic Brand?
             </h2>
             
-            <p className="text-[#3B473B] font-medium text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
+            <p className="text-[#5B8266] font-medium text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
               We'll audit your current marketing and map out a custom growth strategy for your brand. No sales pitch, just actionable value.
             </p>
 
             <div className="flex flex-col items-center gap-6">
-              <a href="#contact" className="bg-[#174A2A] text-white px-6 py-3.5 md:px-10 md:py-4 rounded-full font-bold text-sm md:text-base hover:bg-[#11331D] transition-colors shadow-xl flex items-center justify-center gap-3 w-full sm:w-auto group hover:scale-[1.02] uppercase tracking-wider">
+              <a href="#contact" className="bg-[#5B8266] text-white px-6 py-3.5 md:px-10 md:py-4 rounded-full font-bold text-sm md:text-base hover:bg-[#4A6D55] transition-colors shadow-xl flex items-center justify-center gap-3 w-full sm:w-auto group hover:scale-[1.02] uppercase tracking-wider">
                 Get Free Growth Audit
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               
-              <div className="flex items-center justify-center gap-2 text-[#2C382C] font-medium mt-2">
+              <div className="flex items-center justify-center gap-2 text-[#5B8266] font-medium mt-2">
                 <span className="font-playfair italic text-xl">Same Roots. Bigger Reach.</span>
-                <Leaf className="w-6 h-6 text-[#174A2A] stroke-[1.5]" />
+                <Leaf className="w-6 h-6 text-[#5B8266] stroke-[1.5]" />
               </div>
             </div>
           </motion.div>

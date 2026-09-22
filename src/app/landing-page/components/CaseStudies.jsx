@@ -17,7 +17,7 @@ export default function CaseStudies() {
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-playfair text-3xl md:text-4xl font-bold leading-[1.1] text-[#18221B] mb-4">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: text-[#18221B] mb-4">
             From strategy to scale.
           </h2>
           <p className="text-lg text-[#5F675F]">
@@ -33,7 +33,7 @@ export default function CaseStudies() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="font-playfair text-5xl md:text-7xl font-bold text-[#174A2A] mb-4">
+            <h3 className="font-playfair text-4xl md:text-7xl font-bold text-[#5B8266] mb-4">
               ₹50L+
             </h3>
             <p className="font-medium text-[#18221B] tracking-widest uppercase mb-8">
@@ -43,7 +43,7 @@ export default function CaseStudies() {
             <div className="flex flex-col gap-4">
               {tags.map((tag, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#6F8B63]" />
+                  <div className="w-2 h-2 rounded-full bg-[#5B8266]" />
                   <span className="text-[#5F675F] font-medium">{tag}</span>
                 </div>
               ))}
@@ -55,7 +55,7 @@ export default function CaseStudies() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl shadow-[#174A2A]/10 border border-[#DDDCCF]"
+            className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl shadow-[#5B8266]/10 border border-[#DDDCCF]"
           >
             <Image 
               src="/images/landing/ecommerce-growth.jpg" 

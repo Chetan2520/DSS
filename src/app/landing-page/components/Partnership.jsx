@@ -23,9 +23,9 @@ export default function Partnership() {
           className="max-w-4xl mx-auto"
         >
           
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-6 text-[#18221B]">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: lg: mb-6 text-[#18221B]">
             We work as an extension <br className="hidden md:block" />
-            of your <span className="text-[#174A2A]">brand.</span>
+            of your <span className="text-[#5B8266]">brand.</span>
           </h2>
           
           <p className="text-[#5F675F] text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
@@ -42,7 +42,7 @@ export default function Partnership() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-[#DDDCCF] shadow-sm"
               >
-                <CheckCircle2 className="w-4 h-4 text-[#6F8B63]" />
+                <CheckCircle2 className="w-4 h-4 text-[#5B8266]" />
                 <span className="font-medium text-[#18221B]">{point}</span>
               </motion.div>
             ))}

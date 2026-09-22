@@ -1,58 +1,69 @@
 import Hero from "./components/Hero";
 import TrustStrip from "./components/TrustStrip";
-import Approach from "./components/Approach";
 import Challenge from "./components/Challenge";
-import Process from "./components/Process";
-import ProductGrowth from "./components/ProductGrowth";
-import ClinicGrowth from "./components/ClinicGrowth";
+import CostOfProblem from "./components/CostOfProblem";
+
+import Specialization from "./components/Specialization";
+import CorePromise from "./components/CorePromise";
 import GrowthEngine from "./components/GrowthEngine";
+import ServicesList from "./components/ServicesList";
+
+import AudienceSpecific from "./components/AudienceSpecific";
+import Portfolio from "./components/Portfolio";
+import BeforeAfter from "./components/BeforeAfter";
+
 import ReelsShowcase from "./components/ReelsShowcase";
 import ClientBrandsReels from "./components/ClientBrandsReels";
 
-import Results from "./components/Results";
+import Process from "./components/Process";
+import WhoThisIsFor from "./components/WhoThisIsFor";
+import Testimonials from "./components/Testimonials";
 import AuthorityStats from "./components/AuthorityStats";
-import Portfolio from "./components/Portfolio";
-import WhyDss from "./components/WhyDss";
-import Partnership from "./components/Partnership";
-import FinalCTA from "./components/FinalCTA";
+
+import GrowthAuditOffer from "./components/GrowthAuditOffer";
+import FAQ from "./components/FAQ";
+import LeadForm from "./components/LeadForm";
 
 export const metadata = {
-  title: "Ayurvedic Digital Marketing Services",
-  description: "We help Ayurvedic brands reach the right people, build trust, and grow sustainably.",
+  title: "Digital Growth Partner for Ayurvedic & Wellness Brands | DSS",
+  description: "We build the system that turns marketing into growth for Ayurvedic and Herbal brands.",
 };
 
 export default function LandingPage() {
   return (
     <main className="font-inter">
-      {/* 1. Hook & Immediate Trust */}
+      {/* PHASE 1: Hook & Problem Recognition */}
       <Hero />
       <TrustStrip />
 
-      {/* 2. High Engagement Video Proof (Moved up for CRO) */}
+      {/* High Engagement Video Proof */}
       <ReelsShowcase />
       <ClientBrandsReels />
 
-      {/* 3. Problem Identification & Empathy */}
       <Challenge />
-      <Approach />
+      <CostOfProblem />
 
-      {/* 4. Target Audience / Avatars */}
-      <ProductGrowth />
-      <ClinicGrowth />
+      {/* PHASE 2: Specialization & Solution */}
+      <Specialization />
+      <CorePromise />
+      <GrowthEngine />
+      <ServicesList />
 
-      {/* 5. Hard Visual Proof & Stats */}
-      <Results />
+      {/* PHASE 3: Audience Segmentation & Proof */}
+      <AudienceSpecific />
       <Portfolio />
+      <BeforeAfter />
+
+      {/* PHASE 4: Process, Transparency, and Qualification */}
+      <Process />
+      <WhoThisIsFor />
+      <Testimonials />
       <AuthorityStats />
 
-      {/* 6. How It Works / Mechanics */}
-      <GrowthEngine />
-      <Process />
-
-      {/* 7. The Close */}
-      <WhyDss />
-      <Partnership />
-      <FinalCTA />
+      {/* PHASE 5: The Offer & Conversion */}
+      <GrowthAuditOffer />
+      <FAQ />
+      <LeadForm />
     </main>
   );
 }

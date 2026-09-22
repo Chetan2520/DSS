@@ -20,16 +20,16 @@ export default function ReelsShowcase() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#DDDCCF] text-[#174A2A] text-xs font-bold tracking-widest uppercase mb-6 shadow-sm"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#DDDCCF] text-[#5B8266] text-xs font-bold tracking-widest uppercase mb-6 shadow-sm"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#6F8B63]"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#5B8266]"></span>
             Inside Our Strategies
           </motion.div>
-          <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-4 md:mb-6">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] sm: md: lg: mb-4 md:mb-6">
             Watch how we scale <br className="hidden sm:block" />
-            <span className="text-[#6F8B63] italic">Ayurveda brands.</span>
+            <span className="text-[#5B8266] italic">Ayurveda brands.</span>
           </h2>
-          <p className="text-[#5F675F] text-sm md:text-base lg:text-lg leading-relaxed font-medium">
+          <p className="text-[#5F675F] text-base md:text-lg lg:text-lg leading-relaxed font-medium">
             Short, actionable insights into exactly how we navigate compliance, lower CAC, and drive high-intent patients to your clinics.
           </p>
         </div>
@@ -67,7 +67,7 @@ function VideoCard({ video, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative shrink-0 w-[260px] sm:w-auto aspect-[9/16] rounded-3xl overflow-hidden bg-[#212E25] border border-white/10 group snap-center cursor-pointer shadow-xl shadow-black/20"
+      className="relative shrink-0 w-[260px] sm:w-auto aspect-[9/16] rounded-3xl overflow-hidden bg-[#5B8266] border border-white/10 group snap-center cursor-pointer shadow-xl shadow-black/20"
       onClick={togglePlay}
     >
       <video
@@ -89,7 +89,7 @@ function VideoCard({ video, index }) {
       </div>
 
       <div className="absolute bottom-6 left-6 right-6">
-        <h3 className="text-white font-bold text-base md:text-lg leading-tight drop-shadow-md">
+        <h3 className="font-playfair text-white font-bold text-base md:text-lg leading-tight drop-shadow-md">
           {video.title}
         </h3>
       </div>

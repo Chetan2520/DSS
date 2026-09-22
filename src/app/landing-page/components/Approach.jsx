@@ -43,15 +43,15 @@ export default function Approach() {
             className="lg:col-span-6 flex flex-col h-full"
           >
             
-            <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 md:mb-8 text-[#18221B]">
+            <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] sm: md: lg: mb-6 md:mb-8 text-[#18221B]">
               We understand <br className="block sm:hidden" />
               <span className="hidden sm:inline">the </span>
               <span className="sm:hidden">the </span>
-              <span className="text-[#174A2A] italic">Ayurveda</span> <br />
+              <span className="text-[#5B8266] italic">Ayurveda</span> <br />
               industry.
             </h2>
 
-            <div className="relative w-full flex-1 min-h-[300px] rounded-3xl overflow-hidden shadow-xl shadow-[#174A2A]/5">
+            <div className="relative w-full flex-1 min-h-[300px] rounded-3xl overflow-hidden shadow-xl shadow-[#5B8266]/5">
               <Image 
                 src="/images/landing/premium-abstract.jpg" 
                 alt="Ayurvedic Premium Ingredients" 
@@ -72,18 +72,18 @@ export default function Approach() {
             {specializations.map((spec, index) => (
               <div 
                 key={index} 
-                className="bg-white p-8 rounded-[32px] shadow-sm border border-[#DDDCCF] hover:shadow-xl hover:border-[#174A2A]/30 transition-all duration-300 group flex flex-col justify-between h-full"
+                className="bg-white p-8 rounded-[32px] shadow-sm border border-[#DDDCCF] hover:shadow-xl hover:border-[#5B8266]/30 transition-all duration-300 group flex flex-col justify-between h-full"
               >
                 <div>
                   <div className="flex items-center justify-between mb-8">
-                    <span className="text-sm font-bold tracking-widest text-[#174A2A] bg-[#F8F5EA] px-3 py-1 rounded-full border border-[#DDDCCF]">{spec.number}</span>
+                    <span className="text-sm font-bold tracking-widest text-[#5B8266] bg-[#F8F5EA] px-3 py-1 rounded-full border border-[#DDDCCF]">{spec.number}</span>
                     <div className="w-8 h-8 rounded-full bg-[#F8F5EA] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 11L11 1M11 1H3.5M11 1V8.5" stroke="#174A2A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M1 11L11 1M11 1H3.5M11 1V8.5" stroke="#5B8266" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                   </div>
-                  <h3 className="text-xl font-playfair font-bold text-[#18221B] mb-4 group-hover:text-[#174A2A] transition-colors">{spec.title}</h3>
+                  <h3 className="text-xl font-playfair font-bold text-[#18221B] mb-4 group-hover:text-[#5B8266] transition-colors">{spec.title}</h3>
                 </div>
                 <p className="text-[#5F675F] text-sm leading-relaxed">{spec.description}</p>
               </div>

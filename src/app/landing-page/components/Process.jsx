@@ -1,33 +1,32 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Search, Settings, Rocket, LineChart, Trophy, Leaf } from "lucide-react";
 
 export default function Process() {
   const steps = [
-    { id: "01", title: "Research", desc: "Audience · Competitors · Market · Product · Service" },
-    { id: "02", title: "Positioning", desc: "Brand · Offer · Differentiation" },
-    { id: "03", title: "Content & Creative", desc: "Education · UGC · Testimonials · Reels" },
-    { id: "04", title: "Performance", desc: "Meta Ads · Leads · Retargeting · Testing" },
-    { id: "05", title: "Conversion", desc: "Landing Page · WhatsApp · Checkout · CRO" },
-    { id: "06", title: "Optimization", desc: "Data · Creative · Audience · Funnel" },
-    { id: "07", title: "Scaling", desc: "Winning Strategy · Creatives · Audiences" }
+    { id: "01", title: "DISCOVER", desc: "We understand your product, audience, current marketing and business goals." },
+    { id: "02", title: "AUDIT", desc: "We analyse your ads, creatives, website, landing pages and customer journey." },
+    { id: "03", title: "STRATEGIZE", desc: "We build your acquisition strategy around your business objectives." },
+    { id: "04", title: "LAUNCH", desc: "We launch campaigns, creatives, landing pages and tracking." },
+    { id: "05", title: "OPTIMIZE", desc: "We continuously analyse performance and test what can improve." },
+    { id: "06", title: "SCALE", desc: "We scale the campaigns and channels that demonstrate sustainable performance." }
   ];
 
   return (
     <section id="our-process" className="py-20 md:py-32 bg-[#f8f5ea] relative overflow-hidden isolate">
-      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 relative z-10">
+      <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20 relative z-10">
         
         <div className="text-center w-full mx-auto mb-20">
-          <h2 className="font-playfair text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-[1.1] text-[#18221B] mb-6 md:whitespace-nowrap">
-            The DSS Ayurveda Growth Engine.
-          </h2>
-          <p className="text-lg text-[#5F675F]">
-            One connected system from research to scale.
-          </p>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-playfair text-4xl md:text-5xl font-bold leading-[1.2] text-[#18221B] mb-6"
+          >
+            A Clear Process. <span className="text-[#5B8266]">No Guesswork.</span>
+          </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={step.id}
@@ -35,28 +34,24 @@ export default function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative flex flex-col items-start p-6 md:p-8 bg-white rounded-2xl border border-[#DDDCCF] hover:shadow-lg transition-all"
+              className="relative flex flex-col items-start p-8 md:p-10 bg-white rounded-[2rem] border border-[#DDDCCF] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden"
             >
-              <div className="text-4xl font-playfair font-bold text-[#174A2A]/20 mb-6">
-                {step.id}
+              {/* Step Badge */}
+              <div className="w-12 h-12 rounded-full bg-[#F8F5EA] text-[#FF6900] flex items-center justify-center font-bold text-lg mb-8 shadow-sm group-hover:bg-[#FF6900] group-hover:text-white transition-colors duration-300 relative z-10">
+                {index + 1}
               </div>
-              <h3 className="font-playfair text-xl font-bold text-[#18221B] mb-3">{step.title}</h3>
-              <p className="text-[#5F675F] text-sm leading-relaxed">{step.desc}</p>
+              
+              <h3 className="font-playfair text-2xl md:text-3xl font-bold text-[#18221B] mb-4 group-hover:text-[#5B8266] transition-colors duration-300 relative z-10">
+                {step.title}
+              </h3>
+              
+              <p className="text-[#5F675F] text-base md:text-lg leading-relaxed relative z-10">
+                {step.desc}
+              </p>
             </motion.div>
           ))}
-          
         </div>
 
-      </div>
-
-      {/* Decorative Bottom Right Background Element */}
-      <div className="absolute -bottom-12 right-0 md:-bottom-24 w-[300px] h-[300px] md:w-[500px] md:h-[500px] pointer-events-none z-0 opacity-80 mix-blend-multiply">
-        <Image 
-          src="/images/landing/bottom_right.png"
-          alt="Decorative Background"
-          fill
-          className="object-contain object-bottom object-right"
-        />
       </div>
     </section>
   );

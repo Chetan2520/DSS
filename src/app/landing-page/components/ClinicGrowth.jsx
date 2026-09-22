@@ -52,9 +52,9 @@ export default function ClinicGrowth() {
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 relative z-10">
         
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-6 text-[#18221B]">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: lg: mb-6 text-[#18221B]">
             From local visibility to <br className="hidden md:block" />
-            <span className="text-[#174A2A]">patient enquiries.</span>
+            <span className="text-[#5B8266]">patient enquiries.</span>
           </h2>
           <p className="text-[#5F675F] text-lg leading-relaxed">
             Local visibility is only the start. DSS connects authority, trust, lead generation and appointments to build a steady flow of patients.
@@ -70,17 +70,17 @@ export default function ClinicGrowth() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-white p-8 rounded-3xl shadow-sm border border-[#DDDCCF] text-center flex flex-col items-center hover:shadow-xl hover:border-[#174A2A]/30 transition-all duration-300 relative overflow-hidden"
+              className="group bg-white p-8 rounded-3xl shadow-sm border border-[#DDDCCF] text-center flex flex-col items-center hover:shadow-xl hover:border-[#5B8266]/30 transition-all duration-300 relative overflow-hidden"
             >
               {/* Subtle background icon hover */}
               <div className="absolute -top-4 -left-4 text-[#F8F5EA] w-24 h-24 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                 {step.icon}
               </div>
 
-              <div className="w-14 h-14 rounded-full bg-[#F8F5EA] text-[#174A2A] flex items-center justify-center mb-6 group-hover:bg-[#174A2A] group-hover:text-white transition-colors duration-300 relative z-10 shadow-sm border border-[#DDDCCF]">
+              <div className="w-14 h-14 rounded-full bg-[#F8F5EA] text-[#5B8266] flex items-center justify-center mb-6 group-hover:bg-[#5B8266] group-hover:text-white transition-colors duration-300 relative z-10 shadow-sm border border-[#DDDCCF]">
                 {step.icon}
               </div>
-              <h3 className="font-playfair text-xl font-bold text-[#18221B] mb-3 group-hover:text-[#174A2A] transition-colors relative z-10">{step.title}</h3>
+              <h3 className="font-playfair text-xl font-bold text-[#18221B] mb-3 group-hover:text-[#5B8266] transition-colors relative z-10">{step.title}</h3>
               <p className="text-[#5F675F] text-sm leading-relaxed relative z-10">{step.desc}</p>
             </motion.div>
           ))}

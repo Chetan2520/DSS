@@ -1,111 +1,86 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { PenTool, TrendingUp, Users, Filter, Search, MousePointerClick, ShieldCheck } from "lucide-react";
+import { Magnet, HeartHandshake, MousePointerClick, MessagesSquare, Rocket } from "lucide-react";
 
 export default function GrowthEngine() {
-  const capabilities = [
+  const steps = [
     {
-      title: "Ayurveda-Compliant Creatives",
-      icon: <PenTool className="w-5 h-5" />
+      id: "01",
+      title: "ATTRACT",
+      icon: Magnet,
+      items: ["Meta Ads", "Google Ads", "Social Media", "Creative Strategy"]
     },
     {
-      title: "Meta & Google Performance",
-      icon: <TrendingUp className="w-5 h-5" />
+      id: "02",
+      title: "ENGAGE",
+      icon: HeartHandshake,
+      items: ["Educational Content", "Video Marketing", "Brand Messaging", "Social Proof"]
     },
     {
-      title: "Patient Acquisition Systems",
-      icon: <Users className="w-5 h-5" />
+      id: "03",
+      title: "CONVERT",
+      icon: MousePointerClick,
+      items: ["Landing Pages", "Website CRO", "Offer Strategy", "Lead Forms"]
     },
     {
-      title: "D2C Funnel Architecture",
-      icon: <Filter className="w-5 h-5" />
+      id: "04",
+      title: "NURTURE",
+      icon: MessagesSquare,
+      items: ["Retargeting", "WhatsApp Follow-ups", "CRM", "Lead Nurturing"]
     },
     {
-      title: "Organic SEO & Content",
-      icon: <Search className="w-5 h-5" />
-    },
-    {
-      title: "Conversion Rate Optimization",
-      icon: <MousePointerClick className="w-5 h-5" />
+      id: "05",
+      title: "SCALE",
+      icon: Rocket,
+      items: ["Campaign Optimization", "Creative Testing", "Audience Testing", "Budget Scaling"]
     }
   ];
 
   return (
-    <section id="capabilities" className="py-20 md:py-32 relative overflow-hidden text-[#18221B] bg-[#fdf8ed]">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image 
-          src="/images/landing/section-bg.png"
-          alt="Section Background"
-          fill
-          className="object-cover object-center"
-          quality={100}
-        />
-      </div>
+    <section id="growth-system" className="py-20 md:py-32 bg-[url('/images/landing/bg2.png')] bg-cover bg-center bg-no-repeat text-[#18221B] overflow-hidden relative border-t border-[#DDDCCF]">
+      {/* Light overlay to maintain readability of the heading */}
+      <div className="absolute inset-0 bg-white/40"></div>
 
-      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 relative z-10">
+      <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20 relative z-10">
         
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16 border-b border-[#2F4034]/20 pb-8">
-          <div className="max-w-2xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 backdrop-blur-sm border border-[#18221B]/10 text-[#174A2A] text-xs font-bold tracking-widest uppercase mb-6"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#6F8B63]"></span>
-              Our Capabilities
-            </motion.div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-            >
-              The Full-Stack <br />
-              <span className="text-[#6F8B63] italic">Growth Engine.</span>
-            </motion.h2>
-          </div>
-          
-          <motion.p 
+        <div className="max-w-4xl mx-auto text-center mb-20 relative z-10">
+          <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[#5F675F] text-base md:text-lg leading-relaxed max-w-md md:text-right font-medium"
+            className="font-playfair text-[28px] sm:text-3xl md:text-5xl font-bold leading-[1.2] mb-6"
           >
-            Everything you need to scale your Ayurveda business, housed under one roof. No fragmented strategies, just one cohesive system.
-          </motion.p>
+            We Don't Just Run Ads. <br className="hidden md:block" />
+            <span className="text-[#FF6900]">We Build the System <br className="md:hidden" /> Behind Your Growth.</span>
+          </motion.h2>
         </div>
 
-        {/* 2-Column List Layout */}
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 md:gap-y-10">
-          {capabilities.map((cap, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {steps.map((step, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex items-center gap-4 group"
+              className="bg-white border border-[#DDDCCF] rounded-3xl p-6 shadow-sm hover:shadow-2xl hover:shadow-[#FF6900]/10 hover:border-[#FF6900]/30 transition-all duration-300 flex flex-col h-full relative group hover:-translate-y-2"
             >
-              <div className="w-12 h-12 shrink-0 rounded-full bg-white text-[#174A2A] flex items-center justify-center border border-[#DDDCCF] shadow-sm group-hover:bg-[#174A2A] group-hover:text-white transition-all duration-300">
-                {cap.icon}
+              <div className="w-14 h-14 rounded-2xl bg-[#FF6900]/10 flex items-center justify-center mb-6 relative z-10 group-hover:bg-[#FF6900] transition-colors duration-300">
+                <step.icon className="text-[#FF6900] group-hover:text-white transition-colors duration-300" size={28} />
               </div>
-              <h3 className="font-playfair text-xl md:text-2xl font-bold text-[#18221B] group-hover:text-[#174A2A] transition-colors drop-shadow-sm">
-                {cap.title}
-              </h3>
+              
+              <h3 className="font-playfair text-xl md:text-2xl font-bold mb-6 tracking-widest text-[#18221B] relative z-10 uppercase">{step.title}</h3>
+              
+              <ul className="flex-1 flex flex-col gap-3 relative z-10">
+                {step.items.map((item, iIndex) => (
+                  <li key={iIndex} className="text-[#5F675F] font-medium text-sm flex items-start gap-2">
+                    <span className="text-[#FF6900] mt-1 text-[10px]">●</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
-        </div>
-
-        {/* CTA Button */}
-        <div className="mt-16 flex justify-center">
-          <a href="#contact" className="bg-[#174A2A] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#10351F] transition-all shadow-xl shadow-[#174A2A]/20 flex items-center gap-3 uppercase tracking-wider hover:scale-[1.02]">
-            Ready to scale? GET FREE AUDIT <span>→</span>
-          </a>
         </div>
 
       </div>
