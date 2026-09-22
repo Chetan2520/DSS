@@ -144,6 +144,11 @@
   }
 }
 
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 html, body {
   background: #050505;
   margin: 0;

@@ -218,25 +218,23 @@ export default function Navbar() {
     <>
       <nav
         ref={navRef}
-        className={`top-0 left-0 w-full z-50 transition-all duration-300 ${isSubPage ? "sticky" : "fixed"} ${
-          isCaseStudiesList
-            ? (isScrolled ? "bg-white/90 backdrop-blur-xl py-2 border-b border-slate-200" : "bg-white py-2 border-b border-slate-200")
-            : (isScrolled
-                ? "bg-black/60 backdrop-blur-xl py-2 border-b border-white/5"
-                : isSubPage
-                  ? "bg-black py-2 border-b border-white/10"
-                  : "bg-transparent py-3"
-              )
-        }`}
+        className={`top-0 left-0 w-full z-50 transition-all duration-300 ${isSubPage ? "sticky" : "fixed"} ${isCaseStudiesList
+          ? (isScrolled ? "bg-white/90 backdrop-blur-xl py-2 border-b border-slate-200" : "bg-white py-2 border-b border-slate-200")
+          : (isScrolled
+            ? "bg-black/60 backdrop-blur-xl py-2 border-b border-white/5"
+            : isSubPage
+              ? "bg-black py-2 border-b border-white/10"
+              : "bg-transparent py-3"
+          )
+          }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
-          <Link 
-            href="/" 
-            className={`flex items-center shrink-0 cursor-pointer transition-all duration-300 ${
-              isCaseStudiesList 
-                ? "bg-zinc-900 px-4 pt-2 pb-3 rounded-b-xl -mt-2 shadow-md self-start flex items-center" 
-                : ""
-            }`}
+          <Link
+            href="/"
+            className={`flex items-center shrink-0 cursor-pointer transition-all duration-300 ${isCaseStudiesList
+              ? "bg-zinc-900 px-4 pt-2 pb-3 rounded-b-xl -mt-2 shadow-md self-start flex items-center"
+              : ""
+              }`}
           >
             <Image
               src="/images/logo.png"
