@@ -29,11 +29,11 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-20 md:py-32 bg-[#F8F5EA]">
+    <section id="testimonials" className="py-12 md:py-20 bg-[#F8F5EA]">
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20">
         
         <div className="text-center mb-16">
-          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: text-[#18221B] mb-6">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] md: text-[#18221B] mb-6">
             What Our Clients Say
           </h2>
           <div className="flex justify-center">
@@ -73,7 +73,7 @@ export default function Testimonials() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#18221B] text-sm">{testimonial.name}</h4>
+                  <h4 className="font-semibold text-[#18221B] text-sm">{testimonial.name}</h4>
                   <p className="text-[#5F675F] text-xs mb-1">{testimonial.title}</p>
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (

@@ -1,7 +1,7 @@
 import Hero from "./components/Hero";
 import TrustStrip from "./components/TrustStrip";
 import Challenge from "./components/Challenge";
-import CostOfProblem from "./components/CostOfProblem";
+import WhyChooseUs from "./components/WhyChooseUs";
 
 import Specialization from "./components/Specialization";
 import CorePromise from "./components/CorePromise";
@@ -14,6 +14,7 @@ import BeforeAfter from "./components/BeforeAfter";
 
 import ReelsShowcase from "./components/ReelsShowcase";
 import ClientBrandsReels from "./components/ClientBrandsReels";
+import StatsSection from "./components/StatsSection";
 
 import Process from "./components/Process";
 import WhoThisIsFor from "./components/WhoThisIsFor";
@@ -22,6 +23,7 @@ import AuthorityStats from "./components/AuthorityStats";
 
 import GrowthAuditOffer from "./components/GrowthAuditOffer";
 import FAQ from "./components/FAQ";
+import CTAStrip from "./components/CTAStrip";
 import LeadForm from "./components/LeadForm";
 
 export const metadata = {
@@ -39,12 +41,13 @@ export default function LandingPage() {
       {/* High Engagement Video Proof */}
       <ReelsShowcase />
       <ClientBrandsReels />
+      <StatsSection />
 
       <Challenge />
-      <CostOfProblem />
 
       {/* PHASE 2: Specialization & Solution */}
-      <Specialization />
+      <WhyChooseUs />
+      {/* <Specialization /> */}
       <CorePromise />
       <GrowthEngine />
       <ServicesList />
@@ -55,14 +58,15 @@ export default function LandingPage() {
       <BeforeAfter />
 
       {/* PHASE 4: Process, Transparency, and Qualification */}
-      <Process />
+      {/* <Process /> */}
       <WhoThisIsFor />
       <Testimonials />
-      <AuthorityStats />
+      {/* <AuthorityStats /> */}
 
       {/* PHASE 5: The Offer & Conversion */}
-      <GrowthAuditOffer />
+      {/* <GrowthAuditOffer /> */}
       <FAQ />
+      <CTAStrip />
       <LeadForm />
     </main>
   );

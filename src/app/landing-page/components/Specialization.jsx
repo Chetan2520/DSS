@@ -19,7 +19,7 @@ export default function Specialization() {
   ];
 
   return (
-    <section className="relative py-20 md:py-32 bg-[url('/images/landing/bgg.png')] bg-cover bg-center bg-no-repeat border-t border-[#DDDCCF]">
+    <section className="relative py-12 md:py-20 bg-[url('/images/landing/bgg.png')] bg-cover bg-center bg-no-repeat border-t border-[#DDDCCF]">
       {/* No overlay to show background image at full 100% opacity as requested */}
       {/* <div className="absolute inset-0 bg-white/40"></div> */}
 
@@ -35,7 +35,7 @@ export default function Specialization() {
             transition={{ duration: 0.8 }}
             className="lg:w-1/2 flex flex-col"
           >
-            <h2 className="font-playfair text-4xl sm:text-5xl lg:text-[56px] font-bold leading-[1.1] text-[#18221B] mb-8">
+            <h2 className="font-playfair text-4xl sm:text-5xl lg:text-[56px] font-semibold leading-[1.1] text-[#18221B] mb-8">
               Ayurvedic & Wellness <br />
               <span className="text-[#FF6900]">Marketing Is Different.</span>
             </h2>
@@ -45,7 +45,7 @@ export default function Specialization() {
             </p>
 
             <div>
-              <h3 className="font-sans font-bold text-[#5B8266] mb-8 uppercase tracking-[0.2em] text-sm flex items-center gap-4">
+              <h3 className="font-sans font-semibold text-[#5B8266] mb-8 uppercase tracking-[0.2em] text-sm flex items-center gap-4">
                 Your customers demand
                 <div className="h-px bg-[#5B8266]/30 flex-grow max-w-[100px]"></div>
               </h3>
@@ -56,7 +56,7 @@ export default function Specialization() {
                     <div className="shrink-0 bg-[#F8F5EA] w-10 h-10 rounded-full flex items-center justify-center">
                       <need.icon className="text-[#FF6900]" size={20} strokeWidth={2} />
                     </div>
-                    <span className="text-[#18221B] font-bold text-[15px] leading-snug pt-2">{need.text}</span>
+                    <span className="text-[#18221B] font-semibold text-[15px] leading-snug pt-2">{need.text}</span>
                   </div>
                 ))}
               </div>
@@ -72,7 +72,7 @@ export default function Specialization() {
             className="lg:w-1/2 w-full lg:pl-10"
           >
             <div className="h-full flex flex-col pt-8 lg:pt-0">
-              <h3 className="font-playfair text-3xl md:text-4xl font-bold text-[#18221B] mb-8 relative inline-block">
+              <h3 className="font-playfair text-3xl md:text-4xl font-semibold text-[#18221B] mb-8 relative inline-block">
                 We Work With
                 <span className="absolute -bottom-4 left-0 w-16 h-1.5 bg-[#FF6900]"></span>
               </h3>

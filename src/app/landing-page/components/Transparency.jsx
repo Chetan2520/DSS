@@ -12,7 +12,7 @@ export default function Transparency() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-[#F8F5EA] text-[#18221B]">
+    <section className="py-12 md:py-20 bg-[#F8F5EA] text-[#18221B]">
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20">
         
         <div className="max-w-4xl mx-auto text-center mb-16">
@@ -20,7 +20,7 @@ export default function Transparency() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-4xl md:text-5xl font-bold leading-[1.2] mb-6 text-[#18221B]"
+            className="font-playfair text-4xl md:text-5xl font-semibold leading-[1.2] mb-6 text-[#18221B]"
           >
             You Should Always Know Where Your <br />
             <span className="text-[#5B8266]">Marketing Is Going.</span>
@@ -47,7 +47,7 @@ export default function Transparency() {
                 <div className="w-24 h-24 rounded-full bg-white border-2 border-[#DDDCCF] flex items-center justify-center mb-6 shadow-sm group-hover:border-[#5B8266] group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300">
                   <step.icon className="text-[#5B8266] group-hover:scale-110 transition-transform duration-300" size={36} />
                 </div>
-                <h3 className="font-playfair font-bold text-sm md:text-base text-[#18221B] tracking-widest uppercase">{step.title}</h3>
+                <h3 className="font-playfair font-semibold text-sm md:text-base text-[#18221B] tracking-widest uppercase">{step.title}</h3>
 
                 {index < steps.length - 1 && (
                   <div className="md:hidden mt-4 mb-4">
@@ -68,15 +68,15 @@ export default function Transparency() {
         >
           <div className="flex items-center gap-3">
             <div className="w-2.5 h-2.5 rounded-full bg-[#FF6900]" />
-            <span className="font-bold tracking-widest uppercase text-xs md:text-sm text-[#18221B]">Clear reporting</span>
+            <span className="font-semibold tracking-widest uppercase text-xs md:text-sm text-[#18221B]">Clear reporting</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-2.5 h-2.5 rounded-full bg-[#FF6900]" />
-            <span className="font-bold tracking-widest uppercase text-xs md:text-sm text-[#18221B]">Clear communication</span>
+            <span className="font-semibold tracking-widest uppercase text-xs md:text-sm text-[#18221B]">Clear communication</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-2.5 h-2.5 rounded-full bg-[#FF6900]" />
-            <span className="font-bold tracking-widest uppercase text-xs md:text-sm text-[#18221B]">Clear ownership</span>
+            <span className="font-semibold tracking-widest uppercase text-xs md:text-sm text-[#18221B]">Clear ownership</span>
           </div>
         </motion.div>
 

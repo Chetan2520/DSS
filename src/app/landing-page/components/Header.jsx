@@ -13,7 +13,7 @@ export default function Header() {
           <div className="flex-shrink-0 flex items-center">
             {/* Replace with actual logo or text logo */}
             <Link href="/" className="flex items-center gap-2">
-              <span className="font-playfair font-bold text-2xl text-[#5B8266]">Digital Success Solutions</span>
+              <span className="font-playfair font-semibold text-2xl text-[#5B8266]">Digital Success Solutions</span>
             </Link>
           </div>
           

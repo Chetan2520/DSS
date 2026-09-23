@@ -212,27 +212,32 @@ export default function Navbar() {
   };
 
   const isCaseStudiesList = pathname.startsWith("/case-studies");
-  const linkColor = isCaseStudiesList ? "text-slate-800 hover:text-[#FF6900]" : "text-white hover:text-[#FF6900]";
+  const isLandingPage = pathname.includes("/landing-page");
+  const isLightTheme = isCaseStudiesList || isLandingPage;
+  const linkColor = isLightTheme ? "text-[#18221B] hover:text-[#5B8266] font-medium" : "text-white hover:text-[#FF6900]";
 
   return (
     <>
       <nav
         ref={navRef}
-        className={`top-0 left-0 w-full z-50 transition-all duration-300 ${isSubPage ? "sticky" : "fixed"} ${isCaseStudiesList
-          ? (isScrolled ? "bg-white/90 backdrop-blur-xl py-2 border-b border-slate-200" : "bg-white py-2 border-b border-slate-200")
-          : (isScrolled
-            ? "bg-black/60 backdrop-blur-xl py-2 border-b border-white/5"
-            : isSubPage
-              ? "bg-black py-2 border-b border-white/10"
-              : "bg-transparent py-3"
-          )
-          }`}
+        className={`top-0 left-0 w-full z-50 transition-all duration-300 ${(!isSubPage || isLandingPage) ? "fixed" : "sticky"} ${
+          isLandingPage
+            ? (isScrolled ? "bg-[#F8F5EA]/90 backdrop-blur-xl py-2 border-b border-[#DDDCCF]" : "bg-white/40 backdrop-blur-md py-3 border-b border-white/30")
+            : isCaseStudiesList
+              ? (isScrolled ? "bg-white/90 backdrop-blur-xl py-2 border-b border-slate-200" : "bg-white py-2 border-b border-slate-200")
+              : (isScrolled
+                ? "bg-black/60 backdrop-blur-xl py-2 border-b border-white/5"
+                : isSubPage
+                  ? "bg-black py-2 border-b border-white/10"
+                  : "bg-transparent py-3"
+              )
+        }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link
             href="/"
-            className={`flex items-center shrink-0 cursor-pointer transition-all duration-300 ${isCaseStudiesList
-              ? "bg-zinc-900 px-4 pt-2 pb-3 rounded-b-xl -mt-2 shadow-md self-start flex items-center"
+            className={`flex items-center shrink-0 cursor-pointer transition-all duration-300 ${isLightTheme
+              ? "bg-[#18221B] px-4 pt-2 pb-3 rounded-b-xl -mt-2 md:-mt-4 shadow-md self-start flex items-center"
               : ""
               }`}
           >
@@ -303,13 +308,13 @@ export default function Navbar() {
 
           {/* ACTION BUTTONS */}
           <div className="flex items-center gap-6">
-            <div className={`hidden xl:flex items-center gap-4 border-r ${isCaseStudiesList ? "border-slate-200" : "border-white/20"} pr-6 mr-2`}>
-              <PhoneCall size={20} className="text-[#FF6900]" />
+            <div className={`hidden xl:flex items-center gap-4 border-r ${isLightTheme ? "border-slate-300" : "border-white/20"} pr-6 mr-2`}>
+              <PhoneCall size={20} className={isLandingPage ? "text-[#5B8266]" : "text-[#FF6900]"} />
               <div className="flex flex-col">
-                <span className={`text-[11px] ${isCaseStudiesList ? "text-slate-500" : "text-zinc-300"} font-medium tracking-widest uppercase mb-0.5`}>
+                <span className={`text-[11px] ${isLightTheme ? "text-slate-500" : "text-zinc-300"} font-medium tracking-widest uppercase mb-0.5`}>
                   Talk to an Expert
                 </span>
-                <a href="tel:+916264398990" className={`font-bold text-[15px] ${isCaseStudiesList ? "text-slate-800 hover:text-[#FF6900]" : "text-white hover:text-[#FF6900]"} transition-colors leading-none tracking-wide`}>
+                <a href="tel:+916264398990" className={`font-bold text-[15px] ${isLightTheme ? "text-[#18221B] hover:text-[#5B8266]" : "text-white hover:text-[#FF6900]"} transition-colors leading-none tracking-wide`}>
                   +91 62643 98990
                 </a>
               </div>
@@ -325,11 +330,11 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className={`lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 ${isCaseStudiesList ? "bg-slate-100" : "bg-white/10"} rounded-full`}
+              className={`lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 ${isLightTheme ? "bg-[#18221B]/10 hover:bg-[#18221B]/20" : "bg-white/10 hover:bg-white/20"} rounded-full transition-colors`}
             >
-              <span className={`w-5 h-[2px] ${isCaseStudiesList ? "bg-slate-800" : "bg-white"}`} />
-              <span className={`w-5 h-[2px] ${isCaseStudiesList ? "bg-slate-800" : "bg-white"}`} />
-              <span className={`w-5 h-[2px] ${isCaseStudiesList ? "bg-slate-800" : "bg-white"}`} />
+              <span className={`w-5 h-[2px] ${isLightTheme ? "bg-[#18221B]" : "bg-white"}`} />
+              <span className={`w-5 h-[2px] ${isLightTheme ? "bg-[#18221B]" : "bg-white"}`} />
+              <span className={`w-5 h-[2px] ${isLightTheme ? "bg-[#18221B]" : "bg-white"}`} />
             </button>
           </div>
         </div>

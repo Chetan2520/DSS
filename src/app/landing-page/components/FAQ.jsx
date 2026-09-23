@@ -26,7 +26,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="w-full max-w-[1000px] mx-auto px-6 sm:px-8 lg:px-12">
         
         <div className="text-center mb-16">
@@ -34,7 +34,7 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-3xl md:text-3xl font-bold leading-[1.1] text-[#18221B] mb-4"
+            className="font-playfair text-3xl md:text-3xl font-semibold leading-[1.1] text-[#18221B] mb-4"
           >
             Frequently Asked <span className="text-[#5B8266]">Questions</span>
           </motion.h2>
@@ -54,7 +54,7 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
                 className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
               >
-                <span className="font-bold text-[#18221B] text-lg pr-4">{faq.question}</span>
+                <span className="font-semibold text-[#18221B] text-lg pr-4">{faq.question}</span>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${openIndex === index ? 'bg-[#5B8266] text-white' : 'bg-white text-[#5B8266] border border-[#DDDCCF]'}`}>
                   {openIndex === index ? <Minus size={16} /> : <Plus size={16} />}
                 </div>

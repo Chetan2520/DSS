@@ -1,111 +1,82 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { AlertCircle, TrendingDown, Target } from "lucide-react";
 
 export default function Challenge() {
-  const challenges = [
+  const painPoints = [
     {
-      title: "Ads are running, but quality leads are low.",
-      description: "Your campaigns generate enquiries, but too many aren't the right fit."
+      title: "Poor Targeting & Low-Quality Leads",
+      description: "Ads generate traffic, but too many inquiries aren't the right fit for your Ayurvedic brand.",
+      icon: Target
     },
     {
-      title: "Sales aren't growing despite increasing ad spend.",
-      description: "More traffic doesn't always mean more customers."
+      title: "Low Conversions & Wasted Spend",
+      description: "Your website gets visitors, but they leave without buying, burning through your ad budget.",
+      icon: TrendingDown
     },
     {
-      title: "Your social media gets attention, but not enough business.",
-      description: "Likes and followers don't necessarily translate into revenue."
-    },
-    {
-      title: "Your website gets visitors, but conversions remain low.",
-      description: "Potential customers leave without taking action."
-    },
-    {
-      title: "You're unsure what's actually working.",
-      description: "Ads, creatives, landing pages and follow-ups operate separately, making it difficult to identify where growth is being lost."
+      title: "Unpredictable & Stagnant Growth",
+      description: "Marketing efforts are disconnected, making it impossible to scale sales predictably.",
+      icon: AlertCircle
     }
   ];
 
   return (
-    <section id="challenge" className="py-20 md:py-32 bg-white border-t border-[#DDDCCF]">
+    <section id="challenge" className="py-12 md:py-20 bg-white border-t border-[#DDDCCF] overflow-hidden">
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20">
-
-        <div className="max-w-4xl mx-auto text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-playfair text-3xl md:text-3xl lg:text-3xl font-bold leading-[1.1] mb-6 text-[#18221B] tracking-tight"
-          >
-            Your Brand Doesn't Need <br className="sm:hidden" />
-            <span className="italic text-[#5B8266]">More</span> Marketing. <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>It Needs <span className="text-[#5B8266]">Better</span> Marketing.
-          </motion.h2>
-
+        
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+          
+          {/* Left Content - Simplified Text */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-base md:text-lg text-[#5F675F] max-w-2xl mx-auto"
-          >
-            <p className="mb-2">You may already be running ads, posting content and investing in your website.</p>
-            <p className="font-semibold text-[#18221B]">But are those efforts actually translating into growth?</p>
-          </motion.div>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:w-1/3 lg:sticky lg:top-[120px] flex flex-col"
+            className="lg:w-1/2 flex flex-col"
           >
-            <h3 className="font-playfair text-4xl md:text-[42px] font-bold leading-[1.1] mb-6 text-[#18221B]">
-              Are You Facing <br />
-              <span className="whitespace-nowrap">These Challenges?</span>
-            </h3>
+            <h2 className="font-playfair text-4xl md:text-5xl font-semibold leading-[1.1] mb-6 text-[#18221B]">
+              Is Your Funnel <br className="hidden sm:block" />
+              <span className="text-[#FF6900]">Losing Growth?</span>
+            </h2>
 
-            <div className="p-6 bg-[#f8f5ea] rounded-2xl border border-[#DDDCCF] mt-8">
-              <h4 className="font-bold text-[#18221B] mb-3 uppercase tracking-wider text-sm">The Real Problem</h4>
-              <p className="text-[#18221B] leading-relaxed">
-                Your marketing channels may be working individually, but your <span className="font-bold text-[#5B8266]">customer acquisition system</span> isn't working together.
-              </p>
-            </div>
-
-            <p className="text-[#5F675F] text-lg leading-relaxed mt-8">
-              We help identify where your funnel is losing potential customers and build a high-converting system to fix it.
+            <p className="text-[#5F675F] text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
+              You don't need <span className="italic text-[#5B8266] font-semibold">more</span> marketing. You need a system that fixes the leaks in your customer acquisition journey.
             </p>
-          </motion.div>
 
-          {/* Right Content / Problem List */}
-          <div className="lg:w-2/3 w-full">
-            <div className="flex flex-col border-t border-[#5B8266]/20">
-              {challenges.map((challenge, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group py-8 md:py-10 border-b border-[#5B8266]/20 hover:border-[#5B8266] transition-colors duration-500 flex flex-col md:flex-row gap-6 md:gap-8 items-start"
-                >
-                  <div className="font-playfair text-3xl md:text-3xl font-black text-[#5B8266]/20 group-hover:text-[#5B8266] transition-colors duration-500 select-none shrink-0 mt-1">
-                    0{index + 1}
+            <div className="flex flex-col gap-6">
+              {painPoints.map((point, index) => (
+                <div key={index} className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-full bg-[#F8F5EA] group-hover:bg-[#FF6900]/10 flex items-center justify-center shrink-0 transition-colors duration-300">
+                    <point.icon className="text-[#5B8266] group-hover:text-[#FF6900] transition-colors duration-300" size={24} />
                   </div>
                   <div>
-                    <h3 className="font-playfair text-4xl font-bold text-[#18221B] mb-3 group-hover:text-[#5B8266] transition-colors duration-500">
-                      {challenge.title}
-                    </h3>
-                    <p className="text-[#5F675F] text-lg leading-relaxed">
-                      {challenge.description}
-                    </p>
+                    <h3 className="font-semibold text-[#18221B] text-lg mb-1">{point.title}</h3>
+                    <p className="text-[#5F675F] text-sm leading-relaxed">{point.description}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </div>
+          </motion.div>
+
+          {/* Right Content - Generated Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:w-1/2 w-full flex justify-center"
+          >
+            <div className="relative w-full max-w-md aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100">
+              <img 
+                src="/images/landing/funnel_challenge.jpg" 
+                alt="Marketing Funnel Challenge" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 rounded-[2.5rem] shadow-[inset_0_0_40px_rgba(0,0,0,0.1)] pointer-events-none"></div>
+            </div>
+          </motion.div>
 
         </div>
       </div>

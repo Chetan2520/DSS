@@ -37,7 +37,7 @@ export default function GrowthEngine() {
   ];
 
   return (
-    <section id="growth-system" className="py-20 md:py-32 bg-[url('/images/landing/bg2.png')] bg-cover bg-center bg-no-repeat text-[#18221B] overflow-hidden relative border-t border-[#DDDCCF]">
+    <section id="growth-system" className="py-12 md:py-20 bg-[url('/images/landing/bg2.png')] bg-cover bg-center bg-no-repeat text-[#18221B] overflow-hidden relative border-t border-[#DDDCCF]">
       {/* Light overlay to maintain readability of the heading */}
       <div className="absolute inset-0 bg-white/40"></div>
 
@@ -48,7 +48,7 @@ export default function GrowthEngine() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-[28px] sm:text-3xl md:text-5xl font-bold leading-[1.2] mb-6"
+            className="font-playfair text-[28px] sm:text-3xl md:text-5xl font-semibold leading-[1.2] mb-6"
           >
             We Don't Just Run Ads. <br className="hidden md:block" />
             <span className="text-[#FF6900]">We Build the System <br className="md:hidden" /> Behind Your Growth.</span>
@@ -69,7 +69,7 @@ export default function GrowthEngine() {
                 <step.icon className="text-[#FF6900] group-hover:text-white transition-colors duration-300" size={28} />
               </div>
               
-              <h3 className="font-playfair text-xl md:text-2xl font-bold mb-6 tracking-widest text-[#18221B] relative z-10 uppercase">{step.title}</h3>
+              <h3 className="font-playfair text-xl md:text-2xl font-semibold mb-6 tracking-widest text-[#18221B] relative z-10 uppercase">{step.title}</h3>
               
               <ul className="flex-1 flex flex-col gap-3 relative z-10">
                 {step.items.map((item, iIndex) => (

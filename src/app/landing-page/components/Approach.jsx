@@ -29,7 +29,7 @@ export default function Approach() {
 
 
   return (
-    <section id="authority" className="py-20 md:py-32 bg-[#F8F5EA] overflow-hidden relative">
+    <section id="authority" className="py-12 md:py-20 bg-[#F8F5EA] overflow-hidden relative">
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
@@ -43,7 +43,7 @@ export default function Approach() {
             className="lg:col-span-6 flex flex-col h-full"
           >
             
-            <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] sm: md: lg: mb-6 md:mb-8 text-[#18221B]">
+            <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] sm: md: lg: mb-6 md:mb-8 text-[#18221B]">
               We understand <br className="block sm:hidden" />
               <span className="hidden sm:inline">the </span>
               <span className="sm:hidden">the </span>
@@ -76,14 +76,14 @@ export default function Approach() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-8">
-                    <span className="text-sm font-bold tracking-widest text-[#5B8266] bg-[#F8F5EA] px-3 py-1 rounded-full border border-[#DDDCCF]">{spec.number}</span>
+                    <span className="text-sm font-semibold tracking-widest text-[#5B8266] bg-[#F8F5EA] px-3 py-1 rounded-full border border-[#DDDCCF]">{spec.number}</span>
                     <div className="w-8 h-8 rounded-full bg-[#F8F5EA] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 11L11 1M11 1H3.5M11 1V8.5" stroke="#5B8266" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                   </div>
-                  <h3 className="text-xl font-playfair font-bold text-[#18221B] mb-4 group-hover:text-[#5B8266] transition-colors">{spec.title}</h3>
+                  <h3 className="text-xl font-playfair font-semibold text-[#18221B] mb-4 group-hover:text-[#5B8266] transition-colors">{spec.title}</h3>
                 </div>
                 <p className="text-[#5F675F] text-sm leading-relaxed">{spec.description}</p>
               </div>

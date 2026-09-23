@@ -49,7 +49,7 @@ export default function ServicesList() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-[#F8F5EA] border-t border-[#DDDCCF]">
+    <section className="py-12 md:py-20 bg-[#F8F5EA] border-t border-[#DDDCCF]">
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20">
         
         <div className="max-w-4xl mx-auto text-center mb-16">
@@ -57,7 +57,7 @@ export default function ServicesList() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-[28px] sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.2] mb-6 text-[#18221B] tracking-tight"
+            className="font-playfair text-[28px] sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.2] mb-6 text-[#18221B] tracking-tight"
           >
             Everything Your Brand Needs <br className="sm:hidden" />
             to Build a Stronger <br className="hidden sm:block" />
@@ -99,11 +99,11 @@ export default function ServicesList() {
                   
                   {/* Bottom Text Content - Pushed down by mt-auto */}
                   <div className="mt-auto flex flex-col">
-                    <p className={`text-[11px] ${subtitleColor} font-bold mb-3 tracking-[0.2em] uppercase`}>
+                    <p className={`text-[11px] ${subtitleColor} font-semibold mb-3 tracking-[0.2em] uppercase`}>
                       {service.subtitle}
                     </p>
                     
-                    <h3 className={`font-playfair font-bold ${textColor} mb-4 ${hoverTitle} transition-colors duration-500 ${isFeatured || isWide ? 'text-3xl md:text-4xl lg:text-[42px] leading-[1.1]' : 'text-2xl md:text-[28px] leading-tight'}`}>
+                    <h3 className={`font-playfair font-semibold ${textColor} mb-4 ${hoverTitle} transition-colors duration-500 ${isFeatured || isWide ? 'text-3xl md:text-4xl lg:text-[42px] leading-[1.1]' : 'text-2xl md:text-[28px] leading-tight'}`}>
                       {service.title}
                     </h3>
                     

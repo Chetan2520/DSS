@@ -10,11 +10,11 @@ export default function Results() {
   ];
 
   return (
-    <section id="results" className="py-20 md:py-32 bg-[#F8F5EA] text-[#18221B]">
+    <section id="results" className="py-12 md:py-20 bg-[#F8F5EA] text-[#18221B]">
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20">
         
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] sm: md: mb-4">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] sm: md: mb-4">
             Different challenges. Different strategies. <br className="hidden md:block" />
             <span className="text-[#5B8266] italic">Measurable outcomes.</span>
           </h2>
@@ -34,7 +34,7 @@ export default function Results() {
               className="bg-white p-6 md:p-8 rounded-3xl border border-[#DDDCCF] text-center flex flex-col justify-center min-h-[200px] md:min-h-[250px] hover:-translate-y-2 transition-transform duration-300 shadow-sm"
             >
               <h3 className="font-playfair font-medium text-[#5B8266] text-sm md:text-base mb-4 md:mb-6">{item.title}</h3>
-              <p className="text-3xl md:text-3xl font-playfair font-bold text-[#5B8266] mb-2">{item.stat}</p>
+              <p className="text-3xl md:text-3xl font-playfair font-semibold text-[#5B8266] mb-2">{item.stat}</p>
               <p className="text-[#5F675F] text-xs md:text-sm uppercase tracking-wider">{item.sub}</p>
             </motion.div>
           ))}

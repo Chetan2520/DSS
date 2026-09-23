@@ -13,10 +13,10 @@ export default function AuthorityStats() {
   ];
 
   return (
-    <section id="authority-stats" className="py-20 md:py-32 overflow-hidden border-t border-[#DDDCCF] relative">
+    <section id="authority-stats" className="py-12 md:py-20 overflow-hidden border-t border-[#DDDCCF] relative">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image 
+        <Image
           src="/images/landing/bgg.png"
           alt="Authority Background"
           fill
@@ -26,9 +26,9 @@ export default function AuthorityStats() {
       </div>
 
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 relative z-10">
-        
+
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24">
-          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] sm: md: mb-4 text-[#18221B]">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] sm: md: mb-4 text-[#18221B]">
             Experience you can see <br className="hidden md:block" />
             <span className="text-[#5B8266]">in the numbers.</span>
           </h2>
@@ -47,10 +47,10 @@ export default function AuthorityStats() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col items-center"
             >
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-playfair font-bold text-[#5B8266] mb-4 md:mb-6 leading-none">
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-playfair font-semibold text-[#5B8266] mb-4 md:mb-6 leading-none">
                 {stat.value}
               </div>
-              <div className="text-[#5F675F] font-bold text-base sm:text-lg md:text-xl max-w-[260px] leading-snug uppercase tracking-wide">
+              <div className="text-[#5F675F] font-semibold text-base sm:text-lg md:text-xl max-w-[260px] leading-snug uppercase tracking-wide">
                 {stat.label}
               </div>
             </motion.div>

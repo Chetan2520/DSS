@@ -25,7 +25,7 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-[#F8F5EA] relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-20 bg-[#F8F5EA] relative overflow-hidden">
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
@@ -36,7 +36,7 @@ export default function LeadForm() {
             viewport={{ once: true }}
             className="lg:w-[45%]"
           >
-            <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: text-[#18221B] mb-6">
+            <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] md: text-[#18221B] mb-6">
               Let's Talk <span className="text-[#5B8266]">Growth.</span>
             </h2>
             <p className="text-lg text-[#5F675F] mb-8 font-medium leading-relaxed">
@@ -81,14 +81,14 @@ export default function LeadForm() {
                   <div className="w-20 h-20 bg-[#5B8266]/10 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 className="text-[#5B8266]" size={40} />
                   </div>
-                  <h3 className="font-playfair text-4xl font-bold text-[#18221B] mb-4">Request Received!</h3>
+                  <h3 className="font-playfair text-4xl font-semibold text-[#18221B] mb-4">Request Received!</h3>
                   <p className="text-[#5F675F] text-lg">We'll review your details and get back to you shortly to schedule your audit.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
-                      <label className="text-sm font-bold text-[#18221B]">Full Name *</label>
+                      <label className="text-sm font-semibold text-[#18221B]">Full Name *</label>
                       <input 
                         type="text" 
                         name="name"
@@ -100,7 +100,7 @@ export default function LeadForm() {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="text-sm font-bold text-[#18221B]">Email Address *</label>
+                      <label className="text-sm font-semibold text-[#18221B]">Email Address *</label>
                       <input 
                         type="email" 
                         name="email"
@@ -115,7 +115,7 @@ export default function LeadForm() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
-                      <label className="text-sm font-bold text-[#18221B]">Phone Number *</label>
+                      <label className="text-sm font-semibold text-[#18221B]">Phone Number *</label>
                       <input 
                         type="tel" 
                         name="phone"
@@ -127,7 +127,7 @@ export default function LeadForm() {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="text-sm font-bold text-[#18221B]">Website URL</label>
+                      <label className="text-sm font-semibold text-[#18221B]">Website URL</label>
                       <input 
                         type="url" 
                         name="website"
@@ -140,7 +140,7 @@ export default function LeadForm() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-sm font-bold text-[#18221B]">Monthly Marketing Budget *</label>
+                    <label className="text-sm font-semibold text-[#18221B]">Monthly Marketing Budget *</label>
                     <div className="relative">
                       <select 
                         name="budget"
@@ -162,7 +162,7 @@ export default function LeadForm() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-sm font-bold text-[#18221B]">What is your biggest growth bottleneck? *</label>
+                    <label className="text-sm font-semibold text-[#18221B]">What is your biggest growth bottleneck? *</label>
                     <textarea 
                       name="bottleneck"
                       required
@@ -176,7 +176,7 @@ export default function LeadForm() {
 
                   <button 
                     type="submit"
-                    className="w-full bg-[#5B8266] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#4A6D55] transition-all flex items-center justify-center gap-2 group shadow-xl"
+                    className="w-full bg-[#5B8266] text-white px-8 py-4 rounded-xl font-semibold uppercase tracking-widest text-sm hover:bg-[#4A6D55] transition-all flex items-center justify-center gap-2 group shadow-xl"
                   >
                     REQUEST MY AUDIT
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
