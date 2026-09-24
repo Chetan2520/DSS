@@ -50,16 +50,16 @@ export default function LandingPage() {
       {/* <Specialization /> */}
       <CorePromise />
       <GrowthEngine />
-      <ServicesList />
+      {/* <ServicesList /> */}
 
       {/* PHASE 3: Audience Segmentation & Proof */}
       <AudienceSpecific />
-      <Portfolio />
+      {/* <Portfolio /> */}
       <BeforeAfter />
 
       {/* PHASE 4: Process, Transparency, and Qualification */}
       {/* <Process /> */}
-      <WhoThisIsFor />
+      {/* <WhoThisIsFor /> */}
       <Testimonials />
       {/* <AuthorityStats /> */}
 

@@ -63,10 +63,17 @@ export default function BeforeAfter() {
             
             <ul className="space-y-6 relative z-10">
               {before.map((item, index) => (
-                <li key={index} className="flex items-start gap-4">
+                <motion.li 
+                  key={index} 
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
+                  className="flex items-start gap-4"
+                >
                   <XCircle className="text-[#A84A4A]/80 shrink-0 mt-0.5" size={24} strokeWidth={1.5} />
                   <span className="text-[#18221B] font-medium text-[17px] leading-relaxed">{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
@@ -85,12 +92,19 @@ export default function BeforeAfter() {
             
             <ul className="space-y-6 relative z-10">
               {after.map((item, index) => (
-                <li key={index} className="flex items-start gap-4">
+                <motion.li 
+                  key={index} 
+                  initial={{ opacity: 0, x: 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 + index * 0.1, duration: 0.4 }}
+                  className="flex items-start gap-4"
+                >
                   <div className="bg-[#5B8266]/10 rounded-full p-0.5 shrink-0 mt-0.5">
                     <CheckCircle2 className="text-[#5B8266]" size={20} strokeWidth={2.5} />
                   </div>
                   <span className="text-[#18221B] font-semibold text-[17px] leading-relaxed">{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>

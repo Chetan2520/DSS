@@ -42,16 +42,16 @@ export default function GrowthEngine() {
       <div className="absolute inset-0 bg-white/40"></div>
 
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20 relative z-10">
-        
+
         <div className="max-w-4xl mx-auto text-center mb-20 relative z-10">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="font-playfair text-[28px] sm:text-3xl md:text-5xl font-semibold leading-[1.2] mb-6"
           >
             We Don't Just Run Ads. <br className="hidden md:block" />
-            <span className="text-[#FF6900]">We Build the System <br className="md:hidden" /> Behind Your Growth.</span>
+            <span className="text-[#5B8266]">We Build the System <br className="md:hidden" /> Behind Your Growth.</span>
           </motion.h2>
         </div>
 
@@ -68,9 +68,9 @@ export default function GrowthEngine() {
               <div className="w-14 h-14 rounded-2xl bg-[#FF6900]/10 flex items-center justify-center mb-6 relative z-10 group-hover:bg-[#FF6900] transition-colors duration-300">
                 <step.icon className="text-[#FF6900] group-hover:text-white transition-colors duration-300" size={28} />
               </div>
-              
+
               <h3 className="font-playfair text-xl md:text-2xl font-semibold mb-6 tracking-widest text-[#18221B] relative z-10 uppercase">{step.title}</h3>
-              
+
               <ul className="flex-1 flex flex-col gap-3 relative z-10">
                 {step.items.map((item, iIndex) => (
                   <li key={iIndex} className="text-[#5F675F] font-medium text-sm flex items-start gap-2">

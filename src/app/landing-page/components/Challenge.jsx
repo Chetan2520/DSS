@@ -47,7 +47,14 @@ export default function Challenge() {
 
             <div className="flex flex-col gap-6">
               {painPoints.map((point, index) => (
-                <div key={index} className="flex items-start gap-4 group">
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + index * 0.15, duration: 0.5 }}
+                  className="flex items-start gap-4 group"
+                >
                   <div className="w-12 h-12 rounded-full bg-[#F8F5EA] group-hover:bg-[#FF6900]/10 flex items-center justify-center shrink-0 transition-colors duration-300">
                     <point.icon className="text-[#5B8266] group-hover:text-[#FF6900] transition-colors duration-300" size={24} />
                   </div>
@@ -55,27 +62,31 @@ export default function Challenge() {
                     <h3 className="font-semibold text-[#18221B] text-lg mb-1">{point.title}</h3>
                     <p className="text-[#5F675F] text-sm leading-relaxed">{point.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
           {/* Right Content - Generated Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 50 }}
             className="lg:w-1/2 w-full flex justify-center"
           >
-            <div className="relative w-full max-w-md aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100">
+            <motion.div 
+              whileHover={{ y: -10 }}
+              transition={{ duration: 0.4 }}
+              className="relative w-full max-w-md aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100"
+            >
               <img 
                 src="/images/landing/funnel_challenge.jpg" 
                 alt="Marketing Funnel Challenge" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 rounded-[2.5rem] shadow-[inset_0_0_40px_rgba(0,0,0,0.1)] pointer-events-none"></div>
-            </div>
+            </motion.div>
           </motion.div>
 
         </div>

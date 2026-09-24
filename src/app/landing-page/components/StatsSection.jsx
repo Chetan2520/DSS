@@ -16,23 +16,23 @@ export default function StatsSection() {
     <section className="relative py-12 md:py-20 overflow-hidden">
       {/* Base Background Color */}
       <div className="absolute inset-0 z-0 bg-[#F8F9F5]" />
-      
+
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image 
-          src="/images/landing/brand-bg.png" 
+        <Image
+          src="/images/landing/brand-bg.png"
           alt="Stats Background"
           fill
-          className="object-cover object-center opacity-100"
+          className="object-contain object-center opacity-100"
           quality={100}
           priority
         />
       </div>
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20 relative z-20">
-        
+
         {/* Header */}
         <div className="text-center mb-10 md:mb-14">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -40,7 +40,7 @@ export default function StatsSection() {
           >
             Real Brands. Real Results.
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
