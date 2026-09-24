@@ -1,10 +1,11 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Play, ArrowRight, PlayCircle } from "lucide-react";
 import { useRef, useState } from "react";
 import Image from "next/image";
 
 export default function ReelsShowcase() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const videos = [
     { src: "/images/landing/videos/dss_ayurveda1.mp4", title: "From 0 to 10K Sales\nNatural Skincare Brand" },
     { src: "/images/landing/videos/dss_ayurveda3.mp4", title: "Client Success Story\n200% Growth" },
@@ -40,7 +41,10 @@ export default function ReelsShowcase() {
               Short, actionable insights into how we navigate compliance, lower CAC, and drive high-intent customers to your brand.
             </p>
 
-            <button className="flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-[#DDDCCF] hover:border-[#5B8266] transition-all duration-300 group shadow-sm text-sm font-semibold text-[#18221B]">
+            <button 
+              onClick={() => setIsVideoOpen(true)}
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-[#DDDCCF] hover:border-[#5B8266] transition-all duration-300 group shadow-sm text-sm font-semibold text-[#18221B]"
+            >
               <PlayCircle className="text-[#5B8266] w-5 h-5 fill-current opacity-20 group-hover:opacity-100 transition-opacity" />
               Watch Video (2 min)
               <ArrowRight className="w-4 h-4 text-[#5F675F] group-hover:translate-x-1 transition-transform" />
@@ -55,9 +59,11 @@ export default function ReelsShowcase() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:w-2/3 w-full"
           >
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-5">
+            <div className="flex sm:grid sm:grid-cols-4 gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory pb-6 sm:pb-0 scrollbar-hide -mx-6 px-6 sm:mx-0 sm:px-0">
               {videos.map((vid, index) => (
-                <VideoCard key={index} video={vid} index={index} />
+                <div key={index} className="w-[60vw] sm:w-auto shrink-0 snap-center">
+                  <VideoCard video={vid} index={index} />
+                </div>
               ))}
             </div>
           </motion.div>
@@ -65,6 +71,40 @@ export default function ReelsShowcase() {
         </div>
 
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {isVideoOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
+            onClick={() => setIsVideoOpen(false)}
+          >
+            <motion.div 
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              className="relative w-full max-w-4xl bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10"
+              onClick={e => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setIsVideoOpen(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black rounded-full flex items-center justify-center text-white transition-colors"
+              >
+                ✕
+              </button>
+              <video 
+                src="/images/landing/videos/dss_ayurveda1.mp4" 
+                controls 
+                autoPlay 
+                className="w-full h-auto max-h-[85vh]"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

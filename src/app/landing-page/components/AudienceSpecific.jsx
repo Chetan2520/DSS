@@ -77,8 +77,17 @@ export default function AudienceSpecific() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-3xl border border-[#DDDCCF] shadow-sm hover:shadow-2xl transition-all duration-300 p-6 xl:p-8 flex flex-col group"
+                className={`bg-white rounded-3xl transition-all duration-300 p-6 xl:p-8 flex flex-col group relative ${
+                  index === 1 
+                    ? "border-2 border-[#5B8266] shadow-xl lg:scale-105 z-10" 
+                    : "border border-[#DDDCCF] shadow-sm hover:shadow-2xl"
+                }`}
               >
+                {index === 1 && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#5B8266] text-white px-5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-md">
+                    Most Popular
+                  </div>
+                )}
                 {/* Header */}
                 <div className="flex flex-col xl:flex-row xl:items-center gap-4 xl:gap-4 mb-6">
                   <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-2xl bg-[#5B8266]/10 flex items-center justify-center shrink-0 group-hover:bg-[#5B8266] transition-colors duration-300">
@@ -113,7 +122,11 @@ export default function AudienceSpecific() {
                 <div className="mt-auto pt-4">
                   <a 
                     href="#contact" 
-                    className="flex items-center justify-center w-full gap-2 py-3.5 px-4 rounded-xl bg-[#F8F5EA] text-[#FF6900] font-semibold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-[#FF6900] hover:text-white group/btn hover:shadow-md border border-transparent hover:border-[#FF6900]"
+                    className={`flex items-center justify-center w-full gap-2 py-3.5 px-4 rounded-xl font-semibold uppercase tracking-widest text-xs transition-all duration-300 hover:shadow-md group/btn border ${
+                      index === 1
+                        ? "bg-[#FF6900] text-white border-[#FF6900] hover:bg-[#e55e00] hover:border-[#e55e00]"
+                        : "bg-[#F8F5EA] text-[#FF6900] border-transparent hover:bg-[#FF6900] hover:text-white hover:border-[#FF6900]"
+                    }`}
                   >
                     {aud.cta}
                     <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
