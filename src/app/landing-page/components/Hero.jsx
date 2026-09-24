@@ -49,9 +49,9 @@ export default function Hero() {
           >
 
 
-            <h1 className="font-playfair text-[42px] sm:text-5xl md:text-[56px] lg:text-[64px] leading-[1.1] md:leading-[1.1] font-semibold mb-4 md:mb-6 text-[#18221B] tracking-tight">
-              Turn Your Ad Spend Into <br />
-              <span className="relative inline-block text-[#033619] z-10 mt-1 md:mt-2">
+            <h1 className="font-playfair text-[38px] sm:text-5xl md:text-[56px] lg:text-[64px] leading-[1.15] md:leading-[1.1] font-semibold mb-4 md:mb-6 text-[#18221B] tracking-tight">
+              Turn Ad Spend Into <br className="hidden sm:block" />
+              <span className="relative inline-block text-[#033619] z-10 sm:mt-1 md:mt-2">
                 Predictable Revenue.
                 {/* SVG Smooth Swoosh Underline */}
                 <svg className="absolute w-[105%] h-[12px] md:h-[16px] -bottom-0.5 -left-1 text-[#8CA694]/60 -z-10" preserveAspectRatio="none" viewBox="0 0 200 20" fill="none">
