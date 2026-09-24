@@ -7,10 +7,10 @@ import Image from "next/image";
 export default function ReelsShowcase() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const videos = [
-    { src: "/images/landing/videos/dss_ayurveda1.mp4", title: "From 0 to 10K Sales\nNatural Skincare Brand" },
-    { src: "/images/landing/videos/dss_ayurveda3.mp4", title: "Client Success Story\n200% Growth" },
-    { src: "/images/landing/videos/dss_ayurveda2.mp4", title: "Meta Ads Strategy\nFor Ayurvedic Brands" },
-    { src: "/images/landing/videos/dss_ayurveda4.mp4", title: "How We Improve\nROAS" },
+    { src: "/images/landing/videos/dss_ayurveda1.mp4", thumbnailTime: 1, title: "From 0 to 10K Sales\nNatural Skincare Brand" },
+    { src: "/images/landing/videos/dss_ayurveda3.mp4", thumbnailTime: 6, title: "Client Success Story\n200% Growth" },
+    { src: "/images/landing/videos/dss_ayurveda2.mp4", thumbnailTime: 3, title: "Meta Ads Strategy\nFor Ayurvedic Brands" },
+    { src: "/images/landing/videos/dss_ayurveda4.mp4", thumbnailTime: 4, title: "How We Improve\nROAS" },
   ];
 
   return (
@@ -41,7 +41,7 @@ export default function ReelsShowcase() {
               Short, actionable insights into how we navigate compliance, lower CAC, and drive high-intent customers to your brand.
             </p>
 
-            <button 
+            <button
               onClick={() => setIsVideoOpen(true)}
               className="flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-[#DDDCCF] hover:border-[#5B8266] transition-all duration-300 group shadow-sm text-sm font-semibold text-[#18221B]"
             >
@@ -75,30 +75,30 @@ export default function ReelsShowcase() {
       {/* Video Modal */}
       <AnimatePresence>
         {isVideoOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
             onClick={() => setIsVideoOpen(false)}
           >
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.95 }}
               className="relative w-full max-w-4xl bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10"
               onClick={e => e.stopPropagation()}
             >
-              <button 
+              <button
                 onClick={() => setIsVideoOpen(false)}
                 className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black rounded-full flex items-center justify-center text-white transition-colors"
               >
                 ✕
               </button>
-              <video 
-                src="/images/landing/videos/dss_ayurveda1.mp4" 
-                controls 
-                autoPlay 
+              <video
+                src="/images/landing/videos/dss_ayurveda1.mp4"
+                controls
+                autoPlay
                 className="w-full h-auto max-h-[85vh]"
               />
             </motion.div>
@@ -112,12 +112,17 @@ export default function ReelsShowcase() {
 function VideoCard({ video, index }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
+        if (!hasStarted) {
+          videoRef.current.currentTime = 0;
+          setHasStarted(true);
+        }
         videoRef.current.play();
       }
       setIsPlaying(!isPlaying);
@@ -135,7 +140,8 @@ function VideoCard({ video, index }) {
     >
       <video
         ref={videoRef}
-        src={video.src}
+        src={`${video.src}#t=${video.thumbnailTime || 3}`}
+        preload="metadata"
         className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
         loop
         playsInline

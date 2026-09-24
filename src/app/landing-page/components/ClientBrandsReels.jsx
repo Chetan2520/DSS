@@ -5,11 +5,10 @@ import { useRef, useState } from "react";
 
 export default function ClientBrandsReels() {
   const videos = [
-    { src: "/images/landing/videos/ad-video2.mp4", title: "Herbal Supplement Brand" },
-    { src: "/images/landing/videos/ad-video4.mp4", title: "Wellness Product Launch" },
-    { src: "/images/landing/videos/ad-video1.mp4", title: "Ayurveda D2C Brand" },
-    { src: "/images/landing/videos/ad-video3.mp4", title: "Ayurvedic Clinic Chain" },
-
+    { src: "/images/landing/videos/ad-video2.mp4", thumbnailTime: 2, title: "Herbal Supplement Brand" },
+    { src: "/images/landing/videos/ad-video4.mp4", thumbnailTime: 4, title: "Wellness Product Launch" },
+    { src: "/images/landing/videos/ad-video1.mp4", thumbnailTime: 4, title: "Ayurveda D2C Brand" },
+    { src: "/images/landing/videos/ad-video3.mp4", thumbnailTime: 4, title: "Ayurvedic Clinic Chain" },
   ];
 
   return (
@@ -85,12 +84,17 @@ export default function ClientBrandsReels() {
 function VideoCard({ video, index }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
+        if (!hasStarted) {
+          videoRef.current.currentTime = 0;
+          setHasStarted(true);
+        }
         videoRef.current.play();
       }
       setIsPlaying(!isPlaying);
@@ -108,7 +112,8 @@ function VideoCard({ video, index }) {
     >
       <video
         ref={videoRef}
-        src={video.src}
+        src={`${video.src}#t=${video.thumbnailTime || 3}`}
+        preload="metadata"
         className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
         loop
         playsInline

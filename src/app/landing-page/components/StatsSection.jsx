@@ -1,15 +1,48 @@
 "use client";
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, useInView, useSpring, useMotionValue } from "framer-motion";
 import Image from "next/image";
 import { Target, Briefcase, Users, IndianRupee, UserCog } from "lucide-react";
 
+function Counter({ from, to, prefix = "", suffix = "" }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const motionValue = useMotionValue(from);
+  const springValue = useSpring(motionValue, {
+    damping: 30,
+    stiffness: 80,
+    restDelta: 0.1
+  });
+
+  const [display, setDisplay] = useState(from);
+
+  useEffect(() => {
+    if (inView) {
+      motionValue.set(to);
+    }
+  }, [inView, motionValue, to]);
+
+  useEffect(() => {
+    const unsubscribe = springValue.on("change", (latest) => {
+      setDisplay(Math.floor(latest));
+    });
+    return () => unsubscribe();
+  }, [springValue]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{display}{suffix}
+    </span>
+  );
+}
+
 export default function StatsSection() {
   const stats = [
-    { icon: Target, value: "6+", label: "Years Experience" },
-    { icon: Briefcase, value: "1600+", label: "Projects Completed" },
-    { icon: Users, value: "950+", label: "Happy Clients" },
-    { icon: IndianRupee, value: "₹10 Cr+", label: "Ad Spend Managed" },
-    { icon: UserCog, value: "30+", label: "Experts Team" },
+    { icon: Target, num: 6, suffix: "+", label: "Years Experience" },
+    { icon: Briefcase, num: 1600, suffix: "+", label: "Projects Completed" },
+    { icon: Users, num: 950, suffix: "+", label: "Happy Clients" },
+    { icon: IndianRupee, num: 10, prefix: "₹", suffix: " Cr+", label: "Ad Spend Managed" },
+    { icon: UserCog, num: 30, suffix: "+", label: "Experts Team" },
   ];
 
   return (
@@ -20,13 +53,15 @@ export default function StatsSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/landing/brand-bg.png"
+          src="/images/landing/desktop-bg.png"
           alt="Stats Background"
           fill
-          className="object-contain object-center opacity-100"
+          className="object-cover object-center opacity-100"
           quality={100}
           priority
         />
+        {/* Blue Overlay */}
+        <div className="absolute inset-0 bg-[#F8F9F5]/60 md:bg-[#F8F9F5]/50 pointer-events-none"></div>
       </div>
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20 relative z-20">
 
@@ -66,7 +101,7 @@ export default function StatsSection() {
                 <stat.icon size={20} strokeWidth={2.5} />
               </div>
               <h3 className="text-2xl md:text-3xl font-semibold text-[#18221B] mb-1">
-                {stat.value}
+                <Counter from={0} to={stat.num} prefix={stat.prefix} suffix={stat.suffix} />
               </h3>
               <p className="text-[11px] md:text-xs font-semibold text-[#5F675F] text-center uppercase tracking-wider">
                 {stat.label}
