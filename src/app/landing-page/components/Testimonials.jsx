@@ -9,21 +9,21 @@ export default function Testimonials() {
       quote: "Digital Success Solutions truly understands Ayurveda. Our online sales have grown 3X in just 6 months!",
       name: "Dr. Meera Sharma",
       title: "Founder, AyurLife Herbs",
-      avatar: "/landing/testimonial-1.webp",
+      avatar: "https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZSUyMHBpY3xlbnwwfHwwfHx8MA%3D%3D",
       delay: 0.1
     },
     {
       quote: "Their team is professional, creative and result-oriented. Highly recommended for any Ayurvedic brand looking to grow.",
       name: "Rohit Vyas",
       title: "Director, Vyas Ayurveda",
-      avatar: "/landing/testimonial-2.webp",
+      avatar: "https://images.unsplash.com/photo-1722322426803-101270837197?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZSUyMHBpY3xlbnwwfHwwfHx8MA%3D%3D",
       delay: 0.2
     },
     {
       quote: "From strategy to execution, everything was smooth. We saw real leads and brand visibility like never before.",
       name: "Anjali Deshpande",
       title: "Owner, Prakriti Wellness Clinic",
-      avatar: "/landing/testimonial-3.webp",
+      avatar: "https://images.unsplash.com/photo-1564805280186-5d7056d538ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZSUyMHBpY3xlbnwwfHwwfHx8MA%3D%3D",
       delay: 0.3
     }
   ];
@@ -31,7 +31,7 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-12 md:py-20 bg-[#F8F5EA]">
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20">
-        
+
         <div className="text-center mb-16">
           <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] md: text-[#18221B] mb-6">
             What Our Clients Say
@@ -55,18 +55,18 @@ export default function Testimonials() {
               <div className="font-playfair text-3xl text-[#F8F5EA] absolute top-4 left-6 leading-none">
                 "
               </div>
-              
+
               <div className="relative z-10 flex-grow mb-8 pt-4">
                 <p className="text-[#18221B] italic leading-relaxed text-lg font-playfair">
                   "{testimonial.quote}"
                 </p>
               </div>
-              
+
               <div className="flex items-center gap-4 pt-6 border-t border-[#DDDCCF]">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden bg-[#F8F5EA] flex-shrink-0">
                   {/* Using a placeholder styling in case images are missing */}
-                  <Image 
-                    src={testimonial.avatar} 
+                  <Image
+                    src={testimonial.avatar}
                     alt={testimonial.name}
                     fill
                     className="object-cover"
@@ -85,7 +85,7 @@ export default function Testimonials() {
             </motion.div>
           ))}
         </div>
-        
+
       </div>
     </section>
   );

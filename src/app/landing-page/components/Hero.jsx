@@ -8,7 +8,7 @@ export default function Hero() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   return (
-    <section id="home" className="relative pt-32 md:pt-32 lg:pt-40 pb-16 overflow-hidden flex items-center min-h-screen">
+    <section id="home" className="relative pt-24 md:pt-32 lg:pt-40 pb-16 overflow-hidden flex items-center min-h-screen">
       {/* Background */}
       <div className="absolute inset-0 z-0 bg-[#F8F5EA]">
         {/* Mobile Background */}
@@ -45,14 +45,15 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full lg:w-[80%] xl:w-[70%] max-w-4xl flex flex-col items-start text-left relative z-20 mt-10 md:mt-0"
+            className="w-full lg:w-[80%] xl:w-[70%] max-w-4xl flex flex-col items-start text-left relative z-20 mt-4 md:mt-0"
           >
 
 
-            <h1 className="font-playfair text-[38px] sm:text-5xl md:text-[56px] lg:text-[64px] leading-[1.15] md:leading-[1.1] font-semibold mb-4 md:mb-6 text-[#18221B] tracking-tight">
-              Turn Ad Spend Into <br className="hidden sm:block" />
-              <span className="relative inline-block text-[#033619] z-10 sm:mt-1 md:mt-2">
-                Predictable Revenue.
+            <h1 className="font-playfair text-[32px] sm:text-4xl md:text-[52px] lg:text-[60px] leading-[1.2] md:leading-[1.15] font-semibold mb-4 md:mb-6 text-[#18221B] tracking-tight">
+              Get Quality Leads. <br />
+              Increase Sales. <br />
+              <span className="relative inline-block text-[#033619] z-10 mt-1 md:mt-2">
+                Scale Your Ayurvedic Brand.
                 {/* SVG Smooth Swoosh Underline */}
                 <svg className="absolute w-[105%] h-[12px] md:h-[16px] -bottom-0.5 -left-1 text-[#8CA694]/60 -z-10" preserveAspectRatio="none" viewBox="0 0 200 20" fill="none">
                   <path d="M5,15 Q100,0 195,15" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
@@ -64,19 +65,18 @@ export default function Hero() {
               Performance marketing for Ayurvedic & Wellness brands that focuses on profitable growth, not just vanity metrics.
             </p>
 
-            {/* Feature Pills */}
-            <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-3 md:gap-4 mb-8 md:mb-10 max-w-[650px] w-full">
+            {/* Feature Points */}
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-6 mb-8 md:mb-10 w-full">
               {[
                 { icon: Leaf, text: "More Quality Leads", iconColor: "text-[#033619]" },
                 { icon: BarChart3, text: "Higher Conversions", iconColor: "text-[#033619]" },
-                { icon: Users, text: "Lower CAC", iconColor: "text-[#033619]" },
-                { icon: Rocket, text: "Long-term Growth", iconColor: "text-[#033619]" }
+                { icon: Users, text: "Lower CAC", iconColor: "text-[#033619]" }
               ].map((pill, i) => (
-                <div key={i} className="flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-3 py-3 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-full border border-white/60 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-7 h-7 shrink-0 rounded-full bg-[#F8F5EA] sm:bg-white flex items-center justify-center shadow-sm">
+                <div key={i} className="flex items-center gap-2.5">
+                  <div className="w-6 h-6 md:w-7 md:h-7 shrink-0 rounded-full bg-[#E8EFEA] flex items-center justify-center">
                     <pill.icon size={14} className={`${pill.iconColor} ${pill.icon === Leaf ? 'fill-current' : ''}`} />
                   </div>
-                  <span className="text-[11px] sm:text-[10px] font-bold sm:font-semibold leading-tight text-[#18221B]">{pill.text}</span>
+                  <span className="text-[14px] md:text-[16px] font-semibold text-[#18221B]">{pill.text}</span>
                 </div>
               ))}
             </div>
