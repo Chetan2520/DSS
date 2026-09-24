@@ -37,7 +37,7 @@ export default function ClinicGrowth() {
   ];
 
   return (
-    <section id="clinic-growth" className="py-20 md:py-32 relative overflow-hidden bg-[#F8F5EA]">
+    <section id="clinic-growth" className="py-12 md:py-20 relative overflow-hidden bg-[#F8F5EA]">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image 
@@ -52,7 +52,7 @@ export default function ClinicGrowth() {
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 relative z-10">
         
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: lg: mb-6 text-[#18221B]">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] md: lg: mb-6 text-[#18221B]">
             From local visibility to <br className="hidden md:block" />
             <span className="text-[#5B8266]">patient enquiries.</span>
           </h2>
@@ -80,7 +80,7 @@ export default function ClinicGrowth() {
               <div className="w-14 h-14 rounded-full bg-[#F8F5EA] text-[#5B8266] flex items-center justify-center mb-6 group-hover:bg-[#5B8266] group-hover:text-white transition-colors duration-300 relative z-10 shadow-sm border border-[#DDDCCF]">
                 {step.icon}
               </div>
-              <h3 className="font-playfair text-xl font-bold text-[#18221B] mb-3 group-hover:text-[#5B8266] transition-colors relative z-10">{step.title}</h3>
+              <h3 className="font-playfair text-xl font-semibold text-[#18221B] mb-3 group-hover:text-[#5B8266] transition-colors relative z-10">{step.title}</h3>
               <p className="text-[#5F675F] text-sm leading-relaxed relative z-10">{step.desc}</p>
             </motion.div>
           ))}

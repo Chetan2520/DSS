@@ -21,7 +21,7 @@ export default function WhoThisIsFor() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-[#F8F5EA] border-t border-[#DDDCCF]">
+    <section className="py-12 md:py-20 bg-[#F8F5EA] border-t border-[#DDDCCF]">
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20">
         
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
@@ -36,7 +36,7 @@ export default function WhoThisIsFor() {
             {/* Decorative background element */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-bl-full blur-3xl pointer-events-none" />
 
-            <h3 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-white mb-4 md:mb-5 leading-[1.2] md:leading-[1.1] tracking-tight">
+            <h3 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-semibold text-white mb-4 md:mb-5 leading-[1.2] md:leading-[1.1] tracking-tight">
               This Is For Brands <br className="sm:hidden" />
               That Want to Grow, <br className="hidden lg:block" />
               <span className="text-[#FF6900]">Not Just Post.</span>
@@ -66,7 +66,7 @@ export default function WhoThisIsFor() {
             {/* Decorative background element */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#A84A4A]/5 rounded-bl-[100px] blur-3xl pointer-events-none" />
 
-            <h3 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-bold text-[#18221B] mb-4 md:mb-5 leading-[1.2] md:leading-[1.1] tracking-tight">
+            <h3 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-semibold text-[#18221B] mb-4 md:mb-5 leading-[1.2] md:leading-[1.1] tracking-tight">
               We May <span className="text-[#A84A4A]">Not</span> Be <br className="sm:hidden" />
               the Right Fit If...
             </h3>
@@ -93,7 +93,7 @@ export default function WhoThisIsFor() {
           transition={{ delay: 0.4 }}
           className="mt-16 text-center max-w-3xl mx-auto"
         >
-          <p className="text-lg md:text-xl font-playfair font-bold text-[#5B8266] italic">
+          <p className="text-lg md:text-xl font-playfair font-semibold text-[#5B8266] italic">
             "Our goal is not to sell you more services. It's to build a system that makes your marketing more measurable and scalable."
           </p>
         </motion.div>

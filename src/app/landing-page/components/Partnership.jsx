@@ -12,7 +12,7 @@ export default function Partnership() {
   ];
 
   return (
-    <section id="partnership" className="py-20 md:py-32 bg-[#F8F5EA] overflow-hidden border-t border-[#DDDCCF]">
+    <section id="partnership" className="py-12 md:py-20 bg-[#F8F5EA] overflow-hidden border-t border-[#DDDCCF]">
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20 text-center">
         
         <motion.div
@@ -23,7 +23,7 @@ export default function Partnership() {
           className="max-w-4xl mx-auto"
         >
           
-          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: lg: mb-6 text-[#18221B]">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] md: lg: mb-6 text-[#18221B]">
             We work as an extension <br className="hidden md:block" />
             of your <span className="text-[#5B8266]">brand.</span>
           </h2>

@@ -53,7 +53,7 @@ export default function AudienceSpecific() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-[#F8F5EA] relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-[#F8F5EA] relative overflow-hidden">
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         <div className="text-center mb-16">
@@ -61,7 +61,7 @@ export default function AudienceSpecific() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-4xl md:text-5xl font-bold leading-[1.2] mb-6 text-[#18221B]"
+            className="font-playfair text-4xl md:text-5xl font-semibold leading-[1.2] mb-6 text-[#18221B]"
           >
             What's Your <span className="text-[#5B8266]">Growth Goal?</span>
           </motion.h2>
@@ -85,10 +85,10 @@ export default function AudienceSpecific() {
                     <aud.icon size={22} className="text-[#5B8266] group-hover:text-white transition-colors duration-300 xl:w-[24px]" />
                   </div>
                   <div>
-                    <h3 className="font-playfair text-lg xl:text-[1.15rem] 2xl:text-xl font-bold text-[#18221B] mb-1 group-hover:text-[#5B8266] transition-colors duration-300 leading-tight whitespace-nowrap overflow-visible">
+                    <h3 className="font-playfair text-lg xl:text-[1.15rem] 2xl:text-xl font-semibold text-[#18221B] mb-1 group-hover:text-[#5B8266] transition-colors duration-300 leading-tight whitespace-nowrap overflow-visible">
                       {aud.title}
                     </h3>
-                    <p className="font-bold text-[#FF6900] uppercase tracking-widest text-[10px] xl:text-[11px] truncate">
+                    <p className="font-semibold text-[#FF6900] uppercase tracking-widest text-[10px] xl:text-[11px] truncate">
                       {aud.goal}
                     </p>
                   </div>
@@ -98,7 +98,7 @@ export default function AudienceSpecific() {
 
                 {/* Focus List */}
                 <div className="mb-10 flex-1">
-                  <p className="font-bold text-base mb-6 text-[#5F675F]">We focus on:</p>
+                  <p className="font-semibold text-base mb-6 text-[#5F675F]">We focus on:</p>
                   <div className="flex flex-col gap-y-4">
                     {aud.focus.map((item, i) => (
                       <div key={i} className="flex items-start gap-3">
@@ -113,7 +113,7 @@ export default function AudienceSpecific() {
                 <div className="mt-auto pt-4">
                   <a 
                     href="#contact" 
-                    className="flex items-center justify-center w-full gap-2 py-3.5 px-4 rounded-xl bg-[#F8F5EA] text-[#FF6900] font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-[#FF6900] hover:text-white group/btn hover:shadow-md border border-transparent hover:border-[#FF6900]"
+                    className="flex items-center justify-center w-full gap-2 py-3.5 px-4 rounded-xl bg-[#F8F5EA] text-[#FF6900] font-semibold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-[#FF6900] hover:text-white group/btn hover:shadow-md border border-transparent hover:border-[#FF6900]"
                   >
                     {aud.cta}
                     <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />

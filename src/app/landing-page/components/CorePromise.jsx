@@ -37,7 +37,7 @@ export default function CorePromise() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-white relative overflow-hidden">
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#F8F5EA] to-transparent pointer-events-none" />
 
@@ -48,7 +48,7 @@ export default function CorePromise() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] text-[#18221B]"
+            className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] text-[#18221B]"
           >
             From Quality Leads to Sales. <br className="hidden md:block" />
             <span className="text-[#5B8266]">From Sales to Scale.</span>
@@ -71,7 +71,7 @@ export default function CorePromise() {
                 </div>
               </div>
 
-              <h3 className="font-playfair text-[26px] font-bold text-[#18221B] mb-3 group-hover:text-[#FF6900] transition-colors duration-300 relative z-10">
+              <h3 className="font-playfair text-[26px] font-semibold text-[#18221B] mb-3 group-hover:text-[#FF6900] transition-colors duration-300 relative z-10">
                 {promise.title}
               </h3>
               
@@ -81,7 +81,7 @@ export default function CorePromise() {
 
               <div className="flex flex-wrap gap-2 pt-6 border-t border-[#18221B]/5 group-hover:border-[#DDDCCF] transition-colors duration-300 relative z-10">
                 {promise.tags.map((tag, tIndex) => (
-                  <span key={tIndex} className="px-2.5 py-1.5 rounded-lg bg-[#F8F5EA] text-[#5F675F] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider border border-transparent group-hover:bg-white group-hover:border-[#DDDCCF] transition-colors duration-300">
+                  <span key={tIndex} className="px-2.5 py-1.5 rounded-lg bg-[#F8F5EA] text-[#5F675F] text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider border border-transparent group-hover:bg-white group-hover:border-[#DDDCCF] transition-colors duration-300">
                     {tag}
                   </span>
                 ))}

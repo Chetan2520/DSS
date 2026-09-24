@@ -11,9 +11,9 @@ export default function Footer() {
           {/* Logo & Brand Message */}
           <div className="md:col-span-4">
             <Link href="/" className="inline-block mb-4">
-              <span className="font-playfair font-bold text-2xl text-white">Digital Success Solutions</span>
+              <span className="font-playfair font-semibold text-2xl text-white">Digital Success Solutions</span>
             </Link>
-            <p className="text-[#5B8266] text-sm uppercase tracking-widest font-bold">
+            <p className="text-[#5B8266] text-sm uppercase tracking-widest font-semibold">
               Growing Brands Naturally.
             </p>
           </div>

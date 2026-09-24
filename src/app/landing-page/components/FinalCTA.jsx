@@ -29,11 +29,11 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center justify-center gap-2 mb-4 text-[#5B8266] font-bold tracking-[0.15em] text-xs md:text-sm uppercase">
+            <div className="flex items-center justify-center gap-2 mb-4 text-[#5B8266] font-semibold tracking-[0.15em] text-xs md:text-sm uppercase">
               <span>LET'S BUILD A HEALTHIER, BRIGHTER TOMORROW TOGETHER</span>
             </div>
             
-            <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: lg: mb-6 text-[#18221B]">
+            <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] md: lg: mb-6 text-[#18221B]">
               Ready to Grow Your Ayurvedic Brand?
             </h2>
             
@@ -42,7 +42,7 @@ export default function FinalCTA() {
             </p>
 
             <div className="flex flex-col items-center gap-6">
-              <a href="#contact" className="bg-[#5B8266] text-white px-6 py-3.5 md:px-10 md:py-4 rounded-full font-bold text-sm md:text-base hover:bg-[#4A6D55] transition-colors shadow-xl flex items-center justify-center gap-3 w-full sm:w-auto group hover:scale-[1.02] uppercase tracking-wider">
+              <a href="#contact" className="bg-[#5B8266] text-white px-6 py-3.5 md:px-10 md:py-4 rounded-full font-semibold text-sm md:text-base hover:bg-[#4A6D55] transition-colors shadow-xl flex items-center justify-center gap-3 w-full sm:w-auto group hover:scale-[1.02] uppercase tracking-wider">
                 Get Free Growth Audit
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               </a>

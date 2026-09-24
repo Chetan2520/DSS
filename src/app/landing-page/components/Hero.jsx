@@ -1,194 +1,122 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, Target, Filter, MousePointerClick, TrendingUp, Sprout, Leaf } from "lucide-react";
+import { ArrowRight, CheckCircle2, Target, Filter, MousePointerClick, TrendingUp, Sprout, Leaf, Users, Rocket, Play, ShieldCheck, Gem, BarChart3 } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative pt-12 pb-12 md:pt-12 lg:pt-16 md:pb-16 overflow-hidden flex items-start min-h-[85vh]">
+    <section id="home" className="relative pt-32 md:pt-32 lg:pt-40 pb-16 overflow-hidden flex items-center min-h-screen">
       {/* Background */}
       <div className="absolute inset-0 z-0 bg-[#F8F5EA]">
-        <Image 
-          src="/images/landing/hero-bgg.png"
-          alt="Ayurveda Background"
-          fill
-          className="object-cover object-top opacity-40 mix-blend-multiply"
-          priority
-          quality={100}
-        />
+        {/* Mobile Background */}
+        <div className="block md:hidden absolute inset-0">
+          <Image 
+            src="/images/landing/image copy.png"
+            alt="Ayurveda Background Mobile"
+            fill
+            className="object-cover object-top"
+            priority
+            quality={100}
+          />
+          {/* Gradient overlay on mobile to make bottom text readable against complex herbs */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#F8F5EA]/30 to-[#F8F5EA]/95 pointer-events-none" />
+        </div>
+        {/* Desktop Background */}
+        <div className="hidden md:block absolute inset-0">
+          <Image 
+            src="/images/landing/image.png"
+            alt="Ayurveda Background Desktop"
+            fill
+            className="object-cover object-center"
+            priority
+            quality={100}
+          />
+        </div>
       </div>
 
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20 relative z-20">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
           
-          {/* Left Content */}
+          {/* Main Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full lg:w-[60%] flex flex-col items-start text-left"
+            className="w-full lg:w-[80%] xl:w-[70%] max-w-4xl flex flex-col items-start text-left relative z-20 mt-10 md:mt-0"
           >
-            <h1 className="font-playfair text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-[1.2] mb-6 text-[#18221B] tracking-tight">
+
+
+            <h1 className="font-playfair text-3xl sm:text-4xl md:text-[48px] lg:text-[52px] leading-[1.2] md:leading-[1.15] font-semibold mb-4 md:mb-5 text-[#18221B]">
               Get Quality Leads. <br />
-              <span className="text-[#5B8266]">Increase Sales.</span> <br />
-              Scale Your Ayurvedic Brand.
+              <span className="relative inline-block text-[#033619] z-10">
+                Increase Sales.
+                {/* SVG Smooth Swoosh Underline */}
+                <svg className="absolute w-[105%] h-[12px] md:h-[14px] -bottom-1 -left-1 text-[#8CA694]/60 -z-10" preserveAspectRatio="none" viewBox="0 0 200 20" fill="none">
+                  <path d="M5,15 Q100,0 195,15" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
+                </svg>
+              </span> <br />
+              <span className="text-[#2C3830]">Scale Your Ayurvedic Brand.</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-[#18221B] mb-10 max-w-2xl font-medium leading-relaxed">
-              Performance-driven digital marketing for Ayurvedic, Herbal & Wellness brands that want more qualified customers, higher conversions and scalable growth.
+            <p className="text-sm md:text-base leading-relaxed text-[#18221B] mb-6 md:mb-7 max-w-[500px] font-medium pr-4 md:pr-0 opacity-90">
+              Performance marketing for Ayurvedic & Wellness brands focused on real growth, not just vanity metrics.
             </p>
 
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 mb-6 relative group"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#5B8266] via-[#5B8266] to-[#5B8266] rounded-full blur opacity-40 group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-              
-              <a href="#contact" className="relative bg-[#5B8266] text-white px-5 sm:px-8 py-4 rounded-full font-bold text-center hover:bg-[#45664F] transition-all shadow-xl flex items-center justify-center gap-2 sm:gap-3 uppercase tracking-[0.15em] sm:tracking-widest text-[11px] sm:text-sm border border-[#5B8266]/30 overflow-hidden whitespace-nowrap">
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out_infinite]" />
-                <span className="relative">GET YOUR FREE GROWTH AUDIT</span> 
-                <ArrowRight size={16} className="relative group-hover:translate-x-1 transition-transform sm:w-[18px] sm:h-[18px]" />
+            {/* Feature Pills */}
+            <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-6 md:mb-10 max-w-[650px]">
+              {[
+                { icon: Leaf, text: "More\nQuality Leads", iconColor: "text-[#033619]" },
+                { icon: BarChart3, text: "Higher\nConversions", iconColor: "text-[#033619]" },
+                { icon: Users, text: "Lower\nCAC", iconColor: "text-[#033619]" },
+                { icon: Rocket, text: "Long-term\nBrand Growth", iconColor: "text-[#033619]" }
+              ].map((pill, i) => (
+                <div key={i} className="flex items-center gap-2.5 bg-white/90 backdrop-blur-sm px-3.5 py-2 rounded-full border border-white/60 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-sm">
+                    <pill.icon size={14} className={`${pill.iconColor} ${pill.icon === Leaf ? 'fill-current' : ''}`} />
+                  </div>
+                  <span className="text-[9px] md:text-[10px] font-semibold leading-[1.2] text-[#18221B] whitespace-pre-line">{pill.text}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Button Group */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 mb-6 md:mb-8 w-full sm:w-auto">
+              {/* Primary CTA */}
+              <a href="#contact" className="w-full sm:w-auto relative bg-[#2A3B30] text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-[#1A261F] transition-all shadow-lg flex items-center justify-center gap-2 text-[13px] border border-[#2A3B30]/30 overflow-hidden group">
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out_infinite]" />
+                <span className="relative">Get Your Free Growth Audit</span> 
+                <ArrowRight size={18} className="relative transition-transform group-hover:translate-x-1" />
               </a>
-            </motion.div>
+              
+              {/* Secondary Video Button */}
+              <button className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-transparent border border-[#18221B]/30 hover:border-[#18221B] hover:bg-white/50 transition-all duration-300 font-semibold text-[13px] text-[#18221B] backdrop-blur-sm">
+                <div className="w-5 h-5 rounded-full bg-[#2A3B30] flex items-center justify-center">
+                  <Play className="w-2.5 h-2.5 text-white fill-current ml-0.5" />
+                </div>
+                Watch Video (2 min)
+              </button>
+            </div>
 
-          </motion.div>
+            {/* Trust Row */}
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 text-[11px] md:text-xs font-semibold text-[#18221B]/90 mt-2 border-t md:border-t border-[#18221B]/15 pt-4 w-full sm:w-fit bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-3 md:p-0 rounded-xl md:rounded-none">
+              <div className="flex items-center gap-2">
+                <ShieldCheck size={16} className="text-[#18221B]" />
+                <span>No Obligation</span>
+              </div>
+              <div className="flex items-center gap-2 border-l border-[#18221B]/20 pl-4 sm:pl-6">
+                <Gem size={16} className="text-[#18221B]" />
+                <span>100% Free</span>
+              </div>
+              <div className="flex items-center gap-2 border-l border-[#18221B]/20 pl-4 sm:pl-6">
+                <Users size={16} className="text-[#18221B]" />
+                <span>Actionable Insights</span>
+              </div>
+            </div>
 
-          {/* Right Visual - UI Component */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="w-full lg:w-[45%] flex justify-center lg:justify-end relative mt-12 lg:mt-0"
-          >
-            <GrowthSystemCard />
           </motion.div>
 
         </div>
       </div>
     </section>
-  );
-}
-
-function GrowthSystemCard() {
-  const steps = [
-    { icon: Target, label: "TARGET" },
-    { icon: Filter, label: "QUALITY LEADS" },
-    { icon: MousePointerClick, label: "CONVERSIONS" },
-    { icon: TrendingUp, label: "SALES" },
-  ];
-
-  return (
-    <div className="relative w-full max-w-[380px] mx-auto py-4 font-sans transform origin-center lg:origin-right lg:scale-95 xl:scale-100 transition-transform">
-      
-      {/* Title block */}
-      <div className="text-center mb-6 relative z-10">
-        <motion.h3 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="font-playfair text-3xl sm:text-4xl font-extrabold text-[#5B8266] mb-2 tracking-tight"
-        >
-          The Growth System
-        </motion.h3>
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-[#5B8266] uppercase tracking-widest font-semibold"
-        >
-          <div className="w-8 sm:w-12 h-[1px] bg-gradient-to-r from-transparent to-[#5B8266]"></div>
-          <span className="flex items-center gap-1.5 whitespace-nowrap">From Target <Leaf size={14} className="text-[#5B8266] fill-[#5B8266]" /> to Scale</span>
-          <div className="w-8 sm:w-12 h-[1px] bg-gradient-to-l from-transparent to-[#5B8266]"></div>
-        </motion.div>
-      </div>
-
-      <div className="relative z-10 flex flex-col items-center px-4 sm:px-0">
-        {/* Floating Leaves */}
-        <motion.div 
-          animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[10%] -left-2 sm:-left-8 text-[#5B8266] opacity-40 z-0"
-        >
-          <Leaf size={32} className="fill-[#5B8266]/20" />
-        </motion.div>
-        <motion.div 
-          animate={{ y: [0, 15, 0], rotate: [0, 10, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-[20%] -right-2 sm:-right-8 text-[#5B8266] opacity-40 z-0"
-        >
-          <Leaf size={40} className="fill-[#5B8266]/20" />
-        </motion.div>
-
-        {/* Steps */}
-        {steps.map((step, idx) => (
-          <div key={idx} className="flex flex-col items-center w-full relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + (idx * 0.1) }}
-              className="relative w-full max-w-[320px] h-[56px] sm:h-[64px] bg-gradient-to-r from-[#FDFBF4] via-[#F8F5EA] to-[#F1EAD3] border border-[#CBD5C0] rounded-xl shadow-[0_4px_15px_-3px_rgba(0,0,0,0.05)] flex items-center group hover:shadow-[0_8px_20px_-5px_rgba(0,0,0,0.12)] transition-all duration-300 hover:-translate-y-0.5 overflow-hidden"
-            >
-              {/* Subtle hover effect background */}
-              <div className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              
-              {/* Left Side: Icon */}
-              <div className="w-[45%] h-full flex items-center justify-end pr-5 relative z-10">
-                 <div className="text-[#5B8266] group-hover:text-[#45664F] group-hover:scale-110 transition-all duration-300">
-                    <step.icon size={24} strokeWidth={2} />
-                 </div>
-              </div>
-
-              {/* Vertical Divider */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[50%] w-[1px] bg-[#CBD5C0]"></div>
-
-              {/* Right Side: Text */}
-              <div className="w-[55%] h-full flex items-center pl-5 relative z-10">
-                <span className="font-bold text-[#5B8266] tracking-wider text-[13px] sm:text-[14px]">{step.label}</span>
-              </div>
-            </motion.div>
-
-            {/* Connecting Line to next item */}
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 20 }}
-              transition={{ delay: 0.5 + (idx * 0.1), duration: 0.3 }}
-              className="flex flex-col items-center justify-center w-full relative z-0 overflow-hidden"
-            >
-              <div className="w-[2px] h-full bg-[#5B8266] opacity-70"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#5B8266] border-[1px] border-[#F8F5EA] shadow-sm"></div>
-            </motion.div>
-          </div>
-        ))}
-
-        {/* Final Step: SCALE */}
-        <div className="flex flex-col items-center w-full relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1 }}
-            className="relative w-full max-w-[340px] h-[76px] sm:h-[84px] bg-gradient-to-r from-[#45664F] via-[#5B8266] to-[#45664F] border-[1.5px] border-[#5B8266] rounded-[1.25rem] shadow-2xl flex items-center overflow-hidden group hover:scale-[1.02] transition-transform duration-500"
-          >
-            {/* Center glowing element */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-10 bg-yellow-400/20 blur-xl"></div>
-            
-            <div className="w-[45%] h-full flex items-center justify-end pr-5 relative z-10">
-              <div className="relative">
-                <div className="absolute inset-0 bg-yellow-400/20 rounded-full blur-lg animate-pulse"></div>
-                <Sprout size={32} className="text-[#F8F5EA] drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] relative z-10" strokeWidth={1.5} />
-              </div>
-            </div>
-
-            {/* Vertical Divider */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[60%] w-[1px] bg-[#5B8266]/50"></div>
-
-            <div className="w-[55%] h-full flex items-center pl-5 relative z-10">
-              <span className="font-playfair font-bold text-white tracking-[0.15em] text-xl sm:text-2xl drop-shadow-md">SCALE</span>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-      
-    </div>
   );
 }

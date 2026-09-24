@@ -13,7 +13,7 @@ export default function CostOfProblem() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-[#F8F5EA] text-[#18221B] overflow-hidden border-t border-[#DDDCCF]">
+    <section className="py-12 md:py-20 bg-[#F8F5EA] text-[#18221B] overflow-hidden border-t border-[#DDDCCF]">
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20">
 
         <div className="max-w-3xl mx-auto text-center mb-24">
@@ -22,7 +22,7 @@ export default function CostOfProblem() {
               <AlertTriangle className="text-[#FF6900]" size={32} />
             </div>
           </div>
-          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] text-[#18221B] mb-6">
+          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] text-[#18221B] mb-6">
             Every Weak Point in Your Funnel Can Cost You Growth.
           </h2>
         </div>
@@ -43,10 +43,10 @@ export default function CostOfProblem() {
                   className={`relative z-10 flex flex-col items-center group w-1/6 ${isEven ? '-translate-y-12' : 'translate-y-12'}`}
                 >
                   <div className="w-14 h-14 rounded-full bg-white border border-[#DDDCCF] flex items-center justify-center mb-4 shadow-sm group-hover:border-[#FF6900] group-hover:bg-[#FF6900] transition-colors duration-300 shrink-0">
-                    <span className="font-bold text-lg text-[#5B8266] group-hover:text-white transition-colors duration-300">{index + 1}</span>
+                    <span className="font-semibold text-lg text-[#5B8266] group-hover:text-white transition-colors duration-300">{index + 1}</span>
                   </div>
                   <div className="text-center px-2">
-                    <h3 className="font-playfair font-bold text-base text-[#18221B] mb-1 group-hover:text-[#FF6900] transition-colors leading-tight">{step.title}</h3>
+                    <h3 className="font-playfair font-semibold text-base text-[#18221B] mb-1 group-hover:text-[#FF6900] transition-colors leading-tight">{step.title}</h3>
                     <p className="text-xs text-[#5F675F]">{step.desc}</p>
                   </div>
 
@@ -86,10 +86,10 @@ export default function CostOfProblem() {
                     className={`absolute top-0 w-1/2 flex flex-col items-center text-center px-1 z-10 ${isEven ? 'left-0' : 'right-0'}`}
                   >
                     <div className="w-12 h-12 rounded-full bg-white border border-[#DDDCCF] flex items-center justify-center mb-2 shadow-sm relative z-20">
-                      <span className="font-bold text-base text-[#5B8266]">{index + 1}</span>
+                      <span className="font-semibold text-base text-[#5B8266]">{index + 1}</span>
                     </div>
                     <div className="bg-[#F8F5EA] px-2 py-1 rounded-lg relative z-20 shadow-[0_0_10px_10px_#F8F5EA]">
-                      <h3 className="font-playfair font-bold text-sm text-[#18221B] mb-1 leading-tight">{step.title}</h3>
+                      <h3 className="font-playfair font-semibold text-sm text-[#18221B] mb-1 leading-tight">{step.title}</h3>
                       <p className="text-[10px] text-[#5F675F] leading-tight">{step.desc}</p>
                     </div>
                   </motion.div>

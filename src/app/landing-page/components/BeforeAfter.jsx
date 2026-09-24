@@ -21,7 +21,7 @@ export default function BeforeAfter() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 bg-[url('/images/landing/bgg.png')] bg-cover bg-center bg-no-repeat border-t border-[#DDDCCF]">
+    <section className="relative py-12 md:py-20 bg-[url('/images/landing/bgg.png')] bg-cover bg-center bg-no-repeat border-t border-[#DDDCCF]">
       <div className="absolute inset-0 bg-white/20"></div> {/* Subtle overlay for better contrast if image is busy */}
       <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
@@ -30,7 +30,7 @@ export default function BeforeAfter() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-4xl md:text-5xl font-bold leading-[1.2] text-[#18221B]"
+            className="font-playfair text-4xl md:text-5xl font-semibold leading-[1.2] text-[#18221B]"
           >
             The DSS <span className="text-[#5B8266]">Transformation</span>
           </motion.h2>
@@ -59,7 +59,7 @@ export default function BeforeAfter() {
           >
             <div className="absolute top-0 right-0 w-48 h-48 bg-[#A84A4A]/5 rounded-bl-[100px] blur-3xl pointer-events-none group-hover:bg-[#A84A4A]/10 transition-colors duration-500" />
             
-            <h3 className="font-playfair text-4xl font-bold text-[#A84A4A] mb-10 relative z-10">Before DSS</h3>
+            <h3 className="font-playfair text-4xl font-semibold text-[#A84A4A] mb-10 relative z-10">Before DSS</h3>
             
             <ul className="space-y-6 relative z-10">
               {before.map((item, index) => (
@@ -81,7 +81,7 @@ export default function BeforeAfter() {
             <div className="absolute inset-0 bg-gradient-to-br from-[#5B8266]/[0.03] to-transparent pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#5B8266]/5 rounded-tl-[100px] blur-3xl pointer-events-none group-hover:bg-[#5B8266]/10 transition-colors duration-500" />
             
-            <h3 className="font-playfair text-4xl font-bold text-[#5B8266] mb-10 relative z-10">After Growth System</h3>
+            <h3 className="font-playfair text-4xl font-semibold text-[#5B8266] mb-10 relative z-10">After Growth System</h3>
             
             <ul className="space-y-6 relative z-10">
               {after.map((item, index) => (
@@ -89,7 +89,7 @@ export default function BeforeAfter() {
                   <div className="bg-[#5B8266]/10 rounded-full p-0.5 shrink-0 mt-0.5">
                     <CheckCircle2 className="text-[#5B8266]" size={20} strokeWidth={2.5} />
                   </div>
-                  <span className="text-[#18221B] font-bold text-[17px] leading-relaxed">{item}</span>
+                  <span className="text-[#18221B] font-semibold text-[17px] leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>

@@ -13,7 +13,7 @@ export default function WhyDss() {
   ];
 
   return (
-    <section id="why-dss" className="py-20 md:py-32 bg-[#F8F5EA] overflow-hidden">
+    <section id="why-dss" className="py-12 md:py-20 bg-[#F8F5EA] overflow-hidden">
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -25,7 +25,7 @@ export default function WhyDss() {
             transition={{ duration: 0.8 }}
           >
             
-            <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold leading-[1.1] md: mb-6 text-[#18221B]">
+            <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] md: mb-6 text-[#18221B]">
               We don't guess. <br />
               We execute based on <span className="text-[#5B8266]">data.</span>
             </h2>
@@ -35,7 +35,7 @@ export default function WhyDss() {
             </p>
 
             <div className="bg-[#F8F5EA] p-6 md:p-8 rounded-2xl border border-[#DDDCCF]">
-              <h3 className="font-playfair text-4xl md:text-5xl font-bold text-[#18221B]">
+              <h3 className="font-playfair text-4xl md:text-5xl font-semibold text-[#18221B]">
                 One Niche. One Focus. Real Results.
               </h3>
             </div>
