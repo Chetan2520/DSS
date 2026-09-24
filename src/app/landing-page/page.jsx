@@ -48,7 +48,7 @@ export default function LandingPage() {
       {/* PHASE 2: Specialization & Solution */}
       <WhyChooseUs />
       {/* <Specialization /> */}
-      <CorePromise />
+      {/* <CorePromise /> */}
       <GrowthEngine />
       {/* <ServicesList /> */}
 

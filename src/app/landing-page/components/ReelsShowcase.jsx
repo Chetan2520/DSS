@@ -59,7 +59,7 @@ export default function ReelsShowcase() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:w-2/3 w-full"
           >
-            <div className="flex sm:grid sm:grid-cols-4 gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory pb-6 sm:pb-0 scrollbar-hide -mx-6 px-6 sm:mx-0 sm:px-0">
+            <div className="flex sm:grid sm:grid-cols-4 gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory pb-6 sm:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -mx-6 px-6 sm:mx-0 sm:px-0">
               {videos.map((vid, index) => (
                 <div key={index} className="w-[60vw] sm:w-auto shrink-0 snap-center">
                   <VideoCard video={vid} index={index} />
