@@ -25,9 +25,9 @@ export default function Challenge() {
   return (
     <section id="challenge" className="py-12 md:py-20 bg-white border-t border-[#DDDCCF] overflow-hidden">
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20">
-        
+
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
-          
+
           {/* Left Content - Simplified Text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -36,9 +36,18 @@ export default function Challenge() {
             transition={{ duration: 0.8 }}
             className="lg:w-1/2 flex flex-col"
           >
-            <h2 className="font-playfair text-4xl md:text-5xl font-semibold leading-[1.1] mb-6 text-[#18221B]">
-              Is Your Funnel <br className="hidden sm:block" />
-              <span className="text-[#FF6900]">Losing Growth?</span>
+            <h2 className="font-playfair text-4xl md:text-[46px] font-bold leading-[1.25] text-[#18221B] mb-6 tracking-tight">
+              Is Your Funnel <br />
+              <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
+              <motion.span 
+                className="absolute inset-0 bg-[#2A3B30] z-0"
+                initial={{ x: "-100%" }}
+                whileInView={{ x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "circOut" }}
+              />
+              <span className="text-white relative z-10">Losing Growth?</span>
+            </span>
             </h2>
 
             <p className="text-[#5F675F] text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
@@ -47,8 +56,8 @@ export default function Challenge() {
 
             <div className="flex flex-col gap-6">
               {painPoints.map((point, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -75,14 +84,14 @@ export default function Challenge() {
             transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 50 }}
             className="lg:w-1/2 w-full flex justify-center"
           >
-            <motion.div 
+            <motion.div
               whileHover={{ y: -10 }}
               transition={{ duration: 0.4 }}
               className="relative w-full max-w-md aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100"
             >
-              <img 
-                src="/images/landing/funnel_challenge.jpg" 
-                alt="Marketing Funnel Challenge" 
+              <img
+                src="/images/landing/funnel_challenge.jpg"
+                alt="Marketing Funnel Challenge"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 rounded-[2.5rem] shadow-[inset_0_0_40px_rgba(0,0,0,0.1)] pointer-events-none"></div>
@@ -94,3 +103,6 @@ export default function Challenge() {
     </section>
   );
 }
+
+
+

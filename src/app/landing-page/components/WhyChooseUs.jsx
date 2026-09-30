@@ -52,22 +52,32 @@ export default function WhyChooseUs() {
 
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Side: Features */}
           <div className="lg:w-3/5 w-full">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-playfair text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#18221B] mb-12"
+              className="font-playfair text-[32px] sm:text-4xl md:text-[46px] font-bold leading-[1.3] text-[#18221B] mb-12 tracking-tight"
             >
-              Why Ayurvedic Brands Choose DSS?
+              Why Choose DSS <br />
+              <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
+              <motion.span 
+                className="absolute inset-0 bg-[#2A3B30] z-0"
+                initial={{ x: "-100%" }}
+                whileInView={{ x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "circOut" }}
+              />
+              <span className="text-white relative z-10">For Ayurveda?</span>
+            </span>
             </motion.h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {features.map((feature, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +96,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Right Side: Form Card */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -96,16 +106,16 @@ export default function WhyChooseUs() {
             <div className="bg-[#213a29] rounded-3xl p-8 lg:p-10 shadow-2xl relative overflow-hidden">
               {/* Form card background decoration */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -mr-10 -mt-10"></div>
-              
+
               <div className="relative z-10">
                 <div className="inline-block bg-[#FF6900] text-white text-xs font-semibold uppercase tracking-wider py-1.5 px-3 rounded-full mb-6">
                   FREE GROWTH AUDIT
                 </div>
-                
+
                 <h3 className="text-white text-3xl font-semibold mb-3 font-playfair">
-                  Get Your Free<br/>Marketing Audit
+                  Get Your Free<br />Marketing Audit
                 </h3>
-                
+
                 <p className="text-white/80 text-sm mb-8">
                   Find new growth opportunities for your Ayurvedic brand.
                 </p>
@@ -115,12 +125,12 @@ export default function WhyChooseUs() {
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                       <User size={18} className="text-gray-400" />
                     </div>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Your Name*" 
+                      placeholder="Your Name*"
                       required
                       className="w-full pl-12 pr-4 py-3.5 bg-white border-0 rounded-xl text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-[#FF6900] outline-none transition-all shadow-sm"
                     />
@@ -130,12 +140,12 @@ export default function WhyChooseUs() {
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                       <Phone size={18} className="text-gray-400" />
                     </div>
-                    <input 
-                      type="tel" 
+                    <input
+                      type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="WhatsApp Number*" 
+                      placeholder="WhatsApp Number*"
                       required
                       className="w-full pl-12 pr-4 py-3.5 bg-white border-0 rounded-xl text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-[#FF6900] outline-none transition-all shadow-sm"
                     />
@@ -145,18 +155,18 @@ export default function WhyChooseUs() {
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                       <Globe size={18} className="text-gray-400" />
                     </div>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       name="website"
                       value={formData.website}
                       onChange={handleChange}
-                      placeholder="Your Website / Brand Name*" 
+                      placeholder="Your Website / Brand Name*"
                       required
                       className="w-full pl-12 pr-4 py-3.5 bg-white border-0 rounded-xl text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-[#FF6900] outline-none transition-all shadow-sm"
                     />
                   </div>
 
-                  <button 
+                  <button
                     type="submit"
                     className="w-full bg-[#FF6900] hover:bg-[#e55e00] text-white font-semibold py-4 px-6 rounded-xl transition-colors duration-300 flex items-center justify-center gap-2 group mt-2 shadow-lg shadow-[#FF6900]/20"
                   >
@@ -178,3 +188,6 @@ export default function WhyChooseUs() {
     </section>
   );
 }
+
+
+

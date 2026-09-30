@@ -29,7 +29,7 @@ export default function AuthorityStats() {
 
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24">
           <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] sm: md: mb-4 text-[#18221B]">
-            Experience you can see <br className="hidden md:block" />
+            Experience you can see <br />
             <span className="text-[#5B8266]">in the numbers.</span>
           </h2>
           <p className="text-[#5F675F] text-lg md:text-xl leading-relaxed">

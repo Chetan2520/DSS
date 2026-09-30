@@ -28,7 +28,7 @@ export default function ProductGrowth() {
           <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] sm: md: lg: mb-6 md:mb-8 text-white">
             From product <br className="block sm:hidden" />
             <span className="hidden sm:inline">discovery to </span>
-            <span className="sm:hidden">discovery to </span><br className="hidden sm:block" />
+            <span className="sm:hidden">discovery to </span><br />
             repeat purchase.
           </h2>
 

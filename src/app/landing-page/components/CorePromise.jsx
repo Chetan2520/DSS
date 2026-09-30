@@ -50,7 +50,7 @@ export default function CorePromise() {
             viewport={{ once: true }}
             className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] text-[#18221B]"
           >
-            From Quality Leads to Sales. <br className="hidden md:block" />
+            From Quality Leads to Sales. <br />
             <span className="text-[#5B8266]">From Sales to Scale.</span>
           </motion.h2>
         </div>

@@ -53,7 +53,7 @@ export default function ClinicGrowth() {
         
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] md: lg: mb-6 text-[#18221B]">
-            From local visibility to <br className="hidden md:block" />
+            From local visibility to <br />
             <span className="text-[#5B8266]">patient enquiries.</span>
           </h2>
           <p className="text-[#5F675F] text-lg leading-relaxed">

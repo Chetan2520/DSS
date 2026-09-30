@@ -37,7 +37,7 @@ export default function GrowthEngine() {
   ];
 
   return (
-    <section id="growth-system" className="py-16 pt-20 pb-24 md:pt-28 md:pb-40 bg-[#F8F5EA] bg-[url('/images/landing/phone-bg.png')] md:bg-[url('/images/landing/desktop-bg.png')] bg-contain bg-no-repeat bg-center md:bg-repeat text-[#18221B] overflow-hidden relative border-t border-[#DDDCCF]">
+    <section id="growth-system" className="py-16 pt-20 pb-24 md:pt-28 md:pb-40 bg-[#F8F5EA] bg-[url('/images/landing/phone-bg-below.png')] md:bg-[url('/images/landing/desktop-bg.png')] bg-contain bg-no-repeat bg-center md:bg-repeat text-[#18221B] overflow-hidden relative border-t border-[#DDDCCF]">
       {/* Light overlay for text readability */}
       <div className="absolute inset-0 bg-[#F8F9F5]/60 md:bg-[#F8F9F5]/50 pointer-events-none"></div>
 
@@ -48,9 +48,19 @@ export default function GrowthEngine() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-4xl sm:text-5xl font-semibold leading-[1.2] mb-4 text-[#18221B] tracking-tight"
+            className="font-playfair text-4xl md:text-[46px] font-bold leading-[1.25] text-[#18221B] mb-6 tracking-tight"
           >
-            From Target to Scale.
+            Build Your <br />
+            <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
+              <motion.span 
+                className="absolute inset-0 bg-[#2A3B30] z-0"
+                initial={{ x: "-100%" }}
+                whileInView={{ x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "circOut" }}
+              />
+              <span className="text-white relative z-10">Growth Engine</span>
+            </span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -128,3 +138,6 @@ export default function GrowthEngine() {
     </section>
   );
 }
+
+
+
