@@ -15,7 +15,7 @@ export default function Results() {
         
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] sm: md: mb-4">
-            Different challenges. Different strategies. <br className="hidden md:block" />
+            Different challenges. Different strategies. <br />
             <span className="text-[#5B8266] italic">Measurable outcomes.</span>
           </h2>
           <p className="text-[#5F675F] uppercase tracking-wider text-xs md:text-sm font-medium">

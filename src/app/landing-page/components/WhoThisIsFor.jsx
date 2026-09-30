@@ -38,7 +38,7 @@ export default function WhoThisIsFor() {
 
             <h3 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-semibold text-white mb-4 md:mb-5 leading-[1.2] md:leading-[1.1] tracking-tight">
               This Is For Brands <br className="sm:hidden" />
-              That Want to Grow, <br className="hidden lg:block" />
+              That Want to Grow, <br />
               <span className="text-[#FF6900]">Not Just Post.</span>
             </h3>
             <p className="text-white/80 mb-8 md:mb-10 font-medium text-base md:text-lg">We are the right fit if you identify with the following:</p>

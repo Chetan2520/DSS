@@ -34,9 +34,19 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-3xl md:text-3xl font-semibold leading-[1.1] text-[#18221B] mb-4"
+            className="font-playfair text-4xl md:text-[46px] font-bold leading-[1.25] text-[#18221B] mb-6 tracking-tight"
           >
-            Frequently Asked <span className="text-[#5B8266]">Questions</span>
+            Frequently Asked <br />
+            <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
+              <motion.span 
+                className="absolute inset-0 bg-[#2A3B30] z-0"
+                initial={{ x: "-100%" }}
+                whileInView={{ x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "circOut" }}
+              />
+              <span className="text-white relative z-10">Questions</span>
+            </span>
           </motion.h2>
         </div>
 
@@ -84,3 +94,6 @@ export default function FAQ() {
     </section>
   );
 }
+
+
+

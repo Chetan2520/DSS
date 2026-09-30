@@ -14,15 +14,13 @@ export default function Hero() {
         {/* Mobile Background */}
         <div className="block md:hidden absolute inset-0">
           <Image
-            src="/images/landing/image copy.png"
+            src="/images/landing/phone-bg.png"
             alt="Ayurveda Background Mobile"
             fill
-            className="object-cover object-top"
+            className="object-cover object-bottom"
             priority
             quality={100}
           />
-          {/* Gradient overlay on mobile to make bottom text readable against complex herbs */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#F8F5EA]/30 to-[#F8F5EA]/95 pointer-events-none" />
         </div>
         {/* Desktop Background */}
         <div className="hidden md:block absolute inset-0">
@@ -49,20 +47,22 @@ export default function Hero() {
           >
 
 
-            <h1 className="font-playfair text-[32px] sm:text-4xl md:text-[52px] lg:text-[60px] leading-[1.2] md:leading-[1.15] font-semibold mb-4 md:mb-6 text-[#18221B] tracking-tight">
-              Get Quality Leads. <br />
-              Increase Sales. <br />
-              <span className="relative inline-block text-[#033619] z-10 mt-1 md:mt-2">
-                Scale Your Ayurvedic Brand.
-                {/* SVG Smooth Swoosh Underline */}
-                <svg className="absolute w-[105%] h-[12px] md:h-[16px] -bottom-0.5 -left-1 text-[#8CA694]/60 -z-10" preserveAspectRatio="none" viewBox="0 0 200 20" fill="none">
-                  <path d="M5,15 Q100,0 195,15" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
-                </svg>
+            <h1 className="font-playfair text-[38px] sm:text-5xl md:text-[64px] font-bold leading-[1.2] md:leading-[1.1] text-[#18221B] tracking-tight mb-6 md:mb-8">
+              Scale Your <br />
+              <span className="relative inline-block px-4 md:px-5 py-1.5 md:py-3 rounded-xl md:rounded-[1.25rem] mt-2 md:mt-4 whitespace-nowrap overflow-hidden group">
+                {/* Animated Background sweeping from Left to Right */}
+                <motion.span 
+                  className="absolute top-0 bottom-0 left-0 bg-[#2A3B30] -z-10"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+                />
+                <span className="relative z-10 text-white">Ayurvedic Brand</span>
               </span>
             </h1>
 
-            <p className="text-[15px] md:text-[17px] leading-relaxed text-[#324036] mb-8 md:mb-10 max-w-[480px] font-medium">
-              Performance marketing for Ayurvedic & Wellness brands that focuses on profitable growth, not just vanity metrics.
+            <p className="text-[15px] md:text-[17px] leading-relaxed text-[#324036] mb-6 md:mb-10 max-w-[400px] md:max-w-[480px] font-medium">
+              We help Ayurveda brands achieve <span className="font-semibold text-[#18221B]">predictable sales</span> through data-driven performance marketing.
             </p>
 
             {/* Feature Points */}
@@ -72,7 +72,7 @@ export default function Hero() {
                 { icon: BarChart3, text: "Higher Conversions", iconColor: "text-[#033619]" },
                 { icon: Users, text: "Lower CAC", iconColor: "text-[#033619]" }
               ].map((pill, i) => (
-                <div key={i} className="flex items-center gap-2.5">
+                <div key={i} className="flex items-center gap-2.5 bg-white/85 md:bg-transparent px-3 py-1.5 md:p-0 rounded-lg md:rounded-none backdrop-blur-md md:backdrop-blur-none shadow-sm md:shadow-none border border-white/50 md:border-transparent">
                   <div className="w-6 h-6 md:w-7 md:h-7 shrink-0 rounded-full bg-[#E8EFEA] flex items-center justify-center">
                     <pill.icon size={14} className={`${pill.iconColor} ${pill.icon === Leaf ? 'fill-current' : ''}`} />
                   </div>
@@ -84,21 +84,21 @@ export default function Hero() {
             {/* Button Group */}
             <div className="flex flex-col sm:flex-row items-center gap-3 md:gap-4 mb-6 md:mb-8 w-full sm:w-auto">
               {/* Primary CTA */}
-              <a href="#contact" className="w-full sm:w-auto relative bg-[#2A3B30] text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-[#1A261F] transition-all shadow-lg flex items-center justify-center gap-2 text-[13px] border border-[#2A3B30]/30 overflow-hidden group">
+              <a href="#contact" className="w-full sm:w-auto relative bg-[#2A3B30] text-white px-6 md:px-8 py-3.5 md:py-4 rounded-full font-bold text-center hover:bg-[#1A261F] transition-all shadow-xl flex items-center justify-center gap-2 text-[15px] md:text-[16px] overflow-hidden group">
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out_infinite]" />
-                <span className="relative">Get Your Free Growth Audit</span>
-                <ArrowRight size={18} className="relative transition-transform group-hover:translate-x-1" />
+                <span className="relative tracking-wide">Get Your Free Growth Audit</span>
+                <ArrowRight size={20} className="relative transition-transform group-hover:translate-x-1" />
               </a>
 
               {/* Secondary Video Button */}
               <button
                 onClick={() => setIsVideoOpen(true)}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-transparent border border-[#18221B]/30 hover:border-[#18221B] hover:bg-white/50 transition-all duration-300 font-semibold text-[13px] text-[#18221B] backdrop-blur-sm"
+                className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-6 md:px-8 py-3.5 md:py-4 rounded-full bg-white/40 md:bg-transparent border border-[#18221B]/30 hover:border-[#18221B] hover:bg-white/60 transition-all duration-300 font-bold text-[15px] md:text-[16px] text-[#18221B] backdrop-blur-md"
               >
-                <div className="w-5 h-5 rounded-full bg-[#2A3B30] flex items-center justify-center">
-                  <Play className="w-2.5 h-2.5 text-white fill-current ml-0.5" />
+                <div className="w-6 h-6 rounded-full bg-[#2A3B30] flex items-center justify-center shadow-md">
+                  <Play className="w-3 h-3 text-white fill-current ml-0.5" />
                 </div>
-                Watch Video (2 min)
+                <span className="tracking-wide">Watch Video (2 min)</span>
               </button>
             </div>
 

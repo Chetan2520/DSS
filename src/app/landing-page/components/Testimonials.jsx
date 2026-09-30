@@ -33,8 +33,18 @@ export default function Testimonials() {
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-20">
 
         <div className="text-center mb-16">
-          <h2 className="font-playfair text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-semibold leading-[1.1] md: text-[#18221B] mb-6">
-            What Our Clients Say
+          <h2 className="font-playfair text-4xl md:text-[46px] font-bold leading-[1.25] text-[#18221B] mb-6 tracking-tight">
+            See What Our <br />
+            <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
+              <motion.span 
+                className="absolute inset-0 bg-[#2A3B30] z-0"
+                initial={{ x: "-100%" }}
+                whileInView={{ x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "circOut" }}
+              />
+              <span className="text-white relative z-10">Clients Say</span>
+            </span>
           </h2>
           <div className="flex justify-center">
             <Leaf className="text-[#5B8266]" />
@@ -90,3 +100,6 @@ export default function Testimonials() {
     </section>
   );
 }
+
+
+

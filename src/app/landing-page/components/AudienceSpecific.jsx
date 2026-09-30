@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { ShoppingBag, Hospital, Droplets, CheckCircle2, ArrowRight } from "lucide-react";
 
 export default function AudienceSpecific() {
@@ -55,15 +56,25 @@ export default function AudienceSpecific() {
   return (
     <section className="py-12 md:py-20 bg-[#F8F5EA] relative overflow-hidden">
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        
+
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-4xl md:text-5xl font-semibold leading-[1.2] mb-6 text-[#18221B]"
+            className="font-playfair text-4xl md:text-[46px] font-bold leading-[1.25] text-[#18221B] mb-6 tracking-tight"
           >
-            What's Your <span className="text-[#5B8266]">Growth Goal?</span>
+            What Is Your <br />
+            <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
+              <motion.span 
+                className="absolute inset-0 bg-[#2A3B30] z-0"
+                initial={{ x: "-100%" }}
+                whileInView={{ x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "circOut" }}
+              />
+              <span className="text-white relative z-10">Growth Goal?</span>
+            </span>
           </motion.h2>
         </div>
 
@@ -77,14 +88,22 @@ export default function AudienceSpecific() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className={`bg-white rounded-3xl transition-all duration-300 p-6 xl:p-8 flex flex-col group relative ${
-                  index === 1 
-                    ? "border-2 border-[#5B8266] shadow-xl lg:scale-105 z-10" 
+                className={`bg-white rounded-3xl transition-all duration-300 p-6 xl:p-8 flex flex-col group relative ${index === 1
+                    ? "border-2 border-[#5B8266] shadow-xl lg:scale-105 z-10"
                     : "border border-[#DDDCCF] shadow-sm hover:shadow-2xl"
-                }`}
+                  }`}
               >
+                <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
+                  <Image 
+                    src="/images/landing/top-corner1.png"
+                    alt="Decorative Corner"
+                    width={200}
+                    height={200}
+                    className="absolute top-0 right-0 w-32 md:w-40 opacity-20 md:opacity-30 mix-blend-multiply"
+                  />
+                </div>
                 {index === 1 && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#5B8266] text-white px-5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-md">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#5B8266] text-white px-5 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest whitespace-nowrap shadow-md z-20">
                     Most Popular
                   </div>
                 )}
@@ -120,13 +139,12 @@ export default function AudienceSpecific() {
 
                 {/* CTA */}
                 <div className="mt-auto pt-4">
-                  <a 
-                    href="#contact" 
-                    className={`flex items-center justify-center w-full gap-2 py-3.5 px-4 rounded-xl font-semibold uppercase tracking-widest text-xs transition-all duration-300 hover:shadow-md group/btn border ${
-                      index === 1
+                  <a
+                    href="#contact"
+                    className={`flex items-center justify-center w-full gap-2 py-3.5 px-4 rounded-xl font-semibold uppercase tracking-widest text-xs transition-all duration-300 hover:shadow-md group/btn border ${index === 1
                         ? "bg-[#FF6900] text-white border-[#FF6900] hover:bg-[#e55e00] hover:border-[#e55e00]"
                         : "bg-[#F8F5EA] text-[#FF6900] border-transparent hover:bg-[#FF6900] hover:text-white hover:border-[#FF6900]"
-                    }`}
+                      }`}
                   >
                     {aud.cta}
                     <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
@@ -141,3 +159,6 @@ export default function AudienceSpecific() {
     </section>
   );
 }
+
+
+

@@ -1,0 +1,131 @@
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { TrendingUp, BarChart3, Target } from "lucide-react";
+
+export default function MetaProofs() {
+  const proofs = [
+    {
+      metric: "12x ROAS",
+      title: "Ayurvedic D2C Brand",
+      description: "Scaled daily spend while maintaining high profitability.",
+      image: "https://i.pinimg.com/1200x/ad/b4/ac/adb4acdcb580a79639ca27fb9aeb5b22.jpg",
+      icon: TrendingUp
+    },
+    {
+      metric: "1,500+ Leads",
+      title: "Wellness Clinic",
+      description: "Consistent high-intent patient enquiries generated.",
+      image: "https://i.pinimg.com/736x/8e/10/db/8e10db8b929ed5a7d005ffd493d6c1f0.jpg",
+      icon: Target
+    },
+    {
+      metric: "₹45 CPL",
+      title: "Ayurveda Center",
+      description: "Drastically reduced cost per acquisition for local leads.",
+      image: "https://i.pinimg.com/1200x/bd/13/20/bd132012da8b69940793615d95883b8d.jpg",
+      icon: BarChart3
+    }
+  ];
+
+  return (
+    <section className="py-20 md:py-28 bg-[#F8F5EA] border-t border-[#DDDCCF] overflow-hidden relative">
+      <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20 relative z-10">
+        
+        {/* Header Section */}
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-playfair text-4xl md:text-[46px] font-bold leading-[1.25] text-[#18221B] mb-6 tracking-tight"
+          >
+            Let Your Success <br />
+            <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
+              <motion.span 
+                className="absolute inset-0 bg-[#2A3B30] z-0"
+                initial={{ x: "-100%" }}
+                whileInView={{ x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "circOut" }}
+              />
+              <span className="text-white relative z-10">Make The Noise</span>
+            </span>
+          </motion.h2>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-[#5F675F] text-base md:text-[17px] font-medium leading-relaxed max-w-2xl mx-auto"
+          >
+            Take a peek inside our actual Meta Ads Manager. No fluffed case studies—just raw screenshots, real data, and verifiable growth for our Ayurvedic partners.
+          </motion.p>
+        </div>
+
+        {/* Proofs Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+          {proofs.map((proof, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="flex flex-col group h-full"
+            >
+              {/* Text Content */}
+              <div className="mb-6 md:mb-8 flex flex-col items-start">
+                <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shrink-0 border border-[#DDDCCF] shadow-sm group-hover:bg-[#5B8266] group-hover:border-[#5B8266] transition-colors duration-300 mb-5">
+                  <proof.icon size={26} className="text-[#5B8266] group-hover:text-white transition-colors duration-300" />
+                </div>
+                <div>
+                  <h4 className="font-playfair text-3xl md:text-4xl font-bold text-[#FF6900] mb-2">{proof.metric}</h4>
+                  <h5 className="text-[15px] font-bold text-[#18221B] mb-2 uppercase tracking-wide">{proof.title}</h5>
+                  <p className="text-[#5F675F] text-[15px] leading-relaxed font-medium">{proof.description}</p>
+                </div>
+              </div>
+              
+              {/* Screenshot Container */}
+              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border-2 border-[#DDDCCF] shadow-lg bg-white mt-auto transform group-hover:-translate-y-2 group-hover:shadow-xl transition-all duration-300">
+                
+                {/* Mac OS Style Window Bar */}
+                <div className="absolute top-0 inset-x-0 h-9 bg-gray-50 border-b border-[#DDDCCF] flex items-center px-4 gap-1.5 z-20">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></div>
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]"></div>
+                  <div className="mx-auto flex items-center bg-white border border-[#DDDCCF] rounded-md px-3 py-1 -ml-4">
+                     <span className="text-[9px] sm:text-[10px] text-gray-500 font-mono tracking-wider">business.facebook.com</span>
+                  </div>
+                </div>
+
+                {/* Fallback */}
+                <div className="absolute inset-0 pt-9 flex flex-col items-center justify-center text-[#5F675F] text-xs text-center p-6 bg-gray-50 z-0">
+                  <div className="border-2 border-dashed border-[#DDDCCF] rounded-2xl p-6 flex flex-col items-center justify-center w-full h-full">
+                    <span className="font-semibold text-[#18221B]">Upload Meta Screenshot</span>
+                    <span className="font-mono mt-3 px-3 py-1.5 bg-white border border-[#DDDCCF] rounded-md text-[#FF6900]">{proof.image}</span>
+                  </div>
+                </div>
+                
+                <Image
+                  src={proof.image}
+                  alt={`${proof.metric} Proof`}
+                  fill
+                  className="object-cover object-top pt-9 z-10"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+
+

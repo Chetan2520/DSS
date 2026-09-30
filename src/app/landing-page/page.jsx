@@ -11,6 +11,7 @@ import ServicesList from "./components/ServicesList";
 import AudienceSpecific from "./components/AudienceSpecific";
 import Portfolio from "./components/Portfolio";
 import BeforeAfter from "./components/BeforeAfter";
+import MetaProofs from "./components/MetaProofs";
 
 import ReelsShowcase from "./components/ReelsShowcase";
 import ClientBrandsReels from "./components/ClientBrandsReels";
@@ -42,6 +43,7 @@ export default function LandingPage() {
       <ReelsShowcase />
       <ClientBrandsReels />
       <StatsSection />
+      <MetaProofs />
 
       <Challenge />
 
