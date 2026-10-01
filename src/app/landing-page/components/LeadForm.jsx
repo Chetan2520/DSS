@@ -40,11 +40,11 @@ export default function LeadForm() {
               Let's Talk About <br />
               <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
               <motion.span 
-                className="absolute inset-0 bg-[#2A3B30] z-0"
-                initial={{ x: "-100%" }}
-                whileInView={{ x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "circOut" }}
+                className="absolute inset-y-0 left-0 bg-[#2A3B30] z-0"
+                initial={{ width: "0%" }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "circOut", delay: 0.3 }}
               />
               <span className="text-white relative z-10">Your Growth</span>
             </span>
@@ -187,7 +187,7 @@ export default function LeadForm() {
 
                   <button
                     type="submit"
-                    className="w-full bg-[#5B8266] text-white px-8 py-4 rounded-xl font-semibold uppercase tracking-widest text-sm hover:bg-[#4A6D55] transition-all flex items-center justify-center gap-2 group shadow-xl"
+                    className="w-full bg-[#2A3B30] text-white px-8 py-4 rounded-xl font-semibold uppercase tracking-widest text-sm hover:bg-[#18221B] transition-all flex items-center justify-center gap-2 group shadow-xl"
                   >
                     REQUEST MY AUDIT
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

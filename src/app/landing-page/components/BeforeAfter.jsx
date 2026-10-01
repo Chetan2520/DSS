@@ -32,16 +32,16 @@ export default function BeforeAfter() {
             viewport={{ once: true }}
             className="font-playfair text-4xl md:text-[42px] font-bold leading-[1.3] text-[#18221B] mb-6 tracking-tight"
           >
-            The DSS <br />
+            You Are Just 1 Step Away From <br />
             <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
               <motion.span 
-                className="absolute inset-0 bg-[#2A3B30] z-0"
-                initial={{ x: "-100%" }}
-                whileInView={{ x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "circOut" }}
+                className="absolute inset-y-0 left-0 bg-[#2A3B30] z-0"
+                initial={{ width: "0%" }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "circOut", delay: 0.3 }}
               />
-              <span className="text-white relative z-10">Transformation</span>
+              <span className="text-white relative z-10">Unstoppable Growth</span>
             </span>
           </motion.h2>
         </div>
@@ -95,7 +95,7 @@ export default function BeforeAfter() {
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#5B8266]/20 rounded-tl-[100px] blur-3xl pointer-events-none group-hover:bg-[#5B8266]/30 transition-colors duration-500" />
             <div className="absolute inset-0 bg-[url('/images/landing/noise.png')] opacity-20 mix-blend-overlay pointer-events-none"></div>
 
-            <h3 className="font-playfair text-3xl md:text-4xl font-bold text-white mb-8 relative z-10">After Growth System</h3>
+            <h3 className="font-playfair text-3xl md:text-4xl font-bold text-white mb-8 relative z-10">After DSS Growth System</h3>
 
             <ul className="space-y-3 relative z-10">
               {after.map((item, index) => (
