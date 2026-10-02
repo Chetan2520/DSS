@@ -40,11 +40,11 @@ export default function Challenge() {
               Is Your Funnel <br />
               <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
               <motion.span 
-                className="absolute inset-0 bg-[#2A3B30] z-0"
-                initial={{ x: "-100%" }}
-                whileInView={{ x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "circOut" }}
+                className="absolute inset-y-0 left-0 bg-[#2A3B30] z-0"
+                initial={{ width: "0%" }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "circOut", delay: 0.3 }}
               />
               <span className="text-white relative z-10">Losing Growth?</span>
             </span>

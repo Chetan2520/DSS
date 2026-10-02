@@ -43,11 +43,11 @@ export default function MetaProofs() {
             Let Your Success <br />
             <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
               <motion.span 
-                className="absolute inset-0 bg-[#2A3B30] z-0"
-                initial={{ x: "-100%" }}
-                whileInView={{ x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "circOut" }}
+                className="absolute inset-y-0 left-0 bg-[#2A3B30] z-0"
+                initial={{ width: "0%" }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "circOut", delay: 0.3 }}
               />
               <span className="text-white relative z-10">Make The Noise</span>
             </span>
@@ -88,21 +88,11 @@ export default function MetaProofs() {
               </div>
               
               {/* Screenshot Container */}
-              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border-2 border-[#DDDCCF] shadow-lg bg-white mt-auto transform group-hover:-translate-y-2 group-hover:shadow-xl transition-all duration-300">
+              <div className="relative w-full aspect-[4/3] overflow-hidden border-2 border-[#DDDCCF] shadow-lg bg-white mt-auto transform group-hover:-translate-y-2 group-hover:shadow-xl transition-all duration-300">
                 
-                {/* Mac OS Style Window Bar */}
-                <div className="absolute top-0 inset-x-0 h-9 bg-gray-50 border-b border-[#DDDCCF] flex items-center px-4 gap-1.5 z-20">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]"></div>
-                  <div className="mx-auto flex items-center bg-white border border-[#DDDCCF] rounded-md px-3 py-1 -ml-4">
-                     <span className="text-[9px] sm:text-[10px] text-gray-500 font-mono tracking-wider">business.facebook.com</span>
-                  </div>
-                </div>
-
                 {/* Fallback */}
-                <div className="absolute inset-0 pt-9 flex flex-col items-center justify-center text-[#5F675F] text-xs text-center p-6 bg-gray-50 z-0">
-                  <div className="border-2 border-dashed border-[#DDDCCF] rounded-2xl p-6 flex flex-col items-center justify-center w-full h-full">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-[#5F675F] text-xs text-center p-6 bg-gray-50 z-0">
+                  <div className="border-2 border-dashed border-[#DDDCCF] p-6 flex flex-col items-center justify-center w-full h-full">
                     <span className="font-semibold text-[#18221B]">Upload Meta Screenshot</span>
                     <span className="font-mono mt-3 px-3 py-1.5 bg-white border border-[#DDDCCF] rounded-md text-[#FF6900]">{proof.image}</span>
                   </div>
@@ -112,7 +102,7 @@ export default function MetaProofs() {
                   src={proof.image}
                   alt={`${proof.metric} Proof`}
                   fill
-                  className="object-cover object-top pt-9 z-10"
+                  className="object-cover object-top z-10"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                   }}
