@@ -39,10 +39,7 @@ export default function Hero() {
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
 
           {/* Main Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+          <div
             className="w-full lg:w-[80%] xl:w-[70%] max-w-4xl flex flex-col items-start text-left relative z-20 mt-4 md:mt-0"
           >
 
@@ -51,11 +48,11 @@ export default function Hero() {
               Scale Your <br />
               <span className="relative inline-block px-4 md:px-5 py-1.5 md:py-3 rounded-xl md:rounded-[1.25rem] mt-2 md:mt-4 whitespace-nowrap overflow-hidden group">
                 {/* Animated Background sweeping from Left to Right */}
-                <motion.span 
+                <motion.span
                   className="absolute top-0 bottom-0 left-0 bg-[#2A3B30] -z-10"
                   initial={{ width: "0%" }}
                   animate={{ width: "100%" }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                 />
                 <span className="relative z-10 text-white">Ayurvedic Brand</span>
               </span>
@@ -102,7 +99,7 @@ export default function Hero() {
               </button>
             </div>
 
-          </motion.div>
+          </div>
 
         </div>
       </div>

@@ -21,22 +21,20 @@ export default function TrustStrip() {
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-20">
 
         {/* Title */}
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="font-playfair text-[28px] sm:text-4xl md:text-[46px] font-bold leading-[1.4] md:leading-[1.3] text-[#18221B] tracking-tight">
-            Trusted By 
-            <span className="relative inline-block px-3 md:px-4 py-1 md:py-1.5 mx-1 whitespace-nowrap rounded-xl overflow-hidden group">
-              {/* Animated Background sweeping from Right to Left */}
+        <div className="text-center mb-8 md:mb-12 flex justify-center">
+          <h2 className="font-playfair text-[26px] sm:text-3xl md:text-[38px] lg:text-[42px] font-bold text-[#18221B] tracking-tight flex flex-col sm:flex-row justify-center items-center gap-x-3 gap-y-3">
+            <span>Trusted By</span>
+            <span className="relative inline-flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-xl overflow-hidden group">
+              {/* Animated Background sweeping from Left to Right */}
               <motion.span 
-                className="absolute top-0 bottom-0 right-0 bg-[#2A3B30] -z-10"
+                className="absolute top-0 bottom-0 left-0 bg-[#2A3B30] -z-10"
                 initial={{ width: "0%" }}
                 whileInView={{ width: "100%" }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
               />
-              <span className="relative z-10 text-white">950+ Businesses</span>
+              <span className="relative z-10 text-white">45+ Ayurvedic Brands</span>
             </span> 
-            <br className="hidden sm:block" />
-            <span className="block sm:inline mt-2 sm:mt-0">Across 40+ Industries</span>
           </h2>
         </div>
 

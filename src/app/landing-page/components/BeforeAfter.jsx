@@ -34,7 +34,7 @@ export default function BeforeAfter() {
           >
             You Are Just 1 Step Away From <br />
             <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
-              <motion.span 
+              <motion.span
                 className="absolute inset-y-0 left-0 bg-[#2A3B30] z-0"
                 initial={{ width: "0%" }}
                 whileInView={{ width: "100%" }}
@@ -55,12 +55,12 @@ export default function BeforeAfter() {
             viewport={{ once: true }}
             className="flex-1 bg-white border border-[#DDDCCF] rounded-3xl p-8 md:p-12 shadow-sm relative overflow-hidden group"
           >
-            <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#D25959] to-[#E38181]" />
+
             <div className="absolute top-0 right-0 w-48 h-48 bg-[#A84A4A]/5 rounded-bl-[100px] blur-3xl pointer-events-none group-hover:bg-[#A84A4A]/10 transition-colors duration-500" />
 
             <h3 className="font-playfair text-3xl md:text-4xl font-bold text-[#A84A4A] mb-8 relative z-10">Before Joining Us</h3>
 
-            <ul className="space-y-3 relative z-10">
+            <ul className="space-y-1 relative z-10">
               {before.map((item, index) => (
                 <motion.li
                   key={index}
@@ -68,7 +68,7 @@ export default function BeforeAfter() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 + index * 0.1, duration: 0.4 }}
-                  className="flex items-start gap-4 p-3 -mx-3 rounded-xl hover:bg-[#FDF8F8] transition-colors"
+                  className="flex items-start gap-4 px-3 py-1 -mx-3 rounded-xl hover:bg-[#FDF8F8] transition-colors"
                 >
                   <XCircle className="text-[#D25959] shrink-0 mt-0.5" size={22} strokeWidth={2.5} />
                   <span className="text-[#324036] font-medium text-base md:text-[17px] leading-snug">{item}</span>
@@ -91,13 +91,13 @@ export default function BeforeAfter() {
             viewport={{ once: true }}
             className="flex-1 bg-[#2A3B30] rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden group"
           >
-            <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#FF6900] to-[#FFB075]" />
+
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#5B8266]/20 rounded-tl-[100px] blur-3xl pointer-events-none group-hover:bg-[#5B8266]/30 transition-colors duration-500" />
             <div className="absolute inset-0 bg-[url('/images/landing/noise.png')] opacity-20 mix-blend-overlay pointer-events-none"></div>
 
             <h3 className="font-playfair text-3xl md:text-4xl font-bold text-white mb-8 relative z-10">After DSS Growth System</h3>
 
-            <ul className="space-y-3 relative z-10">
+            <ul className="space-y-1 relative z-10">
               {after.map((item, index) => (
                 <motion.li
                   key={index}
@@ -105,7 +105,7 @@ export default function BeforeAfter() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
-                  className="flex items-start gap-4 p-3 -mx-3 rounded-xl hover:bg-[#324036] transition-colors"
+                  className="flex items-start gap-4 px-3 py-1 -mx-3 rounded-xl hover:bg-[#324036] transition-colors"
                 >
                   <div className="bg-[#FF6900]/10 rounded-full p-1 shrink-0 mt-0.5 border border-[#FF6900]/30">
                     <CheckCircle2 className="text-[#FF6900]" size={18} strokeWidth={3} />

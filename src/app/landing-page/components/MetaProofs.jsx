@@ -6,24 +6,24 @@ import { TrendingUp, BarChart3, Target } from "lucide-react";
 export default function MetaProofs() {
   const proofs = [
     {
-      metric: "12x ROAS",
-      title: "Ayurvedic D2C Brand",
-      description: "Scaled daily spend while maintaining high profitability.",
-      image: "https://i.pinimg.com/1200x/ad/b4/ac/adb4acdcb580a79639ca27fb9aeb5b22.jpg",
+      metric: "22,900+ Calls",
+      title: "Local Ayurvedic Clinic",
+      description: "Generated massive inbound patient inquiries at just ₹22.39 per call over 6 months.",
+      image: "/images/landing/meta-result1.jpeg",
       icon: TrendingUp
     },
     {
-      metric: "1,500+ Leads",
-      title: "Wellness Clinic",
-      description: "Consistent high-intent patient enquiries generated.",
-      image: "https://i.pinimg.com/736x/8e/10/db/8e10db8b929ed5a7d005ffd493d6c1f0.jpg",
+      metric: "890+ Bookings",
+      title: "Treatment Center",
+      description: "Scaled Google Ads to drive nearly 900 high-intent conversions in a single month at a ₹564 CPA.",
+      image: "/images/landing/meta-result2.jpeg",
       icon: Target
     },
     {
-      metric: "₹45 CPL",
-      title: "Ayurveda Center",
-      description: "Drastically reduced cost per acquisition for local leads.",
-      image: "https://i.pinimg.com/1200x/bd/13/20/bd132012da8b69940793615d95883b8d.jpg",
+      metric: "₹7.3L+ Revenue",
+      title: "Premium D2C Brand",
+      description: "Achieved an incredible ₹18,000 Average Revenue Per User (ARPPU) with 700+ Add to Carts in under 30 days.",
+      image: "/images/landing/meta-result3.jpeg",
       icon: BarChart3
     }
   ];
@@ -60,7 +60,7 @@ export default function MetaProofs() {
             transition={{ delay: 0.1 }}
             className="text-[#5F675F] text-base md:text-[17px] font-medium leading-relaxed max-w-2xl mx-auto"
           >
-            Take a peek inside our actual Meta Ads Manager. No fluffed case studies—just raw screenshots, real data, and verifiable growth for our Ayurvedic partners.
+            Take a peek inside our actual ad accounts. No fluffed case studies—just raw screenshots, real data, and verifiable growth for our Ayurvedic partners.
           </motion.p>
         </div>
 
@@ -81,7 +81,7 @@ export default function MetaProofs() {
                   <proof.icon size={26} className="text-[#5B8266] group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div>
-                  <h4 className="font-playfair text-3xl md:text-4xl font-bold text-[#FF6900] mb-2">{proof.metric}</h4>
+                  <h4 className="font-playfair text-3xl md:text-4xl font-bold text-[#18221B] mb-2">{proof.metric}</h4>
                   <h5 className="text-[15px] font-bold text-[#18221B] mb-2 uppercase tracking-wide">{proof.title}</h5>
                   <p className="text-[#5F675F] text-[15px] leading-relaxed font-medium">{proof.description}</p>
                 </div>
@@ -94,7 +94,7 @@ export default function MetaProofs() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-[#5F675F] text-xs text-center p-6 bg-gray-50 z-0">
                   <div className="border-2 border-dashed border-[#DDDCCF] p-6 flex flex-col items-center justify-center w-full h-full">
                     <span className="font-semibold text-[#18221B]">Upload Meta Screenshot</span>
-                    <span className="font-mono mt-3 px-3 py-1.5 bg-white border border-[#DDDCCF] rounded-md text-[#FF6900]">{proof.image}</span>
+                    <span className="font-mono mt-3 px-3 py-1.5 bg-white border border-[#DDDCCF] rounded-md text-[#18221B]">{proof.image}</span>
                   </div>
                 </div>
                 

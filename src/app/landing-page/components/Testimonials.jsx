@@ -35,8 +35,8 @@ export default function Testimonials() {
     <section id="testimonials" className="py-12 md:py-20 bg-[#F8F5EA] relative overflow-hidden">
       
       {/* Decorative Leaf in Top Right Corner */}
-      <div className="absolute top-10 right-10 md:top-20 md:right-24 rotate-45 opacity-40 z-0">
-        <Leaf className="text-[#5B8266] w-16 h-16 md:w-24 md:h-24" strokeWidth={1} />
+      <div className="absolute top-10 right-2 sm:right-6 md:top-20 md:right-24 rotate-45 opacity-40 z-0">
+        <Leaf className="text-[#5B8266] w-12 h-12 md:w-24 md:h-24" strokeWidth={1} />
       </div>
 
       <div className="w-full mx-auto relative z-10">
