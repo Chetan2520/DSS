@@ -2,17 +2,17 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { 
-  ArrowRight, 
-  CheckCircle2, 
-  Target, 
-  Search, 
-  MessageSquare, 
-  MapPin, 
-  BookOpen, 
-  Heart, 
-  Share2, 
-  LineChart, 
+import {
+  ArrowRight,
+  CheckCircle2,
+  Target,
+  Search,
+  MessageSquare,
+  MapPin,
+  BookOpen,
+  Heart,
+  Share2,
+  LineChart,
   Layout,
   Plus,
   Minus,
@@ -26,7 +26,7 @@ import {
   ChevronDown,
   ChevronRight
 } from "lucide-react";
- 
+
 // FadeIn Wrapper Component
 function FadeIn({ children, className = "", delay = 0 }) {
   return (
@@ -115,22 +115,22 @@ function ServiceLeftContent({ service }) {
   return (
     <div className="flex flex-col text-slate-900">
       <h3 className="text-3xl md:text-4xl font-semibold mb-6 text-zinc-800">{service.heading}</h3>
-      {service.desc1 && <p className="text-slate-600 text-lg mb-8 leading-relaxed">{service.desc1}</p>}
-      
+      {service.desc1 && <p className="text-slate-600 text-lg mb-8   ">{service.desc1}</p>}
+
       <div className="mb-8 border-t border-slate-200">
         {service.blocks.map((block, i) => (
-          <ServiceBlockAccordion 
-            key={i} 
-            block={block} 
+          <ServiceBlockAccordion
+            key={i}
+            block={block}
             isOpen={openIdx === i}
-            onClick={() => setOpenIdx(openIdx === i ? null : i)} 
+            onClick={() => setOpenIdx(openIdx === i ? null : i)}
           />
         ))}
       </div>
-      
+
       {service.cta && (
         <div className="mt-8">
-          <Link href="/lets-connect" className="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all">
+          <Link href="/lets-connect" className="inline-flex items-center gap-2 px-4 md:px-8 py-3 md:py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl md:rounded-full tex-sm   md:text-base transition-all">
             {service.cta} <ArrowRight size={20} />
           </Link>
         </div>
@@ -166,7 +166,7 @@ const servicesData = [
       }
     ],
     footer: { title: "SEO Goal", desc: "The objective is not just to generate website traffic. Our focus is on attracting relevant visitors and potential enquiries for your Ayurveda business." },
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/sectors/ayurveda/a2.png",
     bg: "bg-white"
   },
   {
@@ -181,7 +181,7 @@ const servicesData = [
       }
     ],
     cta: "Improve Your Local Visibility",
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/sectors/ayurveda/a3.png",
     bg: "bg-slate-50"
   },
   {
@@ -200,7 +200,7 @@ const servicesData = [
       }
     ],
     footer: { desc: "Our content strategy focuses on educating the audience while maintaining a professional and trustworthy brand image." },
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/sectors/ayurveda/a4.png",
     bg: "bg-white"
   },
   {
@@ -220,7 +220,7 @@ const servicesData = [
       }
     ],
     footer: { desc: "The objective is to improve campaign efficiency and generate more relevant opportunities for your Ayurveda business." },
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/sectors/ayurveda/a5.png",
     bg: "bg-slate-50"
   },
   {
@@ -239,7 +239,7 @@ const servicesData = [
       }
     ],
     footer: { desc: "Consistent content marketing can help your Ayurveda business educate potential clients while creating additional opportunities to appear for relevant search queries." },
-    image: "/images/sectors/ayurveda.png",
+    image: "/images/sectors/ayurveda/a6.png",
     bg: "bg-white"
   },
   {
@@ -258,7 +258,7 @@ const servicesData = [
       }
     ],
     footer: { desc: "A clear and conversion-focused website can help turn interested visitors into genuine enquiry opportunities." },
-    image: "/images/sectors/massage.png",
+    image: "/images/sectors/ayurveda/a7.png",
     bg: "bg-slate-50"
   }
 ];
@@ -266,7 +266,8 @@ const servicesData = [
 export default function AyurvedaClient() {
   const [openFaqIdx, setOpenFaqIdx] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [openIntroIdx, setOpenIntroIdx] = useState(0);
+  const [openIntroIdx, setOpenIntroIdx] = useState(null);
+  const [openWhyChooseIdx, setOpenWhyChooseIdx] = useState(0);
 
   const introAccordions = [
     {
@@ -312,31 +313,31 @@ export default function AyurvedaClient() {
 
   return (
     <div className="min-h-screen bg-white text-slate-800 font-sans selection:bg-orange-500 selection:text-white overflow-x-clip">
-      
+
       {/* ── Section 1: Hero Section ── */}
       <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden pt-24 md:pt-32 pb-16">
         {/* Full-width Background Image */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/sectors/ayurveda-hero.png" alt="Ayurveda Background" className="w-full h-full object-cover" />
+          <img src="/images/sectors/ayurveda/ayurveda-hero.png" alt="Ayurveda Background" className="w-full h-full object-cover" />
           {/* Dark Overlay for Text Readability */}
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
           <div className="max-w-2xl">
             <FadeIn>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-zinc-900 leading-[1.1] tracking-tight mb-6">
-                Digital Marketing for <br/>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-zinc-900 leading-[1.1] tracking-tight mb-6">
+                Digital Marketing for <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Ayurveda Centers</span>
               </h1>
-              
+
               <div className="mb-8 text-sm md:text-lg text-zinc-900  ">
                 {isExpanded ? (
                   <>
                     <p>
                       Ayurveda centers need a strong digital marketing strategy for online visibility, relevant enquiries, and long-term growth. Digital Success Solutions helps Ayurveda businesses reach the right audience through SEO, Local SEO, Social Media Marketing, Performance Marketing, Content Marketing, and Website Development.
                     </p>
-                    <button 
-                      onClick={() => setIsExpanded(false)} 
+                    <button
+                      onClick={() => setIsExpanded(false)}
                       className="text-zinc-900 underline transition-colors"
                     >
                       Read Less
@@ -344,11 +345,11 @@ export default function AyurvedaClient() {
                   </>
                 ) : (
                   <p>
-                     Ayurveda centers need a strong digital marketing strategy for online visibility, relevant enquiries, and long-term growth. Digital Success Solutions helps Ayurveda businesses reach the... 
-                    <button 
-                      onClick={() => setIsExpanded(true)} 
+                    Ayurveda centers need a strong digital marketing strategy for online visibility, relevant enquiries, and long-term growth. Digital Success Solutions helps Ayurveda businesses reach the...
+                    <button
+                      onClick={() => setIsExpanded(true)}
                       className="text-zinc-900 underline transition-colors inline"
-                    >        
+                    >
                       Read More
                     </button>
                   </p>
@@ -359,7 +360,7 @@ export default function AyurvedaClient() {
                 <Link href="/lets-connect" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all hover:shadow-lg hover:-translate-y-1">
                   Get Started Today <ArrowRight size={20} />
                 </Link>
-                 
+
               </div>
             </FadeIn>
           </div>
@@ -367,9 +368,9 @@ export default function AyurvedaClient() {
       </section>
 
       {/* ── Section 2: Introduction ── */}
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-10 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          
+
           <FadeIn>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 mb-10 text-left tracking-tight">
               Grow Your Ayurveda Center <br /> With Digital Marketing
@@ -377,11 +378,11 @@ export default function AyurvedaClient() {
           </FadeIn>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            
+
             {/* Left Image Side */}
             <FadeIn>
-              <div className="relative w-full aspect-[4/3] lg:aspect-[1/1] xl:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-100">
-                <img src="/images/sectors/ayurveda.png" alt="Ayurveda" className="w-full h-full object-cover" />
+              <div className="relative w-full aspect-[4/3]   xl:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+                <img src="/images/sectors/ayurveda/a1.png" alt="Ayurveda" className="w-full h-full object-cover" />
               </div>
             </FadeIn>
 
@@ -417,7 +418,7 @@ export default function AyurvedaClient() {
               <p className="text-sm md:text-base text-slate-600">
                 The Ayurveda and wellness industry is becoming increasingly competitive online. When potential clients search for Ayurvedic services, your business needs to be visible where those searches are happening.
               </p>
-            </div>  
+            </div>
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -465,7 +466,7 @@ export default function AyurvedaClient() {
             ))}
           </div>
 
-          
+
         </div>
       </section>
 
@@ -488,47 +489,49 @@ export default function AyurvedaClient() {
       {/* ── Section 4 Content (Full-Width Sticky Stack) ── */}
       <div className="relative">
         {servicesData.map((service, idx) => (
-          <section 
+          <section
             key={service.id}
-            className={`sticky top-0 min-h-screen w-full flex items-center py-20 lg:py-24 ${service.bg}  `}
+            className={`relative md:sticky md:top-0 h-auto md:min-h-screen w-full flex flex-col  overflow-visible ${service.bg}`}
             style={{ zIndex: 10 + idx }}
           >
-            <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-              
+            <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-start md:items-center my-auto py-0 md:py-24">
+
               {/* Left Content */}
               <ServiceLeftContent service={service} />
 
               {/* Right Image */}
-              <div className="relative w-full lg:w-[85%] mx-auto aspect-video lg:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-xl border border-slate-100">
+              <div className=" relative w-full lg:w-[85%] mx-auto aspect-video lg:aspect-[4/3] rounded-xl md:rounded-[2rem] overflow-hidden  ">
                 <img src={service.image} alt={service.heading} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent mix-blend-multiply"></div>
               </div>
 
             </div>
           </section>
         ))}
       </div>
-
       {/* ── Section 5: Challenges & Solutions ── */}
-      <section className="py-20 md:py-32 bg-[#1e293b] text-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <section className="py-10   bg-slate-50 relative">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <FadeIn>
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Digital Marketing Challenges Faced by Ayurveda Centers
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-slate-900">
+                Digital Marketing Challenges <br className="hidden md:block" />
+                <span className="text-orange-500">Faced by Ayurveda Centers</span>
               </h2>
-              <p className="text-lg text-slate-300">
+              <p className="text-lg text-slate-600">
                 Ayurveda centers can face several challenges when trying to build their online presence. The right digital strategy should address these challenges with practical solutions.
               </p>
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
-            <div className="max-w-5xl mx-auto bg-slate-800 rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
-              <div className="grid grid-cols-2 bg-slate-900 p-6 border-b border-slate-700">
-                <div className="font-bold text-lg text-slate-300">Challenge</div>
-                <div className="font-bold text-lg text-orange-400">Solution</div>
-              </div>
+          <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-2">
+            {/* Table Header */}
+            <div className="grid grid-cols-2 p-4 md:p-6 mb-2 rounded-xl bg-slate-50">
+              <div className="font-bold text-red-500 uppercase tracking-wider text-xs md:text-sm">Challenge</div>
+              <div className="font-bold text-emerald-600 uppercase tracking-wider text-xs md:text-sm">Solution</div>
+            </div>
+
+            {/* Table Body */}
+            <div className="flex flex-col gap-1">
               {[
                 ["Low Google Visibility", "SEO & Local SEO"],
                 ["Few Website Enquiries", "Conversion-Focused Website"],
@@ -539,22 +542,22 @@ export default function AyurvedaClient() {
                 ["Poor Website Experience", "Website Redesign & CRO"],
                 ["Limited Brand Awareness", "Content & Performance Marketing"]
               ].map((row, i) => (
-                <div key={i} className="grid grid-cols-2 p-6 border-b border-slate-700/50 hover:bg-slate-700/30 transition-colors">
-                  <div className="text-slate-300 flex items-center gap-3">
-                    <Minus className="text-slate-500 shrink-0" size={16} /> {row[0]}
+                <div key={i} className="grid grid-cols-2 p-4 md:px-6 md:py-4 hover:bg-slate-50 rounded-xl transition-colors">
+                  <div className="text-zinc-800 flex items-center gap-3 md:text-lg">
+                    {row[0]}
                   </div>
-                  <div className="text-white flex items-center gap-3 font-medium">
-                    <CheckCircle className="text-orange-500 shrink-0" size={18} /> {row[1]}
+                  <div className="text-green-600 flex items-center gap-3 font-semibold md:text-lg">
+                    {row[1]}
                   </div>
                 </div>
               ))}
             </div>
-          </FadeIn>
+          </div>
         </div>
       </section>
 
       {/* ── Section 6: Our Approach ── */}
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-10 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="mb-16">
@@ -599,26 +602,28 @@ export default function AyurvedaClient() {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {[
-              { title: "Industry-Focused Strategy", desc: "We create strategies according to your business, target audience, location, services, competition, and growth objectives." },
-              { title: "SEO + Performance Marketing", desc: "Combine long-term organic visibility with relevant paid marketing opportunities to create a balanced digital growth strategy." },
-              { title: "Content That Educates", desc: "We create informative content that answers audience questions, communicates your expertise, and helps build trust." },
-              { title: "Data-Driven Decisions", desc: "Website and campaign data help us understand what is working and where improvements can be made." },
-              { title: "Complete Digital Solutions", desc: "From Web Dev and SEO to Social Media and Performance Marketing, we provide multiple services through one dedicated team." }
-            ].map((feature, i) => (
-              <FadeIn key={i} delay={i * 0.1} className={i === 4 ? "md:col-span-2 md:w-1/2 md:mx-auto" : ""}>
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center shrink-0 mt-1">
-                    <CheckCircle className="text-orange-500" size={20} />
+              { icon: Target, title: "Industry-Focused Strategy", desc: "We create strategies according to your business, target audience, location, services, competition, and growth objectives." },
+              { icon: LineChart, title: "SEO + Performance Marketing", desc: "Combine long-term organic visibility with relevant paid marketing opportunities to create a balanced digital growth strategy." },
+              { icon: BookOpen, title: "Content That Educates", desc: "We create informative content that answers audience questions, communicates your expertise, and helps build trust." },
+              { icon: BarChart, title: "Data-Driven Decisions", desc: "Website and campaign data help us understand what is working and where improvements can be made." }
+            ].map((feature, i) => {
+              const Icon = feature.icon;
+              return (
+                <FadeIn key={i} delay={i * 0.1}>
+                  <div className="bg-white border border-slate-200 hover:border-orange-200 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col group">
+                    <div className="w-12 h-12 rounded-lg bg-orange-50 group-hover:bg-orange-100 flex items-center justify-center mb-4 transition-colors">
+                      <Icon className="text-orange-500" size={24} strokeWidth={2} />
+                    </div>
+                    <h4 className="text-lg font-bold text-slate-900 mb-3">{feature.title}</h4>
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                      {feature.desc}
+                    </p>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900 mb-2">{feature.title}</h4>
-                    <p className="text-slate-600 leading-relaxed text-sm md:text-base">{feature.desc}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -639,7 +644,7 @@ export default function AyurvedaClient() {
               <Link href="/lets-connect" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-orange-600 font-bold rounded-full transition-all hover:shadow-xl hover:-translate-y-1">
                 Talk to Our Experts <ArrowRight size={20} />
               </Link>
-              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-orange-600 font-bold rounded-full transition-all">
+              <Link href="/contact-us" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-orange-600 font-bold rounded-full transition-all">
                 Get a Free Consultation
               </Link>
             </div>
@@ -648,7 +653,7 @@ export default function AyurvedaClient() {
       </section>
 
       {/* ── FAQ Section ── */}
-      <section className="py-20 md:py-32 bg-white">
+      <section className="py-10 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <FadeIn>
             <div className="text-center mb-16">
@@ -656,7 +661,7 @@ export default function AyurvedaClient() {
                 Frequently Asked Questions
               </h2>
             </div>
-            
+
             <div className="border-t border-slate-200">
               {faqs.map((faq, idx) => (
                 <AccordionItem
@@ -679,7 +684,7 @@ export default function AyurvedaClient() {
 function SparkleIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
     </svg>
   );
 }

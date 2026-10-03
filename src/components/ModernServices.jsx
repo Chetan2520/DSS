@@ -132,6 +132,9 @@ const ServicesSection = () => {
           alt="services background"
           className="w-full h-full object-cover"
         />
+        {/* Top Gradient for smooth transition from previous section */}
+        <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-[#050505] to-transparent z-10 pointer-events-none"></div>
+
         {/* Subtle Blue Glows for depth */}
         <div className="absolute top-[-8%] left-[-5%] w-[100px] h-[200px] bg-[#0078f0] blur-[100px] rounded-full pointer-events-none z-0"></div>
 

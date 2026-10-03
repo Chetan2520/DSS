@@ -3,13 +3,13 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  GraduationCap, 
-  Stethoscope, 
-  Leaf, 
-  Wallet, 
-  Cloud, 
-  Users, 
+import {
+  GraduationCap,
+  Stethoscope,
+  Leaf,
+  Wallet,
+  Cloud,
+  Users,
   Check,
   ChevronLeft,
   ChevronRight
@@ -17,57 +17,37 @@ import {
 
 const sectors = [
   {
+    title: "Ayurveda",
+    icon: Leaf,
+    image: "/images/sectors/ayurveda/ayurveda.png"
+  },
+  {
+    title: "Doctors",
+    icon: Wallet,
+    image: "/images/sectors/ayurveda/doctor.png"
+  },
+  {
     title: "Spa",
     icon: GraduationCap,
-    description: "Empowering learners through cutting-edge e-learning platforms and digital classrooms.",
-    points: ["School Management Systems", "LMS Development", "Online Examination Portals", "Student Engagement Apps"],
-    image: "/images/sectors/spa.png"
+    image: "/images/sectors/ayurveda/spa.png"
+  },
+  {
+    title: "Solar",
+    icon: Users,
+    image: "/images/sectors/ayurveda/solar.png"
+  },
+  {
+    title: "Education",
+    icon: Cloud,
+    image: "/images/sectors/ayurveda/education.png"
   },
   {
     title: "Healthcare",
     icon: Stethoscope,
-    description: "Modernizing medical services with secure, efficient, and user-centric health-tech solutions.",
-    points: ["Hospital Management Software", "Telemedicine Platforms", "Electronic Health Records", "Pharmacy Management"],
-    image: "/images/sectors/heathcare.png"
-  },
-  {
-    title: "Ayurveda",
-    icon: Leaf,
-    description: "Revolutionizing farming with data-driven Ag-tech tools and smart supply chain systems.",
-    points: ["Farm Monitoring Systems", "Agri-Marketplace Portals", "Supply Chain Transparency", "Weather Integration Tools"],
-    image: "/images/sectors/ayurveda.png"
-  },
-  {
-    title: "Finance & Fintech",
-    icon: Wallet,
-    description: "Building secure and scalable financial systems that redefine the future of digital banking.",
-    points: ["Secure Payment Gateways", "Investment Tracking Apps", "Blockchain Integration", "Personal Finance Tools"],
-    image: "/images/sectors/doctor.png"
-  },
-  {
-    title: "SaaS Solutions",
-    icon: Cloud,
-    description: "Developing robust B2B and B2C subscription-based software to scale your business.",
-    points: ["Multi-tenant Architecture", "Subscription Management", "Cloud Native Scaling", "Custom API Integrations"],
-    image: "/images/sectors/education.png"
-  },
-  {
-    title: "CRM & ERP",
-    icon: Users,
-    description: "Streamlining business operations with integrated management systems tailored to your needs.",
-    points: ["Customer Relationship Management", "Resource Planning Tools", "Workflow Automation", "Analytics & Reporting"],
-    image: "/images/sectors/solar.png"
-  },
-  {
-    title: "CRM & ERP",
-    icon: Users,
-    description: "Streamlining business operations with integrated management systems tailored to your needs.",
-    points: ["Customer Relationship Management", "Resource Planning Tools", "Workflow Automation", "Analytics & Reporting"],
-    image: "/images/sectors/massage.png"
+    image: "/images/sectors/ayurveda/heathcare.png"
   }
-  
 ];
-  
+
 const IndustrySectors = () => {
   const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -89,13 +69,13 @@ const IndustrySectors = () => {
   }, []);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => 
+    setCurrentIndex((prev) =>
       prev + 1 > sectors.length - itemsPerView ? 0 : prev + 1
     );
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => 
+    setCurrentIndex((prev) =>
       prev - 1 < 0 ? sectors.length - itemsPerView : prev - 1
     );
   };
@@ -107,14 +87,13 @@ const IndustrySectors = () => {
 
   const y = useTransform(scrollYProgress, [0, 1], [150, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], ["50px", "0px"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
 
   return (
     <section ref={containerRef} className="relative bg-black w-full">
-      <motion.div 
-        style={{ y, scale, borderRadius, opacity }}
-        className="relative py-24 px-6 md:px-12   overflow-hidden font-sans z-20 shadow-2xl"
+      <motion.div
+        style={{ y, scale, opacity }}
+        className="relative py-24 px-6 md:px-12 overflow-hidden font-sans z-20 shadow-2xl rounded-t-[50px] transform-gpu will-change-transform"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Section Header */}
@@ -142,13 +121,13 @@ const IndustrySectors = () => {
 
             {/* Navigation Buttons */}
             <div className="flex gap-4">
-              <button 
+              <button
                 onClick={prevSlide}
                 className="p-3 rounded-full bg-white border border-zinc-200 text-zinc-600 hover:text-orange-500 hover:border-orange-500 hover:shadow-md transition-all"
               >
                 <ChevronLeft size={24} />
               </button>
-              <button 
+              <button
                 onClick={nextSlide}
                 className="p-3 rounded-full bg-white border border-zinc-200 text-zinc-600 hover:text-orange-500 hover:border-orange-500 hover:shadow-md transition-all"
               >
@@ -159,15 +138,15 @@ const IndustrySectors = () => {
 
           {/* Sectors Slider */}
           <div className="overflow-hidden relative -mx-4 px-4 pb-4">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(calc(-${currentIndex * (100 / itemsPerView)}%))` }}
             >
               {sectors.map((sector, index) => {
                 const href = `/industries/${sector.title.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`;
                 return (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="shrink-0 px-4"
                     style={{ width: `${100 / itemsPerView}%` }}
                   >

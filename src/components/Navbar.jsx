@@ -266,7 +266,6 @@ export default function Navbar() {
             >
               Who We Are
             </button>
-
             <div
               className="relative py-2 group"
               onMouseEnter={handleMouseEnter}

@@ -9,14 +9,14 @@ const AIAgentsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-s creen bg-black pb-0 md:pb-10 px-0 md:px-6 overflow-hidden flex flex-col items-center font-sans"
+      className="relative min-h-screen bg-black pb-0 md:pb-10 px-0 md:px-6 overflow-hidden flex flex-col items-center font-sans"
     >
       {/* --- Main Section Layout Container --- */}
       <div className="container mx-auto   relative z-10 flex flex-col items-center">
         {/* --- Header Container with Vibrant Blue Glow --- */}
-        <div className="w-full container mb-2 relative p-12 md:p-14 rounded-none md:rounded-[2rem] overflow-hidden flex flex-col items-center text-center">
+        <div className="w-full container mb-2 relative p-12 md:p-14 rounded-none md:rounded-[2rem] flex flex-col items-center text-center">
           {/* Vibrant Blue Atmosphere Glow - Inspired by Image 7 */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
             {/* Primary Intense Blue Glow */}
             <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[140%] h-[120%] bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.4),transparent_60%)]" />
 
@@ -121,44 +121,17 @@ const AIAgentsSection = () => {
       {/* Decorative Background Blurred Accents */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Large Blue Glow Top Left */}
-        <motion.div
-          animate={{
-            x: [-20, 20, -20],
-            y: [-20, 20, -20],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+        <div
           className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-[radial-gradient(circle,rgba(37,99,235,0.12)_0%,transparent_70%)] blur-[120px]"
         />
 
         {/* Large Purple Glow Bottom Right */}
-        <motion.div
-          animate={{
-            x: [20, -20, 20],
-            y: [20, -20, 20],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+        <div
           className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,transparent_70%)] blur-[120px]"
         />
 
         {/* Central Cyan Glow behind image */}
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.08, 0.12, 0.08],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+        <div
           className="absolute top-[40%] left-1/2 -translate-x-1/2 w-[80%] h-[60%] bg-[radial-gradient(circle,rgba(56,189,248,0.08)_0%,transparent_70%)] blur-[100px]"
         />
 
