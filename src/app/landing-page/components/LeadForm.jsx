@@ -14,10 +14,33 @@ export default function LeadForm() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [status, setStatus] = useState('idle');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Normally handle form submission here
-    setSubmitted(true);
+    setStatus('submitting');
+
+    try {
+      const response = await fetch('https://digitalsuccesssolutions.in/php/ayurveda_lead.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, formType: 'Ayurveda Landing Page Audit Request' }),
+      });
+
+      const result = await response.json();
+
+      if (result.status === 'success') {
+        setSubmitted(true);
+        setStatus('success');
+      } else {
+        setStatus('error');
+        
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setStatus('error');
+      
+    }
   };
 
   const handleChange = (e) => {
@@ -187,11 +210,13 @@ export default function LeadForm() {
 
                   <button
                     type="submit"
-                    className="w-full bg-[#2A3B30] text-white px-8 py-4 rounded-xl font-semibold uppercase tracking-widest text-sm hover:bg-[#18221B] transition-all flex items-center justify-center gap-2 group shadow-xl"
+                    disabled={status === 'submitting'}
+                    className="w-full bg-[#2A3B30] text-white px-8 py-4 rounded-xl font-semibold uppercase tracking-widest text-sm hover:bg-[#18221B] transition-all flex items-center justify-center gap-2 group shadow-xl disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    REQUEST MY AUDIT
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    {status === 'submitting' ? 'SUBMITTING...' : 'REQUEST MY AUDIT'}
+                    {status !== 'submitting' && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
                   </button>
+                  {status === 'error' && <p className="text-red-500 text-sm text-center mt-2 font-medium">Failed to submit. Please check your connection and try again.</p>}
                 </form>
               )}
             </div>
