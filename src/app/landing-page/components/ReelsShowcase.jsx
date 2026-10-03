@@ -26,9 +26,9 @@ export default function ReelsShowcase() {
             transition={{ duration: 0.8 }}
             className="lg:w-1/3 flex flex-col items-start text-left"
           >
-            <h2 className="font-playfair text-4xl md:text-[46px] font-bold leading-[1.25] text-[#18221B] mb-6 tracking-tight">
-              Watch How We Scale <br />
-              <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
+            <h2 className="font-playfair text-[32px] sm:text-4xl md:text-[46px] font-bold leading-[1.25] text-[#18221B] mb-6 tracking-tight">
+              How We Scale <br />
+              <span className="relative inline-block overflow-hidden px-3 sm:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[28px] sm:text-4xl md:text-[46px] leading-[1.2]">
               <motion.span 
                 className="absolute inset-y-0 left-0 bg-[#2A3B30] z-0"
                 initial={{ width: "0%" }}
