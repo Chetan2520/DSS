@@ -30,10 +30,10 @@ export default function BeforeAfter() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-playfair text-4xl md:text-[42px] font-bold leading-[1.3] text-[#18221B] mb-6 tracking-tight"
+            className="font-playfair text-3xl sm:text-4xl md:text-[42px] font-bold leading-[1.3] text-[#18221B] mb-6 tracking-tight"
           >
-            You Are Just 1 Step Away From <br />
-            <span className="relative inline-block overflow-hidden px-4 md:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[32px] sm:text-4xl md:text-[46px] leading-[1.2]">
+            One Step Away From <br />
+            <span className="relative inline-block overflow-hidden px-3 sm:px-5 py-1 md:py-1.5 rounded-xl mt-2 md:mt-3 whitespace-nowrap text-[28px] sm:text-4xl md:text-[46px] leading-[1.2]">
               <motion.span
                 className="absolute inset-y-0 left-0 bg-[#2A3B30] z-0"
                 initial={{ width: "0%" }}
