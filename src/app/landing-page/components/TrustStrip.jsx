@@ -25,13 +25,21 @@ export default function TrustStrip() {
           <h2 className="font-playfair text-[26px] sm:text-3xl md:text-[38px] lg:text-[42px] font-bold text-[#18221B] tracking-tight flex flex-col sm:flex-row justify-center items-center gap-x-3 gap-y-3">
             <span>Trusted By</span>
             <motion.span 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              className="relative inline-flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-xl overflow-hidden"
+              initial={{ color: "#18221B" }}
+              whileInView={{ color: "#ffffff" }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="relative inline-flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-xl bg-[#2A3B30] text-white"
+              transition={{ duration: 0.3, delay: 0.3 }}
             >
-              45+ Ayurvedic Brands
+              {/* Animated Background sweeping from Left to Right */}
+              <motion.span 
+                className="absolute top-0 bottom-0 left-0 bg-[#2A3B30] -z-10"
+                initial={{ width: "0%" }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+              />
+              <span className="relative z-10 font-medium">45+ Ayurvedic Brands</span>
             </motion.span> 
           </h2>
         </div>
