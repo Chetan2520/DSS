@@ -212,7 +212,7 @@ export default function Navbar() {
   };
 
   const isCaseStudiesList = pathname.startsWith("/case-studies");
-  const isLandingPage = pathname.includes("/landing-page");
+  const isLandingPage = pathname.includes("/ayurvedic-marketing-agency");
   const isLightTheme = isCaseStudiesList || isLandingPage;
   const linkColor = isLightTheme ? "text-[#18221B] hover:text-[#5B8266] font-medium" : "text-white hover:text-[#FF6900]";
 

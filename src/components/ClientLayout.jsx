@@ -1,9 +1,5 @@
 "use client";
-<<<<<<< HEAD
-import { useEffect, useRef } from "react";
-=======
-import { useEffect, useState } from "react";
->>>>>>> DSS/main
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import CreativeFooter from "@/components/CreativeFooter";
@@ -12,8 +8,8 @@ import Lenis from "lenis";
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
   const isAdmin = pathname === "/adminsurendraseo";
-<<<<<<< HEAD
 
+  const [lenis, setLenis] = useState(null);
   const isFirstMount = useRef(true);
 
   // Scroll to top on route change (but skip on initial refresh to allow native scroll restoration)
@@ -22,7 +18,7 @@ export default function ClientLayout({ children }) {
       isFirstMount.current = false;
       return;
     }
-    
+
     const hash = window.location.hash;
     if (hash) {
       setTimeout(() => {
@@ -33,9 +29,6 @@ export default function ClientLayout({ children }) {
       window.scrollTo(0, 0);
     }
   }, [pathname]);
-=======
-  const [lenis, setLenis] = useState(null);
->>>>>>> DSS/main
 
   // Initialize Lenis for smooth scrolling
   useEffect(() => {
