@@ -9,14 +9,14 @@ const AIAgentsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-s creen bg-black pb-0 md:pb-10 px-0 md:px-6 overflow-hidden flex flex-col items-center font-sans"
+      className="relative min-h-screen bg-black pb-0 md:pb-10 px-0 md:px-6 overflow-hidden flex flex-col items-center font-sans"
     >
       {/* --- Main Section Layout Container --- */}
       <div className="container mx-auto   relative z-10 flex flex-col items-center">
         {/* --- Header Container with Vibrant Blue Glow --- */}
-        <div className="w-full container mb-2 relative p-12 md:p-14 rounded-none md:rounded-[2rem] overflow-hidden flex flex-col items-center text-center">
+        <div className="w-full container mb-2 relative p-12 md:p-14 rounded-none md:rounded-[2rem] flex flex-col items-center text-center">
           {/* Vibrant Blue Atmosphere Glow - Inspired by Image 7 */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
             {/* Primary Intense Blue Glow */}
             <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[140%] h-[120%] bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.4),transparent_60%)]" />
 

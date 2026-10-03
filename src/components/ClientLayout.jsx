@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import CreativeFooter from "@/components/CreativeFooter";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis";
 
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
@@ -28,7 +28,6 @@ export default function ClientLayout({ children }) {
       lenisInstance.raf(time);
       requestAnimationFrame(raf);
     }
-
     requestAnimationFrame(raf);
 
     return () => {
