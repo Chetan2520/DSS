@@ -16,7 +16,6 @@ import {
   Palette,
   ArrowRight,
   X,
-  PhoneCall,
 } from "lucide-react";
 import SlidingButton from "./SlidingButton";
 
@@ -200,6 +199,7 @@ export default function Navbar() {
     { name: "Home", path: "/" },
     { name: "Who We Are", path: "/about-us" },
     { name: "Services", path: "/#services", submenu: true },
+    { name: "Scale Your Ayurveda Brand", path: "/ayurvedic-marketing-agency" },
     { name: "Products", path: "/portfoliopage" },
     { name: "Case Studies", path: "/case-studies" },
     { name: "Blogs", path: "/blogs" },
@@ -253,16 +253,16 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP NAV */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8 2xl:gap-10">
             <button
               onClick={() => handleNavClick("/")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/") ? "text-[#FF6900] font-semibold" : linkColor}`}
+              className={`text-sm xl:text-base 2xl:text-lg whitespace-nowrap tracking-wide transition-colors ${isActive("/") ? (isLandingPage ? "text-[#5B8266] font-semibold" : "text-[#FF6900] font-semibold") : linkColor}`}
             >
               Home
             </button>
             <button
               onClick={() => handleNavClick("/about-us")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/about-us") ? "text-[#FF6900] font-semibold" : linkColor}`}
+              className={`text-sm xl:text-base 2xl:text-lg whitespace-nowrap tracking-wide transition-colors ${isActive("/about-us") ? (isLandingPage ? "text-[#5B8266] font-semibold" : "text-[#FF6900] font-semibold") : linkColor}`}
             >
               Who We Are
             </button>
@@ -271,7 +271,7 @@ export default function Navbar() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <button className={`text-sm md:text-lg flex items-center gap-1.5 focus:outline-none transition-colors ${isActive("/services") || pathname.includes("service") ? "text-[#FF6900] font-semibold" : linkColor}`}>
+              <button className={`text-sm xl:text-base 2xl:text-lg whitespace-nowrap flex items-center gap-1.5 focus:outline-none transition-colors ${isActive("/services") || pathname.includes("service") ? (isLandingPage ? "text-[#5B8266] font-semibold" : "text-[#FF6900] font-semibold") : linkColor}`}>
                 Services{" "}
                 <ChevronDown
                   size={14}
@@ -280,26 +280,32 @@ export default function Navbar() {
               </button>
             </div>
             <button
+              onClick={() => handleNavClick("/ayurvedic-marketing-agency")}
+              className={`text-sm xl:text-base 2xl:text-lg whitespace-nowrap tracking-wide transition-colors ${isActive("/ayurvedic-marketing-agency") ? (isLandingPage ? "text-[#5B8266] font-bold" : "text-[#FF6900] font-semibold") : linkColor}`}
+            >
+              Scale Your Ayurveda Brand
+            </button>
+            <button
               onClick={() => handleNavClick("/portfoliopage")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/portfoliopage") ? "text-[#FF6900] font-semibold" : linkColor}`}
+              className={`text-sm xl:text-base 2xl:text-lg whitespace-nowrap tracking-wide transition-colors ${isActive("/portfoliopage") ? (isLandingPage ? "text-[#5B8266] font-semibold" : "text-[#FF6900] font-semibold") : linkColor}`}
             >
               Portfolio
             </button>
             <button
               onClick={() => handleNavClick("/case-studies")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/case-studies") ? "text-[#FF6900] font-semibold" : linkColor}`}
+              className={`text-sm xl:text-base 2xl:text-lg whitespace-nowrap tracking-wide transition-colors ${isActive("/case-studies") ? (isLandingPage ? "text-[#5B8266] font-semibold" : "text-[#FF6900] font-semibold") : linkColor}`}
             >
               Case Studies
             </button>
             <button
               onClick={() => handleNavClick("/blogs")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/blogs") ? "text-[#FF6900] font-semibold" : linkColor}`}
+              className={`text-sm xl:text-base 2xl:text-lg whitespace-nowrap tracking-wide transition-colors ${isActive("/blogs") ? (isLandingPage ? "text-[#5B8266] font-semibold" : "text-[#FF6900] font-semibold") : linkColor}`}
             >
               Blogs
             </button>
             <button
               onClick={() => handleNavClick("/contact-us")}
-              className={`text-sm md:text-lg tracking-wide transition-colors ${isActive("/contact-us") || isActive("/lets-connect") ? "text-[#FF6900] font-semibold" : linkColor}`}
+              className={`text-sm xl:text-base 2xl:text-lg whitespace-nowrap tracking-wide transition-colors ${isActive("/contact-us") || isActive("/lets-connect") ? (isLandingPage ? "text-[#5B8266] font-semibold" : "text-[#FF6900] font-semibold") : linkColor}`}
             >
               Contact Us
             </button>
@@ -307,18 +313,6 @@ export default function Navbar() {
 
           {/* ACTION BUTTONS */}
           <div className="flex items-center gap-6">
-            <div className={`hidden xl:flex items-center gap-4 border-r ${isLightTheme ? "border-slate-300" : "border-white/20"} pr-6 mr-2`}>
-              <PhoneCall size={20} className={isLandingPage ? "text-[#5B8266]" : "text-[#FF6900]"} />
-              <div className="flex flex-col">
-                <span className={`text-[11px] ${isLightTheme ? "text-slate-500" : "text-zinc-300"} font-medium tracking-widest uppercase mb-0.5`}>
-                  Talk to an Expert
-                </span>
-                <a href="tel:+916264398990" className={`font-bold text-[15px] ${isLightTheme ? "text-[#18221B] hover:text-[#5B8266]" : "text-white hover:text-[#FF6900]"} transition-colors leading-none tracking-wide`}>
-                  +91 62643 98990
-                </a>
-              </div>
-            </div>
-
             <div className="hidden lg:block">
               <SlidingButton
                 text="Let's Talk"
