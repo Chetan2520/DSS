@@ -1,19 +1,19 @@
 "use client";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import HeroBg from "@/components/HeroBg";
-import TeamSection from "@/components/TeamSection";
+import TrustBar from "@/components/TrustBar";
 
-const SuccessOrbit = dynamic(() => import("@/components/SuccessOrbit"));
-const DiscussProject = dynamic(() => import("@/components/DiscussProject"));
+const ClientLogoMarquee = dynamic(() => import("@/components/ClientLogoMarquee"));
 const ModernServices = dynamic(() => import("@/components/ModernServices"));
-const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
-const WitnessedGrowth = dynamic(() => import("@/components/WitnessedGrowth"));
-const Quotes = dynamic(() => import("@/components/Quotes"));
-const FAQ = dynamic(() => import("@/components/FAQ"));
 const AIAgentsSection = dynamic(() => import("@/components/AIAgentsSection"));
+const SuccessOrbit = dynamic(() => import("@/components/SuccessOrbit"));
 const IndustrySectors = dynamic(() => import("@/components/IndustrySectors"));
-
+const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"));
+const OurProcess = dynamic(() => import("@/components/OurProcess"));
+const InstagramReels = dynamic(() => import("@/components/InstagramReels"));
+const DiscussProject = dynamic(() => import("@/components/DiscussProject"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
 
 export default function HomeClient() {
   const [isReady, setIsReady] = useState(false);
@@ -32,24 +32,45 @@ export default function HomeClient() {
     }
   }, [isReady]);
 
-  // Removed loader that blocked SEO for static export
-
   return (
-    <div className="bg-[#050505] text-white">
+    <div className="bg-[#000000] text-white">
+      {/* Hero */}
       <HeroBg />
 
+      {/* Trust Partners */}
+      <TrustBar />
+
       <section id="services">
+        {/* Core Services */}
         <ModernServices />
-        <IndustrySectors />
-        {/* <TeamSection /> */}
+
+        {/* AI Offering */}
         <AIAgentsSection />
-        <WhyChooseUs />
-        <WitnessedGrowth />
       </section>
 
-      <SuccessOrbit />
-      <DiscussProject />
+      {/* Trust Clients */}
+      <ClientLogoMarquee />
+
+      {/* Results / Social Proof */}
+      {/* <SuccessOrbit /> */}
+
+      {/* Industry Expertise */}
+      <IndustrySectors />
+
+      {/* Why Trust Us */}
+      <WhyChooseUs />
+
+      {/* Our Workflow */}
+      {/* <OurProcess /> */}
+      
+      {/* Instagram Buzz */}
+      {/* <InstagramReels /> */}
+
+      {/* Objection Handling */}
       <FAQ />
+
+      {/* Final CTA */}
+      <DiscussProject />
     </div>
   );
 }

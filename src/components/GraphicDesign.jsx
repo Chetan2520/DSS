@@ -223,13 +223,12 @@ const GraphicDesign = () => {
             <p className="text-zinc-400 text-xs max-w-xs font-medium border-l border-blue-500/30 pl-4 leading-relaxed">
               Breathtaking visuals designed to leave a lasting mark.
             </p>
-          </div>
-
+          </div>        
           <div className="bg-white/95 backdrop-blur-xl border border-zinc-200 rounded-4xl p-3 md:p-12 shadow-2xl">
             <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-8 md:gap-12">
               {serviceData.types.map((type, i) => (
                 <div key={i} className="group relative">
-                  <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 hover:shadow-xl active:scale-95">
+                  <div className="relative p-1 md:p-8 rounded-3xl bg-zinc-50/50 border border-zinc-100 transition-all duration-500 h-full flex flex-col justify-center overflow-hidden hover:bg-white hover:border-blue-500 active:scale-95">
                     <h3 className="text-lg md:text-2xl   text-zinc-900 mb-3 tracking-tight font-medium">
                       {type.title}
                     </h3>
